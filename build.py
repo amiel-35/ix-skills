@@ -238,7 +238,12 @@ def build_cowork(dry_run=False):
     except json.JSONDecodeError as e:
         print(f"  \u2717 cowork: {PLUGIN_JSON} invalid JSON — {e}{dry_tag}")
         return 1
-    missing = [f for f in ("name", "version", "skills") if f not in data]
+    missing = [f for f in ("name", "version") if f not in data]
+    has_skills = "skills" in data or (
+        isinstance(data.get("components"), dict) and "skills" in data["components"]
+    )
+    if not has_skills:
+        missing.append("components.skills")
     if missing:
         print(f"  \u2717 cowork: {PLUGIN_JSON} missing fields: {', '.join(missing)}{dry_tag}")
         errors += 1
