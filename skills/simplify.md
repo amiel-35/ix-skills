@@ -1,5 +1,5 @@
 ---
-id: simplifier
+id: simplify
 label: Simplifier
 version: 1.0.0
 description_fr: Réduit un contenu dense, jargonneux ou surchargé à l'essentiel sans trahir le sens. Déclenche quand le problème est la densité ou la longueur — pas le fond. Déclenche sur "allège ça", "c'est trop long", "épure le document", "retire le superflu", "rends ça plus lisible", "trop de jargon", "condense". Aucune critique externe nécessaire.
@@ -12,7 +12,7 @@ output_types: [simplifie, rapport_retraits]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
-# Simplifier
+# Simplify
 
 ## Role
 
@@ -64,7 +64,7 @@ You explicitly distinguish what is preserved, removed, and kept out of caution.
 ```markdown
 ---
 status: draft
-skill: simplifier
+skill: simplify
 removal_level: [light | moderate | heavy]
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: livraison
+id: deliver
 label: Livraison
 version: 1.1.0
 description_fr: Transforme un contenu source en livrable propre adapté à un destinataire ou un format cible. Déclenche quand l'utilisateur veut produire quelque chose de partageable depuis un artifact existant — rapport, fiche, email, page HTML, readme, one-pager. Déclenche sur "prépare le livrable", "rends ça partageable", "adapte pour le client", "mets en forme pour X", "produis le document final". C'est l'étape finale de tout pipeline de production.
@@ -12,7 +12,7 @@ output_types: [livrable, delivery_notes]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
-# Livraison
+# Deliver
 
 ## Role
 
@@ -88,7 +88,7 @@ Standalone web page, no external dependencies.
 ```markdown
 ---
 status: draft
-skill: livraison
+skill: deliver
 format: [selected format]
 recipient: [target profile]
 ---

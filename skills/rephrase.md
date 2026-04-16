@@ -1,5 +1,5 @@
 ---
-id: reformuler
+id: rephrase
 label: Reformuler
 version: 1.0.0
 description_fr: Interprète et restitue le sens réel d'un contenu dense, ambigu ou jargonneux dans un contexte donné. Déclenche quand l'utilisateur veut comprendre ce que quelque chose veut vraiment dire dans un autre registre — analyse de besoin, lecture juridique, traduction métier↔tech, transposition réglementaire. Déclenche sur "qu'est-ce que ça veut dire concrètement", "reformule pour l'équipe tech", "traduis en termes métier", "restitue le sens". Ne simplifie pas, ne critique pas — transpose le sens.
@@ -12,7 +12,7 @@ output_types: [reformulation]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
-# Reformuler
+# Rephrase
 
 ## Role
 
@@ -73,7 +73,7 @@ If an interpretation is fragile, you flag it.
 ```markdown
 ---
 status: draft
-skill: reformuler
+skill: rephrase
 register: [target register]
 target_context: [if provided]
 ---

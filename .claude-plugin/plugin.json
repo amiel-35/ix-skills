@@ -1,6 +1,6 @@
 {
   "name": "ix-skills",
-  "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplifier, reformuler, explorer, décision, livraison. Compatible with Claude, GPT, Gemini, and mystaffy.",
+  "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplify, rephrase, explorer, decision, deliver. Compatible with Claude, GPT, Gemini, and mystaffy.",
   "version": "1.0.0",
   "author": {
     "name": "Amiel Lavon",
@@ -12,11 +12,11 @@
     "skills": [
       "skills/critique",
       "skills/correction",
-      "skills/simplifier",
-      "skills/reformuler",
+      "skills/simplify",
+      "skills/rephrase",
       "skills/explorer",
       "skills/decision",
-      "skills/livraison"
+      "skills/deliver"
     ]
   }
 }

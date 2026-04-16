@@ -10,21 +10,21 @@ Skills de knowledge-work atomiques pour pipelines structurés.
 |---|---|---|
 | `critique` | Identifier les failles d'un contenu sans proposer de solution | → correction |
 | `correction` | Transformer une critique en directives actionnables | critique → |
-| `simplifier` | Épurer un contenu sans changer le fond | standalone |
-| `reformuler` | Transposer le sens dans un autre registre | standalone |
-| `explorer` | Générer un espace d'options sans trancher | → décision |
-| `décision` | Arbitrer avec trade-offs visibles et recommandation nette | explorer → |
-| `livraison` | Transformer un artifact en livrable partageable | → fin de pipeline |
+| `simplify` | Épurer un contenu sans changer le fond | standalone |
+| `rephrase` | Transposer le sens dans un autre registre | standalone |
+| `explorer` | Générer un espace d'options sans trancher | → decision |
+| `decision` | Arbitrer avec trade-offs visibles et recommandation nette | explorer → |
+| `deliver` | Transformer un artifact en livrable partageable | → fin de pipeline |
 
 ---
 
 ## Pipelines typiques
 
 ```
-critique → correction → livraison
-explorer → décision   → livraison
-           simplifier (standalone)
-           reformuler (standalone)
+critique → correction → deliver
+explorer → decision   → deliver
+           simplify (standalone)
+           rephrase (standalone)
 ```
 
 ---
