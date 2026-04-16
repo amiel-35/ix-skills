@@ -77,24 +77,24 @@ skill: critique
 lenses: [lens1, lens2, ...]
 ---
 
-# Critique — {subject}
+# Critique — {sujet}
 
-## Summary
-{1 to 3 sentences on the main flaw}
+## Synthèse / Summary
+{1 à 3 phrases sur la faille principale}
 
-## Observed Facts
-{elements from the source content that ground the critique}
+## Faits observés / Observed Facts
+{éléments du contenu source qui fondent la critique}
 
-## Flaws by Lens
+## Failles par lentille / Flaws by Lens
 
-### {lens}
-- {destabilizing question or factual observation}
+### {lentille / lens}
+- {question déstabilisante ou constat factuel}
 
-## What Holds Up to Critique
-{what stands}
+## Ce qui résiste / What Holds Up
+{ce qui tient}
 
-## Open Questions
-{what must be decided by a human}
+## Questions ouvertes / Open Questions
+{ce qui doit être tranché humainement}
 ```
 
 ---

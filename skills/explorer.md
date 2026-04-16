@@ -71,17 +71,17 @@ breadth: [focused | standard | broad]
 nb_options: [n]
 ---
 
-# Exploration — {subject}
+# Exploration — {sujet}
 
 ## Options
 
-### Option 1 — {title}
-- Description: ...
-- What it makes possible: ...
-- What it assumes or requires: ...
-- Status: realistic / speculative / out of constraints
+### Option 1 — {intitulé / title}
+- Description : ...
+- Ce que ça rend possible / What it makes possible : ...
+- Ce que ça suppose / What it assumes or requires : ...
+- Statut / Status : réaliste / realistic · spéculatif / speculative · hors contraintes / out of constraints
 
-## Open Questions Revealed
+## Questions ouvertes révélées / Open Questions Revealed
 - ...
 ```
 

@@ -78,21 +78,21 @@ register: [target register]
 target_context: [if provided]
 ---
 
-# Rephrasing — {subject}
+# Reformulation — {sujet}
 
-## Source Register and Context
+## Registre et contexte source / Source Register and Context
 {identification}
 
-## Rephrased Content
-{rephrasing with status: certain / probable / fragile}
+## Contenu reformulé / Rephrased Content
+{reformulation avec statut : certain / probable / fragile}
 
 ## Implications
 - ...
 
-## Resistant Areas
-- [area] → [reason]
+## Zones résistantes / Resistant Areas
+- [zone] → [raison]
 
-## Open Questions
+## Questions ouvertes / Open Questions
 - ...
 ```
 

@@ -68,27 +68,27 @@ skill: decision
 confidence_level: [high | medium | low]
 ---
 
-# Decision — {subject}
+# Décision / Decision — {sujet}
 
-## Recommendation
-{recommended option}
+## Recommandation / Recommendation
+{option recommandée}
 
-## Why This Option
-{main argument}
+## Pourquoi cette option / Why This Option
+{argumentation principale}
 
-## Accepted Trade-offs
+## Trade-offs assumés / Accepted Trade-offs
 - ...
 
-## Evaluated Options
-| Option | Criterion 1 | Criterion 2 | Verdict |
+## Options évaluées / Evaluated Options
+| Option | Critère 1 / Criterion 1 | Critère 2 / Criterion 2 | Verdict |
 |---|---|---|---|
-| ... | | | retained / discarded |
+| ... | | | retenu / retained · écarté / discarded |
 
-## Missing or Poorly Defined Criteria
-- [criterion] → [impact on confidence]
+## Critères absents / Missing or Poorly Defined Criteria
+- [critère] → [impact sur la confiance]
 
-## Confidence Level
-{high / medium / low} — {short justification}
+## Niveau de confiance / Confidence Level
+{élevé / high · moyen / medium · faible / low} — {justification courte}
 ```
 
 ---

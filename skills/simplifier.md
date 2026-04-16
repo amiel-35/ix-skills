@@ -72,14 +72,14 @@ removal_level: [light | moderate | heavy]
 
 ---
 
-## Removal Report
+## Rapport des retraits / Removal Report
 
-| Removed Element | Category | Justification |
+| Élément retiré / Removed Element | Catégorie / Category | Justification |
 |---|---|---|
-| ... | redundant / obvious / defensive / decorative | ... |
+| ... | redondant / redundant · évident / obvious · défensif / defensive · décoratif / decorative | ... |
 
-## Kept Out of Caution
-- [element] → [reason]
+## Conservé par prudence / Kept Out of Caution
+- [élément] → [raison]
 ```
 
 ---

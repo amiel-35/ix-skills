@@ -71,25 +71,25 @@ skill: correction
 source: {title or reference of the source document}
 ---
 
-## Retained Consolidation
+## Consolidation retenue / Retained Consolidation
 
-### Retained Arbitrations
-- [arbitration]
+### Arbitrages retenus / Retained Arbitrations
+- [arbitrage]
 
-### Retained Assumptions
-- [assumption]
+### Hypothèses retenues / Retained Assumptions
+- [hypothèse]
 
-### Watch Points
+### Points de vigilance / Watch Points
 - [point]
 
-### Directives for the Next Step
-- [actionable directive]
+### Directives pour la suite / Directives for Next Step
+- [directive actionnable]
 
-### Intentionally Left Flaws
-- [flaw] → [justification]
+### Failles laissées intentionnellement / Intentionally Left Flaws
+- [faille] → [justification]
 
-### Action Required
-- [flaw] → [reason: missing input / human decision required]
+### Action requise / Action Required
+- [faille] → [raison : input manquant / décision humaine requise]
 ```
 
 ---
