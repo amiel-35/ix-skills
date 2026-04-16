@@ -1,0 +1,60 @@
+{
+  "metier": [
+    "it_projet",
+    "fondateur_ceo",
+    "analyste_data"
+  ],
+  "category": "production",
+  "params": {
+    "mode_analyse": {
+      "label": "Mode d'analyse",
+      "type": "enum",
+      "required": false,
+      "default": "decoupage",
+      "help": "Version V1 limitee au seul decoupage.",
+      "values": [
+        "decoupage"
+      ]
+    },
+    "granularite": {
+      "label": "Granularite",
+      "type": "enum",
+      "required": false,
+      "default": "moyenne",
+      "help": "Controle le niveau de separation des lots recommandes.",
+      "values": [
+        "faible",
+        "moyenne",
+        "forte"
+      ]
+    },
+    "contexte_complementaire": {
+      "label": "Contexte complementaire",
+      "type": "text",
+      "required": false,
+      "help": "Element de cadrage supplementaire pour guider l'analyse."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode_analyse",
+      "granularite"
+    ],
+    "advanced_fields": [
+      "contexte_complementaire"
+    ]
+  },
+  "execution": {
+    "supports_async": true,
+    "supports_review_gate": true,
+    "max_input_artifacts": 8,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#556B2F",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

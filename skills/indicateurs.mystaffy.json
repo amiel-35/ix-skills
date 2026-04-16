@@ -1,0 +1,53 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = dispositif de surveillance detaille ; handoff = synthese compacte.",
+      "values": [
+        "standalone",
+        "handoff"
+      ]
+    },
+    "horizon": {
+      "label": "Horizon",
+      "type": "string",
+      "required": false,
+      "help": "Horizon de surveillance, par exemple semaines, trimestres ou annees."
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Ressources de monitoring disponibles, contexte d'execution et contraintes."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode",
+      "horizon"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2B6CB0",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
