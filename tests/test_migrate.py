@@ -187,3 +187,65 @@ def test_migrate_skill_writes_files(tmp_path, monkeypatch):
     mj = json.loads((tmp_path / "skills" / "contrarian.mystaffy.json").read_text())
     assert mj["uses_partials"] == ["conseil-review"]
     assert mj["metier"] == ["intelligence_strategique"]
+
+
+import importlib.util as _ilu
+
+
+def _load_build():
+    spec = _ilu.spec_from_file_location("build", "build.py")
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_build_ixmemory_roundtrip(tmp_path, monkeypatch):
+    build = _load_build()
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "skills").mkdir()
+    (tmp_path / "mystaffy-dist").mkdir()
+
+    # Write a canonical skill + .mystaffy.json
+    skill_md = """---
+id: contrarian
+label: Contradicteur
+version: 1.0.0
+description_fr: desc fr
+description_en: desc en
+icon: "\u2694\ufe0f"
+domain: strategy
+category: critique
+input_types: [brief, markdown]
+output_types: [critique_contradictoire]
+compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
+---
+
+# Contrarian
+Body content.
+"""
+    (tmp_path / "skills" / "contrarian.md").write_text(skill_md)
+    mystaffy_json = json.dumps({
+        "metier": ["intelligence_strategique"],
+        "uses_partials": ["conseil-review"],
+        "category": "critique",
+        "params": {"mode": {"label": "Mode", "type": "enum", "required": False, "values": ["perspective", "review"]}},
+        "ui": {"simple_fields": ["mode"], "advanced_fields": []},
+        "output_format": "markdown",
+        "kind": "llm",
+    })
+    (tmp_path / "skills" / "contrarian.mystaffy.json").write_text(mystaffy_json)
+
+    skills, _errors = build.load_skills(None, None)
+    build.build_ix_memory(skills, dry_run=False)
+
+    manifest_path = tmp_path / "mystaffy-dist" / "contrarian" / "manifest.json"
+    assert manifest_path.exists()
+    manifest = json.loads(manifest_path.read_text())
+    assert manifest["id"] == "contrarian"
+    assert manifest["metier"] == ["intelligence_strategique"]
+    assert manifest["uses_partials"] == ["conseil-review"]
+    assert "output_type" in manifest or "output_types" in manifest
+
+    skill_md_out = tmp_path / "mystaffy-dist" / "contrarian" / "skill.md"
+    assert skill_md_out.exists()
+    assert "Body content." in skill_md_out.read_text()

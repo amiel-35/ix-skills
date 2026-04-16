@@ -45,6 +45,18 @@ DOMAIN_TO_METIER = {
     "fondateur": ["fondateur_ceo"],
 }
 
+# Reverse mapping — used by --target ix-memory
+METIER_TO_DOMAIN = {v[0]: k for k, v in DOMAIN_TO_METIER.items()}
+# Extended entries not covered by DOMAIN_TO_METIER values
+METIER_TO_DOMAIN.update({
+    "achats":                   "ops",
+    "commercial":               "sales",
+    "intelligence_strategique": "strategy",
+    "it_projet":                "ops",
+    "fondateur_ceo":            "fondateur",
+    "analyste_data":            "data",
+})
+
 # ---------------------------------------------------------------------------
 # Mystaffy JSON Schema
 # ---------------------------------------------------------------------------
@@ -325,6 +337,73 @@ def build_mystaffy(skills, dry_run=False):
 
 
 # ---------------------------------------------------------------------------
+# Target: ix-memory
+# ---------------------------------------------------------------------------
+
+def build_ix_memory(skills: list, dry_run: bool = False) -> None:
+    """Reconstruct ix-memory format (manifest.json + skill.md) from ix-skills canonical source."""
+    for _path, frontmatter, body in skills:
+        skill_id = frontmatter["id"]
+
+        mystaffy_path = SKILLS_DIR / f"{skill_id}.mystaffy.json"
+        if not mystaffy_path.exists():
+            print(f"  WARN: no .mystaffy.json for {skill_id}, skipping ix-memory build")
+            continue
+
+        mystaffy_data = json.loads(mystaffy_path.read_text(encoding="utf-8"))
+
+        # Reconstruct manifest
+        manifest: dict = {
+            "id": frontmatter["id"],
+            "label": frontmatter["label"],
+            "version": frontmatter.get("version", "1.0.0"),
+            "description": frontmatter.get("description_fr", ""),
+            "icon": frontmatter.get("icon", "○"),
+            "kind": mystaffy_data.get("kind", "llm"),
+            "category": mystaffy_data.get("category", frontmatter.get("category", "atome")),
+            "input_types": frontmatter.get("input_types", []),
+            "output_format": mystaffy_data.get("output_format", "markdown"),
+            "params": mystaffy_data.get("params", {}),
+            "ui": mystaffy_data.get("ui", {"simple_fields": [], "advanced_fields": []}),
+        }
+
+        # Preserve bilingual descriptions if present
+        if frontmatter.get("description_fr"):
+            manifest["description_fr"] = frontmatter["description_fr"]
+        if frontmatter.get("description_en"):
+            manifest["description_en"] = frontmatter["description_en"]
+
+        # output_type vs output_types
+        output_types = frontmatter.get("output_types", [])
+        if len(output_types) == 1:
+            manifest["output_type"] = output_types[0]
+        elif len(output_types) > 1:
+            manifest["output_types"] = output_types
+
+        # Optional fields from .mystaffy.json
+        for field in ["metier", "uses_partials", "execution", "color", "launch_mode",
+                      "transport", "enabled", "visibility", "aliases"]:
+            if field in mystaffy_data:
+                manifest[field] = mystaffy_data[field]
+
+        # aliases from frontmatter override
+        if frontmatter.get("aliases"):
+            manifest["aliases"] = frontmatter["aliases"]
+
+        if dry_run:
+            print(f"  [dry-run] ix-memory: mystaffy-dist/{skill_id}/")
+            continue
+
+        out_dir = MYSTAFFY_DIST_DIR / skill_id
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "manifest.json").write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        (out_dir / "skill.md").write_text(body, encoding="utf-8")
+        print(f"  OK ix-memory: {skill_id}")
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -341,7 +420,7 @@ def parse_args():
     )
     parser.add_argument(
         "--target",
-        choices=["claude-ai", "cowork", "mystaffy"],
+        choices=["claude-ai", "cowork", "mystaffy", "ix-memory"],
         default=None,
         help="Build target (default: all)",
     )
@@ -363,7 +442,7 @@ def main():
     dry_run = args.validate
     total_errors = 0
 
-    targets = [args.target] if args.target else ["cowork", "claude-ai", "mystaffy"]
+    targets = [args.target] if args.target else ["cowork", "claude-ai", "mystaffy", "ix-memory"]
 
     # --- cowork (repo-level, not per-skill) ---
     if "cowork" in targets:
@@ -387,6 +466,9 @@ def main():
 
         if "mystaffy" in skill_targets:
             total_errors += build_mystaffy(skills, dry_run=dry_run)
+
+        if "ix-memory" in skill_targets:
+            build_ix_memory(skills, dry_run=dry_run)
 
     print()
     if total_errors > 0:
