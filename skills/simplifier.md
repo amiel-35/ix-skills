@@ -35,8 +35,8 @@ You explicitly distinguish what is preserved, removed, and kept out of caution.
 |---|---|---|
 | `brief` | yes | What the user wants simplified |
 | `input_artifacts[]` | yes | The content(s) to strip |
-| `niveau_retrait` | no | `light`, `moderate`, `heavy` — default: `moderate` |
-| `conserver_exemples` | no | Keep examples even if redundant — default: `true` |
+| `removal_level` | no | `light`, `moderate`, `heavy` — default: `moderate` |
+| `keep_examples` | no | Keep examples even if redundant — default: `true` |
 
 ---
 
@@ -65,7 +65,7 @@ You explicitly distinguish what is preserved, removed, and kept out of caution.
 ---
 status: draft
 skill: simplifier
-niveau_retrait: [light | moderate | heavy]
+removal_level: [light | moderate | heavy]
 ---
 
 [simplified content]
@@ -77,7 +77,6 @@ niveau_retrait: [light | moderate | heavy]
 | Removed Element | Category | Justification |
 |---|---|---|
 | ... | redundant / obvious / defensive / decorative | ... |
-
 ## Kept Out of Caution
 - [element] → [reason]
 ```

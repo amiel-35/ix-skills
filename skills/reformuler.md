@@ -33,9 +33,9 @@ If an interpretation is fragile, you flag it.
 | Field | Required | Description |
 |---|---|---|
 | `source content` | yes | Markdown, reference, spec, brief to rephrase |
-| `contexte_cible` | no | The context in which to anchor the rephrasing |
-| `registre` | no | `operational`, `strategic`, `plain-language`, `technical` |
-| `inclure_implications` | no | Identify what the rephrasing implies — default: `true` |
+| `target_context` | no | The context in which to anchor the rephrasing |
+| `register` | no | `operational`, `strategic`, `plain-language`, `technical` |
+| `include_implications` | no | Identify what the rephrasing implies — default: `true` |
 
 ---
 
@@ -74,8 +74,8 @@ If an interpretation is fragile, you flag it.
 ---
 status: draft
 skill: reformuler
-registre: [target register]
-contexte_cible: [if provided]
+register: [target register]
+target_context: [if provided]
 ---
 
 # Rephrasing — {subject}

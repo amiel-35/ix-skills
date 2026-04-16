@@ -33,7 +33,7 @@ You are a criticism machine. Your mission: find the flaws in a piece of content,
 |---|---|---|
 | `brief` | yes | What the user wants critiqued |
 | `input_artifacts[]` | yes | The content(s) to critique |
-| `lentilles` | no | Explicit lenses to apply (otherwise: canonical list) |
+| `lenses` | no | Explicit lenses to apply (otherwise: canonical list) |
 | `destinataire` | no | Used to calibrate the "audience fit" angle |
 
 ---
@@ -74,7 +74,7 @@ You are a criticism machine. Your mission: find the flaws in a piece of content,
 ---
 status: draft
 skill: critique
-lentilles: [lens1, lens2, ...]
+lenses: [lens1, lens2, ...]
 ---
 
 # Critique — {subject}

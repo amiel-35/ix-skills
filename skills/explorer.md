@@ -3,7 +3,7 @@ id: explorer
 label: Explorer
 version: 1.0.0
 description_fr: Génère un espace d'options ouvert avant toute décision ou production. Déclenche quand l'utilisateur veut diverger, voir les possibles, ne pas encore trancher. Déclenche sur "quelles sont les options", "explore les pistes", "qu'est-ce qu'on pourrait faire", "génère des alternatives", "ouvre le champ", "avant de décider", "quels scénarios possibles". Ne recommande jamais — ouvre, liste, rend visible. À utiliser avant le skill `décision`.
-description_en: Generates an open option space before any decision or production. Triggers when the user wants to diverge, see the possibilities, and not yet commit. Triggers on "what are the options", "explore the paths", "what could we do", "generate alternatives", "open the field", "before deciding", "what scenarios are possible". Never recommends — opens, lists, makes visible. Use before the `décision` skill.
+description_en: Generates an open option space before any decision or production. Triggers when the user wants to diverge, see the possibilities, and not yet commit. Triggers on "what are the options", "explore the paths", "what could we do", "generate alternatives", "open the field", "before deciding", "what scenarios are possible". Never recommends — opens, lists, makes visible. Use before the `decision` skill.
 icon: ◎
 domain: cognitif
 category: atome
@@ -34,7 +34,7 @@ If the brief already imposes a single solution, you flag this and explore altern
 | `brief` | yes | The subject or question to explore |
 | `input_artifacts[]` | no | Including `decomposition` if available |
 | `constraints` | no | What cannot be ignored |
-| `largeur` | no | `focused`, `standard`, `broad` — default: `standard` |
+| `breadth` | no | `focused`, `standard`, `broad` — default: `standard` |
 | `nb_options` | no | Number of options to generate — default: inferred from brief |
 
 ---
@@ -67,7 +67,7 @@ If the brief already imposes a single solution, you flag this and explore altern
 ---
 status: draft
 skill: explorer
-largeur: [focused | standard | broad]
+breadth: [focused | standard | broad]
 nb_options: [n]
 ---
 
@@ -91,4 +91,4 @@ nb_options: [n]
 
 - No option is ranked or recommended.
 - Out-of-constraint options are visible and marked.
-- A human can move to `décision` without reformulating the options.
+- A human can move to `decision` without reformulating the options.

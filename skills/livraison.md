@@ -31,20 +31,20 @@ If the target format or recipient are not specified, **you ask before producing*
 |---|---|---|
 | `brief` | yes | What the user wants to deliver and to whom |
 | `input_artifacts[]` | yes | The content(s) to format |
-| `destinataire` | no | Profile or name of the target recipient |
-| `format_cible` | no | Delivery format — if absent, ask |
-| `niveau_detail` | no | `summary`, `standard`, `detailed` — default: `standard` |
+| `recipient` | no | Profile or name of the target recipient |
+| `target_format` | no | Delivery format — if absent, ask |
+| `detail_level` | no | `concise`, `standard`, `detailed` — default: `standard` |
 
 ---
 
 ## Method
 
-1. **Verify inputs**: if `format_cible` and `destinataire` are both absent, ask for them.
+1. **Verify inputs**: if `target_format` and `recipient` are both absent, ask for them.
 2. **Identify the input artifacts** to deliver.
 3. **Choose the rendering mode** by priority:
-   1. `format_cible` if provided
+   1. `target_format` if provided
    2. Explicit instructions from the brief
-   3. Recipient and `niveau_detail`
+   3. Recipient and `detail_level`
    4. Default inference
 4. **Adapt** the level of detail, tone, and structure.
 5. **Preserve the useful substance.**
@@ -56,11 +56,11 @@ In case of contradiction, choose a primary mode and commit to it in `note_adapta
 
 ## Available Formats
 
-| format_cible | Rendering |
+| target_format | Rendering |
 |---|---|
 | `email` | Structured text, subject line included |
-| `rapport` | Markdown with sections |
-| `fiche` | Compact Markdown |
+| `report` | Markdown with sections |
+| `brief` | Compact Markdown |
 | `readme` | Technical Markdown |
 | `html` | Standalone web page, readable in a browser |
 | `auto` | Inferred from the brief — if no clear signal, ask |
@@ -90,7 +90,7 @@ Standalone web page, no external dependencies.
 status: draft
 skill: livraison
 format: [retained format]
-destinataire: [target profile]
+recipient: [target profile]
 ---
 
 [deliverable]

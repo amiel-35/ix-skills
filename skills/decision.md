@@ -33,9 +33,9 @@ If critical criteria are missing, you name them before concluding.
 |---|---|---|
 | `brief` | yes | The subject to arbitrate |
 | `input_artifacts[]` | yes | Options to compare (ideally from `explorer`) |
-| `critères` | no | Arbitration criteria — default: speed, cost, risk, maintainability |
+| `criteria` | no | Arbitration criteria — default: speed, cost, risk, maintainability |
 | `constraints` | no | What automatically eliminates certain options |
-| `forcer_conclusion` | no | Recommend even under uncertainty — default: `true` |
+| `force_conclusion` | no | Recommend even under uncertainty — default: `true` |
 
 ---
 
@@ -64,8 +64,8 @@ If critical criteria are missing, you name them before concluding.
 ```markdown
 ---
 status: draft
-skill: décision
-niveau_confiance: [high | medium | low]
+skill: decision
+confidence_level: [high | medium | low]
 ---
 
 # Decision — {subject}
