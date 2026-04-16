@@ -1,0 +1,49 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "uses_partials": [
+    "conseil-review"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "perspective",
+      "help": "perspective = deconstruction autonome ; review = evaluation croisee de plusieurs perspectives.",
+      "values": [
+        "perspective",
+        "review"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Elements de contexte utiles pour clarifier le probleme."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#8E44AD",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

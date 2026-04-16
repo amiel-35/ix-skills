@@ -1,0 +1,41 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "uses_partials": [
+    "conseil-review"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "perspective",
+      "help": "perspective = lecture externe autonome ; review = evaluation croisee sans contexte implicite.",
+      "values": [
+        "perspective",
+        "review"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2980B9",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

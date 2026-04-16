@@ -1,0 +1,49 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "uses_partials": [
+    "conseil-review"
+  ],
+  "category": "atome",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "perspective",
+      "help": "perspective = ouverture d'opportunites ; review = evaluation croisee de plusieurs perspectives.",
+      "values": [
+        "perspective",
+        "review"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Contexte utile pour juger la pertinence des opportunites."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#27AE60",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

@@ -1,0 +1,56 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "uses_partials": [
+    "conseil-review"
+  ],
+  "category": "decision",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "perspective",
+      "help": "perspective = test de faisabilite autonome ; review = evaluation croisee des perspectives sous angle execution.",
+      "values": [
+        "perspective",
+        "review"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Contexte utile sur ressources, equipe, delais ou dependances."
+    },
+    "contraintes": {
+      "label": "Contraintes",
+      "type": "text",
+      "required": false,
+      "help": "Budget, equipe, delais, cadre legal, dependances critiques."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "contexte",
+      "contraintes"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#E67E22",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
