@@ -1,0 +1,89 @@
+{
+  "metier": [
+    "it_projet",
+    "fondateur_ceo"
+  ],
+  "category": "production",
+  "params": {
+    "niveau_detail": {
+      "label": "Niveau de detail",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "Cadre la profondeur du brief principal.",
+      "values": [
+        "court",
+        "standard",
+        "approfondi"
+      ]
+    },
+    "inclure_hors_perimetre": {
+      "label": "Inclure hors perimetre",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "help": "Inclure explicitement le hors perimetre si utile."
+    },
+    "inclure_criteres_acceptation": {
+      "label": "Inclure criteres d'acceptation",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "help": "Ajouter des criteres d'acceptation si le besoin s'y prete."
+    },
+    "contexte_complementaire": {
+      "label": "Contexte complementaire",
+      "type": "text",
+      "required": false,
+      "help": "Contexte libre pour preciser le besoin ou les contraintes."
+    },
+    "audience": {
+      "label": "Destinataire",
+      "type": "enum",
+      "required": false,
+      "default": "equipe_interne",
+      "help": "Cadre le ton et le niveau de detail selon la cible.",
+      "values": [
+        "equipe_interne",
+        "prestataire",
+        "client",
+        "direction"
+      ]
+    },
+    "tone": {
+      "label": "Ton",
+      "type": "enum",
+      "required": false,
+      "default": "direct",
+      "values": [
+        "direct",
+        "pedagogue"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "niveau_detail",
+      "inclure_hors_perimetre",
+      "inclure_criteres_acceptation",
+      "audience",
+      "tone"
+    ],
+    "advanced_fields": [
+      "contexte_complementaire"
+    ]
+  },
+  "execution": {
+    "supports_async": true,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#A4693D",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

@@ -1,0 +1,55 @@
+{
+  "metier": [
+    "analyste_data",
+    "it_projet",
+    "fondateur_ceo"
+  ],
+  "category": "production",
+  "params": {
+    "audience": {
+      "label": "Audience",
+      "type": "enum",
+      "required": false,
+      "default": "stakeholders",
+      "help": "Cadre le niveau de lecture attendu.",
+      "values": [
+        "stakeholders",
+        "executif",
+        "operateur",
+        "client"
+      ]
+    },
+    "ton": {
+      "label": "Ton",
+      "type": "enum",
+      "required": false,
+      "default": "sobre",
+      "help": "Cadre le style du narratif.",
+      "values": [
+        "sobre",
+        "pedagogique",
+        "executif"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "audience",
+      "ton"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": true,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 12000
+  },
+  "color": "#7C4E66",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

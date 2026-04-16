@@ -1,0 +1,47 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "production",
+  "params": {
+    "format_sortie": {
+      "label": "Format de sortie",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "Niveau de detail du compte-rendu.",
+      "values": [
+        "flash",
+        "standard",
+        "complet"
+      ]
+    },
+    "inclure_verbatims": {
+      "label": "Inclure verbatims",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "help": "Conserver les citations importantes entre guillemets."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "format_sortie",
+      "inclure_verbatims"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 4,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2D6A4F",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

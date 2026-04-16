@@ -1,0 +1,56 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "production",
+  "params": {
+    "longueur_cible": {
+      "label": "Longueur cible",
+      "type": "enum",
+      "required": false,
+      "default": "auto",
+      "help": "Controle le niveau de compression.",
+      "values": [
+        "flash",
+        "court",
+        "standard",
+        "auto"
+      ]
+    },
+    "destinataire": {
+      "label": "Destinataire",
+      "type": "string",
+      "required": false,
+      "help": "Profil du lecteur cible pour calibrer le niveau de detail."
+    },
+    "inclure_points_omis": {
+      "label": "Signaler les omissions",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "help": "Lister les elements significatifs exclus de la synthese."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "longueur_cible",
+      "destinataire"
+    ],
+    "advanced_fields": [
+      "inclure_points_omis"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": false,
+    "max_input_artifacts": 8,
+    "max_estimated_tokens": 32000
+  },
+  "color": "#4A5568",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
