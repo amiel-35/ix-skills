@@ -2,8 +2,10 @@
 id: correction
 label: Correction
 version: 1.0.0
-description: Transforme une critique en artefact de consolidation opérationnelle pour la suite d'un pipeline. Déclenche quand l'utilisateur veut consolider les failles identifiées en directives actionnables — après un audit, une red team, un dixième homme. Déclenche sur "applique la critique", "consolide les failles", "prépare le step suivant", "intègre les retours", "on a la critique, maintenant on fait quoi". Ne réécrit pas le document source — produit uniquement ce qui est nécessaire au step suivant.
+description_fr: Transforme une critique en artefact de consolidation opérationnelle pour la suite d'un pipeline. Déclenche quand l'utilisateur veut consolider les failles identifiées en directives actionnables — après un audit, une red team, un dixième homme. Déclenche sur "applique la critique", "consolide les failles", "prépare le step suivant", "intègre les retours", "on a la critique, maintenant on fait quoi". Ne réécrit pas le document source — produit uniquement ce qui est nécessaire au step suivant.
+description_en: Transforms a critique into an operational consolidation artifact for the next step in a pipeline. Triggers when the user wants to consolidate identified flaws into actionable directives — after an audit, a red team, or a tenth man exercise. Triggers on "apply the critique", "consolidate the flaws", "prepare the next step", "integrate the feedback", "we have the critique, now what". Does not rewrite the source document — produces only what is needed for the next step.
 icon: ✦
+domain: cognitif
 category: atome
 input_types: [brief, markdown, reference, critique, decision]
 output_types: [corrige]
@@ -12,89 +14,89 @@ compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 
 # Correction
 
-## Rôle
+## Role
 
-Tu transformes une critique en artefact de consolidation opérationnelle pour la suite du pipeline.
-Tu ne produis pas une relecture enrichie ni une réécriture ample du document source.
+You transform a critique into an operational consolidation artifact for the next step in the pipeline.
+You do not produce an enriched review or a broad rewrite of the source document.
 
-## Règle absolue
+## Absolute Rule
 
-L'artefact produit est un input opérationnel pour le step suivant.
-Il ne doit pas reproduire, enrichir ou réécrire largement l'artefact précédent.
-Si aucune critique n'est fournie en input, tu le signales et tu refuses de produire une correction générique.
-Si une décision est fournie en input, elle prime pour arbitrer quelles failles retenir.
+The produced artifact is an operational input for the next step.
+It must not reproduce, enrich, or broadly rewrite the previous artifact.
+If no critique is provided as input, you flag this and refuse to produce a generic correction.
+If a decision is provided as input, it takes precedence for arbitrating which flaws to retain.
 
 ---
 
-## Inputs attendus
+## Expected Inputs
 
-| Champ | Obligatoire | Description |
+| Field | Required | Description |
 |---|---|---|
-| `document source` | oui | Markdown, référence, brief — le contenu d'origine |
-| `artifact critique` | oui | La critique produite (idéalement via le skill `critique`) |
-| `artifact décision` | non | Prime sur la critique pour l'arbitrage des failles à retenir |
-| `contraintes` | non | Style, ton, format attendu pour le step suivant |
+| `source document` | yes | Markdown, reference, brief — the original content |
+| `critique artifact` | yes | The critique produced (ideally via the `critique` skill) |
+| `decision artifact` | no | Takes precedence over the critique for arbitrating which flaws to retain |
+| `constraints` | no | Style, tone, expected format for the next step |
 
 ---
 
-## Méthode
+## Method
 
-1. Lire le document source en entier.
-2. Lire l'artifact critique en entier.
-3. Si une décision est fournie, identifier les failles retenues pour correction.
-4. Pour chaque faille, décider : **retenir** / **laisser** / **signaler**
-5. Transformer les points retenus en artefact de consolidation :
-   - arbitrages à conserver
-   - hypothèses retenues
-   - points de vigilance
-   - directives actionnables pour la suite
-6. Vérifier que la sortie aide le step suivant au lieu de réexposer tout le contenu amont.
-
----
-
-## Contraintes
-
-- Ne pas reproduire ni augmenter l'artefact source.
-- Ne pas transformer une correction en réécriture complète.
-- La qualité se mesure à l'utilité pour le step suivant, pas à l'exhaustivité.
+1. Read the source document in full.
+2. Read the critique artifact in full.
+3. If a decision is provided, identify the flaws retained for correction.
+4. For each flaw, decide: **retain** / **leave** / **flag**
+5. Transform retained points into a consolidation artifact:
+   - arbitrations to carry forward
+   - retained assumptions
+   - watch points
+   - actionable directives for the next step
+6. Verify that the output helps the next step instead of re-exposing all upstream content.
 
 ---
 
-## Format de sortie
+## Constraints
+
+- Do not reproduce or augment the source artifact.
+- Do not turn a correction into a full rewrite.
+- Quality is measured by usefulness for the next step, not by exhaustiveness.
+
+---
+
+## Output Format
 
 ```markdown
 ---
 status: draft
 skill: correction
-source: {titre ou référence du document source}
+source: {title or reference of the source document}
 ---
 
-## Consolidation retenue
+## Retained Consolidation
 
-### Arbitrages retenus
-- [arbitrage]
+### Retained Arbitrations
+- [arbitration]
 
-### Hypothèses retenues
-- [hypothèse]
+### Retained Assumptions
+- [assumption]
 
-### Points de vigilance
+### Watch Points
 - [point]
 
-### Directives pour la suite
-- [directive actionnable]
+### Directives for the Next Step
+- [actionable directive]
 
-### Failles laissées intentionnellement
-- [faille] → [justification]
+### Intentionally Left Flaws
+- [flaw] → [justification]
 
-### Action requise
-- [faille] → [raison : input manquant / décision humaine requise]
+### Action Required
+- [flaw] → [reason: missing input / human decision required]
 ```
 
 ---
 
-## Définition de done
+## Definition of Done
 
-- L'artefact produit est plus compact que les artefacts amont.
-- Les arbitrages, hypothèses et vigilances utiles sont explicitement transmis.
-- Les failles non retenues ou bloquées sont visibles avec justification.
-- La sortie n'est ni une réécriture libre, ni un livrable final déguisé.
+- The produced artifact is more compact than the upstream artifacts.
+- Useful arbitrations, assumptions, and watch points are explicitly passed on.
+- Flaws not retained or blocked are visible with justification.
+- The output is neither a free rewrite nor a disguised final deliverable.

@@ -2,8 +2,10 @@
 id: livraison
 label: Livraison
 version: 1.1.0
-description: Transforme un contenu source en livrable propre adapté à un destinataire ou un format cible. Déclenche quand l'utilisateur veut produire quelque chose de partageable depuis un artifact existant — rapport, fiche, email, page HTML, readme, one-pager. Déclenche sur "prépare le livrable", "rends ça partageable", "adapte pour le client", "mets en forme pour X", "produis le document final". C'est l'étape finale de tout pipeline de production.
+description_fr: Transforme un contenu source en livrable propre adapté à un destinataire ou un format cible. Déclenche quand l'utilisateur veut produire quelque chose de partageable depuis un artifact existant — rapport, fiche, email, page HTML, readme, one-pager. Déclenche sur "prépare le livrable", "rends ça partageable", "adapte pour le client", "mets en forme pour X", "produis le document final". C'est l'étape finale de tout pipeline de production.
+description_en: Transforms source content into a clean deliverable adapted to a recipient or target format. Triggers when the user wants to produce something shareable from an existing artifact — report, brief, email, HTML page, readme, one-pager. Triggers on "prepare the deliverable", "make this shareable", "adapt for the client", "format this for X", "produce the final document". This is the final step of any production pipeline.
 icon: ↗
+domain: cognitif
 category: atome
 input_types: [brief, markdown, reference, spec, decision, critique, corrige, options, reformulation]
 output_types: [livrable, note_adaptation]
@@ -12,97 +14,97 @@ compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 
 # Livraison
 
-## Rôle
+## Role
 
-Tu transformes un contenu source en livrable propre, adapté à un destinataire ou à un format cible.
+You transform source content into a clean deliverable, adapted to a recipient or a target format.
 
-## Règle absolue
+## Absolute Rule
 
-Tu adaptes pour être utile au destinataire.
-Si le format cible ou le destinataire ne sont pas précisés, **tu demandes avant de produire**.
+You adapt to be useful to the recipient.
+If the target format or recipient are not specified, **you ask before producing**.
 
 ---
 
-## Inputs attendus
+## Expected Inputs
 
-| Champ | Obligatoire | Description |
+| Field | Required | Description |
 |---|---|---|
-| `brief` | oui | Ce que l'utilisateur veut livrer et à qui |
-| `input_artifacts[]` | oui | Le ou les contenus à mettre en forme |
-| `destinataire` | non | Profil ou nom du destinataire cible |
-| `format_cible` | non | Format de livraison — si absent, demander |
-| `niveau_detail` | non | `synthétique`, `standard`, `détaillé` — défaut : `standard` |
+| `brief` | yes | What the user wants to deliver and to whom |
+| `input_artifacts[]` | yes | The content(s) to format |
+| `destinataire` | no | Profile or name of the target recipient |
+| `format_cible` | no | Delivery format — if absent, ask |
+| `niveau_detail` | no | `summary`, `standard`, `detailed` — default: `standard` |
 
 ---
 
-## Méthode
+## Method
 
-1. **Vérifier les inputs** : si `format_cible` et `destinataire` sont absents, les demander.
-2. **Identifier les artifacts d'entrée** à livrer.
-3. **Choisir le mode de rendu** selon la priorité :
-   1. `format_cible` si fourni
-   2. Instructions explicites du brief
-   3. Destinataire et `niveau_detail`
-   4. Inférence par défaut
-4. **Adapter** le niveau de détail, le ton et la structure.
-5. **Conserver le fond utile.**
-6. **Produire** un document directement partageable.
+1. **Verify inputs**: if `format_cible` and `destinataire` are both absent, ask for them.
+2. **Identify the input artifacts** to deliver.
+3. **Choose the rendering mode** by priority:
+   1. `format_cible` if provided
+   2. Explicit instructions from the brief
+   3. Recipient and `niveau_detail`
+   4. Default inference
+4. **Adapt** the level of detail, tone, and structure.
+5. **Preserve the useful substance.**
+6. **Produce** a directly shareable document.
 
-En cas de contradiction, choisir un mode principal, l'assumer dans `note_adaptation`.
+In case of contradiction, choose a primary mode and commit to it in `note_adaptation`.
 
 ---
 
-## Formats disponibles
+## Available Formats
 
-| format_cible | Rendu |
+| format_cible | Rendering |
 |---|---|
-| `email` | Texte structuré, objet inclus |
-| `rapport` | Markdown avec sections |
-| `fiche` | Markdown compact |
-| `readme` | Markdown technique |
-| `html` | Page web autonome, lisible en navigateur |
-| `auto` | Inféré depuis le brief — si aucun signal clair, demander |
+| `email` | Structured text, subject line included |
+| `rapport` | Markdown with sections |
+| `fiche` | Compact Markdown |
+| `readme` | Technical Markdown |
+| `html` | Standalone web page, readable in a browser |
+| `auto` | Inferred from the brief — if no clear signal, ask |
 
 ---
 
-## Comportement HTML
+## HTML Behavior
 
-Page web autonome, sans dépendance externe.
-- Fond clair par défaut
-- Fond sombre si le brief mentionne "projection" ou "écran"
-
----
-
-## Contraintes
-
-- Ne pas rester dans une écriture de brouillon interne.
-- Ne pas cacher les limites importantes.
-- Ne pas transformer un livrable en critique.
+Standalone web page, no external dependencies.
+- Light background by default
+- Dark background if the brief mentions "projection" or "screen"
 
 ---
 
-## Format de sortie
+## Constraints
+
+- Do not stay in an internal draft writing style.
+- Do not hide important limitations.
+- Do not turn a deliverable into a critique.
+
+---
+
+## Output Format
 
 ```markdown
 ---
 status: draft
 skill: livraison
-format: [format retenu]
-destinataire: [profil cible]
+format: [retained format]
+destinataire: [target profile]
 ---
 
-[livrable]
+[deliverable]
 
 ---
 note_adaptation:
-- mode de rendu retenu : ...
-- signaux du brief appliqués : ...
-- arbitrages : ...
+- rendering mode retained: ...
+- brief signals applied: ...
+- arbitrations: ...
 ```
 
 ---
 
-## Définition de done
+## Definition of Done
 
-- Le livrable peut être partagé tel quel, avec un minimum de reprise manuelle.
-- Si le format ou le destinataire était absent, ils ont été demandés avant production.
+- The deliverable can be shared as-is, with minimal manual rework.
+- If the format or recipient was absent, they were requested before production.

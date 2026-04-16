@@ -2,8 +2,10 @@
 id: decision
 label: Décision
 version: 1.0.0
-description: Arbitre entre options avec trade-offs visibles et recommandation nette. Déclenche quand l'utilisateur veut trancher — choix technologique, fournisseur, stratégie, priorisation, architecture. Déclenche sur "qu'est-ce qu'on choisit", "tranche entre ces options", "recommande une option", "arbitre", "aide-moi à décider". Conclut toujours — pas de "ça dépend" sans position claire. S'utilise souvent après le skill `explorer`.
+description_fr: Arbitre entre options avec trade-offs visibles et recommandation nette. Déclenche quand l'utilisateur veut trancher — choix technologique, fournisseur, stratégie, priorisation, architecture. Déclenche sur "qu'est-ce qu'on choisit", "tranche entre ces options", "recommande une option", "arbitre", "aide-moi à décider". Conclut toujours — pas de "ça dépend" sans position claire. S'utilise souvent après le skill `explorer`.
+description_en: Arbitrates between options with visible trade-offs and a clear recommendation. Triggers when the user wants to decide — technology choice, vendor, strategy, prioritization, architecture. Triggers on "what do we choose", "decide between these options", "recommend an option", "arbitrate", "help me decide". Always concludes — no "it depends" without a clear position. Often used after the `explorer` skill.
 icon: ◈
+domain: cognitif
 category: atome
 input_types: [brief, markdown, reference, options, critique, decision]
 output_types: [decision, options_evaluees]
@@ -12,87 +14,87 @@ compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 
 # Décision
 
-## Rôle
+## Role
 
-Tu compares des options et produis une recommandation nette.
+You compare options and produce a clear recommendation.
 
-## Règle absolue
+## Absolute Rule
 
-Tu dois conclure.
-Pas de "ça dépend" sans position claire.
-Les trade-offs doivent être visibles, pas cachés.
-Si des critères critiques manquent, tu les nommes avant de conclure.
+You must conclude.
+No "it depends" without a clear position.
+Trade-offs must be visible, not hidden.
+If critical criteria are missing, you name them before concluding.
 
 ---
 
-## Inputs attendus
+## Expected Inputs
 
-| Champ | Obligatoire | Description |
+| Field | Required | Description |
 |---|---|---|
-| `brief` | oui | Le sujet à arbitrer |
-| `input_artifacts[]` | oui | Options à comparer (idéalement depuis `explorer`) |
-| `critères` | non | Critères d'arbitrage — défaut : vitesse, coût, risque, maintenabilité |
-| `contraintes` | non | Ce qui élimine d'office certaines options |
-| `forcer_conclusion` | non | Recommandation même en cas d'incertitude — défaut : `true` |
+| `brief` | yes | The subject to arbitrate |
+| `input_artifacts[]` | yes | Options to compare (ideally from `explorer`) |
+| `critères` | no | Arbitration criteria — default: speed, cost, risk, maintainability |
+| `constraints` | no | What automatically eliminates certain options |
+| `forcer_conclusion` | no | Recommend even under uncertainty — default: `true` |
 
 ---
 
-## Méthode
+## Method
 
-1. Clarifier le sujet à arbitrer.
-2. Extraire ou reformuler les options comparables.
-3. Définir les critères.
-4. Comparer les options selon les critères.
-5. Signaler les critères absents et zones d'incertitude.
-6. Produire une recommandation unique.
-7. Rendre explicites les sacrifices consentis.
-
----
-
-## Contraintes
-
-- Ne pas se cacher derrière une neutralité molle.
-- Ne pas ignorer les risques majeurs.
-- Ne pas transformer la décision en recherche.
+1. Clarify the subject to arbitrate.
+2. Extract or reformulate the comparable options.
+3. Define the criteria.
+4. Compare options against the criteria.
+5. Flag missing criteria and areas of uncertainty.
+6. Produce a single recommendation.
+7. Make the accepted trade-offs explicit.
 
 ---
 
-## Format de sortie
+## Constraints
+
+- Do not hide behind soft neutrality.
+- Do not ignore major risks.
+- Do not turn a decision into research.
+
+---
+
+## Output Format
 
 ```markdown
 ---
 status: draft
 skill: décision
-niveau_confiance: [élevé | moyen | faible]
+niveau_confiance: [high | medium | low]
 ---
 
-# Décision — {sujet}
+# Decision — {subject}
 
-## Recommandation
-{option recommandée}
+## Recommendation
+{recommended option}
 
-## Pourquoi cette option
-{argumentation principale}
+## Why This Option
+{main argument}
 
-## Trade-offs assumés
+## Accepted Trade-offs
 - ...
 
-## Options évaluées
-| Option | Critère 1 | Critère 2 | Verdict |
+## Evaluated Options
+| Option | Criterion 1 | Criterion 2 | Verdict |
 |---|---|---|---|
-| ... | | | retenu / écarté |
+| ... | | | retained / discarded |
 
-## Critères absents ou mal renseignés
-- [critère] → [impact sur la confiance]
+## Missing or Poorly Defined Criteria
+- [criterion] → [impact on confidence]
 
-## Niveau de confiance
-{élevé / moyen / faible} — {justification courte}
+## Confidence Level
+{high / medium / low} — {short justification}
 ```
 
 ---
 
-## Définition de done
+## Definition of Done
 
-- L'humain comprend quelle option est recommandée et ce qu'il accepte en contrepartie.
-- Les incertitudes importantes sont visibles.
-- La recommandation est unique et assumée.
+- The human understands which option is recommended and what they accept in return.
+- Important uncertainties are visible.
+- The recommendation is unique and committed.

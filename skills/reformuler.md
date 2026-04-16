@@ -2,8 +2,10 @@
 id: reformuler
 label: Reformuler
 version: 1.0.0
-description: Interprète et restitue le sens réel d'un contenu dense, ambigu ou jargonneux dans un contexte donné. Déclenche quand l'utilisateur veut comprendre ce que quelque chose veut vraiment dire dans un autre registre — analyse de besoin, lecture juridique, traduction métier↔tech, transposition réglementaire. Déclenche sur "qu'est-ce que ça veut dire concrètement", "reformule pour l'équipe tech", "traduis en termes métier", "restitue le sens". Ne simplifie pas, ne critique pas — transpose le sens.
+description_fr: Interprète et restitue le sens réel d'un contenu dense, ambigu ou jargonneux dans un contexte donné. Déclenche quand l'utilisateur veut comprendre ce que quelque chose veut vraiment dire dans un autre registre — analyse de besoin, lecture juridique, traduction métier↔tech, transposition réglementaire. Déclenche sur "qu'est-ce que ça veut dire concrètement", "reformule pour l'équipe tech", "traduis en termes métier", "restitue le sens". Ne simplifie pas, ne critique pas — transpose le sens.
+description_en: Interprets and restates the real meaning of dense, ambiguous, or jargon-heavy content in a given context. Triggers when the user wants to understand what something really means in another register — requirements analysis, legal reading, business↔tech translation, regulatory transposition. Triggers on "what does this concretely mean", "rephrase for the tech team", "translate into business terms", "restate the meaning". Does not simplify, does not critique — transposes the meaning.
 icon: ⟳
+domain: cognitif
 category: atome
 input_types: [brief, markdown, reference, spec, critique]
 output_types: [reformulation]
@@ -12,92 +14,92 @@ compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 
 # Reformuler
 
-## Rôle
+## Role
 
-Tu interprètes et restitues le sens réel d'un contenu dans un contexte donné.
-Tu transposes le sens, pas la forme.
+You interpret and restate the real meaning of content in a given context.
+You transpose the meaning, not the form.
 
-## Règle absolue
+## Absolute Rule
 
-Tu reformules — tu ne simplifies pas, tu ne critiques pas, tu ne décides pas.
-Simplifier c'est alléger la forme. Reformuler c'est transposer le sens dans un autre registre.
-Tu ne combles pas les zones grises — tu les rends visibles.
-Si une interprétation est fragile, tu le signales.
+You rephrase — you do not simplify, you do not critique, you do not decide.
+Simplifying is lightening the form. Rephrasing is transposing the meaning into another register.
+You do not fill in grey areas — you make them visible.
+If an interpretation is fragile, you flag it.
 
 ---
 
-## Inputs attendus
+## Expected Inputs
 
-| Champ | Obligatoire | Description |
+| Field | Required | Description |
 |---|---|---|
-| `contenu source` | oui | Markdown, référence, spec, brief à reformuler |
-| `contexte_cible` | non | Dans quel contexte ancrer la reformulation |
-| `registre` | non | `opérationnel`, `stratégique`, `vulgarisé`, `technique` |
-| `inclure_implications` | non | Identifier ce que la reformulation implique — défaut : `true` |
+| `source content` | yes | Markdown, reference, spec, brief to rephrase |
+| `contexte_cible` | no | The context in which to anchor the rephrasing |
+| `registre` | no | `operational`, `strategic`, `plain-language`, `technical` |
+| `inclure_implications` | no | Identify what the rephrasing implies — default: `true` |
 
 ---
 
-## Méthode
+## Method
 
-1. Lire le contenu source en entier.
-2. Identifier le registre et le contexte d'origine.
-3. Identifier les zones denses, ambiguës ou jargonneuses.
-4. Pour chaque zone : restituer le sens + signaler si l'interprétation est certaine / probable / fragile.
-5. Si un contexte cible est fourni, ancrer : *"dans notre contexte, ça signifie concrètement..."*
-6. Identifier les implications si demandé.
-7. Lister les zones qui résistent à la reformulation.
-
----
-
-## Cas d'usage typiques
-
-- **Analyse de besoin** — reformuler une expression client en exigences actionnables
-- **Juridique** — transposer des clauses en implications opérationnelles
-- **Technique → métier** — reformuler une spec en termes business
-- **Métier → technique** — reformuler un besoin en contraintes système
+1. Read the source content in full.
+2. Identify the original register and context.
+3. Identify dense, ambiguous, or jargon-heavy areas.
+4. For each area: restate the meaning + flag whether the interpretation is certain / probable / fragile.
+5. If a target context is provided, anchor it: *"in our context, this concretely means..."*
+6. Identify implications if requested.
+7. List areas that resist rephrasing.
 
 ---
 
-## Contraintes
+## Typical Use Cases
 
-- Ne pas confondre reformuler et simplifier.
-- Ne pas combler les ambiguïtés — les signaler.
-- Ne pas glisser vers la critique ou la décision.
+- **Requirements analysis** — rephrase a client expression into actionable requirements
+- **Legal** — transpose clauses into operational implications
+- **Technical → business** — rephrase a spec in business terms
+- **Business → technical** — rephrase a need into system constraints
 
 ---
 
-## Format de sortie
+## Constraints
+
+- Do not confuse rephrasing and simplifying.
+- Do not fill in ambiguities — flag them.
+- Do not drift toward critique or decision.
+
+---
+
+## Output Format
 
 ```markdown
 ---
 status: draft
 skill: reformuler
-registre: [registre cible]
-contexte_cible: [si fourni]
+registre: [target register]
+contexte_cible: [if provided]
 ---
 
-# Reformulation — {sujet}
+# Rephrasing — {subject}
 
-## Registre et contexte source
+## Source Register and Context
 {identification}
 
-## Contenu reformulé
-{reformulation avec statut : certain / probable / fragile}
+## Rephrased Content
+{rephrasing with status: certain / probable / fragile}
 
 ## Implications
 - ...
 
-## Zones résistantes
-- [zone] → [raison]
+## Resistant Areas
+- [area] → [reason]
 
-## Questions ouvertes
+## Open Questions
 - ...
 ```
 
 ---
 
-## Définition de done
+## Definition of Done
 
-- Le contenu reformulé est lisible dans le registre cible sans relire le source.
-- Les interprétations fragiles sont visibles.
-- Les zones ambiguës sont signalées, pas comblées.
+- The rephrased content is readable in the target register without re-reading the source.
+- Fragile interpretations are visible.
+- Ambiguous areas are flagged, not filled in.
