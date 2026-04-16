@@ -1,0 +1,46 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = analyse terrain detaillee ; handoff = synthese compacte.",
+      "values": [
+        "standalone",
+        "handoff"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Ce que l'organisation sait deja du terrain et contraintes utiles."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2F855A",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

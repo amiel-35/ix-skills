@@ -1,0 +1,53 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = scenarios detailles ; handoff = synthese compacte.",
+      "values": [
+        "standalone",
+        "handoff"
+      ]
+    },
+    "horizon": {
+      "label": "Horizon",
+      "type": "string",
+      "required": false,
+      "help": "Horizon temporel des scenarios, par exemple 12 mois, 3 ans ou 5 ans."
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Contraintes connues, signaux deja identifies et contexte de decision."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode",
+      "horizon"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#5A67D8",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

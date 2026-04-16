@@ -1,0 +1,48 @@
+{
+  "metier": [
+    "intelligence_strategique",
+    "fondateur_ceo",
+    "commercial"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = plaidoyer humain ; handoff = these adverse structuree consommable en aval.",
+      "values": [
+        "standalone",
+        "handoff"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Contraintes, historique decisionnel et contexte organisationnel utiles."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#7A1F2B",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

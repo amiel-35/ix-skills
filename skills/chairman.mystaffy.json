@@ -1,0 +1,39 @@
+{
+  "metier": [
+    "intelligence_strategique"
+  ],
+  "category": "decision",
+  "params": {
+    "niveau_conclusion": {
+      "label": "Niveau de conclusion",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "standard = conclusion utile ; ferme = recommandation plus nette ; reformulation = privilegier la reformulation du probleme.",
+      "values": [
+        "standard",
+        "ferme",
+        "reformulation"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "niveau_conclusion"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 12,
+    "max_estimated_tokens": 24000
+  },
+  "color": "#2C3E50",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

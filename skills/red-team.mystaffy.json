@@ -1,0 +1,64 @@
+{
+  "metier": [
+    "intelligence_strategique",
+    "commercial",
+    "fondateur_ceo"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = analyse complete ; handoff = structure compacte pour skill aval.",
+      "values": [
+        "standalone",
+        "handoff"
+      ]
+    },
+    "adversaire": {
+      "label": "Profil adversarial",
+      "type": "enum",
+      "required": false,
+      "default": "auto",
+      "help": "auto = la skill choisit l'adversaire le plus dangereux selon le contexte ; sinon incarner le profil choisi.",
+      "values": [
+        "auto",
+        "concurrent-direct",
+        "client-mechant",
+        "regulateur",
+        "investisseur-sceptique",
+        "acheteur-ao"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Ce que l'adversaire sait de l'organisation, contraintes connues et historique relationnel."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode",
+      "adversaire"
+    ],
+    "advanced_fields": [
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#8B1E1E",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
