@@ -178,3 +178,76 @@ def build_mystaffy_json(manifest: dict) -> dict:
             data[field] = manifest[field]
 
     return data
+
+
+def parse_manifest(skill_dir: Path) -> dict:
+    return json.loads((skill_dir / "manifest.json").read_text(encoding="utf-8"))
+
+
+def read_body(skill_dir: Path) -> str:
+    skill_md = skill_dir / "skill.md"
+    return skill_md.read_text(encoding="utf-8") if skill_md.exists() else ""
+
+
+def migrate_skill(skill_id: str, dry_run: bool = False) -> bool:
+    skill_dir = IX_MEMORY_SKILLS / skill_id
+    if not skill_dir.exists():
+        print(f"ERROR: {skill_dir} not found", file=sys.stderr)
+        return False
+
+    manifest = parse_manifest(skill_dir)
+    body = read_body(skill_dir)
+    uses_partials = manifest.get("uses_partials", [])
+
+    body_with_partials = process_partials(body, uses_partials)
+    frontmatter = build_frontmatter(manifest)
+    mystaffy_data = build_mystaffy_json(manifest)
+
+    # Apply id rename (e.g. spec → product-spec)
+    out_id = ID_RENAMES.get(skill_id, skill_id)
+    frontmatter["id"] = out_id
+
+    skill_md_content = build_skill_md(frontmatter, body_with_partials)
+    out_md = SKILLS_DIR / f"{out_id}.md"
+    out_json = SKILLS_DIR / f"{out_id}.mystaffy.json"
+
+    if dry_run:
+        print(f"[dry-run] Would write: {out_md}")
+        print(f"[dry-run] Would write: {out_json}")
+        return True
+
+    out_md.write_text(skill_md_content, encoding="utf-8")
+    out_json.write_text(
+        json.dumps(mystaffy_data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    print(f"OK: {out_id}")
+    return True
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Migrate ix-memory skills to ix-skills format")
+    parser.add_argument("skill_id", nargs="?", help="Migrate a single skill by id")
+    parser.add_argument("--dry-run", action="store_true", help="Validate without writing files")
+    parser.add_argument("--list", action="store_true", help="Print confirmed skills and exit")
+    args = parser.parse_args()
+
+    if args.list:
+        for s in CONFIRMED_SKILLS:
+            print(s)
+        return
+
+    skills_to_migrate = [args.skill_id] if args.skill_id else CONFIRMED_SKILLS
+    errors = []
+    for skill_id in skills_to_migrate:
+        if not migrate_skill(skill_id, dry_run=args.dry_run):
+            errors.append(skill_id)
+
+    if errors:
+        print(f"\nFailed: {errors}", file=sys.stderr)
+        sys.exit(1)
+    else:
+        print(f"\nDone: {len(skills_to_migrate)} skill(s) {'validated' if args.dry_run else 'migrated'}.")
+
+
+if __name__ == "__main__":
+    main()

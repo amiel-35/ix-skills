@@ -157,3 +157,33 @@ def test_build_skill_md_has_frontmatter_and_todo():
     fm_text = result.split("---\n")[1]
     parsed = yaml.safe_load(fm_text)
     assert parsed["id"] == "test"
+
+
+import tempfile
+import os
+from scripts.migrate_from_ix_memory import migrate_skill
+
+
+def test_migrate_skill_dry_run(capsys):
+    result = migrate_skill("contrarian", dry_run=True)
+    assert result is True
+    captured = capsys.readouterr()
+    assert "dry-run" in captured.out
+    assert "contrarian" in captured.out
+
+
+def test_migrate_skill_writes_files(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "skills").mkdir()
+    result = migrate_skill("contrarian", dry_run=False)
+    assert result is True
+    assert (tmp_path / "skills" / "contrarian.md").exists()
+    assert (tmp_path / "skills" / "contrarian.mystaffy.json").exists()
+    # frontmatter must parse
+    content = (tmp_path / "skills" / "contrarian.md").read_text()
+    assert content.startswith("---\n")
+    assert "id: contrarian" in content
+    # .mystaffy.json must be valid JSON with uses_partials
+    mj = json.loads((tmp_path / "skills" / "contrarian.mystaffy.json").read_text())
+    assert mj["uses_partials"] == ["conseil-review"]
+    assert mj["metier"] == ["intelligence_strategique"]
