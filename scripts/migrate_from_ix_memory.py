@@ -91,12 +91,58 @@ ID_RENAMES = {"spec": "product-spec"}
 
 
 def metier_to_domain(metier_list: list) -> str:
-    raise NotImplementedError
+    for m in metier_list:
+        if m in METIER_TO_DOMAIN:
+            return METIER_TO_DOMAIN[m]
+    return "cognitif"
 
 
 def build_frontmatter(manifest: dict) -> dict:
-    raise NotImplementedError
+    metier = manifest.get("metier", [])
+
+    # Normalize output_type vs output_types
+    if "output_types" in manifest:
+        output_types = manifest["output_types"]
+    elif "output_type" in manifest:
+        output_types = [manifest["output_type"]]
+    else:
+        output_types = []
+
+    fm = {
+        "id": manifest["id"],
+        "label": manifest["label"],
+        "version": manifest.get("version", "1.0.0"),
+        "description_fr": manifest.get("description_fr", manifest.get("description", "")),
+        "description_en": manifest.get("description_en", ""),
+        "icon": manifest.get("icon", "○"),
+        "domain": metier_to_domain(metier),
+        "category": manifest.get("category", "atome"),
+        "input_types": manifest.get("input_types", []),
+        "output_types": output_types,
+        "compatible": ["claude-ai", "claude-code", "cowork", "gpt", "gemini", "mystaffy"],
+    }
+    if manifest.get("aliases"):
+        fm["aliases"] = manifest["aliases"]
+    return fm
 
 
 def build_mystaffy_json(manifest: dict) -> dict:
-    raise NotImplementedError
+    data: dict = {}
+
+    # Preserve round-trip fields
+    if manifest.get("metier"):
+        data["metier"] = manifest["metier"]
+    if manifest.get("uses_partials"):
+        data["uses_partials"] = manifest["uses_partials"]
+
+    data["category"] = manifest.get("category", "atome")
+    data["params"] = manifest.get("params", {})
+    data["ui"] = manifest.get("ui", {"simple_fields": [], "advanced_fields": []})
+
+    # Preserve mystaffy platform fields
+    for field in ["execution", "color", "kind", "launch_mode", "transport", "output_format",
+                  "enabled", "visibility"]:
+        if field in manifest:
+            data[field] = manifest[field]
+
+    return data
