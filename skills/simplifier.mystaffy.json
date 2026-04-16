@@ -1,0 +1,23 @@
+{
+  "category": "atome",
+  "params": {
+    "removal_level": {
+      "label": "Removal Level",
+      "type": "enum",
+      "required": false,
+      "default": "moderate",
+      "values": ["light", "moderate", "heavy"]
+    },
+    "keep_examples": {
+      "label": "Keep Examples",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "help": "Preserve examples even if redundant"
+    }
+  },
+  "ui": {
+    "simple_fields": ["removal_level"],
+    "advanced_fields": ["keep_examples"]
+  }
+}

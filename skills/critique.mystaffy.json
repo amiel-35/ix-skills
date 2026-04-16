@@ -1,0 +1,28 @@
+{
+  "category": "critique",
+  "params": {
+    "lenses": {
+      "label": "Lenses",
+      "type": "multiselect",
+      "required": false,
+      "help": "Leave empty to use all canonical lenses",
+      "values": [
+        "clarity", "coherence", "audience fit", "redundancies",
+        "security", "technical debt", "readability", "testability",
+        "coupling", "single point of failure", "scalability", "cost",
+        "operational complexity", "edge cases", "ambiguities",
+        "implicit assumptions"
+      ]
+    },
+    "recipient": {
+      "label": "Recipient",
+      "type": "string",
+      "required": false,
+      "placeholder": "e.g. senior engineer, product manager"
+    }
+  },
+  "ui": {
+    "simple_fields": [],
+    "advanced_fields": ["lenses", "recipient"]
+  }
+}

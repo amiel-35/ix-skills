@@ -1,0 +1,28 @@
+{
+  "category": "production",
+  "params": {
+    "target_format": {
+      "label": "Target Format",
+      "type": "enum",
+      "required": false,
+      "values": ["email", "report", "brief", "readme", "html", "auto"]
+    },
+    "recipient": {
+      "label": "Recipient",
+      "type": "string",
+      "required": false,
+      "placeholder": "e.g. client, internal team, executive"
+    },
+    "detail_level": {
+      "label": "Detail Level",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "values": ["concise", "standard", "detailed"]
+    }
+  },
+  "ui": {
+    "simple_fields": ["target_format", "recipient"],
+    "advanced_fields": ["detail_level"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "category": "decision",
+  "params": {
+    "criteria": {
+      "label": "Criteria",
+      "type": "text",
+      "required": false,
+      "placeholder": "e.g. speed, cost, risk, maintainability"
+    },
+    "force_conclusion": {
+      "label": "Force Conclusion",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "help": "Produce a recommendation even under uncertainty"
+    }
+  },
+  "ui": {
+    "simple_fields": [],
+    "advanced_fields": ["criteria", "force_conclusion"]
+  }
+}

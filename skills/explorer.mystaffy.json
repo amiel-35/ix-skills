@@ -1,0 +1,24 @@
+{
+  "category": "research",
+  "params": {
+    "breadth": {
+      "label": "Breadth",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "values": ["focused", "standard", "broad"]
+    },
+    "nb_options": {
+      "label": "Number of Options",
+      "type": "number",
+      "required": false,
+      "help": "Leave empty to infer from the brief",
+      "min": 2,
+      "max": 10
+    }
+  },
+  "ui": {
+    "simple_fields": ["breadth"],
+    "advanced_fields": ["nb_options"]
+  }
+}
