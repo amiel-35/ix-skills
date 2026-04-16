@@ -45,7 +45,7 @@ If an interpretation is fragile, you flag it.
 2. Identify the original register and context.
 3. Identify dense, ambiguous, or jargon-heavy areas.
 4. For each area: restate the meaning + flag whether the interpretation is certain / probable / fragile.
-5. If a target context is provided, anchor it: *"in our context, this concretely means..."*
+5. If a target context is provided, anchor it: *"in our context, this means in practice..."*
 6. Identify implications if requested.
 7. List areas that resist rephrasing.
 

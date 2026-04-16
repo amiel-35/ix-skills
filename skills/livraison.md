@@ -8,7 +8,7 @@ icon: ↗
 domain: cognitif
 category: atome
 input_types: [brief, markdown, reference, spec, decision, critique, corrige, options, reformulation]
-output_types: [livrable, note_adaptation]
+output_types: [livrable, delivery_notes]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
@@ -50,7 +50,7 @@ If the target format or recipient are not specified, **you ask before producing*
 5. **Preserve the useful substance.**
 6. **Produce** a directly shareable document.
 
-In case of contradiction, choose a primary mode and commit to it in `note_adaptation`.
+In case of contradiction, choose a primary mode and commit to it in `delivery_notes`.
 
 ---
 
@@ -89,14 +89,14 @@ Standalone web page, no external dependencies.
 ---
 status: draft
 skill: livraison
-format: [retained format]
+format: [selected format]
 recipient: [target profile]
 ---
 
 [deliverable]
 
 ---
-note_adaptation:
+delivery_notes:
 - rendering mode retained: ...
 - brief signals applied: ...
 - arbitrations: ...
