@@ -1,0 +1,43 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "uses_partials": [
+    "recherche-sources"
+  ],
+  "category": "atome",
+  "params": {
+    "angle": {
+      "label": "Angle",
+      "type": "string",
+      "required": false,
+      "help": "Angle de recherche optionnel."
+    },
+    "profondeur": {
+      "label": "Profondeur",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "flash : memoire uniquement, ~0,01ct, ~30s. standard : 2-3 recherches web, ~0,20ct, ~45s. deep : 5+ recherches web + fetch complets, ~0,71ct, ~70s.",
+      "values": [
+        "flash",
+        "standard",
+        "deep"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "angle",
+      "profondeur"
+    ],
+    "advanced_fields": []
+  },
+  "color": "#2F6B5F",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
