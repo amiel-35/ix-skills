@@ -118,3 +118,42 @@ def test_build_mystaffy_json_preserves_platform_fields():
 def test_build_mystaffy_json_no_uses_partials_when_absent():
     mj = build_mystaffy_json(BRIEF_MANIFEST)
     assert "uses_partials" not in mj
+
+
+from scripts.migrate_from_ix_memory import process_partials, build_skill_md
+import yaml
+
+
+def test_process_partials_skips_deck():
+    body = "# My Skill\nContent here."
+    result = process_partials(body, ["deck-viewport"])
+    assert "deck-viewport" not in result
+    assert "Content here." in result
+
+
+def test_process_partials_metier_hint():
+    body = "# Skill"
+    result = process_partials(body, ["metier_rh"])
+    assert "Domain calibration: rh" in result
+
+
+def test_process_partials_unknown_appends_todo():
+    body = "# Skill"
+    result = process_partials(body, ["unknown-partial"])
+    assert "TODO: partial not handled: unknown-partial" in result
+
+
+def test_build_skill_md_has_frontmatter_and_todo():
+    fm = {"id": "test", "label": "Test", "version": "1.0.0",
+          "description_fr": "desc", "description_en": "",
+          "icon": "○", "domain": "cognitif", "category": "atome",
+          "input_types": ["brief"], "output_types": ["result"],
+          "compatible": ["claude-ai"]}
+    result = build_skill_md(fm, "# Body\nContent.")
+    assert result.startswith("---\n")
+    assert "TODO: translate body to English" in result
+    assert "# Body" in result
+    # frontmatter must be valid YAML
+    fm_text = result.split("---\n")[1]
+    parsed = yaml.safe_load(fm_text)
+    assert parsed["id"] == "test"

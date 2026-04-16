@@ -90,6 +90,38 @@ CONFIRMED_SKILLS = [
 ID_RENAMES = {"spec": "product-spec"}
 
 
+def inline_partial(partial_name: str) -> str:
+    partial_file = IX_MEMORY_PARTIALS / f"{partial_name}.md"
+    if not partial_file.exists():
+        return f"<!-- PARTIAL NOT FOUND: {partial_name} -->"
+    return partial_file.read_text().strip()
+
+
+def process_partials(body: str, uses_partials: list) -> str:
+    sections = [body.strip()]
+    for partial in uses_partials:
+        if partial in SKIP_PARTIALS:
+            continue
+        elif partial in INLINE_PARTIALS:
+            content = inline_partial(partial)
+            sections.append(f"\n\n<!-- inlined from partial: {partial} -->\n\n{content}")
+        elif partial.startswith(METIER_PARTIAL_PREFIX):
+            metier = partial[len(METIER_PARTIAL_PREFIX):]
+            sections.append(
+                f"\n\n> Domain calibration: {metier}. Adapt lens and output format accordingly."
+            )
+        else:
+            sections.append(f"\n\n<!-- TODO: partial not handled: {partial} -->")
+    return "".join(sections)
+
+
+def build_skill_md(frontmatter: dict, body: str) -> str:
+    yaml_str = yaml.dump(
+        frontmatter, allow_unicode=True, default_flow_style=False, sort_keys=False
+    )
+    return f"---\n{yaml_str}---\n\n<!-- TODO: translate body to English -->\n\n{body}\n"
+
+
 def metier_to_domain(metier_list: list) -> str:
     for m in metier_list:
         if m in METIER_TO_DOMAIN:
