@@ -96,8 +96,7 @@ Cinq angles pour challenger une décision, un plan ou un brief.
 | `conformite-rgpd` | Checklist conformité RGPD depuis un document technique |
 | `legal-risk-flag` | Identifier rapidement les signaux juridiques d'alerte |
 | `nda-draft` | Générer un NDA adapté au contexte |
-| `contrat-emploi` | Analyser ou générer un contrat de travail |
-| `contrat-fournisseur` | Analyser un contrat fournisseur côté acheteur |
+| `contrat-fournisseur` | Analyser ou rédiger un contrat fournisseur côté acheteur |
 
 ---
 
@@ -115,6 +114,7 @@ Cinq angles pour challenger une décision, un plan ou un brief.
 | `performance-review-helper` | Préparer l'entretien annuel avec objectifs SMART |
 | `plan-developpement-competences` | Plan de développement individuel ou collectif |
 | `grille-remuneration` | Structurer une grille salariale par famille et niveau |
+| `contrat-emploi` | Analyser ou rédiger un contrat de travail |
 | `lettre-cadrage-disciplinaire` | Rédiger une lettre de cadrage disciplinaire |
 | `org-design-brief` | Formaliser une cible organisationnelle avec diagnostic |
 

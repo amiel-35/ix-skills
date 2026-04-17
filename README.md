@@ -96,8 +96,7 @@ Challenge a decision, plan, or brief from five distinct angles.
 | `conformite-rgpd` | GDPR compliance checklist from a technical document |
 | `legal-risk-flag` | Quickly surface legal red flags in a document |
 | `nda-draft` | Generate an NDA adapted to the context |
-| `contrat-emploi` | Analyze or generate an employment contract |
-| `contrat-fournisseur` | Analyze a supplier contract from the buyer's side |
+| `contrat-fournisseur` | Analyze or draft a supplier contract from the buyer's side |
 
 ---
 
@@ -115,6 +114,7 @@ Challenge a decision, plan, or brief from five distinct angles.
 | `performance-review-helper` | Prepare an annual review with SMART objectives |
 | `plan-developpement-competences` | Individual or collective skills development plan |
 | `grille-remuneration` | Structure a salary grid by family and level |
+| `contrat-emploi` | Analyze or draft an employment contract |
 | `lettre-cadrage-disciplinaire` | Draft a factual disciplinary framing letter |
 | `org-design-brief` | Formalize an organizational target with current diagnosis |
 
