@@ -10,6 +10,7 @@
   "license": "MIT",
   "components": {
     "skills": [
+      "skills/ach",
       "skills/analyse-cdc",
       "skills/analyse-concurrentielle",
       "skills/analysis",

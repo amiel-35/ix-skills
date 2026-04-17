@@ -1,0 +1,42 @@
+{
+  "metier": ["intelligence_strategique"],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "standalone",
+      "help": "standalone = complete matrix; handoff = compact summary for downstream use.",
+      "values": ["standalone", "handoff"]
+    },
+    "hypotheses": {
+      "label": "Candidate hypotheses",
+      "type": "text",
+      "required": false,
+      "help": "Already identified hypotheses. If empty, the skill generates them."
+    },
+    "informations": {
+      "label": "Available information",
+      "type": "text",
+      "required": false,
+      "help": "Facts, observations, and data to feed into the matrix."
+    },
+    "contexte": {
+      "label": "Context",
+      "type": "text",
+      "required": false,
+      "help": "Organizational or situational context."
+    }
+  },
+  "ui": {
+    "simple_fields": ["mode"],
+    "advanced_fields": ["hypotheses", "informations", "contexte"]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 18000
+  }
+}

@@ -30,20 +30,20 @@ Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaf
 
 ### ⚔️ Conseil — archétypes de perspective
 
-Cinq angles pour challenger une décision, un plan ou un brief.
+Chaque skill impose une posture cognitive spécifique. À utiliser pour stress-tester une décision, un plan ou un brief avant de s'engager.
 
-| id | Angle |
-|---|---|
-| `contrarian` | Point de défaillance principal et hypothèses non vérifiées |
-| `executor` | Est-ce que ça tient dans la réalité ? |
-| `expansionist` | L'upside manquant et les angles adjacents |
-| `firstprinciples` | La vraie question sous la question |
-| `outsider` | Lu comme un inconnu sans contexte implicite |
-| `outside-in` | Forces externes imposées avant les solutions internes |
-| `dixieme-homme` | Thèse adverse complète contre le consensus |
-| `chairman` | Arbitrer des perspectives contradictoires |
-| `red-team` | Raisonnement depuis la perspective adverse |
-| `futurs-alternatifs` | Trois futurs plausibles avec signaux avancés |
+| id | Angle | Origine |
+|---|---|---|
+| `contrarian` | Point de défaillance principal et hypothèses non vérifiées | Avocat du diable — formalisé dans le droit canon catholique (advocatus diaboli), adopté en gestion de la décision |
+| `executor` | Est-ce que ça tient dans la réalité ? | Pré-mortem — Gary Klein (1989) : imaginer que le plan a échoué et expliquer pourquoi |
+| `expansionist` | L'upside manquant et les angles adjacents | Possible adjacent — Stuart Kauffman ; appliqué à la stratégie pour trouver les leviers inexploités |
+| `firstprinciples` | La vraie question sous la question | Méthode socratique — raisonnement depuis les vérités fondamentales, popularisé en tech par Elon Musk |
+| `outsider` | Lu comme un inconnu sans contexte implicite | Regard de l'étranger — force la suppression des connaissances implicites que les initiés oublient de rendre explicites |
+| `outside-in` | Forces externes imposées avant les solutions internes | Analyse de l'environnement stratégique — Five Forces de Porter appliquées comme contrainte avant toute option interne |
+| `dixieme-homme` | Thèse adverse complète contre le consensus | Doctrine du 10e homme — protocole de l'AMAN (Direction du renseignement militaire israélien) mis en place après l'échec du renseignement lors de la guerre du Kippour (1973) : si 9 analystes sont d'accord, le 10e doit défendre la thèse inverse. Popularisé par *World War Z* (2013) |
+| `chairman` | Arbitrer des perspectives contradictoires | Synthèse structurée — intègre les différentes vues Advisory en un verdict unique et actionnable |
+| `red-team` | Raisonnement depuis la perspective adverse | Méthodologie Red Team — simulation adversariale CIA/NSA ; une équipe dédiée raisonne et agit comme l'adversaire pour exposer les angles morts |
+| `futurs-alternatifs` | Trois futurs plausibles avec signaux avancés | Planification par scénarios — développée par Herman Kahn à la RAND (années 1950), raffinée par la Group Planning de Shell (Pierre Wack, années 1970), utilisée par la CIA pour les prévisions géopolitiques |
 
 ---
 
@@ -51,6 +51,7 @@ Cinq angles pour challenger une décision, un plan ou un brief.
 
 | id | Rôle |
 |---|---|
+| `ach` | Matrice d'hypothèses concurrentes — trouver celle que les preuves éliminent le moins |
 | `key-assumptions` | Rendre visibles les hypothèses implicites d'un raisonnement |
 | `indicateurs` | Signaux de confirmation et d'alerte pour un plan |
 | `quality-check` | Évaluer la solidité structurelle d'une information |

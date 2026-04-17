@@ -30,20 +30,20 @@ Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaf
 
 ### ⚔️ Advisory — perspective archetypes
 
-Challenge a decision, plan, or brief from five distinct angles.
+Each skill forces a specific cognitive stance. Use them to stress-test a decision, plan, or brief before committing.
 
-| id | Angle |
-|---|---|
-| `contrarian` | Main failure point and unverified assumptions |
-| `executor` | Does this hold up in reality? |
-| `expansionist` | The missing upside and adjacent opportunities |
-| `firstprinciples` | The real question beneath the question |
-| `outsider` | Read cold, with no implicit context |
-| `outside-in` | External forces imposed before internal solutions |
-| `dixieme-homme` | Full opposing thesis against the consensus |
-| `chairman` | Arbitrate contradictory perspectives |
-| `red-team` | Reason from the adversary's perspective |
-| `futurs-alternatifs` | Three plausible futures with leading indicators |
+| id | Angle | Origin |
+|---|---|---|
+| `contrarian` | Main failure point and unverified assumptions | Devil's advocate — formalized in Catholic canon law (advocatus diaboli), adopted in structured decision-making |
+| `executor` | Does this hold up in reality? | Pre-mortem — Gary Klein (1989): imagine the plan has failed, explain why |
+| `expansionist` | The missing upside and adjacent opportunities | Adjacent possible — Stuart Kauffman; applied to strategy to find underexplored leverage |
+| `firstprinciples` | The real question beneath the question | Socratic method — reasoning from foundational truths, popularized in tech by Elon Musk |
+| `outsider` | Read cold, with no implicit context | Stranger's eyes — forces the removal of implicit shared knowledge that insiders overlook |
+| `outside-in` | External forces imposed before internal solutions | Strategic environment analysis — Porter's Five Forces applied as a forcing function before internal options |
+| `dixieme-homme` | Full opposing thesis against the consensus | 10th Man doctrine — AMAN (Israeli Military Intelligence Directorate) protocol implemented after the 1973 Yom Kippur War intelligence failure; if 9 analysts agree, the 10th must argue the opposite. Popularized by *World War Z* (2013) |
+| `chairman` | Arbitrate contradictory perspectives | Structured synthesis — integrates multiple advisory views into a single actionable verdict |
+| `red-team` | Reason from the adversary's perspective | Red team methodology — CIA/NSA adversarial simulation; a dedicated team argues and acts as the opponent to expose blind spots |
+| `futurs-alternatifs` | Three plausible futures with leading indicators | Scenario planning — developed by Herman Kahn at RAND (1950s), refined by Shell's Group Planning (Pierre Wack, 1970s), used by the CIA for geopolitical forecasting |
 
 ---
 
@@ -51,6 +51,7 @@ Challenge a decision, plan, or brief from five distinct angles.
 
 | id | Role |
 |---|---|
+| `ach` | Analysis of Competing Hypotheses — find which explanation the evidence eliminates least |
 | `key-assumptions` | Surface the implicit assumptions behind a reasoning |
 | `indicateurs` | Confirmation and alert signals to track a plan |
 | `quality-check` | Assess the structural soundness of cited information |
