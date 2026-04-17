@@ -183,109 +183,605 @@ Each skill forces a specific cognitive stance. They are not interchangeable — 
 
 ### 🗺️ Strategy & Intelligence
 
-| id | Role |
-|---|---|
-| `ach` | Analysis of Competing Hypotheses — find which explanation the evidence eliminates least |
-| `key-assumptions` | Surface the implicit assumptions behind a reasoning |
-| `indicateurs` | Confirmation and alert signals to track a plan |
-| `quality-check` | Assess the structural soundness of cited information |
-| `note-strategique` | Produce a structured and argued strategic memo |
-| `strategie-prix` | Pricing strategy with perceived value, segmentation, and scenarios |
-| `business-case-draft` | Structure an investment decision with costs, benefits, and risks |
-| `tam-sam-som` | Estimate total, serviceable, and obtainable market |
+Structured intelligence tools — each audits a different dimension of a reasoning or plan before you commit to it.
+
+---
+
+#### `ach` — Analysis of Competing Hypotheses
+
+**What it does:** Puts 3–4 competing hypotheses to the test against available evidence. For each piece of information, marks whether it supports, contradicts, or is neutral to each hypothesis. Retains the hypothesis the evidence eliminates the least — not the one you started with.
+
+**What it doesn't do:** Does not validate a conclusion. Does not confirm what you already believe.
+
+**Use when:** You have an explanation for something and want to check if you've fallen in love with it. Pairs naturally with `key-assumptions` (which surfaces the hidden premises of each hypothesis) and `indicateurs` (which defines what to watch to see which hypothesis materializes).
+
+---
+
+#### `key-assumptions` — Surface hidden assumptions
+
+**What it does:** Pulls out the implicit premises of a reasoning, decision, or plan — what is taken for granted without being stated. Qualifies each assumption (solid / fragile / unknown) and identifies the critical ones whose collapse would bring the whole thing down.
+
+**What it doesn't do:** Does not validate the reasoning. Does not check facts. It makes the foundation visible — what you do with that is up to you.
+
+**Use when:** Before committing to a plan, before presenting an analysis to a decision-maker, or when you suspect that what you're calling "facts" are actually assumptions you haven't tested.
+
+> Pairs with `ach` (which tests hypotheses against evidence) and `quality-check` (which audits the sources themselves).
+
+---
+
+#### `indicateurs` — Define what to watch
+
+**What it does:** Defines in advance the observable signals that will tell you whether a plan is holding, a hypothesis is materializing, or a pivot is coming. Produces confirmation signals (the plan is working) and alert signals (something is wrong), plus weak signals to watch.
+
+**What it doesn't do:** Does not track KPIs in real time (that's `tableau-de-bord-kpi`). Does not evaluate current performance. It defines the monitoring setup before execution begins.
+
+**Use when:** After a decision or plan is formed, before execution starts. Especially powerful after `futurs-alternatifs` (leading indicators per scenario) or `ach` (signals that would confirm or invalidate the retained hypothesis).
+
+---
+
+#### `quality-check` — Audit the raw evidence
+
+**What it does:** Evaluates the structural solidity of the information on which a reasoning, decision, or analysis rests — before it becomes a foundation. Checks source type, corroboration, freshness, author bias, and flags informational gaps.
+
+**What it doesn't do:** Does not evaluate the conclusions. Does not evaluate the reasoning itself. Only the quality of the raw material.
+
+**Use when:** Before making a decision that rests on external data, market figures, or cited sources. Use it before `decision` or `note-strategique` when you're not sure the sources are solid.
+
+> `quality-check` audits information sources. `key-assumptions` audits the hidden premises of a reasoning. Both are pre-decision hygiene, different layers.
+
+---
+
+#### `note-strategique` — Strategic memo, conclusion first
+
+**What it does:** Produces a structured, shareable strategic memo — for a decision-maker, board, or executive. Starts with the conclusion, then the argument, then the options, then the recommendation with explicit trade-offs. Two pages maximum without justification.
+
+**What it doesn't do:** Does not start with context and bury the recommendation at the end. If you don't have a clear position yet, run `decision` first.
+
+**Use when:** You have a recommendation to make and need to package it for a decision-maker. Output is directly shareable.
+
+---
+
+#### `strategie-prix` — Pricing strategy with trade-offs
+
+**What it does:** Formulates a pricing strategy by linking perceived value, customer segmentation, and business trade-offs. Compares pricing models (freemium, value-based, usage-based, tiered…) and produces a recommendation with explicit hypotheses.
+
+**What it doesn't do:** Does not produce a price list. Does not recommend a price without stating the assumptions behind it.
+
+**Use when:** Product launch, market repositioning, or under competitive pricing pressure. Requires context on the offer, target customers, and competitive benchmarks if available.
+
+---
+
+#### `business-case-draft` — Investment decision structure
+
+**What it does:** Structures an investment decision with explicit costs, expected benefits, risk scenarios, and financial hypotheses. Distinguishes certain costs from estimated costs. Clearly marks what is a hypothesis vs a fact. If financial data is too fragile, says so and suggests `note-strategique` as an alternative.
+
+**What it doesn't do:** Does not invent figures.
+
+**Use when:** You have numbers to work with and need to frame a buy/build/invest decision. If you don't have numbers, use `note-strategique` instead.
+
+---
+
+#### `tam-sam-som` — Market sizing with method
+
+**What it does:** Estimates Total Addressable Market, Serviceable Addressable Market, and Serviceable Obtainable Market using top-down and bottom-up methods with explicit hypotheses. Surfaces the method, the figures, and the degree of uncertainty. Web search required in standard/deep mode.
+
+**What it doesn't do:** Does not produce figures from memory without flagging it. TAM/SAM/SOM without hypotheses is a guess, not a sizing.
+
+**Use when:** Preparing a pitch, validating a market opportunity, or building a business case.
 
 ---
 
 ### 🔍 Research & Analysis
 
-| id | Role |
-|---|---|
-| `analyse-concurrentielle` | Factual foundation on the competitive landscape |
-| `analyse-cdc` | Analyze a received specification document |
-| `budget-variance-analysis` | Analyze budget/actual variances with corrective hypotheses |
-| `metriques-saas` | Diagnose CAC, LTV, NRR, churn |
-| `total-cost-analysis` | Structure a total cost of ownership with hidden costs |
-| `financial-narrative` | Raw financial figures → executive narrative |
-| `data-storytelling` | Turn data into a clear narrative with insight and recommendation |
+Each tool builds a factual foundation on a specific analytical object — competitive landscape, specification, budget, SaaS metrics, costs, financial data, or data narrative.
+
+---
+
+#### `analyse-concurrentielle` — Competitive landscape with differentiation logic
+
+**What it does:** Structures a competitive analysis around differentiation logic — not a list of players. Identifies market forces, compares players on a common framework, surfaces positioning risks and differentiation zones. Web search required in standard/deep mode.
+
+**What it doesn't do:** Does not produce a bullet list of competitors. Does not make strategic recommendations — use `decision` for that.
+
+**Use when:** Before a market entry, a positioning decision, or a fundraising narrative. Pairs with `note-strategique` or `decision` downstream.
+
+---
+
+#### `analyse-cdc` — Specification document analysis
+
+**What it does:** Analyzes a received specification document (CDC) from the respondent's perspective. Surfaces explicit requirements, implicit requirements, grey areas, contradictions, and the blocking questions to ask before committing to a response.
+
+**What it doesn't do:** Does not summarize the spec — it critiques it. Does not produce a response plan.
+
+**Use when:** You receive a spec, RFP, or requirements document and need to understand what's really being asked before engaging. Output feeds a response strategy or clarification meeting.
+
+---
+
+#### `budget-variance-analysis` — Budget vs. actual diagnosis
+
+**What it does:** Analyzes gaps between budget and actual figures. Identifies significant variances, qualifies them by nature (volume, price, mix, timing, operational), and produces corrective hypotheses and watch points.
+
+**What it doesn't do:** Does not invent causes or figures. Does not make management decisions — produces a factual diagnosis.
+
+**Use when:** Monthly or quarterly budget review, P&L analysis, or when you need to explain performance to a board or controller.
+
+---
+
+#### `metriques-saas` — SaaS business model health
+
+**What it does:** Reads SaaS key metrics together — CAC, LTV, NRR, churn, payback period — and interprets them as a system, not in isolation. Surfaces implications for business model health, growth sustainability, and piloting priorities.
+
+**What it doesn't do:** Does not produce benchmarks from memory in standard/deep mode. Does not recommend actions — produces a diagnosis.
+
+**Use when:** Board preparation, fundraising, operational review, or when metric trends are contradictory and you need to understand what they mean together.
+
+---
+
+#### `total-cost-analysis` — Full lifecycle cost (TCO)
+
+**What it does:** Structures a Total Cost of Ownership analysis covering direct costs, hidden costs (implementation, training, integration, migration, exit), and financial risks over a given horizon. Distinguishes confirmed costs, estimated costs, and unquantified risks.
+
+**What it doesn't do:** Does not look at the sticker price alone. Does not invent figures without marking them as hypotheses.
+
+**Use when:** Before any significant purchase or vendor decision where the visible price doesn't capture the full economic impact. Pairs with `offer-comparison` and `vendor-scorecard`.
+
+---
+
+#### `financial-narrative` — Numbers → executive story
+
+**What it does:** Transforms raw financial figures (P&L, KPIs, reporting) into a clear, message-first narrative for an executive or board audience. Starts with key messages, contextualizes figures, connects variations to explanatory factors.
+
+**What it doesn't do:** Does not invent numbers or trends. Does not reproduce the raw data. Does not distort figures to tell a better story.
+
+**Use when:** Board presentations, investor updates, quarterly reviews — any time numbers need to be communicated to an audience that needs the "so what" before the detail.
+
+> Different from `data-storytelling`: `financial-narrative` is specifically for financial data with an executive or board audience. `data-storytelling` handles any type of data for any audience.
+
+---
+
+#### `data-storytelling` — Data → narrative with insight
+
+**What it does:** Transforms any data (metrics, tables, analysis results) into a clear narrative with a main insight and a recommendation. Reorganizes the data around the insight — not in raw order.
+
+**What it doesn't do:** Does not tell a story that doesn't rest on the data. Does not stack numbers without a narrative angle.
+
+**Use when:** Product reviews, user research readouts, operational reporting — any data presentation where the audience needs to understand what the data means and what to do about it.
 
 ---
 
 ### 📊 Metrics & Tracking
 
-| id | Role |
-|---|---|
-| `okr` | Turn a vague objective into a structured OKR |
-| `tableau-de-bord-kpi` | Define and structure a KPI dashboard |
-| `offer-comparison` | Compare supplier offers on a weighted grid |
-| `vendor-scorecard` | Reusable vendor evaluation grid |
-| `compliance-checklist` | Generate a GDPR / labor law / sector compliance checklist |
+Tools for defining and evaluating measurement systems — from objectives to dashboards to vendor selection grids.
+
+---
+
+#### `okr` — Vague objective → structured OKR
+
+**What it does:** Transforms a vague strategic intent into a structured OKR — an inspiring Objective paired with 3–4 measurable Key Results. Refuses non-measurable KRs and proposes quantified formulations instead.
+
+**What it doesn't do:** Does not validate KRs that lack a metric. Does not confuse KRs with tasks or initiatives.
+
+**Use when:** Quarterly planning, strategic alignment, or when leadership has a direction but no measurable goals. Output feeds `tableau-de-bord-kpi` and `indicateurs`.
+
+---
+
+#### `tableau-de-bord-kpi` — KPI dashboard structure
+
+**What it does:** Defines and structures a KPI dashboard from business objectives, OKRs, or a business context. Distinguishes directly measurable KPIs, estimable KPIs (with stated hypotheses), and problematic KPIs (missing reliable source). Refuses vanity metrics.
+
+**Use when:** After OKRs are set, or when you need to put a monitoring structure in place for a team, product, or business unit.
+
+---
+
+#### `offer-comparison` — Weighted comparison with recommendation
+
+**What it does:** Compares already-received supplier offers on a normalized weighted grid and produces an argued recommendation. Makes the scoring method and uncertainty visible — does not hide trade-offs.
+
+**What it doesn't do:** Does not evaluate offers you haven't received yet. If the proposals are too different in scope, manual normalization is required first.
+
+**Use when:** After receiving multiple quotes for a significant purchase.
+
+> Pipeline: `vendor-scorecard` → `offer-comparison` → `total-cost-analysis` → `decision`.
+
+---
+
+#### `vendor-scorecard` — Reusable vendor evaluation grid
+
+**What it does:** Builds a weighted vendor scorecard from a procurement context — criteria, weightings, scoring scale, qualitative comment fields. Produces the scoring **tool**, not the decision.
+
+**What it doesn't do:** Does not score vendors (that's `offer-comparison`). Does not invent weightings without justifying them.
+
+**Use when:** Before a consultation process begins, to align stakeholders on evaluation criteria. Reusable for future consultations of the same type.
+
+---
+
+#### `compliance-checklist` — Legal compliance checklist
+
+**What it does:** Generates a compliance checklist covering legal, contractual, and regulatory obligations — GDPR, labor law, sector-specific regulation — from a project context or document.
+
+**What it doesn't do:** Does not replace professional legal or regulatory advice. Always requires expert validation before operational use.
+
+**Use when:** Before any product launch, contractualization, or operational change with legal implications. A structured pre-validation to orient the conversation with a lawyer, not replace it.
 
 ---
 
 ### ⚖️ Legal & Contracts
 
-| id | Role |
-|---|---|
-| `contract-review` | Analyze a contract clause by clause |
-| `cgv-checker` | Identify unbalanced clauses in terms and conditions |
-| `conformite-rgpd` | GDPR compliance checklist from a technical document |
-| `legal-risk-flag` | Quickly surface legal red flags in a document |
-| `nda-draft` | Generate an NDA adapted to the context |
-| `contrat-fournisseur` | Analyze or draft a supplier contract from the buyer's side |
+Pre-legal tools — all require professional validation before use. They orient reviews, surface risks, and produce drafts. None replace a lawyer.
+
+---
+
+#### `legal-risk-flag` — Fast red flag scan
+
+**What it does:** Quickly reads a legal or contractual document and extracts priority risk signals with graduated severity levels (critical / high / medium). Designed for speed — a flash assessment before deciding whether a deeper review is needed.
+
+**What it doesn't do:** Does not perform a full analysis. Flags, does not conclude. Never replace a lawyer.
+
+**Use when:** You receive a document and need to decide in minutes whether to escalate or which clauses to focus on.
+
+> Use `legal-risk-flag` first (fast scan), then `contract-review` for the full clause-by-clause analysis.
+
+---
+
+#### `contract-review` — Clause-by-clause with redlines
+
+**What it does:** Analyzes a contract clause by clause, identifies deviations from standard positions, produces priority redlines with justification and proposed alternative language.
+
+**What it doesn't do:** Does not provide legal advice. Output must be reviewed by a qualified professional before use or negotiation.
+
+**Use when:** Before signing a significant contract. Faster than a full lawyer review for the first pass — then the lawyer validates.
+
+---
+
+#### `cgv-checker` — Unbalanced clauses in T&Cs
+
+**What it does:** Identifies unbalanced, unusual, or sensitive clauses in General Terms and Conditions (sales or use), depending on the reading position (buyer, user, subscriber).
+
+**What it doesn't do:** Does not assess the full legal validity of the T&Cs. Does not replace legal advice.
+
+**Use when:** Before accepting T&Cs for a significant vendor or platform relationship, or when drafting your own T&Cs.
+
+> Different from `contract-review`: `cgv-checker` is for standard adhesion T&Cs. `contract-review` is for negotiable contracts with custom clauses.
+
+---
+
+#### `conformite-rgpd` — GDPR compliance checklist
+
+**What it does:** Produces a GDPR compliance checklist from a technical specification, product description, or data processing document. Distinguishes observed processing, inferred processing, and obligations to confirm.
+
+**What it doesn't do:** Does not replace a DPO or qualified legal professional. Requires expert validation before operational use.
+
+**Use when:** Before launching a product or feature that processes personal data. A structured first-pass self-assessment before the DPO review.
+
+---
+
+#### `nda-draft` — NDA draft adapted to context
+
+**What it does:** Generates a confidentiality agreement draft adapted to the context — type of parties, subject of exchanges, duration. Produces a document ready for legal review, not for immediate signing.
+
+**What it doesn't do:** Does not provide legal advice. Always requires lawyer validation before signing.
+
+**Use when:** You need a starting point for NDA negotiations and don't want to start from a generic template.
+
+---
+
+#### `contrat-fournisseur` — Supplier contract, buyer's side
+
+**What it does:** Analyzes **or** drafts a supplier or service provider contract from the buyer's perspective. Surfaces unbalanced conditions, clauses to renegotiate (SLA, liability, termination, penalties, exclusivity, renewal), and contractual risks. Can also produce a first draft when no contract exists yet.
+
+**What it doesn't do:** Does not replace legal advice. Requires professional validation before use.
+
+**Use when:** Before signing a supplier contract, before entering negotiations, or when drafting initial terms for a new supplier relationship.
 
 ---
 
 ### 👥 HR & People
 
-| id | Role |
-|---|---|
-| `fiche-poste` | Produce a structured and publishable job description |
-| `entretien-professionnel` | Prepare a mandatory professional development interview |
-| `interview-guide-recruteur` | Recruiter-side interview guide with STAR questions |
-| `interview-loop-planner` | Design the full recruitment interview process |
-| `onboarding-plan` | 30-60-90 day integration plan for a new hire |
-| `offboarding-structure` | Departure plan with knowledge handover |
-| `people-review` | Structure a collective talent review |
-| `performance-review-helper` | Prepare an annual review with SMART objectives |
-| `plan-developpement-competences` | Individual or collective skills development plan |
-| `grille-remuneration` | Structure a salary grid by family and level |
-| `contrat-emploi` | Analyze or draft an employment contract |
-| `lettre-cadrage-disciplinaire` | Draft a factual disciplinary framing letter |
-| `org-design-brief` | Formalize an organizational target with current diagnosis |
+Tools for the full employee lifecycle — recruiting, onboarding, development, assessment, organization design, and employment law. French labor law context is embedded where relevant.
+
+---
+
+#### `fiche-poste` — Structured job description
+
+**What it does:** Produces a structured, publishable job description from an HR brief or recruitment need. Distinguishes required from desirable criteria, identifies grey areas, and produces output that feeds the downstream recruiting workflow.
+
+**Use when:** Starting a recruitment process. Output feeds `interview-loop-planner`.
+
+---
+
+#### `entretien-professionnel` — Mandatory professional development interview
+
+**What it does:** Prepares a mandatory professional development interview (French Labor Code, art. L6315-1) — required every 2 years for all employees. Produces a framework, questions, and a meeting record template compliant with legal requirements.
+
+**What it doesn't do:** Not the same as an annual performance review. This is a legally required career development conversation, not a performance assessment.
+
+**Use when:** Every 2 years per employee, or after specific events (return from parental leave, sick leave…) as required by French law.
+
+---
+
+#### `interview-guide-recruteur` — Recruiter-side interview guide
+
+**What it does:** Produces a full recruiter or manager interview guide with STAR-structured questions, evaluation annotations, scenario-based questions, a weighted 1–4 scoring grid, graduated red flags, and a Go/No-go debrief sheet.
+
+**Use when:** For a specific interview round. Best used downstream of `interview-loop-planner`, which defines the rounds and competencies.
+
+---
+
+#### `interview-loop-planner` — Full interview process design
+
+**What it does:** Designs the complete interview loop for a recruitment — number of rounds, competencies per round, consolidated scorecard, and schedule. Produces round briefs that directly feed `interview-guide-recruteur`.
+
+**Use when:** Before starting interviews for a significant hire. Ensures each round assesses different dimensions.
+
+> Pipeline: `fiche-poste` → `interview-loop-planner` → `interview-guide-recruteur` (one per round).
+
+---
+
+#### `onboarding-plan` — 30-60-90 day integration plan
+
+**What it does:** Builds a structured integration plan covering the first 30, 60, and 90 days — objectives, key relationships, deliverables, and success criteria per phase.
+
+**Use when:** Before a new hire starts, to give both manager and employee a shared roadmap.
+
+---
+
+#### `offboarding-structure` — Departure plan with continuity
+
+**What it does:** Structures an offboarding plan covering knowledge handover, admin checklist, exit interview framework, and continuity risk mapping.
+
+**Use when:** When an employee gives notice. The earlier it starts, the better the knowledge transfer.
+
+---
+
+#### `people-review` — Collective talent review
+
+**What it does:** Structures a collective talent review with a positioning matrix (performance × potential), succession planning, retention and flight risk assessment, and priority actions per profile.
+
+**Use when:** Annual or bi-annual talent reviews, before an organizational change, or when preparing a workforce plan.
+
+---
+
+#### `performance-review-helper` — Annual review preparation
+
+**What it does:** Prepares an annual performance review with a structured assessment of the past year and SMART objectives for the next. Supports both manager prep and employee self-assessment.
+
+**What it doesn't do:** Not the mandatory professional development interview (`entretien-professionnel`). This is about performance — results, objectives, compensation context.
+
+**Use when:** Ahead of annual review cycles.
+
+---
+
+#### `plan-developpement-competences` — Skills development plan
+
+**What it does:** Builds an individual or collective skills development plan with training actions, schedule, success indicators, and budget. Links identified gaps to concrete development paths.
+
+**Use when:** After a performance review, a people review, or a skills gap assessment.
+
+---
+
+#### `grille-remuneration` — Compensation grid
+
+**What it does:** Structures a compensation grid by job family and seniority level — salary ranges, positioning criteria (internal equity, market benchmarks), and governance rules (who can offer what).
+
+**Use when:** When scaling a team and needing consistent, defensible compensation decisions across hires and existing employees.
+
+---
+
+#### `contrat-emploi` — Employment contract
+
+**What it does:** Analyzes or drafts an employment contract, job offer letter, or HR amendment. Surfaces key clauses and points of attention. Produces compliant draft language.
+
+**What it doesn't do:** Does not provide legal advice. Requires validation by a labor lawyer before use.
+
+**Use when:** Drafting a new employment contract, reviewing one received, or preparing an amendment (role change, part-time arrangement…).
+
+---
+
+#### `lettre-cadrage-disciplinaire` — Disciplinary framing letter
+
+**What it does:** Drafts a factual and proportionate disciplinary framing letter — documenting observed facts, their impact, and expected behavior change. Calibrated to the severity of the situation.
+
+**What it doesn't do:** Does not produce a formal sanction letter. Must be validated by a labor lawyer before sending.
+
+**Use when:** A documented conversation is needed before a formal disciplinary procedure, or to create a written record of a behavioral issue.
+
+---
+
+#### `org-design-brief` — Organizational redesign target
+
+**What it does:** Formalizes an organizational target with a current state diagnosis, design rationale, human risks, and sequencing — before any announcement or implementation. Surfaces what the new structure solves, what new risks it creates, and how to phase the transition.
+
+**Use when:** Before announcing a reorganization. Also useful as pre-work before engaging a management team in the design.
 
 ---
 
 ### 💻 Product & Tech
 
-| id | Role |
-|---|---|
-| `prd` | Produce a complete Product Requirements Document |
-| `feature-spec` | Functional spec: user stories, MoSCoW, acceptance criteria |
-| `product-spec` | Actionable spec from a brief or scoped need |
-| `brief` | Transform a vague need into an actionable brief |
-| `cadrage` | Clarify a need before any production starts |
-| `analysis` | Break down a complex need into actionable lots |
-| `persona` | Produce structured user personas from research or a product brief |
-| `journey-map` | User journey map with stages, emotions, and friction points |
-| `mockup` | Produce a standalone HTML mockup from a brief or spec |
-| `reformulation-us` | Rewrite poorly-written user stories into clean, testable US |
-| `ticket-triage` | Categorize, prioritize P1–P4, and route a support ticket |
-| `code-review` | Code review: security, performance, correctness, maintainability |
-| `system-design` | Design a system or technical architecture |
-| `tech-debt` | Identify, categorize, and prioritize technical debt |
+Tools for the full product development lifecycle — from clarifying a need to specifying, designing, building, and maintaining.
+
+---
+
+#### `brief` — Vague need → structured brief
+
+**What it does:** Transforms a vague need, request, or idea into a structured, actionable brief — purpose, constraints, success criteria, and exclusions. The output is usable as input for any downstream production skill.
+
+**What it doesn't do:** Does not clarify an incomplete brief when you don't yet know what you want (use `cadrage` for that). Does not produce a spec.
+
+**Use when:** You know what you want to build but need to structure it before handing it off.
+
+---
+
+#### `cadrage` — Clarify before producing
+
+**What it does:** Explores and clarifies a vague or incomplete need — surfacing intent, constraints, hypotheses, and decision points before any production begins. Produces a clarification report and recommended next steps.
+
+**What it doesn't do:** Does not produce a brief or spec directly. It's the step that makes `brief` possible when the input is too fuzzy.
+
+**Use when:** The request is too ambiguous to brief directly. When you need to align on what's actually being asked before committing.
+
+> `cadrage` asks the right questions. `brief` writes the structured answer. Run them in sequence when the need is unclear.
+
+---
+
+#### `analysis` — Decompose before specifying
+
+**What it does:** Decomposes a complex need into independent, prioritized lots before spec or delivery begins. Produces a structured decomposition that feeds a PRD, a sprint, or a project plan.
+
+**Use when:** The subject is dense or multi-dimensional and needs to be broken down before anyone can spec or estimate it. Upstream of `prd` or `feature-spec` for complex initiatives.
+
+---
+
+#### `prd` — Complete Product Requirements Document
+
+**What it does:** Produces a full PRD — context, problem statement, goals, functional and non-functional requirements, out-of-scope items, success metrics, and open questions.
+
+**Use when:** You need a comprehensive product document to align the team, communicate with engineering, or frame a significant investment.
+
+---
+
+#### `feature-spec` — Feature-level functional specification
+
+**What it does:** Produces a complete functional spec for a feature — user stories, MoSCoW requirements, acceptance criteria, edge cases, and success metrics.
+
+**Use when:** A feature is approved and needs to be specified for engineering. More granular than a PRD — operates at the level of a single feature or epic.
+
+---
+
+#### `product-spec` — Lightweight actionable spec
+
+**What it does:** Produces an actionable specification from a brief or scoped need. Lighter than a PRD, more structured than a brief — a rapid spec that teams can act on.
+
+**Use when:** You need something between a brief and a full PRD. Good for smaller features, MVPs, or rapid iteration contexts.
+
+> Hierarchy: `brief` → `product-spec` → `feature-spec` → `prd` (increasingly detailed).
+
+---
+
+#### `persona` — Structured user personas
+
+**What it does:** Produces structured user personas from research data or a product brief — goals, frustrations, behaviors, context, and decision triggers. Designed to be actionable for product decisions, not just decorative.
+
+**Use when:** At the start of a product initiative, or when the team has diverging assumptions about who they're building for.
+
+---
+
+#### `journey-map` — User journey with friction and opportunities
+
+**What it does:** Produces a user journey map covering stages, actions, emotions, friction points, and improvement opportunities. Structured around the user's perspective, not the product's features.
+
+**Use when:** Before redesigning an experience, identifying where to invest in UX improvement, or aligning a cross-functional team on how users actually experience the product.
+
+---
+
+#### `mockup` — Standalone HTML mockup
+
+**What it does:** Produces a standalone, presentable HTML mockup from a brief, spec, or visual references. A visual deliverable for alignment and feedback.
+
+**What it doesn't do:** Not a functional prototype. Not production-ready code.
+
+**Use when:** You need something visual to present to stakeholders, validate with users, or communicate a layout before investing in design or engineering.
+
+---
+
+#### `reformulation-us` — Rewrite poorly-written user stories
+
+**What it does:** Rewrites existing user stories that are vague, developer-centric, or untestable into clean, testable user stories with proper structure and explicit acceptance criteria.
+
+**Use when:** In backlog refinement, when stories are being pulled into a sprint but aren't ready, or after a discovery phase where stories were written informally.
+
+---
+
+#### `ticket-triage` — Support ticket categorization and routing
+
+**What it does:** Categorizes an incoming support ticket, assigns a P1–P4 priority based on impact and urgency, identifies missing information needed for handling, and routes to the appropriate team or queue.
+
+**Use when:** Processing incoming support or bug tickets, especially in high-volume contexts where consistent prioritization is needed.
+
+---
+
+#### `code-review` — Code review across 4 dimensions
+
+**What it does:** Reviews code across security, performance, correctness, and maintainability. For each finding: identifies the issue, explains the impact, and proposes a fix. Filters by confidence — only reports high-priority issues.
+
+**Use when:** Before merging a PR, during a codebase audit, or when onboarding to a new codebase.
+
+---
+
+#### `system-design` — Technical architecture design
+
+**What it does:** Designs a system or technical architecture — components, data flows, API contracts, storage, scalability decisions, and explicit trade-offs. Documents what was decided and why, including options rejected.
+
+**Use when:** Before building a new system, when refactoring an existing architecture, or when a team needs a shared technical blueprint.
+
+---
+
+#### `tech-debt` — Technical debt audit with remediation plan
+
+**What it does:** Identifies, categorizes (structural / code quality / dependency / documentation / test coverage), and prioritizes technical debt with a realistic remediation plan. Distinguishes quick wins from structural work.
+
+**Use when:** Before a significant sprint, during quarterly engineering planning, when velocity has degraded, or before an acquisition due diligence.
+
+> `code-review` evaluates a specific changeset (a PR, a file). `tech-debt` audits accumulated structural issues across the full codebase.
 
 ---
 
 ### 🚀 Business & Sales
 
-| id | Role |
-|---|---|
-| `offre-commerciale` | Produce the content of a structured client offer |
-| `negotiation-brief` | Structured position before a negotiation |
-| `rfp-draft` | Generate a structured request for proposal |
-| `stakeholder-comms` | Write communications adapted to the audience |
-| `compte-rendu` | Raw meeting notes → structured record with decisions and actions |
-| `retrospective` | Blameless retrospective with facts, causes, and actions |
+Tools for commercial execution — offer writing, negotiation, RFPs, stakeholder communications, meeting records, and retrospectives.
+
+---
+
+#### `offre-commerciale` — Client offer content
+
+**What it does:** Produces the structured content of a client offer — context understanding, proposed solution, value argument, pricing logic, and next steps. Focus is on content and argument, not final formatting.
+
+**What it doesn't do:** Does not format the final document (use `deliver` for that). Does not negotiate.
+
+**Use when:** Responding to an inbound request, after a discovery call, or when you need to structure a proposal before putting it into a deck or document.
+
+---
+
+#### `negotiation-brief` — Structured position before a negotiation
+
+**What it does:** Prepares a complete negotiation position — objectives, non-negotiables, tradeable points, BATNA (best alternative if no agreement), and concession logic. Designed for preparation, not to hand to the other party.
+
+**What it doesn't do:** Not a negotiation script. Not a template for the other party.
+
+**Use when:** Before any high-stakes negotiation — supplier, partnership, client, employment. The clearer the position going in, the better the outcome.
+
+---
+
+#### `rfp-draft` — Request for proposal
+
+**What it does:** Generates a structured request for proposal — context, scope, requirements, evaluation criteria, expected deliverables, and timeline.
+
+**Use when:** You are the buyer and need to solicit structured offers from multiple vendors. Output feeds `offer-comparison` and `vendor-scorecard`.
+
+---
+
+#### `stakeholder-comms` — Audience-calibrated communications
+
+**What it does:** Writes communications adapted to a specific stakeholder audience — executive summary for a board, technical briefing for an engineering team, status update for a client, or partner announcement. Adapts register, depth, and format to the audience.
+
+**Use when:** You have something to communicate and the message needs to land differently with different audiences. Especially useful for sensitive news, change announcements, or complex status updates.
+
+---
+
+#### `compte-rendu` — Raw notes → structured record
+
+**What it does:** Transforms raw meeting notes into a structured meeting record — decisions made, actions assigned (owner + due date), open questions, and next steps. Distinguishes what was decided from what was discussed.
+
+**Use when:** After any meeting that produced decisions or actions. Output is directly shareable and keeps accountability clear.
+
+---
+
+#### `retrospective` — Blameless retrospective
+
+**What it does:** Produces a structured blameless retrospective — separating observed facts from interpretations, identifying root causes without blame attribution, and producing concrete, owned action items.
+
+**What it doesn't do:** Not a complaints session. Not an evaluation of individuals. Blameless means the system, not the people.
+
+**Use when:** At the end of a sprint, project, incident, or significant initiative. The blameless constraint is what makes the output actionable rather than defensive.
 
 ---
 
