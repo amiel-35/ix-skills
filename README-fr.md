@@ -24,7 +24,6 @@ Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaf
 | `research` | Construire un socle factuel sourcé avant toute décision |
 | `synthese` | Condenser un long contenu en synthèse actionnable |
 | `decomposer` | Structurer un problème complexe en sous-problèmes indépendants |
-| `compte-rendu` | Notes brutes → compte-rendu structuré avec décisions et actions |
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser |
 
 ---
@@ -150,6 +149,7 @@ Cinq angles pour challenger une décision, un plan ou un brief.
 | `negotiation-brief` | Position structurée avant une négociation |
 | `rfp-draft` | Générer un appel d'offres structuré |
 | `stakeholder-comms` | Rédiger des communications adaptées à l'audience |
+| `compte-rendu` | Notes brutes → compte-rendu structuré avec décisions et actions |
 | `retrospective` | Rétrospective blameless avec faits, causes et actions |
 
 ---

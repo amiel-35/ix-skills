@@ -24,7 +24,6 @@ Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaf
 | `research` | Build a sourced factual foundation before any decision |
 | `synthese` | Condense long content into an actionable summary |
 | `decomposer` | Break a complex problem into independent, actionable sub-problems |
-| `compte-rendu` | Raw meeting notes → structured record with decisions and actions |
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it |
 
 ---
@@ -150,6 +149,7 @@ Challenge a decision, plan, or brief from five distinct angles.
 | `negotiation-brief` | Structured position before a negotiation |
 | `rfp-draft` | Generate a structured request for proposal |
 | `stakeholder-comms` | Write communications adapted to the audience |
+| `compte-rendu` | Raw meeting notes → structured record with decisions and actions |
 | `retrospective` | Blameless retrospective with facts, causes, and actions |
 
 ---
