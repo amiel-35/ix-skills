@@ -169,13 +169,13 @@ brief    → prd → feature-spec
 
 ## Installation
 
-### Claude Code / Cowork
-
-```bash
-claude plugin install ix-skills
-```
-
 ### Claude.ai
+
+**Option A — upload direct (un skill à la fois)**
+
+Dans **Settings → Skills**, glisser-déposer `skills/<id>.md` directement.
+
+**Option B — bundle `.skill` (par lot)**
 
 ```bash
 git clone https://github.com/amiel-35/ix-skills
