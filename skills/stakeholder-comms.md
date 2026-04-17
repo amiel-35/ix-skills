@@ -4,7 +4,7 @@ label: Stakeholder Comms
 version: 1.0.1
 description_fr: 'Rediger des communications stakeholders adaptees a l''audience :
   executif, equipe technique, partenaires, clients.'
-description_en: Write stakeholder communications adapted to the audience: executive, technical team, partners, clients.
+description_en: 'Write stakeholder communications adapted to the audience: executive, technical team, partners, clients.'
 icon: ◫
 domain: ops
 category: production
