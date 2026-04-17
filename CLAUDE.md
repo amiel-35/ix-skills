@@ -92,6 +92,13 @@ Le body (tout ce qui suit le frontmatter) est rédigé **entièrement en anglais
 
 ## 7. Cibles de packaging
 
+| target | description |
+|---|---|
+| `claude-ai` | `dist/*.skill` pour claude.ai |
+| `cowork` | valide `.claude-plugin/plugin.json` |
+| `mystaffy` | `mystaffy-dist/<id>/` |
+| `ix-memory` | `mystaffy-dist/<id>/` — format ix-memory natif (manifest.json + skill.md) |
+
 ```bash
 python3 build.py                              # tous les targets, tous les skills
 python3 build.py <id>                         # un skill spécifique, tous targets
@@ -99,6 +106,7 @@ python3 build.py --target claude-ai           # dist/*.skill pour claude.ai
 python3 build.py --target cowork              # valide .claude-plugin/plugin.json
 python3 build.py --target mystaffy            # mystaffy-dist/<id>/
 python3 build.py --target mystaffy --domain cognitif
+python3 build.py --target ix-memory           # mystaffy-dist/<id>/ — format ix-memory
 python3 build.py --validate                   # valide sans écrire
 ```
 
