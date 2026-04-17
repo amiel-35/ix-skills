@@ -1,0 +1,55 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "atome",
+  "params": {
+    "granularite": {
+      "label": "Granularité",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "Contrôle la profondeur de la décomposition.",
+      "values": [
+        "haute",
+        "standard",
+        "fine"
+      ]
+    },
+    "dimension": {
+      "label": "Dimension principale",
+      "type": "enum",
+      "required": false,
+      "default": "auto",
+      "help": "Axe de décomposition privilégié.",
+      "values": [
+        "auto",
+        "fonctionnel",
+        "temporel",
+        "acteurs",
+        "risques",
+        "decisions"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "granularite",
+      "dimension"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 4,
+    "max_estimated_tokens": 12000
+  },
+  "color": "#5C3D8F",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

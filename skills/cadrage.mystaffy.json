@@ -1,0 +1,48 @@
+{
+  "metier": [
+    "it_projet",
+    "fondateur_ceo"
+  ],
+  "category": "decision",
+  "params": {
+    "niveau_exploration": {
+      "label": "Niveau d'exploration",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "Cadre le niveau d'ouverture avant recommandation.",
+      "values": [
+        "rapide",
+        "standard",
+        "large"
+      ]
+    },
+    "inclure_alternatives": {
+      "label": "Inclure alternatives",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "help": "Faire apparaitre plusieurs options si utile."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "niveau_exploration",
+      "inclure_alternatives"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": true,
+    "supports_review_gate": false,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 14000
+  },
+  "color": "#6E5B95",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
