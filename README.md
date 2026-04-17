@@ -169,6 +169,26 @@ brief    → prd → feature-spec
 
 ## Installation
 
+### Claude Code
+
+Claude Code scans `~/.claude/skills/` at startup — one subdirectory per skill, each containing a `SKILL.md`.
+
+```bash
+git clone https://github.com/amiel-35/ix-skills /tmp/ix-skills
+for f in /tmp/ix-skills/skills/*.md; do
+  id=$(basename "$f" .md)
+  mkdir -p ~/.claude/skills/$id
+  cp "$f" ~/.claude/skills/$id/SKILL.md
+done
+```
+
+Or to install a single skill:
+
+```bash
+mkdir -p ~/.claude/skills/critique
+cp skills/critique.md ~/.claude/skills/critique/SKILL.md
+```
+
 ### Claude.ai
 
 **Option A — direct upload (one skill at a time)**
