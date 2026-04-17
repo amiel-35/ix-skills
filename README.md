@@ -1,170 +1,172 @@
 # ix-skills
 
-Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
+Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-79 skills organisés en 10 catégories. Chaque skill encode un **processus cognitif**, pas une expertise métier.
+79 skills organized into 10 categories. Each skill encodes a **cognitive process**, not domain expertise.
+
+[🇫🇷 Version française](README-fr.md)
 
 ---
 
-## Skills disponibles
+## Available skills
 
-### 🧠 Cognitif — processus de base
+### 🧠 Cognitive — core processes
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `critique` | Critique | Identifier les failles d'un contenu sans proposer de solution |
-| `correction` | Correction | Transformer une critique en directives actionnables |
-| `simplify` | Simplifier | Épurer un contenu sans changer le fond |
-| `rephrase` | Reformuler | Restituer le sens réel d'un contenu dense ou ambigu |
-| `explorer` | Explorer | Générer un espace d'options sans trancher |
-| `decision` | Décision | Arbitrer avec trade-offs visibles et recommandation nette |
-| `deliver` | Livraison | Transformer un artifact en livrable partageable |
-| `research` | Research | Construire un socle factuel sourcé avant toute décision |
-| `synthese` | Synthèse | Condenser un long contenu en synthèse actionnable |
-| `decomposer` | Décomposer | Structurer un problème complexe en sous-problèmes indépendants |
-| `revue-feedback` | Revue Feedback | Évaluer un feedback avant de l'accepter ou le refuser |
+| `critique` | Critique | Identify flaws in content without proposing solutions |
+| `correction` | Correction | Turn a critique into actionable directives |
+| `simplify` | Simplify | Strip content down to its essentials without changing the meaning |
+| `rephrase` | Rephrase | Restate the real meaning of dense or ambiguous content |
+| `explorer` | Explorer | Generate an option space without committing to a choice |
+| `decision` | Decision | Arbitrate with visible trade-offs and a clear recommendation |
+| `deliver` | Deliver | Transform an artifact into a shareable deliverable |
+| `research` | Research | Build a sourced factual foundation before any decision |
+| `synthese` | Synthesis | Condense long content into an actionable summary |
+| `decomposer` | Decompose | Break a complex problem into independent, actionable sub-problems |
+| `revue-feedback` | Feedback Review | Evaluate feedback rigorously before accepting or rejecting it |
 
 ---
 
-### ⚔️ Conseil — archétypes de perspective
+### ⚔️ Advisory — perspective archetypes
 
-Cinq angles d'analyse pour challenger une décision, un plan ou un brief.
+Five analytical angles to challenge a decision, plan, or brief.
 
 | id | Label | Angle |
 |---|---|---|
-| `contrarian` | Contradicteur | Point de défaillance principal et hypothèses non vérifiées |
-| `executor` | Faisabilité | Est-ce que ça tient dans la réalité ? |
-| `expansionist` | Opportunités | L'upside manquant et les angles adjacents |
-| `firstprinciples` | Racine du problème | La vraie question sous la question |
-| `outsider` | Regard extérieur | Lu comme un inconnu sans contexte implicite |
-| `outside-in` | Analyse du terrain | Forces externes imposées avant les solutions internes |
-| `dixieme-homme` | Dixième Homme | Thèse adverse complète contre le consensus |
-| `chairman` | Arbitre | Arbitrer des perspectives contradictoires |
-| `red-team` | Red Team | Raisonnement depuis la perspective adverse |
+| `contrarian` | Contrarian | Main failure point and unverified assumptions |
+| `executor` | Executor | Does this hold up in reality? |
+| `expansionist` | Expansionist | The missing upside and adjacent opportunities |
+| `firstprinciples` | First Principles | The real question beneath the question |
+| `outsider` | Outsider | Read cold, with no implicit context |
+| `outside-in` | Outside-In | External forces imposed before internal solutions |
+| `dixieme-homme` | Tenth Man | Full opposing thesis against the consensus |
+| `chairman` | Chairman | Arbitrate contradictory perspectives |
+| `red-team` | Red Team | Reason from the adversary's perspective |
 
 ---
 
-### 🗺️ Stratégie & Intelligence
+### 🗺️ Strategy & Intelligence
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `note-strategique` | Note Stratégique | Produire une note stratégique structurée et argumentée |
-| `strategie-prix` | Stratégie Prix | Formuler une stratégie de prix avec segmentation et scénarios |
-| `futurs-alternatifs` | Futurs Alternatifs | Trois futurs plausibles avec signaux avancés |
-| `key-assumptions` | Hypothèses Cachées | Rendre visibles les hypothèses implicites d'un raisonnement |
-| `indicateurs` | Points de Vigilance | Signaux de confirmation et d'alerte pour un plan |
-| `quality-check` | Audit de Preuves | Évaluer la solidité structurelle d'une information |
-| `tam-sam-som` | TAM SAM SOM | Estimer marché adressable total, accessible et capturable |
-| `business-case-draft` | Business Case | Structurer une décision d'investissement avec coûts, bénéfices, risques |
+| `note-strategique` | Strategic Note | Produce a structured and argued strategic memo |
+| `strategie-prix` | Pricing Strategy | Formulate a pricing strategy with segmentation and scenarios |
+| `futurs-alternatifs` | Alternative Futures | Three plausible futures with leading indicators |
+| `key-assumptions` | Hidden Assumptions | Surface the implicit assumptions behind a reasoning |
+| `indicateurs` | Watch Signals | Confirmation and alert signals to track a plan |
+| `quality-check` | Evidence Audit | Assess the structural soundness of cited information |
+| `tam-sam-som` | TAM SAM SOM | Estimate total, serviceable, and obtainable market |
+| `business-case-draft` | Business Case | Structure an investment decision with costs, benefits, and risks |
 
 ---
 
-### 🔍 Recherche & Analyse
+### 🔍 Research & Analysis
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `analyse-concurrentielle` | Analyse Concurrentielle | Socle factuel sur le paysage concurrentiel |
-| `analyse-cdc` | Analyse CDC | Analyser un cahier des charges reçu |
-| `analysis` | Analysis | Décomposer un besoin complexe en lots actionnables |
-| `budget-variance-analysis` | Analyse des Écarts Budgétaires | Analyser écarts budget/réel avec hypothèses correctives |
-| `metriques-saas` | Métriques SaaS | Diagnostic CAC, LTV, NRR, churn |
-| `total-cost-analysis` | TCO | Structurer un coût total avec coûts cachés et risques |
-| `system-design` | System Design | Concevoir une architecture système ou technique |
-| `tech-debt` | Tech Debt | Identifier, catégoriser et prioriser la dette technique |
+| `analyse-concurrentielle` | Competitive Analysis | Factual foundation on the competitive landscape |
+| `analyse-cdc` | Spec Analysis | Analyze a received specification document |
+| `analysis` | Analysis | Break down a complex need into actionable lots |
+| `budget-variance-analysis` | Budget Variance | Analyze budget/actual variances with corrective hypotheses |
+| `metriques-saas` | SaaS Metrics | Diagnose CAC, LTV, NRR, churn |
+| `total-cost-analysis` | TCO | Structure a total cost with hidden costs and risks |
+| `system-design` | System Design | Design a system or technical architecture |
+| `tech-debt` | Tech Debt | Identify, categorize, and prioritize technical debt |
 
 ---
 
-### 📝 Synthèse & Production
+### 📝 Synthesis & Production
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `brief` | Brief | Transformer un besoin flou en brief exploitable |
-| `cadrage` | Cadrage | Clarifier un besoin avant toute production |
-| `compte-rendu` | Compte-Rendu | Notes brutes → compte-rendu structuré avec décisions et actions |
-| `data-storytelling` | Data Storytelling | Transformer des données en narrative avec insight et recommandation |
-| `financial-narrative` | Narrative Financière | Chiffres financiers bruts → narrative exécutive |
-| `negotiation-brief` | Brief de Négociation | Position structurée pour une négociation achats |
-| `rfp-draft` | Appel d'Offres | Générer un AO structuré depuis un brief |
-| `stakeholder-comms` | Stakeholder Comms | Rédiger des communications adaptées à l'audience |
-| `retrospective` | Rétrospective | Rétrospective blameless avec faits, causes et actions |
-| `mockup` | Mockup | Produire un mockup HTML autonome depuis un brief ou spec |
+| `brief` | Brief | Transform a vague need into an actionable brief |
+| `cadrage` | Scoping | Clarify a need before any production starts |
+| `compte-rendu` | Meeting Notes | Raw notes → structured record with decisions and actions |
+| `data-storytelling` | Data Storytelling | Turn data into a clear narrative with insight and recommendation |
+| `financial-narrative` | Financial Narrative | Raw financial figures → executive narrative |
+| `negotiation-brief` | Negotiation Brief | Structured procurement negotiation position |
+| `rfp-draft` | RFP Draft | Generate a structured request for proposal |
+| `stakeholder-comms` | Stakeholder Comms | Write communications adapted to the audience |
+| `retrospective` | Retrospective | Blameless retrospective with facts, causes, and actions |
+| `mockup` | Mockup | Produce a standalone HTML mockup from a brief or spec |
 
 ---
 
-### 📊 Métriques & Pilotage
+### 📊 Metrics & Tracking
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `okr` | OKR | Transformer un objectif vague en OKR structuré |
-| `tableau-de-bord-kpi` | Tableau de Bord KPI | Définir et structurer un dashboard KPI |
-| `indicateurs` | Indicateurs | Signaux de suivi d'un plan |
-| `offer-comparison` | Comparaison d'Offres | Comparer des offres fournisseurs sur grille pondérée |
-| `vendor-scorecard` | Grille Fournisseur | Grille d'évaluation fournisseur réutilisable |
-| `compliance-checklist` | Checklist Conformité | Générer une checklist conformité RGPD, droit du travail, sectorielle |
+| `okr` | OKR | Turn a vague objective into a structured OKR |
+| `tableau-de-bord-kpi` | KPI Dashboard | Define and structure a KPI dashboard |
+| `indicateurs` | Indicators | Tracking signals for a plan |
+| `offer-comparison` | Offer Comparison | Compare supplier offers on a weighted grid |
+| `vendor-scorecard` | Vendor Scorecard | Reusable vendor evaluation grid |
+| `compliance-checklist` | Compliance Checklist | Generate a GDPR / labor law / sector compliance checklist |
 
 ---
 
-### ⚖️ Juridique & Contrats
+### ⚖️ Legal & Contracts
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `contract-review` | Contract Review | Analyser un contrat clause par clause |
-| `cgv-checker` | Analyse CGV/CGU | Identifier les clauses déséquilibrées dans des CGV/CGU |
-| `conformite-rgpd` | Conformité RGPD | Checklist conformité RGPD depuis un document technique |
-| `legal-risk-flag` | Signaux Juridiques | Identifier rapidement les signaux juridiques d'alerte |
-| `nda-draft` | Rédaction NDA | Générer un NDA adapté au contexte |
-| `contrat-emploi` | Contrat Emploi | Analyser ou générer un contrat de travail |
-| `contrat-fournisseur` | Contrat Fournisseur | Analyser un contrat fournisseur côté acheteur |
+| `contract-review` | Contract Review | Analyze a contract clause by clause |
+| `cgv-checker` | T&C Checker | Identify unbalanced clauses in terms and conditions |
+| `conformite-rgpd` | GDPR Compliance | GDPR compliance checklist from a technical document |
+| `legal-risk-flag` | Legal Risk Flags | Quickly surface legal red flags in a document |
+| `nda-draft` | NDA Draft | Generate an NDA adapted to the context |
+| `contrat-emploi` | Employment Contract | Analyze or generate an employment contract |
+| `contrat-fournisseur` | Supplier Contract | Analyze a supplier contract from the buyer's side |
 
 ---
 
-### 👥 RH & People
+### 👥 HR & People
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `fiche-poste` | Fiche de Poste | Produire une fiche de poste structurée |
-| `entretien-professionnel` | Entretien Professionnel | Préparer un entretien professionnel (art. L6315-1) |
-| `interview-guide-recruteur` | Interview Guide | Guide entretien recruteur avec questions STAR |
-| `interview-loop-planner` | Interview Loop Planner | Concevoir le processus de recrutement complet |
-| `onboarding-plan` | Plan d'Onboarding | Plan d'intégration 30-60-90 jours |
-| `offboarding-structure` | Offboarding | Plan de départ avec passation de connaissance |
-| `people-review` | People Review | Structurer une revue talent collective |
-| `performance-review-helper` | Entretien Annuel | Préparer l'entretien annuel avec objectifs SMART |
-| `plan-developpement-competences` | Plan de Développement | Plan de développement individuel ou collectif |
-| `grille-remuneration` | Grille de Rémunération | Structurer une grille salariale par famille et niveau |
-| `lettre-cadrage-disciplinaire` | Lettre Disciplinaire | Rédiger une lettre de cadrage disciplinaire |
-| `lettre-motivation` | Lettre de Motivation | Rédiger une lettre de motivation adaptée au poste |
-| `org-design-brief` | Brief Réorganisation | Formaliser une cible organisationnelle avec diagnostic |
-| `persona` | Persona | Produire des personas utilisateur structurés |
+| `fiche-poste` | Job Description | Produce a structured and publishable job description |
+| `entretien-professionnel` | Professional Review | Prepare a mandatory professional development interview |
+| `interview-guide-recruteur` | Interview Guide | Recruiter-side interview guide with STAR questions |
+| `interview-loop-planner` | Interview Loop Planner | Design the full recruitment interview process |
+| `onboarding-plan` | Onboarding Plan | 30-60-90 day integration plan for a new hire |
+| `offboarding-structure` | Offboarding | Departure plan with knowledge handover |
+| `people-review` | People Review | Structure a collective talent review |
+| `performance-review-helper` | Annual Review | Prepare an annual review with SMART objectives |
+| `plan-developpement-competences` | Development Plan | Individual or collective skills development plan |
+| `grille-remuneration` | Compensation Grid | Structure a salary grid by family and level |
+| `lettre-cadrage-disciplinaire` | Disciplinary Letter | Draft a factual disciplinary framing letter |
+| `lettre-motivation` | Cover Letter | Write a cover letter tailored to the position |
+| `org-design-brief` | Org Design Brief | Formalize an organizational target with current diagnosis |
+| `persona` | Persona | Produce structured user personas |
 
 ---
 
-### 💻 Produit & Tech
+### 💻 Product & Tech
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `prd` | PRD | Produire un Product Requirements Document complet |
-| `feature-spec` | Feature Spec | Spec fonctionnelle : user stories, MoSCoW, critères d'acceptance |
-| `product-spec` | Spec | Spec actionnable depuis un brief ou besoin cadré |
-| `reformulation-us` | Reformulation US | Réécrire des user stories mal rédigées en US testables |
-| `journey-map` | Journey Map | Carte du parcours utilisateur avec frictions et opportunités |
-| `ticket-triage` | Ticket Triage | Catégoriser, prioriser P1–P4 et router un ticket support |
-| `code-review` | Code Review | Revue de code : sécurité, performance, correction, maintenabilité |
-| `system-design` | System Design | Architecture système avec composants, flux et APIs |
+| `prd` | PRD | Produce a complete Product Requirements Document |
+| `feature-spec` | Feature Spec | Functional spec: user stories, MoSCoW, acceptance criteria |
+| `product-spec` | Product Spec | Actionable spec from a brief or scoped need |
+| `reformulation-us` | US Rewrite | Rewrite poorly-written user stories into clean, testable US |
+| `journey-map` | Journey Map | User journey map with stages, emotions, and friction points |
+| `ticket-triage` | Ticket Triage | Categorize, prioritize P1–P4, and route a support ticket |
+| `code-review` | Code Review | Code review: security, performance, correctness, maintainability |
+| `system-design` | System Design | System architecture with components, data flows, and APIs |
 
 ---
 
 ### 🚀 Business & Sales
 
-| id | Label | Rôle |
+| id | Label | Role |
 |---|---|---|
-| `offre-commerciale` | Offre Commerciale | Produire le contenu d'une offre client structurée |
-| `strategie-prix` | Stratégie Prix | Pricing avec valeur perçue, segmentation et scénarios |
-| `negotiation-brief` | Brief Négociation | Position structurée avant une négociation |
+| `offre-commerciale` | Commercial Offer | Produce the content of a structured client offer |
+| `strategie-prix` | Pricing Strategy | Pricing with perceived value, segmentation, and scenarios |
+| `negotiation-brief` | Negotiation Brief | Structured position before a negotiation |
 
 ---
 
-## Pipelines typiques
+## Typical pipelines
 
 ```
 critique → correction → deliver
@@ -194,19 +196,19 @@ pip install -r requirements.txt
 python3 build.py --target claude-ai
 ```
 
-Glisser les fichiers `dist/*.skill` dans **Settings → Skills**.
+Drop the `dist/*.skill` files into **Settings → Skills**.
 
 ### mystaffy
 
 ```bash
 python3 build.py --target mystaffy
-# ou pour re-générer le format ix-memory natif :
+# or to regenerate the native ix-memory format:
 python3 build.py --target ix-memory
 ```
 
-### GPT / Gemini / autre LLM
+### GPT / Gemini / other LLMs
 
-Copier-coller le contenu de `skills/<id>.md` comme system prompt. Le frontmatter YAML est ignoré sans effet de bord.
+Copy-paste the content of `skills/<id>.md` as a system prompt. The YAML frontmatter is ignored without side effects.
 
 ---
 
@@ -214,39 +216,39 @@ Copier-coller le contenu de `skills/<id>.md` comme system prompt. Le frontmatter
 
 ```
 ix-skills/
-├── skills/                 ← source canonique (un .md + .mystaffy.json par skill)
+├── skills/                 ← canonical source (one .md + .mystaffy.json per skill)
 ├── scripts/
-│   └── migrate_from_ix_memory.py   ← outil de migration depuis ix-memory
-├── dist/                   ← .skill pour claude.ai (gitignore)
-├── mystaffy-dist/          ← artefacts mystaffy (gitignore)
+│   └── migrate_from_ix_memory.py   ← migration tool from ix-memory
+├── dist/                   ← .skill files for claude.ai (gitignored)
+├── mystaffy-dist/          ← mystaffy artifacts (gitignored)
 ├── .claude-plugin/
-│   └── plugin.json         ← manifest Claude Code / Cowork
-├── build.py                ← packager multi-cibles
+│   └── plugin.json         ← Claude Code / Cowork manifest
+├── build.py                ← multi-target packager
 ├── requirements.txt
-└── CLAUDE.md               ← guide de contribution
+└── CLAUDE.md               ← contribution guide
 ```
 
 ---
 
-## Packager
+## Build
 
 ```bash
-python3 build.py --validate                         # valider sans écrire
-python3 build.py                                    # tous les targets
-python3 build.py critique                           # un skill spécifique
+python3 build.py --validate                         # validate without writing
+python3 build.py                                    # all targets
+python3 build.py critique                           # one specific skill
 python3 build.py --target claude-ai
 python3 build.py --target mystaffy --domain cognitif
-python3 build.py --target ix-memory                 # format ix-memory natif
+python3 build.py --target ix-memory                 # native ix-memory format
 ```
 
 ---
 
-## Contribuer
+## Contributing
 
-Fork, modifie, PR. Lire `CLAUDE.md` pour les conventions.
+Fork, modify, PR. Read `CLAUDE.md` for conventions.
 
 ---
 
-## Licence
+## License
 
 MIT
