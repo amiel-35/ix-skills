@@ -1,0 +1,39 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "internal",
+  "params": {
+    "ton_reponse": {
+      "label": "Ton de reponse",
+      "type": "enum",
+      "required": false,
+      "default": "professionnel",
+      "help": "Cadre le ton de la reponse proposee.",
+      "values": [
+        "sobre",
+        "professionnel",
+        "ferme"
+      ]
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "ton_reponse"
+    ],
+    "advanced_fields": []
+  },
+  "execution": {
+    "supports_async": true,
+    "supports_review_gate": false,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 12000
+  },
+  "color": "#8B4A5A",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": false,
+  "visibility": "internal"
+}
