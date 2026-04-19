@@ -1,0 +1,42 @@
+{
+  "category": "decision",
+  "params": {
+    "framework": {
+      "label": "Framework",
+      "type": "enum",
+      "required": false,
+      "default": "ice",
+      "options": ["ice", "rice", "moscow", "eisenhower", "value-vs-effort", "custom"],
+      "help": "Scoring framework — default: ICE (Impact · Confidence · Ease)"
+    },
+    "criteria": {
+      "label": "Custom Criteria",
+      "type": "text",
+      "required": false,
+      "placeholder": "e.g. revenue impact, technical risk, dependency",
+      "help": "Used when framework is 'custom'"
+    },
+    "horizon": {
+      "label": "Time Horizon",
+      "type": "enum",
+      "required": false,
+      "options": ["sprint", "quarter", "year", "unspecified"],
+      "default": "unspecified"
+    },
+    "constraints": {
+      "label": "Hard Constraints",
+      "type": "text",
+      "required": false,
+      "placeholder": "e.g. regulatory deadline, blocking dependency"
+    }
+  },
+  "ui": {
+    "simple_fields": ["framework", "horizon"],
+    "advanced_fields": ["criteria", "constraints"]
+  },
+  "execution": {
+    "supports_review_gate": false,
+    "max_input_artifacts": 20,
+    "max_estimated_tokens": 12000
+  }
+}
