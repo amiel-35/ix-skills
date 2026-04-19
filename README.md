@@ -837,6 +837,19 @@ python3 build.py --target claude-ai
 
 Drop the `dist/*.skill` files into **Settings → Skills**.
 
+### Codex CLI
+
+```bash
+git clone https://github.com/amiel-35/ix-skills /tmp/ix-skills
+cd /tmp/ix-skills
+pip install -r requirements.txt
+bash scripts/install-codex.sh          # all skills
+bash scripts/install-codex.sh critique # one skill
+bash scripts/install-codex.sh --dry-run
+```
+
+Skills are installed to `~/.codex/skills/<id>/SKILL.md`. Restart Codex to activate.
+
 ### mystaffy
 
 ```bash
@@ -857,9 +870,11 @@ Copy-paste the content of `skills/<id>.md` as a system prompt. The YAML frontmat
 ix-skills/
 ├── skills/                 ← canonical source (one .md + .mystaffy.json per skill)
 ├── scripts/
+│   ├── install-codex.sh    ← Codex CLI installer
 │   └── migrate_from_ix_memory.py
 ├── dist/                   ← .skill files for claude.ai (gitignored)
 ├── mystaffy-dist/          ← mystaffy artifacts (gitignored)
+├── codex-dist/             ← Codex CLI artifacts (gitignored)
 ├── .claude-plugin/
 │   └── plugin.json
 ├── build.py                ← multi-target packager

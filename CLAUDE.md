@@ -98,6 +98,7 @@ The body (everything after the frontmatter) is written **entirely in English**. 
 | `cowork` | validates `.claude-plugin/plugin.json` |
 | `mystaffy` | `mystaffy-dist/<id>/` |
 | `ix-memory` | `mystaffy-dist/<id>/` — native ix-memory format (manifest.json + skill.md) |
+| `codex` | `codex-dist/<id>/SKILL.md` — Codex CLI format (name/description/triggers frontmatter) |
 
 ```bash
 python3 build.py                              # all targets, all skills
@@ -107,8 +108,19 @@ python3 build.py --target cowork              # validate .claude-plugin/plugin.j
 python3 build.py --target mystaffy            # mystaffy-dist/<id>/
 python3 build.py --target mystaffy --domain cognitif
 python3 build.py --target ix-memory           # mystaffy-dist/<id>/ — ix-memory format
+python3 build.py --target codex               # codex-dist/<id>/SKILL.md — Codex CLI format
 python3 build.py --validate                   # validate without writing
 ```
+
+### Installing into Codex
+
+```bash
+bash scripts/install-codex.sh                 # build + install all skills
+bash scripts/install-codex.sh <id>            # build + install one skill
+bash scripts/install-codex.sh --dry-run       # preview without writing
+```
+
+Skills are installed to `~/.codex/skills/<id>/SKILL.md`. Restart Codex to activate.
 
 ### Extending build.py for a new target
 
@@ -125,7 +137,7 @@ python3 build.py --validate                   # validate without writing
 - One skill = one source file in `skills/`
 - No business logic in skills — skills are prompts, not code
 - No external dependencies in `build.py` except `jsonschema` and `pyyaml`
-- `mystaffy-dist/` and `dist/` are gitignored — never commit them
+- `mystaffy-dist/`, `dist/`, and `codex-dist/` are gitignored — never commit them
 
 ---
 
@@ -133,5 +145,5 @@ python3 build.py --validate                   # validate without writing
 
 - No conditional logic, API calls, or side effects in skills
 - No external dependencies in `build.py` (except `jsonschema` and `pyyaml`)
-- No generated files in the repo (`dist/`, `mystaffy-dist/` are gitignored)
+- No generated files in the repo (`dist/`, `mystaffy-dist/`, `codex-dist/` are gitignored)
 - No skill ids with accents or uppercase letters

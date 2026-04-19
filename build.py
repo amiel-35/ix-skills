@@ -10,11 +10,14 @@ Usage:
     python build.py --target mystaffy            # all skills, mystaffy only
     python build.py --target mystaffy --domain cognitif  # filter by domain
     python build.py <id> --target mystaffy       # specific skill, mystaffy only
+    python build.py --target codex               # codex-dist/<id>/SKILL.md
+    python build.py <id> --target codex          # specific skill, codex only
     python build.py --validate                   # validate without writing files
 """
 
 import argparse
 import json
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -28,6 +31,7 @@ import jsonschema
 SKILLS_DIR = Path("skills")
 DIST_DIR = Path("dist")
 MYSTAFFY_DIST_DIR = Path("mystaffy-dist")
+CODEX_DIST_DIR = Path("codex-dist")
 PLUGIN_JSON = Path(".claude-plugin/plugin.json")
 
 # ---------------------------------------------------------------------------
@@ -404,6 +408,107 @@ def build_ix_memory(skills: list, dry_run: bool = False) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Target: codex
+# ---------------------------------------------------------------------------
+
+# Words too generic to be useful as triggers
+_CODEX_STOPWORDS = {
+    "and", "the", "for", "from", "with", "into", "that", "does", "not", "any",
+    "all", "this", "your", "before", "after", "when", "what", "how", "its",
+    "without", "produce", "build", "create", "generate", "make", "structured",
+    "clear", "based", "using", "used", "will", "than", "more", "less", "each",
+    "have", "been", "also", "only", "then", "them", "their", "they", "turn",
+    "into", "over", "under", "about", "across",
+}
+
+
+def _first_sentence(text: str) -> str:
+    """Return the first sentence of text, capped at 120 chars."""
+    if not text:
+        return ""
+    for sep in (". ", ".\n", "? ", "! "):
+        idx = text.find(sep)
+        if idx != -1:
+            return text[: idx + 1].strip()
+    return text[:120].strip()
+
+
+def _codex_triggers(fm: dict) -> list:
+    """Generate Codex trigger strings from ix-skills frontmatter.
+
+    Strategy:
+      1. The skill id (always first).
+      2. Meaningful parts of the id (split on '-').
+      3. Words from the label.
+      4. Key words from the first sentence of description_en.
+    Capped at 8 triggers.
+    """
+    triggers: list = []
+
+    skill_id = fm["id"]
+    triggers.append(skill_id)
+
+    for part in skill_id.split("-"):
+        if len(part) > 3 and part not in triggers:
+            triggers.append(part)
+
+    label = fm.get("label", "").lower()
+    for word in re.findall(r"[a-z]+", label):
+        if len(word) > 3 and word not in _CODEX_STOPWORDS and word not in triggers:
+            triggers.append(word)
+
+    desc_en = fm.get("description_en", fm.get("description_fr", ""))
+    first = _first_sentence(desc_en).lower()
+    for word in re.findall(r"[a-z]+", first):
+        if len(word) > 4 and word not in _CODEX_STOPWORDS and word not in triggers:
+            triggers.append(word)
+        if len(triggers) >= 8:
+            break
+
+    return triggers[:8]
+
+
+def _codex_skill_md(fm: dict, body: str) -> str:
+    """Render a Codex-compatible SKILL.md (Codex frontmatter + ix-skills body)."""
+    name = fm["id"]
+    description = _first_sentence(
+        fm.get("description_en", fm.get("description_fr", ""))
+    )
+    # Escape description for YAML inline (wrap in quotes if needed)
+    if any(c in description for c in (':', '#', '[', ']', '{', '}', '&', '*', '!')):
+        description = json.dumps(description)  # safe JSON string = valid YAML scalar
+
+    triggers = _codex_triggers(fm)
+    lines = ["---", f"name: {name}", f"description: {description}", "triggers:"]
+    for t in triggers:
+        lines.append(f"  - {t}")
+    lines += ["---", ""]
+    return "\n".join(lines) + body
+
+
+def build_codex(skills: list, dry_run: bool = False) -> int:
+    """Build Codex-compatible SKILL.md files into codex-dist/<id>/SKILL.md."""
+    print(f"\nTarget: codex ({len(skills)} skill(s))")
+    errors = 0
+    for _path, fm, body in skills:
+        skill_id = fm["id"]
+        out_dir = CODEX_DIST_DIR / skill_id
+        out_file = out_dir / "SKILL.md"
+        dry_tag = " [dry-run]" if dry_run else ""
+        try:
+            content = _codex_skill_md(fm, body)
+            if not dry_run:
+                CODEX_DIST_DIR.mkdir(exist_ok=True)
+                out_dir.mkdir(exist_ok=True)
+                out_file.write_text(content, encoding="utf-8")
+            print(f"  \u2713 codex      {skill_id:<20} \u2192 codex-dist/{skill_id}/SKILL.md{dry_tag}")
+        except Exception as e:
+            print(f"  \u2717 codex      {skill_id:<20} \u2192 {e}")
+            errors += 1
+    return errors
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -420,7 +525,7 @@ def parse_args():
     )
     parser.add_argument(
         "--target",
-        choices=["claude-ai", "cowork", "mystaffy", "ix-memory"],
+        choices=["claude-ai", "cowork", "mystaffy", "ix-memory", "codex"],
         default=None,
         help="Build target (default: all)",
     )
@@ -442,7 +547,7 @@ def main():
     dry_run = args.validate
     total_errors = 0
 
-    targets = [args.target] if args.target else ["cowork", "claude-ai", "mystaffy", "ix-memory"]
+    targets = [args.target] if args.target else ["cowork", "claude-ai", "mystaffy", "ix-memory", "codex"]
 
     # --- cowork (repo-level, not per-skill) ---
     if "cowork" in targets:
@@ -469,6 +574,9 @@ def main():
 
         if "ix-memory" in skill_targets:
             build_ix_memory(skills, dry_run=dry_run)
+
+        if "codex" in skill_targets:
+            total_errors += build_codex(skills, dry_run=dry_run)
 
     print()
     if total_errors > 0:
