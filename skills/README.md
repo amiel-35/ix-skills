@@ -1,118 +1,136 @@
-# ix-skills
+# skills/
 
-Atomic knowledge-work skills for structured pipelines.
+Source canonique des skills ix-skills.
 
-7 skills composables, portables sur Claude, GPT, Gemini, et [mystaffy](https://mystaffy.io).
+Ce dossier contient un fichier Markdown par skill, plus un fichier optionnel
+`<id>.mystaffy.json` pour les paramètres et l'UI mystaffy.
 
----
+Le catalogue complet est documenté dans :
 
-## Skills disponibles
-
-| Skill | Rôle | Pipeline |
-|---|---|---|
-| `critique` | Trouver les failles sans proposer de solution | → correction |
-| `correction` | Transformer une critique en directives actionnables | critique → |
-| `simplify` | Épurer un contenu sans changer le fond | standalone |
-| `rephrase` | Transposer le sens dans un autre registre | standalone |
-| `explorer` | Générer un espace d'options sans trancher | → décision |
-| `decision` | Arbitrer avec trade-offs visibles et recommandation nette | explorer → |
-| `deliver` | Transformer un artifact en livrable partageable | → fin de pipeline |
+- [`../README.md`](../README.md) — version anglaise
+- [`../README-fr.md`](../README-fr.md) — version française
 
 ---
 
-## Installation
+## Règle de structure
 
-### Claude Code / Cowork
+Pour chaque skill :
 
-```bash
-# Ajouter le marketplace
-claude plugin marketplace add amiel-35/ix-skills
-
-# Installer tous les skills
-claude plugin install ix-skills@ix-skills
-
-# Ou skill par skill
-claude plugin install critique@ix-skills
-claude plugin install correction@ix-skills
+```text
+skills/<id>.md
+skills/<id>.mystaffy.json
 ```
 
-### Claude.ai
+`<id>` doit être en kebab-case, sans accent, et doit correspondre exactement
+au champ `id` du frontmatter.
 
-1. Cloner le repo et builder les `.skill` :
-```bash
-git clone https://github.com/amiel-35/ix-skills
-cd ix-skills
-python build.py
+Exemple :
+
+```text
+skills/problem-framing.md
+skills/problem-framing.mystaffy.json
 ```
-2. Glisser les fichiers `dist/*.skill` dans **Settings → Skills** de Claude.ai.
-
-### GPT / Gemini / autre LLM
-
-Copier-coller le contenu de `skills/<skill>.md` directement comme system prompt. Le frontmatter YAML est ignoré par les LLMs qui ne le supportent pas — aucun impact.
-
-### mystaffy
-
-Les fichiers `skills/*.md` sont le format natif mystaffy. Copier dans ton catalogue de skills.
 
 ---
 
-## Structure
+## Format canonique
 
-```
-ix-skills/
-├── skills/              ← source canonique (un fichier par skill)
-│   ├── critique.md
-│   ├── correction.md
-│   ├── simplify.md
-│   ├── rephrase.md
-│   ├── explorer.md
-│   ├── decision.md
-│   └── deliver.md
-├── dist/                ← .skill générés pour claude.ai (git-ignoré)
-├── .claude-plugin/
-│   └── plugin.json      ← manifest pour Claude Code / Cowork
-├── build.py             ← compile skills/*.md → dist/*.skill
-└── README.md
-```
+Chaque fichier `skills/<id>.md` commence par un frontmatter YAML.
 
-### Format canonique
+Champs requis :
 
-Chaque `skill.md` contient un frontmatter YAML (métadonnées) suivi des instructions Markdown :
-
-```markdown
+```yaml
 ---
-id: critique
-label: Critique
-version: 1.0.0
-description: ...
+id: problem-framing
+label: Problématiser
+version: 0.2.0
+description_fr: "..."
+description_en: "..."
+icon: ⊙
+domain: cognitif
+category: atome
+input_types: [brief, markdown, reference]
+output_types: [problematisation]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
-
-# Critique
-...
 ```
 
-Le frontmatter est utilisé par `build.py` et le runtime mystaffy. Il est ignoré sans effet de bord par les autres LLMs.
+Règles :
+
+- `id` : anglais ou slug métier stable, kebab-case, identique au nom de fichier
+- `label` : nom affiché, généralement en français
+- `description_fr` / `description_en` : déclencheurs, rôle et limites du skill
+- corps Markdown : instructions du skill, en anglais
+- pas de logique, pas d'appel API, pas d'effet de bord dans un skill
 
 ---
 
-## Pipelines typiques
+## Overrides mystaffy
 
-```
-critique → correction → deliver
-explorer → decision   → deliver
-           simplify (standalone)
-           rephrase (standalone)
+Le fichier `skills/<id>.mystaffy.json` complète le manifest généré depuis le
+frontmatter.
+
+Il sert surtout à définir :
+
+- `category`
+- `aliases`
+- `params`
+- `ui`
+- `execution`
+
+Pour les paramètres enum, utiliser `values` :
+
+```json
+{
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "values": ["defensive", "offensive"]
+    }
+  }
+}
 ```
 
 ---
 
-## Contribuer
+## Build et validation
 
-Les skills sont du Markdown. Fork, modifie, PR.
+Depuis la racine du repo :
+
+```bash
+python3 build.py --validate
+python3 build.py <id> --validate
+python3 build.py <id> --target mystaffy --validate
+python3 build.py <id> --target codex --validate
+```
+
+Les dossiers générés sont ignorés par git :
+
+- `dist/`
+- `mystaffy-dist/`
+- `codex-dist/`
 
 ---
 
-## Licence
+## Renommage d'un skill
 
-MIT
+Quand un skill est renommé :
+
+1. Renommer `skills/<old-id>.md` en `skills/<new-id>.md`
+2. Renommer `skills/<old-id>.mystaffy.json` en `skills/<new-id>.mystaffy.json`
+3. Mettre à jour `id` dans le frontmatter
+4. Ajouter l'ancien id dans `aliases` si la compatibilité de déclenchement est utile
+5. Mettre à jour `.claude-plugin/plugin.json`
+6. Mettre à jour `README.md` et `README-fr.md`
+7. Lancer `python3 build.py --validate`
+
+Exemples récents :
+
+| Ancien id | Nouvel id |
+|---|---|
+| `prioriser` | `prioritize` |
+| `problematiser` | `problem-framing` |
+| `questionner` | `questioning` |
+| `argumenter` | `argumentation` |

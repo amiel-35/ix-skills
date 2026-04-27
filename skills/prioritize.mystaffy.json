@@ -1,30 +1,31 @@
 {
   "category": "decision",
+  "aliases": ["prioriser"],
   "params": {
     "framework": {
       "label": "Framework",
       "type": "enum",
       "required": false,
       "default": "ice",
-      "options": ["ice", "rice", "moscow", "eisenhower", "value-vs-effort", "custom"],
+      "values": ["ice", "rice", "moscow", "eisenhower", "value-vs-effort", "custom"],
       "help": "Scoring framework — default: ICE (Impact · Confidence · Ease)"
     },
     "criteria": {
-      "label": "Custom Criteria",
+      "label": "Custom criteria",
       "type": "text",
       "required": false,
       "placeholder": "e.g. revenue impact, technical risk, dependency",
       "help": "Used when framework is 'custom'"
     },
     "horizon": {
-      "label": "Time Horizon",
+      "label": "Time horizon",
       "type": "enum",
       "required": false,
-      "options": ["sprint", "quarter", "year", "unspecified"],
+      "values": ["sprint", "quarter", "year", "unspecified"],
       "default": "unspecified"
     },
     "constraints": {
-      "label": "Hard Constraints",
+      "label": "Hard constraints",
       "type": "text",
       "required": false,
       "placeholder": "e.g. regulatory deadline, blocking dependency"

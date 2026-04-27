@@ -1,0 +1,28 @@
+{
+  "category": "atome",
+  "aliases": ["argumenter"],
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "values": ["defensive", "offensive", "comparative", "negotiation"],
+      "default": "defensive"
+    },
+    "audience": {
+      "label": "Audience",
+      "type": "string",
+      "required": false,
+      "placeholder": "e.g. client, investor, manager, team"
+    }
+  },
+  "ui": {
+    "simple_fields": ["mode"],
+    "advanced_fields": ["audience"]
+  },
+  "execution": {
+    "supports_review_gate": false,
+    "max_input_artifacts": 10,
+    "max_estimated_tokens": 10000
+  }
+}

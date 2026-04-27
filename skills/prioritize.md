@@ -1,9 +1,10 @@
 ---
-id: prioriser
+id: prioritize
 label: Prioriser
 version: 1.1.0
 description_fr: Ordonne une liste d'éléments par ordre d'attaque avec critères explicites et score visible. Déclenche quand l'utilisateur a plusieurs éléments à séquencer — features, tâches, initiatives, risques, idées, chantiers. Déclenche sur "dans quel ordre", "qu'est-ce qu'on fait en premier", "priorise ces items", "range ces tâches", "classe ces features". Produit toujours un classement numéroté avec rationale. Ne choisit pas entre options exclusives — utiliser `decision` pour ça. Ne décompose pas un problème — utiliser `decomposer` pour ça.
 description_en: Ranks a list of items by attack order with explicit criteria and visible scores. Triggers when the user has multiple items to sequence — features, tasks, initiatives, risks, ideas, workstreams. Triggers on "in what order", "what do we do first", "prioritize these items", "rank these tasks", "sort these features". Always produces a numbered ranking with rationale. Does not choose between mutually exclusive options — use `decision` for that. Does not decompose a problem — use `decomposer` for that.
+aliases: [prioriser]
 icon: ↑↓
 domain: cognitif
 category: atome
@@ -12,7 +13,7 @@ output_types: [prioritized_list]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
-# Prioriser
+# Prioritize
 
 ## Role
 
@@ -119,15 +120,15 @@ In degraded mode, always use **Value vs Effort**.
 ```markdown
 ---
 status: draft
-skill: prioriser
+skill: prioritize
 framework: [ice | rice | moscow | eisenhower | value-vs-effort | custom]
 horizon: [sprint | quarter | year | unspecified]
 confidence_level: [high | medium | low]
 ---
 
-# Priorité — {sujet}
+# Priority Order — {subject}
 
-## Classement / Ranking
+## Ranking
 
 | # | Item | Score | Rationale |
 |---|---|---|---|
@@ -135,28 +136,28 @@ confidence_level: [high | medium | low]
 | 2 | ... | ... | ... |
 | … | | | |
 
-## Scores détaillés / Detailed Scores
+## Detailed Scores
 
 | Item | {Axe 1} | {Axe 2} | {Axe 3} | Score composé |
 |---|---|---|---|---|
 | ... | | | | |
 
-## Items déprioritisés / Deprioritized Items
+## Deprioritized Items
 
-| Item | Raison |
+| Item | Reason |
 |---|---|
 | ... | ... |
 
-## Hypothèses clés / Key Assumptions
-- [hypothèse] → [impact si fausse]
+## Key Assumptions
+- [assumption] → [impact if false]
 
-## Ce qui changerait l'ordre / What Would Change the Ranking
-- [condition] → [impact sur le classement]
+## What Would Change the Ranking
+- [condition] → [impact on ranking]
 
 <!-- Include only in degraded mode -->
-## Mode dégradé / Degraded Mode
-Objectif non fourni. Classement produit sur Value vs Effort avec hypothèses observées sur les items.
-Scores marqués [assumed]. Fournir l'objectif pour un classement plus fiable.
+## Degraded Mode
+No goal was provided. Ranking produced with Value vs Effort using assumptions observable in the items.
+Scores marked [assumed]. Provide the goal to get a more reliable ranking.
 ```
 
 ---

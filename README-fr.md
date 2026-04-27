@@ -2,7 +2,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-78 skills en 10 catégories. Chaque skill encode un **processus cognitif**, pas une expertise métier.
+84 skills en 10 catégories (3 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
 
 [🇬🇧 English version](README.md)
 
@@ -27,6 +27,10 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `synthese` | Condenser un long contenu en synthèse actionnable | Compression avec perte — le détail est sacrifié intentionnellement |
 | `decomposer` | Structurer un problème complexe en sous-problèmes indépendants | Les sous-problèmes doivent être indépendants — pas de dépendances croisées |
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
+| `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
+| `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
+| `questioning` *(draft)* | Générer les bonnes questions à poser sur un sujet | Questions seulement — **ne répond pas et n'explore pas** (utiliser `explorer`) |
+| `argumentation` *(draft)* | Construire une argumentation structurée pour défendre ou attaquer une position | Construit le plaidoyer — **ne l'évalue pas** (utiliser `critique`) |
 
 #### Distinctions clés
 

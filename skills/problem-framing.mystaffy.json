@@ -1,0 +1,27 @@
+{
+  "category": "atome",
+  "aliases": ["problematiser"],
+  "params": {
+    "focus": {
+      "label": "Focus",
+      "type": "text",
+      "required": false,
+      "placeholder": "Optional angle to preserve when framing the problem"
+    },
+    "audience": {
+      "label": "Audience",
+      "type": "string",
+      "required": false,
+      "placeholder": "e.g. founder, product team, client, board"
+    }
+  },
+  "ui": {
+    "simple_fields": ["focus"],
+    "advanced_fields": ["audience"]
+  },
+  "execution": {
+    "supports_review_gate": false,
+    "max_input_artifacts": 8,
+    "max_estimated_tokens": 8000
+  }
+}

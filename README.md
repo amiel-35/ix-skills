@@ -2,7 +2,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-78 skills in 10 categories. Each skill encodes a **cognitive process**, not domain expertise.
+84 skills in 10 categories (3 in draft). Each skill encodes a **cognitive process**, not domain expertise.
 
 [🇫🇷 Version française](README-fr.md)
 
@@ -27,6 +27,10 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 | `synthese` | Condense long content into an actionable summary | Lossy compression — detail is intentionally discarded |
 | `decomposer` | Break a complex problem into independent sub-problems | Sub-problems must be independent — no shared dependencies |
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it | Evaluates incoming critique — not your own artifact |
+| `prioritize` | Rank a list of items by attack order with explicit criteria | Sequences items — **does not choose between exclusive options** (use `decision`) |
+| `problem-framing` *(draft)* | Reformulate a vague subject into an actionable problem | Formulates the central question — **does not solve it** |
+| `questioning` *(draft)* | Generate the right questions to ask about a subject | Questions only — **does not answer or explore** (use `explorer`) |
+| `argumentation` *(draft)* | Build a structured argument to defend or attack a position | Constructs the case — **does not evaluate it** (use `critique`) |
 
 #### Key distinctions
 
