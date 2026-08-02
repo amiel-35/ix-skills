@@ -94,16 +94,21 @@ The body (everything after the frontmatter) is written **entirely in English**. 
 
 | target | description |
 |---|---|
-| `claude-ai` | `dist/*.skill` for claude.ai |
+| `agentskills` | `dist/<id>/SKILL.md` — Agent Skills format (name/description frontmatter) for Claude Cowork and ChatGPT Skills |
 | `cowork` | validates `.claude-plugin/plugin.json` |
 | `mystaffy` | `mystaffy-dist/<id>/` |
 | `ix-memory` | `mystaffy-dist/<id>/` — native ix-memory format (manifest.json + skill.md) |
 | `codex` | `codex-dist/<id>/SKILL.md` — Codex CLI format (name/description/triggers frontmatter) |
 
+`agentskills` replaces the former `claude-ai` target, which zipped the raw `skills/<id>.md`
+without transforming the frontmatter (invalid `.skill` output). It emits an open
+`dist/<id>/` directory rather than a zip: upload it as-is in **Cowork → Customize**, in the
+**ChatGPT Skills** editor, or zip the folder yourself if a `.skill` archive is needed.
+
 ```bash
 python3 build.py                              # all targets, all skills
 python3 build.py <id>                         # specific skill, all targets
-python3 build.py --target claude-ai           # dist/*.skill for claude.ai
+python3 build.py --target agentskills         # dist/<id>/SKILL.md for Cowork + ChatGPT Skills
 python3 build.py --target cowork              # validate .claude-plugin/plugin.json
 python3 build.py --target mystaffy            # mystaffy-dist/<id>/
 python3 build.py --target mystaffy --domain cognitif
