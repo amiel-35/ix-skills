@@ -1,5 +1,4 @@
 .worktrees/
-dist/
 mystaffy-dist/
 codex-dist/
 __pycache__/

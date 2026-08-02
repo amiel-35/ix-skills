@@ -1,0 +1,15 @@
+{
+  "name": "ix-skills",
+  "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplify, rephrase, explorer, decision, deliver.",
+  "owner": {
+    "name": "Amiel Lavon",
+    "url": "https://github.com/amiel-35"
+  },
+  "plugins": [
+    {
+      "name": "ix-skills",
+      "source": "./",
+      "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplify, rephrase, explorer, decision, deliver."
+    }
+  ]
+}

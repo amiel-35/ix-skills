@@ -5,7 +5,7 @@ build.py — Multi-target skill builder for ix-skills.
 Usage:
     python build.py                              # all targets, all skills
     python build.py <id>                         # specific skill id, all targets
-    python build.py --target claude-ai           # all skills, claude-ai only
+    python build.py --target agentskills         # dist/<id>/SKILL.md — Claude Cowork + ChatGPT Skills
     python build.py --target cowork              # cowork validation only
     python build.py --target mystaffy            # all skills, mystaffy only
     python build.py --target mystaffy --domain cognitif  # filter by domain
@@ -19,7 +19,6 @@ import argparse
 import json
 import re
 import sys
-import zipfile
 from pathlib import Path
 
 import yaml
@@ -216,24 +215,56 @@ def load_skills(skill_id=None, domain=None):
 
 
 # ---------------------------------------------------------------------------
-# Target: claude-ai
+# Target: agentskills (Claude Cowork + ChatGPT Skills \u2014 shared Agent Skills format)
 # ---------------------------------------------------------------------------
+# Replaces the old `claude-ai` target (zipped .skill with untransformed
+# frontmatter \u2014 invalid). Emits an open dist/<id>/SKILL.md directory,
+# serving both Cowork and ChatGPT Skills.
+_AGENTSKILL_NAME_RE = re.compile(r"^[a-z0-9-]+$")
 
-def build_claude_ai(skills, dry_run=False):
-    print(f"\nTarget: claude-ai ({len(skills)} skill(s))")
+
+def _agentskill_md(fm: dict, body: str) -> str:
+    """Render an Agent Skills-compatible SKILL.md (name + description frontmatter, unchanged body)."""
+    name = fm["id"]
+    if not _AGENTSKILL_NAME_RE.match(name):
+        raise ValueError(f"id '{name}' does not match Agent Skills name pattern ^[a-z0-9-]+$")
+    # Full description, not just the first sentence: in this repo's frontmatter,
+    # description_en carries its trigger phrases ("Triggers when\u2026") after the
+    # first sentence, and Agent Skills has no separate `triggers:` field \u2014
+    # `description` is the only surface Claude matches against.
+    description = fm.get("description_en", fm.get("description_fr", ""))
+    if not description:
+        raise ValueError(f"skill '{name}' has no description_en/description_fr")
+    description = json.dumps(description)  # safe JSON string = valid YAML scalar
+
+    lines = ["---", f"name: {name}", f"description: {description}", "---", ""]
+    return "\n".join(lines) + body
+
+
+def build_agentskills(skills: list, dry_run: bool = False) -> int:
+    """Build Agent Skills-compatible SKILL.md files into dist/<id>/SKILL.md.
+
+    Serves both Claude Cowork (Customize > upload) and ChatGPT Skills
+    (Skills editor > upload) \u2014 both consume the same open Agent Skills
+    frontmatter standard (name + description).
+    """
+    print(f"\nTarget: agentskills ({len(skills)} skill(s))")
     errors = 0
     for path, fm, body in skills:
-        skill_id = fm["id"]
-        out_path = DIST_DIR / f"{skill_id}.skill"
+        dry_tag = " [dry-run]" if dry_run else ""
+        skill_id = fm.get("id", path.stem)
         try:
+            skill_id = fm["id"]
+            out_dir = DIST_DIR / skill_id
+            out_file = out_dir / "SKILL.md"
+            content = _agentskill_md(fm, body)
             if not dry_run:
                 DIST_DIR.mkdir(exist_ok=True)
-                with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
-                    zf.write(path, f"{skill_id}/SKILL.md")
-            dry_tag = " [dry-run]" if dry_run else ""
-            print(f"  \u2713 claude-ai  {skill_id:<12} \u2192 dist/{skill_id}.skill{dry_tag}")
+                out_dir.mkdir(exist_ok=True)
+                out_file.write_text(content, encoding="utf-8")
+            print(f"  \u2713 agentskills {skill_id:<20} \u2192 dist/{skill_id}/SKILL.md{dry_tag}")
         except Exception as e:
-            print(f"  \u2717 claude-ai  {skill_id:<12} \u2192 {e}")
+            print(f"  \u2717 agentskills {skill_id:<20} \u2192 {e}")
             errors += 1
     return errors
 
@@ -474,9 +505,7 @@ def _codex_skill_md(fm: dict, body: str) -> str:
     description = _first_sentence(
         fm.get("description_en", fm.get("description_fr", ""))
     )
-    # Escape description for YAML inline (wrap in quotes if needed)
-    if any(c in description for c in (':', '#', '[', ']', '{', '}', '&', '*', '!')):
-        description = json.dumps(description)  # safe JSON string = valid YAML scalar
+    description = json.dumps(description)  # safe JSON string = valid YAML scalar
 
     triggers = _codex_triggers(fm)
     lines = ["---", f"name: {name}", f"description: {description}", "triggers:"]
@@ -525,7 +554,7 @@ def parse_args():
     )
     parser.add_argument(
         "--target",
-        choices=["claude-ai", "cowork", "mystaffy", "ix-memory", "codex"],
+        choices=["agentskills", "cowork", "mystaffy", "ix-memory", "codex"],
         default=None,
         help="Build target (default: all)",
     )
@@ -547,7 +576,7 @@ def main():
     dry_run = args.validate
     total_errors = 0
 
-    targets = [args.target] if args.target else ["cowork", "claude-ai", "mystaffy", "ix-memory", "codex"]
+    targets = [args.target] if args.target else ["cowork", "agentskills", "mystaffy", "ix-memory", "codex"]
 
     # --- cowork (repo-level, not per-skill) ---
     if "cowork" in targets:
@@ -566,8 +595,8 @@ def main():
         skills, parse_errors = load_skills(skill_id=args.skill_id, domain=args.domain)
         total_errors += parse_errors
 
-        if "claude-ai" in skill_targets:
-            total_errors += build_claude_ai(skills, dry_run=dry_run)
+        if "agentskills" in skill_targets:
+            total_errors += build_agentskills(skills, dry_run=dry_run)
 
         if "mystaffy" in skill_targets:
             total_errors += build_mystaffy(skills, dry_run=dry_run)
