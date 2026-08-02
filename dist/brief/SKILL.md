@@ -1,6 +1,6 @@
 ---
 name: brief
-description: Transform a vague need into an actionable and structured brief.
+description: "Transform a vague need into an actionable and structured brief."
 ---
 # Role
 

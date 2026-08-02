@@ -1,6 +1,6 @@
 ---
 name: retrospective
-description: Produce a blameless retrospective with facts, causes, and actions.
+description: "Produce a blameless retrospective with facts, causes, and actions."
 ---
 # Role
 

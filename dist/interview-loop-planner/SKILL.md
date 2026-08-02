@@ -1,6 +1,6 @@
 ---
 name: interview-loop-planner
-description: Design the complete interview loop for a recruitment — rounds, competencies per round, consolidated scorecard, schedule.
+description: "Design the complete interview loop for a recruitment \u2014 rounds, competencies per round, consolidated scorecard, schedule. Produces round briefs that feed interview-guide-recruteur downstream."
 ---
 # Role
 

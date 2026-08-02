@@ -1,6 +1,6 @@
 ---
 name: problem-framing
-description: "[DRAFT] Frames a vague subject as an actionable problem with a central question, underlying tensions, and resolution conditions."
+description: "[DRAFT] Frames a vague subject as an actionable problem with a central question, underlying tensions, and resolution conditions. Triggers when the situation is described but the real problem is not yet formulated. Formulates the central question \u2014 does not solve it."
 ---
 # Problem Framing
 

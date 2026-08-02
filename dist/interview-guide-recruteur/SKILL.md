@@ -1,6 +1,6 @@
 ---
 name: interview-guide-recruteur
-description: Prepare a full recruiter-side interview guide with STAR questions, recruiter annotations, scenarios, weighted 1-4 scorin
+description: "Prepare a full recruiter-side interview guide with STAR questions, recruiter annotations, scenarios, weighted 1-4 scoring grid, graduated red flags, and a Go/No-go debrief sheet."
 ---
 # Role
 

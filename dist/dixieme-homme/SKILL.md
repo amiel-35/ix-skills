@@ -1,6 +1,6 @@
 ---
 name: dixieme-homme
-description: Builds the complete opposing thesis against a consensus.
+description: "Builds the complete opposing thesis against a consensus. Does not merely find flaws \u2014 pleads the inverse position as if it were true."
 ---
 # Role
 

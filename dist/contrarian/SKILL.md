@@ -1,6 +1,6 @@
 ---
 name: contrarian
-description: Finds the main failure point, unverified assumptions, and fragilities that could cause a decision, plan, or brief to fai
+description: "Finds the main failure point, unverified assumptions, and fragilities that could cause a decision, plan, or brief to fail."
 ---
 # Role
 

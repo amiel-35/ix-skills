@@ -1,6 +1,6 @@
 ---
 name: journey-map
-description: Produce a user journey map with stages, emotions, friction points, and opportunities.
+description: "Produce a user journey map with stages, emotions, friction points, and opportunities."
 ---
 # Role
 

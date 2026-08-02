@@ -1,6 +1,6 @@
 ---
 name: argumentation
-description: "[DRAFT] Builds a structured argument to defend or attack a position \u2014 premises, reasoning, anticipated counter-arguments."
+description: "[DRAFT] Builds a structured argument to defend or attack a position \u2014 premises, reasoning, anticipated counter-arguments. Triggers when you want to persuade, defend a choice, prepare a negotiation, or structure a case. Constructs the case \u2014 does not evaluate it."
 ---
 # Argumentation
 

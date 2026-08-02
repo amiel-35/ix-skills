@@ -1,6 +1,6 @@
 ---
 name: performance-review-helper
-description: Prepare an annual review with structured assessment and SMART objectives.
+description: "Prepare an annual review with structured assessment and SMART objectives."
 ---
 # Role
 

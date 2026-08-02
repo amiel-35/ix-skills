@@ -1,6 +1,6 @@
 ---
 name: reformulation-us
-description: Rewrite poorly-written existing user stories into clean and testable US with acceptance criteria.
+description: "Rewrite poorly-written existing user stories into clean and testable US with acceptance criteria."
 ---
 # Role
 

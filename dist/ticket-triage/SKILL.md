@@ -1,6 +1,6 @@
 ---
 name: ticket-triage
-description: Categorize, prioritize P1–P4, and route an incoming support ticket with the information needed for immediate handling.
+description: "Categorize, prioritize P1\u2013P4, and route an incoming support ticket with the information needed for immediate handling."
 ---
 # Role
 

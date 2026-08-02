@@ -1,6 +1,6 @@
 ---
 name: simplify
-description: Identifies what can be removed from dense, jargon-heavy, or overloaded content — without removing it.
+description: "Identifies what can be removed from dense, jargon-heavy, or overloaded content \u2014 without removing it. Triggers when the problem is density or length \u2014 not substance. Triggers on \"what can be removed\", \"identify the fluff\", \"what's weighing this down\", \"find the redundancies\". Does not produce a simplified version \u2014 use `correction` to apply the removals."
 ---
 # Simplify
 

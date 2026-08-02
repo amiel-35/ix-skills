@@ -1,6 +1,6 @@
 ---
 name: deliver
-description: Transforms source content into a clean deliverable adapted to a recipient or target format.
+description: "Transforms source content into a clean deliverable adapted to a recipient or target format. Triggers when the user wants to produce something shareable from an existing artifact \u2014 report, brief, email, HTML page, readme, one-pager. Triggers on \"prepare the deliverable\", \"make this shareable\", \"adapt for the client\", \"format this for X\", \"produce the final document\". This is the final step of any production pipeline."
 ---
 # Deliver
 

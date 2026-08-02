@@ -1,6 +1,6 @@
 ---
 name: contract-review
-description: Analyze a contract clause by clause — deviations from standard positions, priority redlines, points to negotiate.
+description: "Analyze a contract clause by clause \u2014 deviations from standard positions, priority redlines, points to negotiate. Does not replace legal advice."
 ---
 # Role
 

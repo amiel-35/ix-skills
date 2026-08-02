@@ -1,6 +1,6 @@
 ---
 name: tam-sam-som
-description: Estimate TAM, SAM, and SOM with top-down and bottom-up methods, explicit hypotheses, and reliability limits.
+description: "Estimate TAM, SAM, and SOM with top-down and bottom-up methods, explicit hypotheses, and reliability limits. Factual foundation for a business or investor discussion."
 ---
 # Role
 

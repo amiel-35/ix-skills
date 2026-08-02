@@ -1,6 +1,6 @@
 ---
 name: mockup
-description: Produce a standalone and presentable HTML mockup from a brief, spec, or visual references.
+description: "Produce a standalone and presentable HTML mockup from a brief, spec, or visual references. A visual production deliverable \u2014 not a functional prototype."
 ---
 # Role
 

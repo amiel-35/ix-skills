@@ -1,6 +1,6 @@
 ---
 name: onboarding-plan
-description: Build a 30-60-90 day integration plan for a new employee.
+description: "Build a 30-60-90 day integration plan for a new employee."
 ---
 # Role
 

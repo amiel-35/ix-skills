@@ -1,6 +1,6 @@
 ---
 name: contrat-fournisseur
-description: Analyze or draft a supplier contract from the buyer's perspective — unbalanced conditions, clauses to renegotiate, contractual risks.
+description: "Analyze or draft a supplier contract from the buyer's perspective \u2014 unbalanced conditions, clauses to renegotiate, contractual risks. Does not replace a legal review."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: business-case-draft
-description: Structure an investment decision with explicit costs, benefits, risks, and financial hypotheses.
+description: "Structure an investment decision with explicit costs, benefits, risks, and financial hypotheses. Requires numerical data \u2014 otherwise prefer note-strategique."
 ---
 # Role
 

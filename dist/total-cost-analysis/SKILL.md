@@ -1,6 +1,6 @@
 ---
 name: total-cost-analysis
-description: Structure a TCO with direct costs, hidden costs, hypotheses, and risks over a given horizon.
+description: "Structure a TCO with direct costs, hidden costs, hypotheses, and risks over a given horizon. Factual foundation for a purchase or investment decision."
 ---
 # Role
 

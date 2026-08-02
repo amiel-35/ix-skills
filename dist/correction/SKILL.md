@@ -1,6 +1,6 @@
 ---
 name: correction
-description: Transforms a critique into an operational consolidation artifact for the next step in a pipeline.
+description: "Transforms a critique into an operational consolidation artifact for the next step in a pipeline. Triggers when the user wants to consolidate identified flaws into actionable directives \u2014 after an audit, a red team, or a tenth man exercise. Triggers on \"apply the critique\", \"consolidate the flaws\", \"prepare the next step\", \"integrate the feedback\", \"we have the critique, now what\". Does not rewrite the source document \u2014 produces only what is needed for the next step."
 ---
 # Correction
 

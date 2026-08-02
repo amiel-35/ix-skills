@@ -1,6 +1,6 @@
 ---
 name: vendor-scorecard
-description: Build a reusable vendor evaluation grid with weighted criteria.
+description: "Build a reusable vendor evaluation grid with weighted criteria. Produces the scoring tool, not the final decision."
 ---
 # Role
 

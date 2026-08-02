@@ -1,6 +1,6 @@
 ---
 name: synthese
-description: Condense long content into an actionable synthesis without betraying its meaning.
+description: "Condense long content into an actionable synthesis without betraying its meaning."
 ---
 # Role
 

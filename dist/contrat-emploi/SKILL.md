@@ -1,6 +1,6 @@
 ---
 name: contrat-emploi
-description: Analyze or generate an employment contract, job offer, or HR amendment.
+description: "Analyze or generate an employment contract, job offer, or HR amendment."
 ---
 # Role
 

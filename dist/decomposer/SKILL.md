@@ -1,6 +1,6 @@
 ---
 name: decomposer
-description: Structure a complex problem into independent, actionable sub-problems.
+description: "Structure a complex problem into independent, actionable sub-problems. Trigger upstream of any dense topic before producing, deciding, or exploring."
 ---
 # Role
 

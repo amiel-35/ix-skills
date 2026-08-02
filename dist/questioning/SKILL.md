@@ -1,6 +1,6 @@
 ---
 name: questioning
-description: "[DRAFT] Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification."
+description: "[DRAFT] Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only \u2014 does not answer or explore."
 ---
 # Questioning
 

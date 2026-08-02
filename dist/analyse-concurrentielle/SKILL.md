@@ -1,6 +1,6 @@
 ---
 name: analyse-concurrentielle
-description: Build a factual foundation on the competitive landscape — players, forces, differentiation, positioning.
+description: "Build a factual foundation on the competitive landscape \u2014 players, forces, differentiation, positioning. Produces a base for strategic decision-making, not the decision itself."
 ---
 # Role
 

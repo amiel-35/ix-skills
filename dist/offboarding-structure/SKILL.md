@@ -1,6 +1,6 @@
 ---
 name: offboarding-structure
-description: Structure an offboarding plan with knowledge handover, admin checklist, exit interview, and continuity risks.
+description: "Structure an offboarding plan with knowledge handover, admin checklist, exit interview, and continuity risks."
 ---
 # Role
 

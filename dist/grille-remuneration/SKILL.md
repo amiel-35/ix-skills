@@ -1,6 +1,6 @@
 ---
 name: grille-remuneration
-description: Structure a compensation grid by family and level with ranges, positioning criteria, and governance rules.
+description: "Structure a compensation grid by family and level with ranges, positioning criteria, and governance rules."
 ---
 # Role
 

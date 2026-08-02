@@ -1,6 +1,6 @@
 ---
 name: fiche-poste
-description: Produce a structured and publishable job description from an HR brief or a recruitment need.
+description: "Produce a structured and publishable job description from an HR brief or a recruitment need. Distinguishes required/desirable, identifies grey areas, and feeds the downstream recruiting workflow."
 ---
 # Role
 

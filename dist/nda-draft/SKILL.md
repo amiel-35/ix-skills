@@ -1,6 +1,6 @@
 ---
 name: nda-draft
-description: Generate a NDA draft adapted to the context before legal validation.
+description: "Generate a NDA draft adapted to the context before legal validation."
 ---
 # Role
 

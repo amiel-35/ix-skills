@@ -1,6 +1,6 @@
 ---
 name: outsider
-description: Ignores implicit context and reads the subject as a cold outsider would.
+description: "Ignores implicit context and reads the subject as a cold outsider would. Reveals what is not understood, defined, or explicitly assumed."
 ---
 # Role
 

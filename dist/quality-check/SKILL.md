@@ -1,6 +1,6 @@
 ---
 name: quality-check
-description: Evaluates the structural solidity of cited information before a decision or analysis rests on it.
+description: "Evaluates the structural solidity of cited information before a decision or analysis rests on it."
 ---
 # Role
 

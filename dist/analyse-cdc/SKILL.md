@@ -1,6 +1,6 @@
 ---
 name: analyse-cdc
-description: Analyze a received specification document from the respondent's perspective — explicit/implicit requirements, grey areas, contradictions, blocking questions before commitment.
+description: "Analyze a received specification document from the respondent's perspective \u2014 explicit/implicit requirements, grey areas, contradictions, blocking questions before commitment. Does not produce a response plan."
 ---
 # Role
 

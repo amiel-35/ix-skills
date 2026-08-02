@@ -1,6 +1,6 @@
 ---
 name: cadrage
-description: Clarify a vague need before any production — intent, constraints, hypotheses, next options.
+description: "Clarify a vague need before any production \u2014 intent, constraints, hypotheses, next options. Required when the brief is incomplete or ambiguous."
 ---
 # Role
 

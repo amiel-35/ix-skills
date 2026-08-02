@@ -1,6 +1,6 @@
 ---
 name: revue-feedback
-description: Evaluate feedback rigorously before accepting or refusing it.
+description: "Evaluate feedback rigorously before accepting or refusing it."
 ---
 # Role
 

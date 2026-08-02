@@ -1,6 +1,6 @@
 ---
 name: futurs-alternatifs
-description: Builds three plausible and distinct futures with leading indicators and associated strategic options.
+description: "Builds three plausible and distinct futures with leading indicators and associated strategic options."
 ---
 # Role
 

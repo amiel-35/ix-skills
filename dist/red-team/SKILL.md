@@ -1,6 +1,6 @@
 ---
 name: red-team
-description: Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a
+description: "Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a strategy, decision, or setup."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: research
-description: Build a sourced factual foundation before any decision, critique, or delivery.
+description: "Build a sourced factual foundation before any decision, critique, or delivery. Trigger on any subject that requires verified facts before producing."
 ---
 # Role
 

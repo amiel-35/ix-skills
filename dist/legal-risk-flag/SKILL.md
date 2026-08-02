@@ -1,6 +1,6 @@
 ---
 name: legal-risk-flag
-description: Quickly identify legal red flags in a document with graduated risk level.
+description: "Quickly identify legal red flags in a document with graduated risk level. Critical flash before a deep review \u2014 does not replace a lawyer."
 ---
 # Role
 

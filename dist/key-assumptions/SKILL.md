@@ -1,6 +1,6 @@
 ---
 name: key-assumptions
-description: Makes the implicit assumptions of a reasoning visible, qualifies them, and identifies the ones whose collapse would brin
+description: "Makes the implicit assumptions of a reasoning visible, qualifies them, and identifies the ones whose collapse would bring everything down."
 ---
 # Role
 

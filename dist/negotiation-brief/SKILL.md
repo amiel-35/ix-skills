@@ -1,6 +1,6 @@
 ---
 name: negotiation-brief
-description: Prepare a structured procurement negotiation position — objectives, levers, BATNA, owned limits.
+description: "Prepare a structured procurement negotiation position \u2014 objectives, levers, BATNA, owned limits. Trigger before any high-stakes supplier meeting."
 ---
 # Role
 

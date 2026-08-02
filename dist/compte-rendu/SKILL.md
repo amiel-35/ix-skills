@@ -1,6 +1,6 @@
 ---
 name: compte-rendu
-description: Transform raw meeting notes into a structured record with decisions and actions.
+description: "Transform raw meeting notes into a structured record with decisions and actions."
 ---
 # Role
 

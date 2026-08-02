@@ -1,6 +1,6 @@
 ---
 name: explorer
-description: Generates an open option space before any decision or production.
+description: "Generates an open option space before any decision or production. Triggers when the user wants to diverge, see the possibilities, and not yet commit. Triggers on \"what are the options\", \"explore the paths\", \"what could we do\", \"generate alternatives\", \"open the field\", \"before deciding\", \"what scenarios are possible\". Never recommends \u2014 opens, lists, makes visible. Use before the `decision` skill."
 ---
 # Explorer
 

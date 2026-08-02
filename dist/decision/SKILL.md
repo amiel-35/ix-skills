@@ -1,6 +1,6 @@
 ---
 name: decision
-description: Arbitrates between options with visible trade-offs and a clear recommendation.
+description: "Arbitrates between options with visible trade-offs and a clear recommendation. Triggers when the user wants to decide \u2014 technology choice, vendor, strategy, prioritization, architecture. Triggers on \"what do we choose\", \"decide between these options\", \"recommend an option\", \"arbitrate\", \"help me decide\". Always concludes \u2014 no \"it depends\" without a clear position. Often used after the `explorer` skill."
 ---
 # Décision
 

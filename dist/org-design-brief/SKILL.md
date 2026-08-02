@@ -1,6 +1,6 @@
 ---
 name: org-design-brief
-description: Formalize an organizational target with current diagnosis, rationale, human risks, and sequencing — before any announcem
+description: "Formalize an organizational target with current diagnosis, rationale, human risks, and sequencing \u2014 before any announcement or implementation of a reorganization."
 ---
 # Role
 

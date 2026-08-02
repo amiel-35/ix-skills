@@ -1,6 +1,6 @@
 ---
 name: prioritize
-description: Ranks a list of items by attack order with explicit criteria and visible scores.
+description: "Ranks a list of items by attack order with explicit criteria and visible scores. Triggers when the user has multiple items to sequence \u2014 features, tasks, initiatives, risks, ideas, workstreams. Triggers on \"in what order\", \"what do we do first\", \"prioritize these items\", \"rank these tasks\", \"sort these features\". Always produces a numbered ranking with rationale. Does not choose between mutually exclusive options \u2014 use `decision` for that. Does not decompose a problem \u2014 use `decomposer` for that."
 ---
 # Prioritize
 

@@ -1,6 +1,6 @@
 ---
 name: firstprinciples
-description: Digs beneath the surface question to find the real problem, implicit assumptions, and the actual variable to optimize.
+description: "Digs beneath the surface question to find the real problem, implicit assumptions, and the actual variable to optimize."
 ---
 # Role
 

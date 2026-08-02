@@ -1,6 +1,6 @@
 ---
 name: critique
-description: A critical analysis engine that identifies flaws in content without proposing solutions.
+description: "A critical analysis engine that identifies flaws in content without proposing solutions. Triggers when the user wants content analyzed critically, challenged, or audited \u2014 document, architecture, text, plan, decision, design. Also triggers on \"what's wrong with this\", \"find the flaws\", \"play devil's advocate\", \"tenth man\", \"red team\", \"critique this\", \"what could go wrong\". Never proposes corrections \u2014 only surfaces flaws."
 ---
 # Critique
 

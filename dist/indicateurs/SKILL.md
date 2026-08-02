@@ -1,6 +1,6 @@
 ---
 name: indicateurs
-description: Define observable confirmation and alert signals to know whether a plan is holding or a hypothesis is materializing.
+description: "Define observable confirmation and alert signals to know whether a plan is holding or a hypothesis is materializing."
 ---
 # Role
 

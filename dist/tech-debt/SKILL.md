@@ -1,6 +1,6 @@
 ---
 name: tech-debt
-description: Identify, categorize, and prioritize technical debt with a realistic remediation plan.
+description: "Identify, categorize, and prioritize technical debt with a realistic remediation plan. Trigger on a codebase audit, sprint preparation, or architecture decision."
 ---
 # Role
 

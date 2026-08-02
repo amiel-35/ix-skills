@@ -1,6 +1,6 @@
 ---
 name: tableau-de-bord-kpi
-description: Define and structure a KPI dashboard from objectives or a business context.
+description: "Define and structure a KPI dashboard from objectives or a business context."
 ---
 # Role
 

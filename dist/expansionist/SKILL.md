@@ -1,6 +1,6 @@
 ---
 name: expansionist
-description: Finds the missing upside, adjacent opportunities, and angles that the initial framing excluded too quickly.
+description: "Finds the missing upside, adjacent opportunities, and angles that the initial framing excluded too quickly."
 ---
 # Role
 

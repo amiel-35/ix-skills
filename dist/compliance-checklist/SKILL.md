@@ -1,6 +1,6 @@
 ---
 name: compliance-checklist
-description: Generate a compliance checklist — GDPR, labor law, sector-specific.
+description: "Generate a compliance checklist \u2014 GDPR, labor law, sector-specific. Trigger before any product launch or contractualization."
 ---
 # Role
 

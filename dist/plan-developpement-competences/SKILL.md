@@ -1,6 +1,6 @@
 ---
 name: plan-developpement-competences
-description: Build an individual or collective development plan with actions, schedule, indicators, and budget.
+description: "Build an individual or collective development plan with actions, schedule, indicators, and budget."
 ---
 # Role
 

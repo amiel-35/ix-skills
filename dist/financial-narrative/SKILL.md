@@ -1,6 +1,6 @@
 ---
 name: financial-narrative
-description: Transform raw financial figures into a clear narrative for executive or board audience.
+description: "Transform raw financial figures into a clear narrative for executive or board audience."
 ---
 # Role
 

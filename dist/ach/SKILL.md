@@ -1,6 +1,6 @@
 ---
 name: ach
-description: Put competing hypotheses to the test and identify which one the available evidence eliminates least.
+description: "Put competing hypotheses to the test and identify which one the available evidence eliminates least. Structured anti-confirmation-bias technique \u2014 CIA's Analysis of Competing Hypotheses (ACH)."
 ---
 # Role
 

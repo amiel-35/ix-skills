@@ -1,6 +1,6 @@
 ---
 name: prd
-description: Produce a complete Product Requirements Document from a brief or feature spec.
+description: "Produce a complete Product Requirements Document from a brief or feature spec."
 ---
 # Role
 

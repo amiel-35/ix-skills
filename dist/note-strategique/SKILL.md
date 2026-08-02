@@ -1,6 +1,6 @@
 ---
 name: note-strategique
-description: Produce a structured and argued strategic note from a brief or context elements.
+description: "Produce a structured and argued strategic note from a brief or context elements."
 ---
 # Role
 

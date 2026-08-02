@@ -1,6 +1,6 @@
 ---
 name: cgv-checker
-description: Identify unbalanced or sensitive clauses in GTC/ToS by reading position.
+description: "Identify unbalanced or sensitive clauses in GTC/ToS by reading position. Orients a deeper review without replacing a lawyer."
 ---
 # Role
 

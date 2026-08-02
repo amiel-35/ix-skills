@@ -1,6 +1,6 @@
 ---
 name: offre-commerciale
-description: Produce the content of a structured, argued client offer or response, ready to use before final formatting.
+description: "Produce the content of a structured, argued client offer or response, ready to use before final formatting."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: data-storytelling
-description: Transform data into a clear narrative with insight and recommendation.
+description: "Transform data into a clear narrative with insight and recommendation."
 ---
 # Role
 

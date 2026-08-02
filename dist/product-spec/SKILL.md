@@ -1,6 +1,6 @@
 ---
 name: product-spec
-description: Produce an actionable specification from a brief or scoped need.
+description: "Produce an actionable specification from a brief or scoped need."
 ---
 # Role
 

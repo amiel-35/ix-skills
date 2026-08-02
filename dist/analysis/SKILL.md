@@ -1,6 +1,6 @@
 ---
 name: analysis
-description: Decompose a complex need into actionable lots before spec, brief, or delivery.
+description: "Decompose a complex need into actionable lots before spec, brief, or delivery. Trigger upstream of any dense or multi-dimensional subject."
 ---
 # Role
 

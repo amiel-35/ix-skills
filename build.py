@@ -217,19 +217,9 @@ def load_skills(skill_id=None, domain=None):
 # ---------------------------------------------------------------------------
 # Target: agentskills (Claude Cowork + ChatGPT Skills \u2014 shared Agent Skills format)
 # ---------------------------------------------------------------------------
-#
-# NOTE: this target replaces the old `claude-ai` target. `claude-ai` zipped the
-# raw skills/<id>.md straight into dist/<id>.skill without transforming the
-# frontmatter, so the resulting .skill shipped ix-skills-only fields
-# (id/label/description_fr/description_en/...) instead of the Agent Skills
-# standard `name`/`description` pair \u2014 invalid for claude.ai/Cowork. Since
-# ChatGPT Skills consumes the exact same open Agent Skills frontmatter, one
-# corrected output serves both platforms, so there is no reason to keep a
-# second, differently-shaped `claude-ai` target around. We emit an open
-# directory (dist/<id>/SKILL.md) rather than a .skill zip: it's what the
-# ChatGPT Skills editor expects for upload, and it's trivial to zip by hand
-# for Cowork if a zip is ever needed \u2014 no reason to generate both artifact
-# shapes from the same source.
+# Replaces the old `claude-ai` target (zipped .skill with untransformed
+# frontmatter \u2014 invalid). Emits an open dist/<id>/SKILL.md directory,
+# serving both Cowork and ChatGPT Skills.
 _AGENTSKILL_NAME_RE = re.compile(r"^[a-z0-9-]+$")
 
 
@@ -238,11 +228,14 @@ def _agentskill_md(fm: dict, body: str) -> str:
     name = fm["id"]
     if not _AGENTSKILL_NAME_RE.match(name):
         raise ValueError(f"id '{name}' does not match Agent Skills name pattern ^[a-z0-9-]+$")
-    description = _first_sentence(
-        fm.get("description_en", fm.get("description_fr", ""))
-    )
-    if any(c in description for c in (':', '#', '[', ']', '{', '}', '&', '*', '!')):
-        description = json.dumps(description)  # safe JSON string = valid YAML scalar
+    # Full description, not just the first sentence: in this repo's frontmatter,
+    # description_en carries its trigger phrases ("Triggers when\u2026") after the
+    # first sentence, and Agent Skills has no separate `triggers:` field \u2014
+    # `description` is the only surface Claude matches against.
+    description = fm.get("description_en", fm.get("description_fr", ""))
+    if not description:
+        raise ValueError(f"skill '{name}' has no description_en/description_fr")
+    description = json.dumps(description)  # safe JSON string = valid YAML scalar
 
     lines = ["---", f"name: {name}", f"description: {description}", "---", ""]
     return "\n".join(lines) + body
@@ -257,12 +250,13 @@ def build_agentskills(skills: list, dry_run: bool = False) -> int:
     """
     print(f"\nTarget: agentskills ({len(skills)} skill(s))")
     errors = 0
-    for _path, fm, body in skills:
-        skill_id = fm["id"]
-        out_dir = DIST_DIR / skill_id
-        out_file = out_dir / "SKILL.md"
+    for path, fm, body in skills:
         dry_tag = " [dry-run]" if dry_run else ""
+        skill_id = fm.get("id", path.stem)
         try:
+            skill_id = fm["id"]
+            out_dir = DIST_DIR / skill_id
+            out_file = out_dir / "SKILL.md"
             content = _agentskill_md(fm, body)
             if not dry_run:
                 DIST_DIR.mkdir(exist_ok=True)
@@ -511,9 +505,7 @@ def _codex_skill_md(fm: dict, body: str) -> str:
     description = _first_sentence(
         fm.get("description_en", fm.get("description_fr", ""))
     )
-    # Escape description for YAML inline (wrap in quotes if needed)
-    if any(c in description for c in (':', '#', '[', ']', '{', '}', '&', '*', '!')):
-        description = json.dumps(description)  # safe JSON string = valid YAML scalar
+    description = json.dumps(description)  # safe JSON string = valid YAML scalar
 
     triggers = _codex_triggers(fm)
     lines = ["---", f"name: {name}", f"description: {description}", "triggers:"]

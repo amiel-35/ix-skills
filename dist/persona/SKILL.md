@@ -1,6 +1,6 @@
 ---
 name: persona
-description: Produce structured user personas from research data or a product brief.
+description: "Produce structured user personas from research data or a product brief."
 ---
 # Role
 

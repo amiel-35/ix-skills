@@ -1,6 +1,6 @@
 ---
 name: entretien-professionnel
-description: Prepare a mandatory professional development interview (art.
+description: "Prepare a mandatory professional development interview (art. L6315-1) with framework, questions, and meeting record template."
 ---
 # Role
 

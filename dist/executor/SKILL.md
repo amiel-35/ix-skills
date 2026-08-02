@@ -1,6 +1,6 @@
 ---
 name: executor
-description: Tests whether an idea, request, or decision holds up in reality.
+description: "Tests whether an idea, request, or decision holds up in reality. Identifies blocking dependencies, concrete next actions, and execution limits \u2014 without operationalizing the unacceptable."
 ---
 # Role
 

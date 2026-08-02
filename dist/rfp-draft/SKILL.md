@@ -1,6 +1,6 @@
 ---
 name: rfp-draft
-description: Generate a structured request for proposal from a procurement or business brief.
+description: "Generate a structured request for proposal from a procurement or business brief."
 ---
 # Role
 

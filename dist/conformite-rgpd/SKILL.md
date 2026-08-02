@@ -1,6 +1,6 @@
 ---
 name: conformite-rgpd
-description: Produce a GDPR compliance checklist from a spec or technical document.
+description: "Produce a GDPR compliance checklist from a spec or technical document."
 ---
 # Role
 

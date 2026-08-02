@@ -1,6 +1,6 @@
 ---
 name: budget-variance-analysis
-description: Analyze budget/actual variances with probable causes, hypotheses, and corrective actions.
+description: "Analyze budget/actual variances with probable causes, hypotheses, and corrective actions. Produces a factual diagnosis \u2014 does not substitute a management decision."
 ---
 # Role
 

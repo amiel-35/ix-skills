@@ -1,6 +1,6 @@
 ---
 name: lettre-cadrage-disciplinaire
-description: Draft a factual and proportionate disciplinary framing letter to be validated by a lawyer before sending.
+description: "Draft a factual and proportionate disciplinary framing letter to be validated by a lawyer before sending."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: rephrase
-description: Interprets and restates the real meaning of dense, ambiguous, or jargon-heavy content in a given context.
+description: "Interprets and restates the real meaning of dense, ambiguous, or jargon-heavy content in a given context. Triggers when the user wants to understand what something really means in another register \u2014 requirements analysis, legal reading, business\u2194tech translation, regulatory transposition. Triggers on \"what does this concretely mean\", \"rephrase for the tech team\", \"translate into business terms\", \"restate the meaning\". Does not simplify, does not critique \u2014 transposes the meaning."
 ---
 # Rephrase
 

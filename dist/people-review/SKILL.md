@@ -1,6 +1,6 @@
 ---
 name: people-review
-description: Structure a collective talent review with positioning matrix, risks, succession planning, and priority actions.
+description: "Structure a collective talent review with positioning matrix, risks, succession planning, and priority actions."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: offer-comparison
-description: Compare supplier offers on a normalized weighted grid with an argued recommendation.
+description: "Compare supplier offers on a normalized weighted grid with an argued recommendation. Trigger after receiving multiple quotes \u2014 requires normalizable offers."
 ---
 # Role
 

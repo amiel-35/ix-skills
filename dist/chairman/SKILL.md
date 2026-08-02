@@ -1,6 +1,6 @@
 ---
 name: chairman
-description: Arbitrates multiple contradictory perspectives, identifies convergences, tensions, and collective blind spots, then form
+description: "Arbitrates multiple contradictory perspectives, identifies convergences, tensions, and collective blind spots, then formulates a useful conclusion rather than a soft consensus."
 ---
 # Role
 

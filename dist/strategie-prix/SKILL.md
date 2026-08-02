@@ -1,6 +1,6 @@
 ---
 name: strategie-prix
-description: Formulate a pricing strategy with perceived value, segmentation, scenarios, and explicit trade-offs.
+description: "Formulate a pricing strategy with perceived value, segmentation, scenarios, and explicit trade-offs. Trigger on product launches, repositioning, or competitive pressure."
 ---
 # Role
 

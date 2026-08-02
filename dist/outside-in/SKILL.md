@@ -1,6 +1,6 @@
 ---
 name: outside-in
-description: Looks first at external forces imposed on the organization before discussing solutions or execution.
+description: "Looks first at external forces imposed on the organization before discussing solutions or execution."
 ---
 # Role
 
