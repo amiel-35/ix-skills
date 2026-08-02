@@ -5,7 +5,7 @@ build.py — Multi-target skill builder for ix-skills.
 Usage:
     python build.py                              # all targets, all skills
     python build.py <id>                         # specific skill id, all targets
-    python build.py --target agentskills         # dist/<id>/SKILL.md — Claude Cowork + ChatGPT Skills
+    python build.py --target agentskills         # dist/skills/<id>/SKILL.md — Claude Cowork + ChatGPT Skills
     python build.py --target cowork              # cowork validation only
     python build.py --target mystaffy            # all skills, mystaffy only
     python build.py --target mystaffy --domain cognitif  # filter by domain
@@ -29,9 +29,10 @@ import jsonschema
 # ---------------------------------------------------------------------------
 SKILLS_DIR = Path("skills")
 DIST_DIR = Path("dist")
+DIST_SKILLS_DIR = DIST_DIR / "skills"
 MYSTAFFY_DIST_DIR = Path("mystaffy-dist")
 CODEX_DIST_DIR = Path("codex-dist")
-PLUGIN_JSON = Path(".claude-plugin/plugin.json")
+PLUGIN_JSON = DIST_DIR / ".claude-plugin" / "plugin.json"
 
 # ---------------------------------------------------------------------------
 # Domain → métier mapping
@@ -218,7 +219,7 @@ def load_skills(skill_id=None, domain=None):
 # Target: agentskills (Claude Cowork + ChatGPT Skills \u2014 shared Agent Skills format)
 # ---------------------------------------------------------------------------
 # Replaces the old `claude-ai` target (zipped .skill with untransformed
-# frontmatter \u2014 invalid). Emits an open dist/<id>/SKILL.md directory,
+# frontmatter \u2014 invalid). Emits open dist/skills/<id>/SKILL.md directories,
 # serving both Cowork and ChatGPT Skills.
 _AGENTSKILL_NAME_RE = re.compile(r"^[a-z0-9-]+$")
 
@@ -242,11 +243,12 @@ def _agentskill_md(fm: dict, body: str) -> str:
 
 
 def build_agentskills(skills: list, dry_run: bool = False) -> int:
-    """Build Agent Skills-compatible SKILL.md files into dist/<id>/SKILL.md.
+    """Build Agent Skills-compatible SKILL.md files into dist/skills/<id>/SKILL.md.
 
-    Serves both Claude Cowork (Customize > upload) and ChatGPT Skills
-    (Skills editor > upload) \u2014 both consume the same open Agent Skills
-    frontmatter standard (name + description).
+    dist/ is the plugin root (dist/.claude-plugin/plugin.json); skills live in
+    the default skills/<id>/SKILL.md layout so Cowork/claude.ai auto-discover
+    them \u2014 the web validator does not reliably support custom `skills` paths.
+    Serves both Claude Cowork and ChatGPT Skills (same Agent Skills format).
     """
     print(f"\nTarget: agentskills ({len(skills)} skill(s))")
     errors = 0
@@ -255,14 +257,13 @@ def build_agentskills(skills: list, dry_run: bool = False) -> int:
         skill_id = fm.get("id", path.stem)
         try:
             skill_id = fm["id"]
-            out_dir = DIST_DIR / skill_id
+            out_dir = DIST_SKILLS_DIR / skill_id
             out_file = out_dir / "SKILL.md"
             content = _agentskill_md(fm, body)
             if not dry_run:
-                DIST_DIR.mkdir(exist_ok=True)
-                out_dir.mkdir(exist_ok=True)
+                out_dir.mkdir(parents=True, exist_ok=True)
                 out_file.write_text(content, encoding="utf-8")
-            print(f"  \u2713 agentskills {skill_id:<20} \u2192 dist/{skill_id}/SKILL.md{dry_tag}")
+            print(f"  \u2713 agentskills {skill_id:<20} \u2192 dist/skills/{skill_id}/SKILL.md{dry_tag}")
         except Exception as e:
             print(f"  \u2717 agentskills {skill_id:<20} \u2192 {e}")
             errors += 1
@@ -286,11 +287,12 @@ def build_cowork(dry_run=False):
         print(f"  \u2717 cowork: {PLUGIN_JSON} invalid JSON — {e}{dry_tag}")
         return 1
     missing = [f for f in ("name", "version") if f not in data]
-    has_skills = "skills" in data or (
-        isinstance(data.get("components"), dict) and "skills" in data["components"]
-    )
-    if not has_skills:
-        missing.append("components.skills")
+    # No `skills` field required: the plugin root is dist/, so skills are
+    # auto-discovered from the default dist/skills/<id>/SKILL.md layout.
+    if "skills" in data:
+        print(f"  ✗ cowork: {PLUGIN_JSON} has a custom 'skills' field — remove it, "
+              f"the Cowork web validator only supports default skills/ discovery{dry_tag}")
+        errors += 1
     if missing:
         print(f"  \u2717 cowork: {PLUGIN_JSON} missing fields: {', '.join(missing)}{dry_tag}")
         errors += 1

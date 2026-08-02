@@ -1,14 +1,11 @@
 {
   "name": "ix-skills",
   "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplify, rephrase, explorer, decision, deliver. Compatible with Claude, GPT, Gemini, and mystaffy.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Amiel Lavon",
     "url": "https://github.com/amiel-35"
   },
   "homepage": "https://github.com/amiel-35/ix-skills",
-  "license": "MIT",
-  "skills": [
-    "./dist/"
-  ]
+  "license": "MIT"
 }
