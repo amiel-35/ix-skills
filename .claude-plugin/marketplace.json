@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "ix-skills",
-      "source": "./",
+      "source": "./dist",
       "description": "Atomic knowledge-work skills for structured pipelines — critique, correction, simplify, rephrase, explorer, decision, deliver."
     }
   ]
