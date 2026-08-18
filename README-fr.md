@@ -804,42 +804,39 @@ brief    → prd → feature-spec
 
 ## Installation
 
-### Claude Code
+### Claude Code (plugin — recommandé)
 
-Claude Code scanne `~/.claude/skills/` au démarrage — un sous-répertoire par skill, contenant chacun un `SKILL.md`.
+Le repo est une marketplace de plugins Claude Code (`.claude-plugin/marketplace.json` pointe sur la racine de plugin `dist/`). Installation en une fois, macOS comme Linux :
 
 ```bash
-git clone https://github.com/amiel-35/ix-skills /tmp/ix-skills
-for f in /tmp/ix-skills/skills/*.md; do
-  id=$(basename "$f" .md)
-  mkdir -p ~/.claude/skills/$id
-  cp "$f" ~/.claude/skills/$id/SKILL.md
-done
+claude plugin marketplace add amiel-35/ix-skills
+claude plugin install ix-skills@ix-skills
 ```
 
-Ou pour installer un seul skill :
+Les skills sont namespacés : `critique` devient `/ix-skills:critique`. Pour récupérer les mises à jour ensuite :
 
 ```bash
-mkdir -p ~/.claude/skills/critique
-cp skills/critique.md ~/.claude/skills/critique/SKILL.md
+claude plugin marketplace update ix-skills
 ```
 
-### Claude.ai
+Dans l'app desktop Claude Code, les deux mêmes étapes passent par la commande `/plugin`.
 
-**Option A — upload direct (un skill à la fois)**
+**Fallback manuel** (pas de mécanisme plugin disponible) : symlinker ou copier `dist/skills` dans `~/.claude/skills/`. Bien utiliser `dist/skills` — pas `skills/` : les fichiers source portent le frontmatter canonique (`id`, `label`, `description_fr`…), pas le frontmatter `name`/`description` attendu par le format Agent Skills, donc un `skills/<id>.md` brut n'est **pas** un `SKILL.md` valide.
 
-Dans **Settings → Skills**, glisser-déposer `skills/<id>.md` directement.
+### Claude Cowork / claude.ai
 
-**Option B — bundle `.skill` (par lot)**
+**Option A — installer comme plugin (par lot, recommandé)**
+
+Ajouter le repo comme source de plugins : **« Ajouter depuis un dépôt »** avec `amiel-35/ix-skills`. Le manifeste marketplace fait le reste.
+
+**Option B — uploader un seul skill**
+
+Les dossiers `dist/skills/<id>/` sont des Agent Skills valides : en uploader un tel quel dans **Cowork → Customize** (ou l'éditeur ChatGPT Skills), ou zipper le dossier soi-même si une archive `.skill` est requise. Pour les régénérer :
 
 ```bash
-git clone https://github.com/amiel-35/ix-skills
-cd ix-skills
 pip install -r requirements.txt
-python3 build.py --target claude-ai
+python3 build.py --target agentskills
 ```
-
-Glisser les fichiers `dist/*.skill` dans **Settings → Skills**.
 
 ### Codex CLI
 

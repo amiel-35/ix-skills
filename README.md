@@ -804,42 +804,39 @@ brief    → prd → feature-spec
 
 ## Installation
 
-### Claude Code
+### Claude Code (plugin — recommended)
 
-Claude Code scans `~/.claude/skills/` at startup — one subdirectory per skill, each containing a `SKILL.md`.
+The repo is a Claude Code plugin marketplace (`.claude-plugin/marketplace.json` points at the `dist/` plugin root). One-time install, works on macOS and Linux:
 
 ```bash
-git clone https://github.com/amiel-35/ix-skills /tmp/ix-skills
-for f in /tmp/ix-skills/skills/*.md; do
-  id=$(basename "$f" .md)
-  mkdir -p ~/.claude/skills/$id
-  cp "$f" ~/.claude/skills/$id/SKILL.md
-done
+claude plugin marketplace add amiel-35/ix-skills
+claude plugin install ix-skills@ix-skills
 ```
 
-Or to install a single skill:
+Skills are namespaced: `critique` becomes `/ix-skills:critique`. To pull updates later:
 
 ```bash
-mkdir -p ~/.claude/skills/critique
-cp skills/critique.md ~/.claude/skills/critique/SKILL.md
+claude plugin marketplace update ix-skills
 ```
 
-### Claude.ai
+In the Claude Code desktop app, the same two steps are available through the `/plugin` command.
 
-**Option A — direct upload (one skill at a time)**
+**Manual fallback** (no plugin mechanism available): symlink or copy `dist/skills` into `~/.claude/skills/`. Use `dist/skills` — not `skills/`: the source files carry the canonical frontmatter (`id`, `label`, `description_fr`…), not the `name`/`description` frontmatter the Agent Skills format requires, so raw `skills/<id>.md` files are **not** valid `SKILL.md` files.
 
-In **Settings → Skills**, drag and drop `skills/<id>.md` directly.
+### Claude Cowork / claude.ai
 
-**Option B — `.skill` bundle (batch)**
+**Option A — install as a plugin (batch, recommended)**
+
+Add the repo as a plugin source: **"Add from repository"** with `amiel-35/ix-skills`. The marketplace manifest does the rest.
+
+**Option B — upload a single skill**
+
+`dist/skills/<id>/` folders are valid Agent Skills: upload one as-is in **Cowork → Customize** (or the ChatGPT Skills editor), or zip the folder yourself if a `.skill` archive is needed. Regenerate them with:
 
 ```bash
-git clone https://github.com/amiel-35/ix-skills
-cd ix-skills
 pip install -r requirements.txt
-python3 build.py --target claude-ai
+python3 build.py --target agentskills
 ```
-
-Drop the `dist/*.skill` files into **Settings → Skills**.
 
 ### Codex CLI
 
