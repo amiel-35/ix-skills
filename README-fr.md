@@ -2,7 +2,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-84 skills en 10 catégories (3 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
+85 skills en 10 catégories (3 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
 
 [🇬🇧 English version](README.md)
 
@@ -188,6 +188,18 @@ Chaque skill impose une posture cognitive spécifique. Ils ne sont pas interchan
 ### 🗺️ Stratégie & Intelligence
 
 Outils de renseignement structuré — chacun audite une dimension différente d'un raisonnement ou d'un plan avant de s'engager.
+
+Références méthodologiques utiles : [CIA — *A Tradecraft Primer: Structured Analytic Techniques for Improving Intelligence Analysis*](https://www.cia.gov/resources/csi/static/Tradecraft-Primer-apr09.pdf), [CIA — *Combatting Mind-Set*](https://www.cia.gov/resources/csi/static/Combating-Mindset.pdf), [CIA FOIA — *The "Red Team"*](https://www.cia.gov/readingroom/document/cia-rdp88b00443r001500040025-4), [NCSC — *Key Assumptions Check*](https://www.ncsc.nl/analysetools/key-assumptions-check).
+
+---
+
+#### `structured-analysis` — Orchestrer l'analyse structuree
+
+**Ce qu'il fait :** Diagnostique une situation ambigue, incomplete, floue ou biaisee, puis choisit la sequence minimale de techniques a lancer : `cadrage`, `research`, `quality-check`, `key-assumptions`, `ach`, `indicateurs`, `contrarian`, `red-team`, `outside-in`, `futurs-alternatifs`, `dixieme-homme`, `chairman` ou `decision`.
+
+**Ce qu'il ne fait pas :** Ne remplace pas les skills specialisees. Ne pretend pas resoudre l'analyse en une seule passe. Ne force pas une analyse structuree sur un besoin purement operationnel. Il produit le protocole : quelle skill lancer, pourquoi, avec quels inputs, et quand s'arreter.
+
+**Quand l'utiliser :** Sujet a fort enjeu, information incomplete, risque de biais, consensus trop rapide, adversaire actif, ou incertitude profonde. Utile en amont quand on ne sait pas encore quelle technique d'analyse appliquer.
 
 ---
 

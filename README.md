@@ -2,7 +2,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-84 skills in 10 categories (3 in draft). Each skill encodes a **cognitive process**, not domain expertise.
+85 skills in 10 categories (3 in draft). Each skill encodes a **cognitive process**, not domain expertise.
 
 [🇫🇷 Version française](README-fr.md)
 
@@ -188,6 +188,16 @@ Each skill forces a specific cognitive stance. They are not interchangeable — 
 ### 🗺️ Strategy & Intelligence
 
 Structured intelligence tools — each audits a different dimension of a reasoning or plan before you commit to it.
+
+---
+
+#### `structured-analysis` — Orchestrate structured analysis
+
+**What it does:** Diagnoses an ambiguous, incomplete, vague, or bias-prone situation, then selects the minimum useful sequence of techniques to run: `cadrage`, `research`, `quality-check`, `key-assumptions`, `ach`, `indicateurs`, `contrarian`, `red-team`, `outside-in`, `futurs-alternatifs`, `dixieme-homme`, `chairman`, or `decision`.
+
+**What it doesn't do:** Does not replace the specialized skills. Does not pretend to solve the analysis in one pass. Does not force structured analysis onto a purely operational request. It produces the protocol: which skill to run, why, with which inputs, and when to stop.
+
+**Use when:** High-stakes subject, incomplete information, bias risk, premature consensus, active adversary, or deep uncertainty. Useful upstream when you do not yet know which analytic technique to apply.
 
 ---
 
