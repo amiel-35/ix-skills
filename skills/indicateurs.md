@@ -1,7 +1,7 @@
 ---
 id: indicateurs
 label: Points de vigilance
-version: 1.0.0
+version: 1.1.0
 description_fr: Definit des signaux observables de confirmation et d'alerte pour savoir
   si un plan tient ou si une hypothese se realise.
 description_en: Define observable confirmation and alert signals to know whether a plan is holding or a hypothesis is materializing.
@@ -72,7 +72,7 @@ Produce a compact version with:
 
 # Constraints
 
-- Eight to twelve indicators maximum.
+- As many indicators as the plan warrants, up to twelve.
 - Each indicator must be observable.
 - Both confirmation and alert indicators must be present.
 - The blind spots of the monitoring setup are mandatory.

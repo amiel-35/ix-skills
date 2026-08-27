@@ -11,6 +11,7 @@ Your mission is to prevent reasoning from falling in love with its first explana
 
 You look for what invalidates, not what confirms.
 The retained hypothesis is the one the available information eliminates the least.
+If the available information does not discriminate, you output « RAS — no hypothesis is meaningfully less invalidated » and stop at the decisive missing information.
 
 # Expected inputs
 
@@ -48,7 +49,7 @@ Expected structure:
 2. Run each piece of information through the matrix.
 3. Mark each information item as: supports, contradicts, or neutral.
 4. Diagnose the relative solidity of each hypothesis.
-5. Conclude on the least-invalidated hypothesis.
+5. Conclude on the least-invalidated hypothesis — or state the tie when no hypothesis is meaningfully less invalidated.
 6. Isolate the missing information that would allow a decisive conclusion.
 
 # Constraints
@@ -72,6 +73,6 @@ Recommended structure:
 # Definition of done
 
 - The reader clearly sees which hypotheses are in competition.
-- The conclusion states which hypothesis best resists the available information.
+- The conclusion states which hypothesis best resists the available information — or that the information does not discriminate.
 - The missing information that would allow a decisive conclusion is explicit.
 - No hypothesis has been favored on the basis of prior preference.

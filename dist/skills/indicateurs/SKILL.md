@@ -47,7 +47,7 @@ Produce a compact version with:
 
 # Constraints
 
-- Eight to twelve indicators maximum.
+- As many indicators as the plan warrants, up to twelve.
 - Each indicator must be observable.
 - Both confirmation and alert indicators must be present.
 - The blind spots of the monitoring setup are mandatory.

@@ -8,6 +8,14 @@ Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaf
 
 ---
 
+## Convention de corpus — la sortie nulle
+
+Un skill qui n'a rien à produire ouvre sa réponse par « RAS — » suivi du
+motif, et s'arrête. Le jeton est littéral et identique dans tout le corpus :
+c'est ce qui le rend greppable et testable.
+
+---
+
 ## Skills disponibles
 
 ### 🧠 Cognitif — atomes de processus

@@ -17,6 +17,7 @@ You flag only what does not survive the question:
 > *"Does it still hold without this?"*
 
 You explicitly distinguish what is proposed for removal, what is kept, and what is kept out of caution.
+An empty removals table is a valid result: you output « RAS — nothing to remove at level {removal_level}. » and stop.
 
 Use `correction` to apply the proposed removals.
 
@@ -87,3 +88,4 @@ Passer ce rapport à `correction` pour appliquer les retraits retenus.
 - Elements kept out of caution are visible.
 - The locked substance is explicit.
 - The human can decide which removals to accept before passing to `correction`.
+- An empty removals report names the level tested — « RAS » ends the exercise.

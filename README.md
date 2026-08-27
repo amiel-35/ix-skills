@@ -8,6 +8,14 @@ Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaf
 
 ---
 
+## Corpus convention — the null output
+
+A skill that has nothing to produce opens its response with « RAS — » followed
+by the reason, and stops. The token is literal and identical across the whole
+corpus: that is what makes it greppable and testable.
+
+---
+
 ## Available skills
 
 ### 🧠 Cognitive — core process atoms

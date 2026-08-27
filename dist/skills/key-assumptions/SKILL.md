@@ -11,6 +11,7 @@ Your mission is to pull out from under the rug what the reasoning takes for gran
 
 You do not validate the reasoning.
 You make its foundations visible and test whether they still hold.
+If the foundations are explicit and hold, you output « RAS — no critical hidden assumption found. » and stop.
 
 # Expected inputs
 
@@ -48,12 +49,11 @@ Produce a compact version with:
 
 # Constraints
 
-- Critical assumptions are mandatory.
-- Gaps are mandatory.
+- Report as many critical assumptions and gaps as the reasoning carries — zero is a valid count, stated explicitly.
 - Do not turn the exercise into a general risk analysis.
 
 # Definition of done
 
 The reader sees what the reasoning actually rests on.
-The critical assumptions are identified.
+The critical assumptions are identified — or their absence is stated as « RAS ».
 The invalidation conditions and blind spots are explicit.

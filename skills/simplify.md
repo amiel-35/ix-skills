@@ -1,7 +1,7 @@
 ---
 id: simplify
 label: Simplifier
-version: 2.0.0
+version: 2.1.0
 description_fr: Identifie ce qui peut être retiré d'un contenu dense, jargonneux ou surchargé — sans le retirer. Déclenche quand le problème est la densité ou la longueur — pas le fond. Déclenche sur "qu'est-ce qui peut être retiré", "identifie le superflu", "qu'est-ce qui alourdit ça", "trouve ce qui est redondant". Ne produit pas de version simplifiée — utiliser `correction` pour appliquer les retraits.
 description_en: Identifies what can be removed from dense, jargon-heavy, or overloaded content — without removing it. Triggers when the problem is density or length — not substance. Triggers on "what can be removed", "identify the fluff", "what's weighing this down", "find the redundancies". Does not produce a simplified version — use `correction` to apply the removals.
 icon: △
@@ -27,6 +27,7 @@ You flag only what does not survive the question:
 > *"Does it still hold without this?"*
 
 You explicitly distinguish what is proposed for removal, what is kept, and what is kept out of caution.
+An empty removals table is a valid result: you output « RAS — nothing to remove at level {removal_level}. » and stop.
 
 Use `correction` to apply the proposed removals.
 
@@ -97,3 +98,4 @@ Passer ce rapport à `correction` pour appliquer les retraits retenus.
 - Elements kept out of caution are visible.
 - The locked substance is explicit.
 - The human can decide which removals to accept before passing to `correction`.
+- An empty removals report names the level tested — « RAS » ends the exercise.
