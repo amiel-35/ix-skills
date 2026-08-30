@@ -1,0 +1,69 @@
+{
+  "metier": [
+    "intelligence_strategique",
+    "fondateur_ceo"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "protocol",
+      "help": "protocol = protocole complet ; triage = prochaine skill recommandee ; review = revue d'un protocole d'analyse existant.",
+      "values": [
+        "protocol",
+        "triage",
+        "review"
+      ]
+    },
+    "horizon": {
+      "label": "Horizon temporel",
+      "type": "string",
+      "required": false,
+      "help": "Horizon de l'analyse, par exemple immediat, 3 mois, 12 mois ou 3 ans."
+    },
+    "enjeu": {
+      "label": "Niveau d'enjeu",
+      "type": "enum",
+      "required": false,
+      "default": "standard",
+      "help": "Aide a calibrer la profondeur du protocole.",
+      "values": [
+        "faible",
+        "standard",
+        "eleve",
+        "critique"
+      ]
+    },
+    "contexte": {
+      "label": "Contexte",
+      "type": "text",
+      "required": false,
+      "help": "Contexte organisationnel, decision a prendre, contraintes, sources disponibles ou analyses deja produites."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode",
+      "enjeu"
+    ],
+    "advanced_fields": [
+      "horizon",
+      "contexte"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 8,
+    "max_estimated_tokens": 18000
+  },
+  "color": "#2F855A",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
