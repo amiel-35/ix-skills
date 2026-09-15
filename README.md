@@ -367,13 +367,13 @@ Tools for defining and evaluating measurement systems — from objectives to das
 
 ---
 
-#### `okr` — Vague objective → structured OKR
+#### `okr` — Review O/KR lines, or surface material to discuss
 
-**What it does:** Transforms a vague strategic intent into a structured OKR — an inspiring Objective paired with 3–4 measurable Key Results. Refuses non-measurable KRs and proposes quantified formulations instead.
+**What it does:** Two distinct modes. *Template*: reviews Objective/Key Result lines already written, line by line — conformity to the formula (O = action verb + what + intended impact; KR = measurement verb + what + from X to Y + deadline), task disguised as a KR, outcome or output, baseline sourced or missing, calibration profile (sandbagged / aspirational / stretch). *Material to discuss*: from a vague brief, produces candidate Objectives with what each one excludes, and families of Key Results with their traps and forcing mechanisms.
 
-**What it doesn't do:** Does not validate KRs that lack a metric. Does not confuse KRs with tasks or initiatives.
+**What it doesn't do:** Never hands back a finished OKR on its own — the Objective is chosen by the person, the Key Results are discussed. Never invents a missing baseline: an absent X is declared « to be measured », never replaced by a plausible number. In template mode, does not rewrite the author's lines.
 
-**Use when:** Quarterly planning, strategic alignment, or when leadership has a direction but no measurable goals. Output feeds `tableau-de-bord-kpi` and `indicateurs`.
+**Use when:** Quarterly planning, strategic alignment, or a contre-check on an OKR already drafted. Output feeds `tableau-de-bord-kpi` and `indicateurs`.
 
 ---
 

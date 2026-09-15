@@ -367,13 +367,13 @@ Outils pour définir et évaluer des systèmes de mesure — des objectifs aux d
 
 ---
 
-#### `okr` — Objectif vague → OKR structuré
+#### `okr` — Relire des lignes d'O/KR, ou faire émerger un matériau à discuter
 
-**Ce qu'il fait :** Transforme une intention stratégique vague en OKR structuré — un Objectif inspirant associé à 3–4 Key Results mesurables. Refuse les KR non mesurables et propose des formulations quantifiées à la place.
+**Ce qu'il fait :** Deux modes distincts. *Gabarit* : relit des lignes d'Objectif/Résultat clé déjà écrites, ligne par ligne — conformité à la formule (O = verbe d'action + quoi + impact recherché ; KR = verbe de mesure + quoi + de X à Y + échéance), tâche déguisée en KR, outcome ou output, baseline sourcée ou manquante, profil de calibrage (sandbagged / aspirationnel / stretch). *Matériau à discuter* : depuis un brief flou, produit des Objectifs candidats avec ce que chacun exclut, et des familles de résultats clés avec leurs pièges et leurs mécanismes de forçage.
 
-**Ce qu'il ne fait pas :** Ne valide pas des KR sans métrique. Ne confond pas KR avec tâches ou initiatives.
+**Ce qu'il ne fait pas :** Ne rend jamais un OKR fini tout seul — l'Objectif est choisi par la personne, les KR se discutent. N'invente jamais une baseline manquante : un X absent se déclare « à chiffrer », jamais remplacé par un chiffre plausible. En mode gabarit, ne réécrit pas les lignes de l'auteur.
 
-**Quand l'utiliser :** Planning trimestriel, alignement stratégique, ou quand le leadership a une direction mais pas d'objectifs mesurables. Le livrable alimente `tableau-de-bord-kpi` et `indicateurs`.
+**Quand l'utiliser :** Planning trimestriel, alignement stratégique, ou contre-check d'un OKR déjà rédigé. Le livrable alimente `tableau-de-bord-kpi` et `indicateurs`.
 
 ---
 

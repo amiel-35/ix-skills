@@ -4,6 +4,47 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-09-15
+
+### Changed — `okr` 2.0.0 (breaking: behaviour, not a fix)
+
+Rewritten from a version validated in real use, not in review only: a
+trigger test run by independent agents (4/4 on phrases that had to fire it,
+2/2 on near-miss phrases that had to not — including "critique this action
+plan", which belongs to `critique`), and a contre-check on an OKR already
+written for a client, where the skill caught a KR that reproduced the
+deadline/budget/scope triptych the client explicitly ruled out as a measure
+of success — independently confirmed by a second run started from scratch
+on the same need, which named the same trap without seeing the drafted OKR.
+
+- **Major bump, not minor.** 1.0.2 produced a finished OKR from a brief in
+  one pass. 2.0.0 never does, in either mode: the Objective is given or
+  chosen by the person, the Key Results are discussed — never drafted by an
+  agent then submitted for approval after the fact.
+- **Two distinct modes.** *Template* reviews O/KR lines already written,
+  line by line (formula conformity, task disguised as a KR, outcome or
+  output, baseline sourced or missing, calibration profile) and never
+  rewrites in the author's place. *Material to discuss* starts from a vague
+  brief and produces candidate Objectives — each with what it excludes —
+  plus families of Key Results with baseline, stretch, acceptable minimum,
+  forcing mechanism and classic trap. The modes never merge.
+- **Doctrine written into the body**, not referenced: the formula (O =
+  action verb + what + intended impact, never a number; KR = measurement
+  verb + what + from X to Y + deadline), the three calibration profiles
+  (sandbagged / aspirational / stretch), and outcome > output — but a
+  realistic sourced output over an invented or embellished outcome.
+- **Absolute rule on baselines.** A missing X is declared « baseline
+  missing — to be measured », never replaced by a plausible number.
+- **Pushy description with explicit triggers** in both languages (objectif,
+  résultat clé, KR, OKR, outcome/output, baseline manquante, sandbagged,
+  aspirationnel, tâche déguisée en KR). 1.0.2 carried no trigger phrase at
+  all and was never invoked automatically in a real session — the reason for
+  this rewrite as much as the method was.
+- `okr.mystaffy.json`: `mode` param added (auto / gabarit / materiau);
+  `nb_kr_max` and `inclure_stretch` removed — both assumed a single finished
+  output, and stretch calibration is now baseline doctrine rather than an
+  option. `horizon` kept.
+
 ## 2026-08-27
 
 ### Corpus convention
