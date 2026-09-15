@@ -1,11 +1,9 @@
 ---
 id: decomposer
 label: Décomposer
-version: 1.0.0
-description_fr: Structurer un problème complexe en sous-problèmes indépendants et
-  actionnables. Déclencher en amont de tout sujet dense avant de produire, décider
-  ou explorer.
-description_en: Structure a complex problem into independent, actionable sub-problems. Trigger upstream of any dense topic before producing, deciding, or exploring.
+version: 1.1.0
+description_fr: Structure un problème complexe en sous-problèmes indépendants, avec leurs dépendances explicites et le niveau où chacun devient assignable — sans jamais le résoudre. Déclenche sur "décompose ce problème", "en quoi ce sujet se découpe vraiment", "quelles sont les briques indépendantes là-dedans", "qu'est-ce qui dépend de quoi ici". Ne recommande pas un découpage en lots de production, voir `analysis` — ne classe pas les parties obtenues, voir `prioritize` — et ne reformule pas la question de départ, voir `firstprinciples`.
+description_en: Structures a complex problem into independent sub-problems, with explicit dependencies and the level at which each becomes assignable — without ever solving it. Triggers on "break this problem down", "how does this subject actually split", "what are the independent pieces here", "what depends on what in this". Does not recommend a split into production lots, see `analysis` — does not rank the resulting parts, see `prioritize` — and does not reframe the original question, see `firstprinciples`.
 icon: ⊞
 domain: cognitif
 category: atome

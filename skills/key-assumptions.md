@@ -1,10 +1,9 @@
 ---
 id: key-assumptions
 label: Hypotheses cachees
-version: 1.1.0
-description_fr: Rend visibles les hypotheses implicites d'un raisonnement, les qualifie
-  et identifie celles dont la chute ferait s'effondrer l'ensemble.
-description_en: Makes the implicit assumptions of a reasoning visible, qualifies them, and identifies the ones whose collapse would bring everything down.
+version: 1.2.0
+description_fr: Rend visibles les hypothèses implicites d'un raisonnement déjà écrit — ce qu'il prend pour acquis sans le dire — et isole celles dont la chute ferait s'effondrer la conclusion. Déclenche quand un plan tient debout sans qu'on ait listé sur quoi il repose. Déclenche sur "qu'est-ce qu'on prend pour acquis ici", "quelles hypothèses sous-tendent cette conclusion", "si ça tombe, qu'est-ce qui s'effondre", "expose les non-dits de ce raisonnement". Ne reformule pas la question de départ, voir `firstprinciples` — et ne teste pas des hypothèses contre des preuves, voir `ach`.
+description_en: Surfaces the implicit assumptions inside an already-written reasoning — what it takes for granted without saying so — and isolates the ones whose collapse would bring the conclusion down. Triggers when a plan stands but nobody listed what it rests on. Triggers on "what is this plan taking for granted", "what assumptions is this built on", "if this fails, what collapses with it", "expose what's unstated here". Does not reframe the original question, see `firstprinciples` — and does not test hypotheses against evidence, see `ach`.
 icon: 🪨
 domain: strategy
 category: critique

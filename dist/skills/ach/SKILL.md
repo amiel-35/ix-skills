@@ -1,6 +1,6 @@
 ---
 name: ach
-description: "Put competing hypotheses to the test and identify which one the available evidence eliminates least. Structured anti-confirmation-bias technique \u2014 CIA's Analysis of Competing Hypotheses (ACH)."
+description: "Pits competing hypotheses against the evidence and keeps the one the facts invalidate least \u2014 the CIA's ACH technique. Triggers when several rival explanations exist for the same fact. Triggers on \"which hypothesis holds up against the evidence\", \"test these explanations against what we know\", \"rule out these scenarios using the evidence\", \"what's the most likely cause here\". Does not grade a single source's reliability, see `quality-check` \u2014 and does not surface a reasoning's unstated premises, see `key-assumptions`."
 ---
 # Role
 

@@ -26,14 +26,14 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 |---|---|---|
 | `critique` | Identifier les failles d'un contenu sans proposer de solution | Analyse seulement — **ne corrige pas** |
 | `correction` | Transformer une critique en directives actionnables | Transforme une critique — **ne ré-analyse pas** |
-| `simplify` | Épurer un contenu sans changer le fond | Préserve toute l'information — supprime la friction |
+| `simplify` | Repérer ce qui peut être retiré sans changer le fond | Identifie les retraits — **ne les applique pas** (voir `correction`) |
 | `rephrase` | Restituer le sens réel d'un contenu dense ou ambigu | Réinterprète — le sens peut évoluer, pas seulement la forme |
 | `explorer` | Générer un espace d'options sans trancher | Largeur — **ne choisit pas** |
 | `decision` | Arbitrer avec trade-offs visibles et recommandation nette | Choisit parmi des options existantes — **n'en génère pas** |
 | `deliver` | Transformer un artifact en livrable partageable | Mise en forme et calibrage audience |
-| `research` | Construire un socle factuel sourcé avant toute décision | Sources obligatoires — aucune affirmation non sourcée |
+| `research` | Construire un socle factuel sourcé avant toute décision | Sources obligatoires en mode standard et approfondi — le mode `flash` répond sur la seule mémoire du modèle |
 | `synthese` | Condenser un long contenu en synthèse actionnable | Compression avec perte — le détail est sacrifié intentionnellement |
-| `decomposer` | Structurer un problème complexe en sous-problèmes indépendants | Les sous-problèmes doivent être indépendants — pas de dépendances croisées |
+| `decomposer` | Structurer un problème complexe en sous-problèmes actionnables | Les dépendances entre sous-problèmes sont identifiées, pas masquées |
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
 | `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
 | `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
@@ -46,7 +46,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 `critique` analyse *votre propre artifact* (un document, un plan, une proposition) pour en trouver les failles. `revue-feedback` traite *un feedback que quelqu'un d'autre vous a donné* — il évalue si vous devez l'accepter, le nuancer ou le refuser avant de répondre. L'un est éditorial, l'autre est diplomatique.
 
 **`simplify` vs `rephrase` vs `synthese`**
-- `simplify` supprime le bruit en conservant toute l'information — le résultat est plus court mais complet.
+- `simplify` nomme le bruit qui pourrait sauter en conservant toute l'information — il identifie les retraits, `correction` les applique.
 - `rephrase` réécrit un contenu dense ou ambigu pour rendre le sens réel lisible — il réinterprète, ne coupe pas seulement.
 - `synthese` sacrifie délibérément le détail pour extraire l'essentiel — compression avec perte qui produit une synthèse actionnable.
 
@@ -66,7 +66,7 @@ Chaque skill impose une posture cognitive spécifique. Ils ne sont pas interchan
 
 #### `contrarian` — Points de défaillance et hypothèses non vérifiées
 
-**Origine :** L'*advocatus diaboli* (avocat du diable), formalisé dans le droit canon catholique. L'Église exigeait un critique désigné pour plaider contre toute canonisation proposée, pour garantir la rigueur. Adopté dans la gestion de la décision et l'analyse de renseignement pour institutionnaliser la dissidence.
+**Origine :** L'*advocatus diaboli* (avocat du diable), formalisé dans le droit canon catholique. L'Église exigeait un critique désigné pour plaider contre toute canonisation proposée, pour garantir la rigueur. Adopté dans la gestion de la décision et l'analyse de renseignement pour institutionnaliser la dissidence. En tant que *demande*, en revanche, « joue l'avocat du diable » va vers `dixieme-homme`, qui plaide la thèse adverse complète — `contrarian` creuse le seul point de rupture.
 
 **Objectif :** Forcer la confrontation avec la façon la plus probable dont votre plan échoue — avant de vous engager.
 
@@ -425,7 +425,7 @@ Outils pré-juridiques — tous nécessitent une validation professionnelle avan
 
 #### `legal-risk-flag` — Scan rapide des signaux d'alerte
 
-**Ce qu'il fait :** Lit rapidement un document juridique ou contractuel et extrait les signaux de risque prioritaires avec des niveaux de sévérité gradués (critique / élevé / moyen). Conçu pour la rapidité — une évaluation flash avant de décider si une revue approfondie est nécessaire.
+**Ce qu'il fait :** Lit rapidement un document juridique ou contractuel et extrait les signaux de risque prioritaires avec des niveaux de sévérité gradués (haut / moyen / bas). Conçu pour la rapidité — une évaluation flash avant de décider si une revue approfondie est nécessaire.
 
 **Ce qu'il ne fait pas :** Ne réalise pas une analyse complète. Signale, ne conclut pas. Ne remplace jamais un juriste.
 
@@ -665,7 +665,7 @@ Outils pour l'ensemble du cycle de développement produit — du cadrage d'un be
 
 **Quand l'utiliser :** Vous avez besoin de quelque chose entre un brief et un PRD complet. Bien adapté aux petites features, MVPs ou contextes d'itération rapide.
 
-> Hiérarchie : `brief` → `product-spec` → `feature-spec` → `prd` (de plus en plus détaillé).
+> Hiérarchie : `brief` → `prd` (le quoi et le pourquoi) → `product-spec` / `feature-spec` (le comment, de plus en plus détaillé).
 
 ---
 
@@ -713,7 +713,7 @@ Outils pour l'ensemble du cycle de développement produit — du cadrage d'un be
 
 #### `code-review` — Revue de code sur 4 dimensions
 
-**Ce qu'il fait :** Revue du code sur sécurité, performance, correction et maintenabilité. Pour chaque finding : identifie le problème, explique l'impact, propose un correctif. Filtre par confiance — ne remonte que les problèmes haute priorité.
+**Ce qu'il fait :** Revue du code sur sécurité, performance, correction et maintenabilité. Pour chaque finding : identifie le problème, explique l'impact, propose un correctif. Classe les constats en critiques vs suggestions — les deux sont remontés, aucun n'est masqué.
 
 **Quand l'utiliser :** Avant de merger une PR, lors d'un audit codebase, ou lors d'une prise en main d'un nouveau codebase.
 
@@ -759,7 +759,7 @@ Outils pour l'exécution commerciale — rédaction d'offres, négociation, appe
 
 **Ce qu'il ne fait pas :** Pas un script de négociation. Pas un template pour l'autre partie.
 
-**Quand l'utiliser :** Avant toute négociation à fort enjeu — fournisseur, partenariat, client, emploi. Plus la position est claire en entrant, meilleur est le résultat.
+**Quand l'utiliser :** Avant toute négociation achat à fort enjeu — fournisseur, prestataire, sous-traitant. Plus la position est claire en entrant, meilleur est le résultat.
 
 ---
 

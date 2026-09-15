@@ -1,9 +1,9 @@
 ---
 id: revue-feedback
 label: Revue Feedback
-version: 1.0.2
-description_fr: Evalue un feedback avec rigueur avant de l'accepter ou le refuser.
-description_en: Evaluate feedback rigorously before accepting or refusing it.
+version: 1.1.0
+description_fr: Évalue un feedback ou une critique reçue avec rigueur — ce qui est valable, débattable, à refuser — avant de l'accepter ou d'y répondre. Déclenche sur "ce feedback est-il valable", "dois-je accepter cette critique", "évalue ce retour avant que je réponde", "comment je réponds à cette review sans être sur la défensive". Ne produit pas la critique elle-même — utiliser `critique` pour auditer un livrable depuis zéro. N'applique pas les corrections retenues — utiliser `correction` pour ça.
+description_en: Rigorously evaluates a received piece of feedback or criticism — what's valid, debatable, or to refuse — before accepting it or responding. Triggers on "is this feedback valid", "should I accept this criticism", "assess this feedback before I respond", "how do I respond to this review without getting defensive". Does not produce the critique itself — use `critique` to audit a deliverable from scratch. Does not apply the retained corrections — use `correction` for that.
 icon: ⊚
 domain: cognitif
 category: internal

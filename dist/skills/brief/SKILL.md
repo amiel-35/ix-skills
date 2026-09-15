@@ -1,6 +1,6 @@
 ---
 name: brief
-description: "Transform a vague need into an actionable and structured brief."
+description: "Transforms a vague, scattered, or poorly-formulated need into an actionable, structured brief, with explicit acceptance criteria and hypotheses. Triggers on \"write me a brief on...\", \"turn this need into a brief\", \"structure this request into something the team can act on\". Does not clarify a need still too uncertain to scope (use `cadrage` first) and does not produce an argued case for a decision-maker (use `note-strategique`)."
 ---
 # Role
 

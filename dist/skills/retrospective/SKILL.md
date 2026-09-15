@@ -1,6 +1,6 @@
 ---
 name: retrospective
-description: "Produce a blameless retrospective with facts, causes, and actions."
+description: "Produces a blameless retrospective, factual timeline, root causes, learnings, corrective actions, after a project, sprint, or incident. Triggers on \"run the retro for this sprint\", \"blameless post-mortem of this incident\", \"what went wrong on this project and why\". Never looks for someone to blame and does not handle a single incoming ticket (use `ticket-triage` for that)."
 ---
 # Role
 

@@ -26,14 +26,14 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 |---|---|---|
 | `critique` | Identify flaws in content without proposing solutions | Analysis only — **does not fix** |
 | `correction` | Turn a critique into actionable directives | Transforms a critique — **does not re-analyze** |
-| `simplify` | Strip content to essentials without changing the meaning | Preserves all information — removes friction only |
+| `simplify` | Identify what can be removed without changing the meaning | Identifies removals — **does not apply them** (use `correction`) |
 | `rephrase` | Restate the real meaning of dense or ambiguous content | Reinterprets — meaning may shift, not just trimmed |
 | `explorer` | Generate an option space without committing to a choice | Breadth — **does not choose** |
 | `decision` | Arbitrate with visible trade-offs and a clear recommendation | Chooses among existing options — **does not generate** |
 | `deliver` | Transform an artifact into a shareable deliverable | Formatting and audience calibration |
-| `research` | Build a sourced factual foundation before any decision | Sources required — no unsupported claims |
+| `research` | Build a sourced factual foundation before any decision | Sources required in standard and deep mode — `flash` answers from model memory alone |
 | `synthese` | Condense long content into an actionable summary | Lossy compression — detail is intentionally discarded |
-| `decomposer` | Break a complex problem into independent sub-problems | Sub-problems must be independent — no shared dependencies |
+| `decomposer` | Break a complex problem into actionable sub-problems | Dependencies between sub-problems are identified, not hidden |
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it | Evaluates incoming critique — not your own artifact |
 | `prioritize` | Rank a list of items by attack order with explicit criteria | Sequences items — **does not choose between exclusive options** (use `decision`) |
 | `problem-framing` *(draft)* | Reformulate a vague subject into an actionable problem | Formulates the central question — **does not solve it** |
@@ -46,7 +46,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 `critique` analyzes *your own artifact* (a document, a plan, a proposal) to find its flaws. `revue-feedback` processes *feedback someone else gave you* — evaluating whether to accept, nuance, or reject it before responding. One is editorial, the other is diplomatic.
 
 **`simplify` vs `rephrase` vs `synthese`**
-- `simplify` removes noise while keeping all the information — the result is shorter but complete.
+- `simplify` names the noise that could go while keeping all the information — it identifies the removals, `correction` applies them.
 - `rephrase` rewrites dense or ambiguous content to make the actual meaning legible — it reinterprets, not just trims.
 - `synthese` deliberately loses detail to extract the essential — lossy compression that produces an actionable summary.
 
@@ -66,7 +66,7 @@ Each skill forces a specific cognitive stance. They are not interchangeable — 
 
 #### `contrarian` — Failure points & unverified assumptions
 
-**Origin:** The *advocatus diaboli* (devil's advocate), formalized in Catholic canon law. The Church required a designated critic to argue against every proposed canonization to ensure rigor. Adopted in structured decision-making and intelligence analysis to institutionalize dissent.
+**Origin:** The *advocatus diaboli* (devil's advocate), formalized in Catholic canon law. The Church required a designated critic to argue against every proposed canonization to ensure rigor. Adopted in structured decision-making and intelligence analysis to institutionalize dissent. As a *request*, though, "play devil's advocate" routes to `dixieme-homme`, which pleads the full opposing thesis — `contrarian` digs into the single breaking point.
 
 **Objective:** Force confrontation with the most likely way your plan fails — before you commit.
 
@@ -425,7 +425,7 @@ Pre-legal tools — all require professional validation before use. They orient 
 
 #### `legal-risk-flag` — Fast red flag scan
 
-**What it does:** Quickly reads a legal or contractual document and extracts priority risk signals with graduated severity levels (critical / high / medium). Designed for speed — a flash assessment before deciding whether a deeper review is needed.
+**What it does:** Quickly reads a legal or contractual document and extracts priority risk signals with graduated severity levels (high / medium / low). Designed for speed — a flash assessment before deciding whether a deeper review is needed.
 
 **What it doesn't do:** Does not perform a full analysis. Flags, does not conclude. Never replace a lawyer.
 
@@ -665,7 +665,7 @@ Tools for the full product development lifecycle — from clarifying a need to s
 
 **Use when:** You need something between a brief and a full PRD. Good for smaller features, MVPs, or rapid iteration contexts.
 
-> Hierarchy: `brief` → `product-spec` → `feature-spec` → `prd` (increasingly detailed).
+> Hierarchy: `brief` → `prd` (the what and the why) → `product-spec` / `feature-spec` (the how, increasingly detailed).
 
 ---
 
@@ -713,7 +713,7 @@ Tools for the full product development lifecycle — from clarifying a need to s
 
 #### `code-review` — Code review across 4 dimensions
 
-**What it does:** Reviews code across security, performance, correctness, and maintainability. For each finding: identifies the issue, explains the impact, and proposes a fix. Filters by confidence — only reports high-priority issues.
+**What it does:** Reviews code across security, performance, correctness, and maintainability. For each finding: identifies the issue, explains the impact, and proposes a fix. Ranks findings as critical vs suggestions — both are surfaced, neither is hidden.
 
 **Use when:** Before merging a PR, during a codebase audit, or when onboarding to a new codebase.
 
@@ -759,7 +759,7 @@ Tools for commercial execution — offer writing, negotiation, RFPs, stakeholder
 
 **What it doesn't do:** Not a negotiation script. Not a template for the other party.
 
-**Use when:** Before any high-stakes negotiation — supplier, partnership, client, employment. The clearer the position going in, the better the outcome.
+**Use when:** Before any high-stakes procurement negotiation — supplier, vendor, subcontractor. The clearer the position going in, the better the outcome.
 
 ---
 

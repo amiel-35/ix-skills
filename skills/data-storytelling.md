@@ -1,9 +1,9 @@
 ---
 id: data-storytelling
 label: Data Storytelling
-version: 1.1.0
-description_fr: Transforme des donnees en narratif clair avec insight et recommandation.
-description_en: Transform data into a clear narrative with insight and recommendation.
+version: 1.2.0
+description_fr: Transforme des données quelconques (usage, produit, opérationnelles) en narratif avec un insight principal et une recommandation, pour n'importe quelle audience, pas seulement financière. Déclenche sur "raconte une histoire avec ces données", "qu'est-ce que ces chiffres produit nous disent", "transforme cette analyse en récit pour l'équipe", "quel insight on tire de ces données d'usage". Si les données ne soutiennent aucun insight robuste, répond "RAS" plutôt que d'inventer une histoire. Pour des chiffres financiers face à un board, utiliser `financial-narrative` ; pour définir les KPI à suivre, `tableau-de-bord-kpi`.
+description_en: Transforms any kind of data — usage, product, operational — into a narrative with one main insight and a recommendation, for any audience, not only financial. Triggers on "tell a story with this data", "what do these product numbers tell us", "turn this analysis into a narrative for the team", "what insight comes out of this usage data". When the data supports no robust insight, answers "RAS" rather than manufacturing a story. For financial figures aimed at a board use `financial-narrative`; to define which KPIs to track use `tableau-de-bord-kpi`.
 icon: ◉
 domain: data
 category: production

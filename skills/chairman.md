@@ -1,11 +1,9 @@
 ---
 id: chairman
 label: Arbitre
-version: 1.0.0
-description_fr: Arbitre plusieurs perspectives contradictoires, identifie convergences,
-  tensions et angle mort collectif, puis formule une conclusion utile plutot qu'un
-  consensus mou.
-description_en: Arbitrates multiple contradictory perspectives, identifies convergences, tensions, and collective blind spots, then formulates a useful conclusion rather than a soft consensus.
+version: 1.1.0
+description_fr: Arbitre plusieurs perspectives déjà produites et parfois contradictoires — pas des options à choisir mais des avis, analyses ou notes distincts — et tranche vers une conclusion utile plutôt qu'un consensus mou. Déclenche quand plusieurs voix ou analyses existent déjà sur un même sujet. Déclenche sur "synthétise ces avis contradictoires", "qu'est-ce qui ressort de ce collège d'analyses", "arbitre entre ces points de vue", "ces trois notes se contredisent, conclus". Ne compare pas des options structurées avec critères — pour ça, voir `decision`.
+description_en: Arbitrates several perspectives that already exist and sometimes conflict — opinions, analyses, or notes, not options to pick from — and settles on a useful conclusion rather than a soft consensus. Triggers when multiple voices or analyses already exist on the same topic. Triggers on "reconcile these conflicting opinions", "what comes out of this panel of analyses", "arbitrate between these viewpoints", "these three notes contradict each other, conclude". Does not compare structured options against criteria — see `decision`.
 icon: ⚖️
 domain: strategy
 category: decision

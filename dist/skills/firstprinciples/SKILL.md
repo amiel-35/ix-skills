@@ -1,6 +1,6 @@
 ---
 name: firstprinciples
-description: "Digs beneath the surface question to find the real problem, implicit assumptions, and the actual variable to optimize."
+description: "Digs beneath the question as asked to find the real problem, the implicit assumptions baked into the formulation itself, and the actual variable to optimize \u2014 reformulates the question, never proposes a solution. Triggers when the question being asked looks like the wrong question. Triggers on \"are we even asking the right question\", \"reframe this problem from scratch\", \"why do we actually want this\", \"what's the real issue behind this request\". Does not list the assumptions inside an already-written reasoning \u2014 see `key-assumptions`."
 ---
 # Role
 

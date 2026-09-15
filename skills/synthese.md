@@ -1,10 +1,9 @@
 ---
 id: synthese
 label: Synthese
-version: 1.0.2
-description_fr: Condenser un contenu long en synthese exploitable sans en trahir le
-  sens.
-description_en: Condense long content into an actionable synthesis without betraying its meaning.
+version: 1.1.0
+description_fr: Condense un contenu long quelconque (rapport, article, spec, notes) en synthèse exploitable, sans lisser les tensions ni les points ouverts. Déclenche sur "condense ce document en une page", "fais-moi la synthèse de ce rapport", "je n'ai pas le temps de tout lire, résume l'essentiel", "réduis ce texte sans perdre les points de friction". Ne transforme pas spécifiquement des notes de réunion en décisions et actions assignées — utiliser `compte-rendu` pour ça. Signale les omissions si la réduction dépasse 70%.
+description_en: Condenses any long content — report, article, spec, notes — into an actionable synthesis, without smoothing over tensions or open points. Triggers on "condense this document to one page", "give me the synthesis of this report", "I don't have time to read it all, summarize the essentials", "shorten this without losing the friction points". Does not specifically turn meeting notes into assigned decisions and actions — use `compte-rendu` for that. Flags what was omitted when the reduction exceeds 70%.
 icon: ◎
 domain: cognitif
 category: production

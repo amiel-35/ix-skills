@@ -1,6 +1,6 @@
 ---
 name: compte-rendu
-description: "Transform raw meeting notes into a structured record with decisions and actions."
+description: "Transforms raw meeting notes into a structured record with decisions made, assigned actions, and open points. Triggers on \"write up this meeting\", \"turn my meeting notes into decisions and actions\", \"who owns what after this meeting\", \"turn these raw notes into minutes\". Never presents a discussion as a settled decision. Does not condense generic long content like reports, articles, or specs \u2014 use `synthese` for that."
 ---
 # Role
 

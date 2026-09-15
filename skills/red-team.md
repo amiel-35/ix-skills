@@ -1,10 +1,9 @@
 ---
 id: red-team
 label: Red Team
-version: 1.1.0
-description_fr: Raisonne depuis la tete de l'adversaire pour reveler vulnerabilites,
-  angles morts et plan adverse credible face a une strategie, une decision ou un dispositif.
-description_en: Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a strategy, decision, or setup.
+version: 1.2.0
+description_fr: Raisonne depuis la tête de l'adversaire pour révéler vulnérabilités, angles morts et plan adverse crédible face à une stratégie, une décision ou un dispositif. Déclenche sur "fais un red team", "attaque ce plan", "cherche la faille exploitable", "mets-toi à la place d'un concurrent hostile", "comment on nous bat". Ne plaide pas une thèse intellectuelle (voir `dixieme-homme`) ni ne liste des failles génériques (voir `critique`) — c'est un plan d'attaque incarné et séquencé, du point de vue de qui cherche à gagner.
+description_en: Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a strategy, decision, or setup. Triggers on "run a red team", "attack this plan", "find the exploitable weakness", "think like a hostile competitor", "how would we get beaten". Does not plead an intellectual thesis (see `dixieme-homme`) or list generic flaws (see `critique`) — it is an embodied, sequenced attack plan from the side that wants to win.
 icon: 🟥
 domain: strategy
 category: critique

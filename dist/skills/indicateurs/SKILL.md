@@ -1,6 +1,6 @@
 ---
 name: indicateurs
-description: "Define observable confirmation and alert signals to know whether a plan is holding or a hypothesis is materializing."
+description: "Defines the observable signals \u2014 confirmation, alert, and weak precursor signals \u2014 that show whether a plan is holding or a hypothesis is materializing, each with a source, frequency, and threshold. Triggers once a plan is underway and needs early warning if it derails. Triggers on \"what should we watch to know if this is working\", \"what signals mean this is going wrong\", \"set alert thresholds on this bet\", \"how will we know if the hypothesis is confirmed\". Does not build a general management dashboard, see `tableau-de-bord-kpi`."
 ---
 # Role
 

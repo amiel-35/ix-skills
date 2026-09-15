@@ -1,11 +1,9 @@
 ---
 id: expansionist
 label: Opportunites
-version: 1.1.0
-description_fr: Cherche l'upside manquant, les opportunites adjacentes et les angles
-  que le cadrage initial a exclus trop vite.
-description_en: Finds the missing upside, adjacent opportunities, and angles that
-  the initial framing excluded too quickly.
+version: 1.2.0
+description_fr: Cherche l'upside manquant et les opportunités adjacentes qu'un cadrage trop prudent a exclues d'emblée, jusqu'à l'angle qui change l'ordre de grandeur plutôt que de l'optimiser. Déclenche quand une ambition semble sous-dimensionnée face au potentiel réel. Déclenche sur "on vise trop petit sur ce coup", "quelles opportunités on laisse sur la table", "élargis l'ambition de ce projet", "qu'est-ce qu'on n'a pas vu comme potentiel". N'ouvre pas un espace d'options neutre — voir `explorer` — et ne construit pas une thèse adverse — voir `dixieme-homme`.
+description_en: Finds the missing upside and adjacent opportunities that an overly cautious framing excluded upfront, up to the one angle that changes the order of magnitude rather than just optimizing it. Triggers when ambition looks undersized relative to the real potential. Triggers on "are we thinking too small here", "what opportunities are we leaving on the table", "widen the ambition on this project", "what upside haven't we considered". Does not open a neutral option space — see `explorer` — and does not build an opposing thesis — see `dixieme-homme`.
 icon: 🚀
 domain: strategy
 category: atome

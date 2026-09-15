@@ -6,6 +6,65 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
 
 ## 2026-09-15
 
+### Changed — corpus-wide description pass (74 skills)
+
+The `okr` 2.0.0 diagnosis, generalized. A skill's description is the only
+surface an agent matches against when deciding whether to invoke it: a
+description with no explicit trigger phrase never fires, and a description
+that claims another skill's trigger phrases silently cannibalizes it. Both
+defects were present across most of the corpus.
+
+- **72 of 84 skills had no quoted trigger phrase.** All of them now follow
+  the pattern already proven by `decision`, `explorer` and `prioritize` —
+  role in one sentence, then « Déclenche sur … » with 3 to 5 real user
+  phrasings in quotes, then an explicit negation of what the skill does not
+  do, with a backtick pointer to the sibling that does. Both languages.
+  Bodies are untouched: behaviour is identical, only the invocation surface
+  changed. Minor bump for each.
+- **The `critique` family was cannibalizing itself.** `critique` listed
+  « joue l'avocat du diable », « dixième homme » and « red team » among its
+  own triggers — the proper trigger phrases of three sibling skills, which
+  therefore had no realistic path to being invoked. Scope removed from
+  `critique` (major bump, 2.0.0: an invocation contract narrowed, not a
+  description enriched); `dixieme-homme`, `red-team` and `contrarian` each
+  given a distinct, explicitly bounded territory — the full opposing thesis,
+  the adversary's perspective, and the single breaking point with its
+  unverified assumptions.
+- **Two further overlaps caught by an independent cross-corpus audit**, one
+  of them introduced during this very pass: `contrarian` had taken over
+  `key-assumptions`' characteristic phrasing, and `compliance-checklist`
+  claimed GDPR as its own trigger against `conformite-rgpd`. Both corrected,
+  with reciprocal pointers.
+- **Eight skills assumed to be fine were not.** `analysis`, `decomposer`,
+  `research`, `compliance-checklist`, `negotiation-brief`, `offer-comparison`,
+  `strategie-prix` and `tech-debt` carried no trigger phrase at all; the
+  `analysis` / `decomposer` pair additionally overlapped head-on. Fixed in
+  the same pass.
+- `okr` 2.1.0 — trigger phrases were described but never quoted; four added,
+  nothing removed.
+
+### Fixed — README contradictions surfaced by the pass
+
+Nine statements in `README.md` / `README-fr.md` contradicted the skill they
+described. All pre-existing, all corrected: `simplify` (documented as
+performing removals it explicitly does not perform), `research` (`flash` mode
+contradicts "sources required"), `decomposer` ("no shared dependencies" — the
+skill identifies them), `legal-risk-flag` (severity scale), `code-review`
+("only reports high-priority issues" — it ranks and surfaces both tiers),
+`prd` / `product-spec` (two mutually exclusive hierarchies in one file),
+`negotiation-brief` (scope broader in the doc than in the skill), and the
+`contrarian` section, which attributed the *advocatus diaboli* request
+phrasing to itself rather than to `dixieme-homme`.
+
+### Verification
+
+Trigger discrimination tested on six boundaries judged most at risk, each by
+an independent agent with a clean context, given the 84 final descriptions
+and two near-miss phrasings without being told which skill was under test:
+12/12 routed to the intended skill, all at high confidence — including the
+original bug (« joue l'avocat du diable » now reaching `dixieme-homme`, not
+`critique`) and the audit's two catches.
+
 ### Changed — `okr` 2.0.0 (breaking: behaviour, not a fix)
 
 Rewritten from a version validated in real use, not in review only: a

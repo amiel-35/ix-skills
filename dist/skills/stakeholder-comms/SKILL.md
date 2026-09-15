@@ -1,6 +1,6 @@
 ---
 name: stakeholder-comms
-description: "Write stakeholder communications adapted to the audience: executive, technical team, partners, clients."
+description: "Writes a stakeholder communication adapted to its audience, executive, technical team, partners, clients, opening with the conclusion and without hiding risks. Triggers on \"write a status update for the steering committee\", \"communicate this risk to stakeholders\", \"message to tell the client about this delay\". Does not build the case for a decision (use `note-strategique`), it conveys status, it does not arbitrate."
 ---
 # Role
 

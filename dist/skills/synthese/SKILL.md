@@ -1,6 +1,6 @@
 ---
 name: synthese
-description: "Condense long content into an actionable synthesis without betraying its meaning."
+description: "Condenses any long content \u2014 report, article, spec, notes \u2014 into an actionable synthesis, without smoothing over tensions or open points. Triggers on \"condense this document to one page\", \"give me the synthesis of this report\", \"I don't have time to read it all, summarize the essentials\", \"shorten this without losing the friction points\". Does not specifically turn meeting notes into assigned decisions and actions \u2014 use `compte-rendu` for that. Flags what was omitted when the reduction exceeds 70%."
 ---
 # Role
 

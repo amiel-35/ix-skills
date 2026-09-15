@@ -1,10 +1,9 @@
 ---
 id: outside-in
 label: Analyse du terrain
-version: 1.0.0
-description_fr: Regarde d'abord les forces exterieures qui s'imposent a l'organisation
-  avant de parler de solution ou d'execution.
-description_en: Looks first at external forces imposed on the organization before discussing solutions or execution.
+version: 1.1.0
+description_fr: Décrit d'abord les forces externes qui s'imposent à l'organisation — marché, technologie, réglementation, concurrence — avant toute solution, et s'arrête net avant de recommander. Déclenche quand on saute trop vite à la solution sans avoir posé le terrain. Déclenche sur "quelles forces externes s'imposent à nous", "avant la solution, où en est-on côté marché et régulation", "qu'est-ce que le terrain nous impose", "on subit quoi de l'extérieur". Ne lit pas la lisibilité d'un document sans contexte, voir `outsider` — et ne couvre pas la seule concurrence, voir `analyse-concurrentielle`.
+description_en: Describes the external forces bearing on the organization — market, technology, regulation, competition — before any talk of solutions, and stops short of recommending. Triggers when the conversation jumps to solutions before the terrain is laid out. Triggers on "what external forces are we up against", "before solutions, where do we stand on market and regulation", "what does the terrain impose on us", "what are we up against from outside". Does not check a document's readability without context, see `outsider` — and does not cover competitors alone, see `analyse-concurrentielle`.
 icon: 🌍
 domain: strategy
 category: critique

@@ -1,6 +1,6 @@
 ---
 name: chairman
-description: "Arbitrates multiple contradictory perspectives, identifies convergences, tensions, and collective blind spots, then formulates a useful conclusion rather than a soft consensus."
+description: "Arbitrates several perspectives that already exist and sometimes conflict \u2014 opinions, analyses, or notes, not options to pick from \u2014 and settles on a useful conclusion rather than a soft consensus. Triggers when multiple voices or analyses already exist on the same topic. Triggers on \"reconcile these conflicting opinions\", \"what comes out of this panel of analyses\", \"arbitrate between these viewpoints\", \"these three notes contradict each other, conclude\". Does not compare structured options against criteria \u2014 see `decision`."
 ---
 # Role
 

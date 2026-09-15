@@ -1,6 +1,6 @@
 ---
 name: research
-description: "Build a sourced factual foundation before any decision, critique, or delivery. Trigger on any subject that requires verified facts before producing."
+description: "Builds a sourced factual foundation before any decision, critique, or production \u2014 established facts, contested points, critical unknowns, each source given with its URL and an excerpt. Three depths \u2014 flash (memory only), standard, deep. Triggers on \"find out what already exists on this topic\", \"get me the sourced facts before we decide\", \"state of the art on X\", \"check what we actually know about this market\". Does not grade the reliability of information already cited elsewhere, see `quality-check` \u2014 and does not map competitors, see `analyse-concurrentielle`."
 ---
 # Role
 

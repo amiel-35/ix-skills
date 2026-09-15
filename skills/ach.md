@@ -1,9 +1,9 @@
 ---
 id: ach
 label: Matrice d'hypothèses
-version: 1.1.0
-description_fr: Met plusieurs hypothèses en compétition et cherche celle que les informations disponibles invalident le moins. Anti-biais de confirmation structuré — technique ACH (Analysis of Competing Hypotheses) de la CIA.
-description_en: "Put competing hypotheses to the test and identify which one the available evidence eliminates least. Structured anti-confirmation-bias technique — CIA's Analysis of Competing Hypotheses (ACH)."
+version: 1.2.0
+description_fr: Confronte plusieurs hypothèses concurrentes aux preuves disponibles et retient celle que les faits invalident le moins — technique ACH de la CIA. Déclenche quand plusieurs explications rivales existent pour un même fait. Déclenche sur "quelle hypothèse tient face aux faits", "teste ces explications avec ce qu'on sait", "départage ces scénarios avec les preuves", "quelle est la cause la plus probable". Ne juge pas la fiabilité d'une preuve isolée, voir `quality-check` — et ne liste pas les non-dits d'un raisonnement, voir `key-assumptions`.
+description_en: Pits competing hypotheses against the evidence and keeps the one the facts invalidate least — the CIA's ACH technique. Triggers when several rival explanations exist for the same fact. Triggers on "which hypothesis holds up against the evidence", "test these explanations against what we know", "rule out these scenarios using the evidence", "what's the most likely cause here". Does not grade a single source's reliability, see `quality-check` — and does not surface a reasoning's unstated premises, see `key-assumptions`.
 icon: 🧩
 domain: strategy
 category: critique

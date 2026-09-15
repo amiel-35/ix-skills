@@ -1,6 +1,6 @@
 ---
 name: futurs-alternatifs
-description: "Builds three plausible and distinct futures with leading indicators and associated strategic options."
+description: "Builds three plausible and genuinely distinct futures \u2014 not an option to pick now, but possible states of the world \u2014 each with its own leading indicators and strategic options, and never names a preferred future. Triggers when uncertainty is too high to honestly bet on a single scenario. Triggers on \"what could this look like in three years\", \"what if the market moves the other way\", \"what scenarios are plausible here\", \"we don't know how this will play out\". Does not generate action options for an immediate decision \u2014 see `explorer`."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: analysis
-description: "Decompose a complex need into actionable lots before spec, brief, or delivery. Trigger upstream of any dense or multi-dimensional subject."
+description: "Recommends how to split a dense need into production lots \u2014 how many deliverables, in what order, with which questions still blocking \u2014 before any brief or spec gets written. Triggers on \"this need is too big, how many lots do we split it into\", \"what do we tackle first before speccing\", \"is one deliverable enough here or do we need several\", \"what's blocking before we start producing\". Does not break a problem into sub-problems and dependencies \u2014 see `decomposer` \u2014 and does not write the brief or the spec itself, see `brief` and `product-spec`."
 ---
 # Role
 

@@ -1,6 +1,6 @@
 ---
 name: outside-in
-description: "Looks first at external forces imposed on the organization before discussing solutions or execution."
+description: "Describes the external forces bearing on the organization \u2014 market, technology, regulation, competition \u2014 before any talk of solutions, and stops short of recommending. Triggers when the conversation jumps to solutions before the terrain is laid out. Triggers on \"what external forces are we up against\", \"before solutions, where do we stand on market and regulation\", \"what does the terrain impose on us\", \"what are we up against from outside\". Does not check a document's readability without context, see `outsider` \u2014 and does not cover competitors alone, see `analyse-concurrentielle`."
 ---
 # Role
 

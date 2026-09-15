@@ -1,6 +1,6 @@
 ---
 name: decomposer
-description: "Structure a complex problem into independent, actionable sub-problems. Trigger upstream of any dense topic before producing, deciding, or exploring."
+description: "Structures a complex problem into independent sub-problems, with explicit dependencies and the level at which each becomes assignable \u2014 without ever solving it. Triggers on \"break this problem down\", \"how does this subject actually split\", \"what are the independent pieces here\", \"what depends on what in this\". Does not recommend a split into production lots, see `analysis` \u2014 does not rank the resulting parts, see `prioritize` \u2014 and does not reframe the original question, see `firstprinciples`."
 ---
 # Role
 

@@ -1,11 +1,9 @@
 ---
 id: research
 label: Research
-version: 1.0.4
-description_fr: Construire un socle factuel sourcé avant toute décision, critique
-  ou livraison. Déclencher sur tout sujet qui nécessite des faits vérifiés avant de
-  produire.
-description_en: Build a sourced factual foundation before any decision, critique, or delivery. Trigger on any subject that requires verified facts before producing.
+version: 1.1.0
+description_fr: Construit un socle factuel sourcé avant toute décision, critique ou production — faits établis, points débattus, inconnues critiques, chaque source donnée avec son URL et un extrait. Trois profondeurs — flash (mémoire seule), standard, deep. Déclenche sur "cherche ce qui existe sur ce sujet", "sors-moi les faits sourcés avant qu'on tranche", "état de l'art sur X", "vérifie ce qu'on sait vraiment de ce marché". Ne juge pas la fiabilité d'informations déjà citées ailleurs, voir `quality-check` — et ne cartographie pas les concurrents, voir `analyse-concurrentielle`.
+description_en: Builds a sourced factual foundation before any decision, critique, or production — established facts, contested points, critical unknowns, each source given with its URL and an excerpt. Three depths — flash (memory only), standard, deep. Triggers on "find out what already exists on this topic", "get me the sourced facts before we decide", "state of the art on X", "check what we actually know about this market". Does not grade the reliability of information already cited elsewhere, see `quality-check` — and does not map competitors, see `analyse-concurrentielle`.
 icon: ◌
 domain: cognitif
 category: atome

@@ -1,10 +1,9 @@
 ---
 id: indicateurs
 label: Points de vigilance
-version: 1.1.0
-description_fr: Definit des signaux observables de confirmation et d'alerte pour savoir
-  si un plan tient ou si une hypothese se realise.
-description_en: Define observable confirmation and alert signals to know whether a plan is holding or a hypothesis is materializing.
+version: 1.2.0
+description_fr: Définit les signaux observables — confirmation, alerte, précurseurs faibles — qui diront si un plan tient ou si une hypothèse se réalise, chacun avec sa source, sa fréquence et son seuil. Déclenche une fois un plan lancé, quand il faut savoir tôt s'il dérape. Déclenche sur "qu'est-ce qu'il faut surveiller pour savoir si ça marche", "à quels signaux on verra que ça part mal", "définis des seuils d'alerte", "comment saura-t-on si l'hypothèse se vérifie". Ne construit pas un tableau de bord général, voir `tableau-de-bord-kpi`.
+description_en: Defines the observable signals — confirmation, alert, and weak precursor signals — that show whether a plan is holding or a hypothesis is materializing, each with a source, frequency, and threshold. Triggers once a plan is underway and needs early warning if it derails. Triggers on "what should we watch to know if this is working", "what signals mean this is going wrong", "set alert thresholds on this bet", "how will we know if the hypothesis is confirmed". Does not build a general management dashboard, see `tableau-de-bord-kpi`.
 icon: 📡
 domain: strategy
 category: critique

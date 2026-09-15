@@ -1,6 +1,6 @@
 ---
 name: revue-feedback
-description: "Evaluate feedback rigorously before accepting or refusing it."
+description: "Rigorously evaluates a received piece of feedback or criticism \u2014 what's valid, debatable, or to refuse \u2014 before accepting it or responding. Triggers on \"is this feedback valid\", \"should I accept this criticism\", \"assess this feedback before I respond\", \"how do I respond to this review without getting defensive\". Does not produce the critique itself \u2014 use `critique` to audit a deliverable from scratch. Does not apply the retained corrections \u2014 use `correction` for that."
 ---
 # Role
 

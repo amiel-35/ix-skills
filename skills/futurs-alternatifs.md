@@ -1,10 +1,9 @@
 ---
 id: futurs-alternatifs
 label: Futurs alternatifs
-version: 1.0.0
-description_fr: Construit trois futurs plausibles et distincts, avec signaux precurseurs
-  et options strategiques associees.
-description_en: Builds three plausible and distinct futures with leading indicators and associated strategic options.
+version: 1.1.0
+description_fr: Construit trois futurs plausibles et vraiment distincts — pas une option à choisir maintenant mais des états du monde possibles — avec signaux précurseurs et options propres à chacun, sans jamais désigner de futur préféré. Déclenche quand l'incertitude est trop forte pour parier sur un seul scénario. Déclenche sur "à quoi ça peut ressembler dans trois ans", "et si le marché tourne autrement", "quels scénarios sont plausibles ici", "on ne sait pas comment ça va évoluer". Ne génère pas des options pour une décision immédiate, voir `explorer`.
+description_en: Builds three plausible and genuinely distinct futures — not an option to pick now, but possible states of the world — each with its own leading indicators and strategic options, and never names a preferred future. Triggers when uncertainty is too high to honestly bet on a single scenario. Triggers on "what could this look like in three years", "what if the market moves the other way", "what scenarios are plausible here", "we don't know how this will play out". Does not generate action options for an immediate decision — see `explorer`.
 icon: 🔮
 domain: strategy
 category: critique

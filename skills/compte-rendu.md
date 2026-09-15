@@ -1,10 +1,9 @@
 ---
 id: compte-rendu
 label: Compte-rendu
-version: 1.0.2
-description_fr: Transformer des notes brutes de reunion en compte-rendu structure
-  avec decisions et actions.
-description_en: Transform raw meeting notes into a structured record with decisions and actions.
+version: 1.1.0
+description_fr: Transforme des notes brutes de réunion en compte-rendu structuré avec décisions actées, actions assignées et points ouverts. Déclenche sur "fais le compte-rendu de cette réunion", "structure mes notes en décisions et actions", "qui doit faire quoi après ce point", "transforme ces notes brutes en CR". Ne présente jamais une discussion comme une décision actée. Ne condense pas un contenu long quelconque (rapport, article, spec) — utiliser `synthese` pour ça.
+description_en: Transforms raw meeting notes into a structured record with decisions made, assigned actions, and open points. Triggers on "write up this meeting", "turn my meeting notes into decisions and actions", "who owns what after this meeting", "turn these raw notes into minutes". Never presents a discussion as a settled decision. Does not condense generic long content like reports, articles, or specs — use `synthese` for that.
 icon: ≡
 domain: cognitif
 category: production

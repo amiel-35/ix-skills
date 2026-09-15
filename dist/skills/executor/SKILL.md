@@ -1,6 +1,6 @@
 ---
 name: executor
-description: "Tests whether an idea, request, or decision holds up in reality. Identifies blocking dependencies, concrete next actions, and execution limits \u2014 without operationalizing the unacceptable."
+description: "Tests whether an idea or decision holds up in reality \u2014 blocking dependencies, the first concrete action with a deliverable and an owner \u2014 without ever operationalizing the unacceptable. Triggers when a plan needs checking for executability, not just appeal. Triggers on \"does this actually hold up\", \"what's the first thing we do Monday morning\", \"what's concretely blocking this\", \"is this plan feasible or just nice on paper\". Does not choose between options, see `decision` \u2014 and does not sequence a list, see `prioritize`."
 ---
 # Role
 

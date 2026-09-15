@@ -1,6 +1,6 @@
 ---
 name: red-team
-description: "Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a strategy, decision, or setup."
+description: "Reasons from the adversary's perspective to reveal vulnerabilities, blind spots, and a credible opposing plan against a strategy, decision, or setup. Triggers on \"run a red team\", \"attack this plan\", \"find the exploitable weakness\", \"think like a hostile competitor\", \"how would we get beaten\". Does not plead an intellectual thesis (see `dixieme-homme`) or list generic flaws (see `critique`) \u2014 it is an embodied, sequenced attack plan from the side that wants to win."
 ---
 # Role
 

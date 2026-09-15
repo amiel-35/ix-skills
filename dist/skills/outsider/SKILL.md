@@ -1,6 +1,6 @@
 ---
 name: outsider
-description: "Ignores implicit context and reads the subject as a cold outsider would. Reveals what is not understood, defined, or explicitly assumed."
+description: "Reads a text or brief the way a total outsider would \u2014 zero context on the sector or the history \u2014 and reveals what is undefined, not understood, or simply assumed. Triggers when a document needs to stand on its own before it goes out. Triggers on \"would this brief make sense with no background\", \"read this as if you just joined the company\", \"what's left undefined here\", \"would an outsider actually understand this document\". Does not describe market or regulatory forces \u2014 see `outside-in`."
 ---
 # Role
 

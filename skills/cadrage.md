@@ -1,11 +1,9 @@
 ---
 id: cadrage
 label: Cadrage
-version: 1.0.1
-description_fr: Clarifier un besoin flou avant de produire quoi que ce soit — intent,
-  contraintes, hypothèses, options de suite. Obligatoire quand le brief est incomplet
-  ou ambigu.
-description_en: Clarify a vague need before any production — intent, constraints, hypotheses, next options. Required when the brief is incomplete or ambiguous.
+version: 1.1.0
+description_fr: Clarifie un besoin encore flou avant toute production — intention, contraintes, hypothèses, options de suite — et vérifie qu'on a assez d'éléments pour avancer. Déclenche sur "avant de se lancer, on doit cadrer ce sujet", "est-ce qu'on a assez d'infos pour partir en spec", "cadre ce besoin avant qu'on produise quoi que ce soit". Ne produit ni brief détaillé ni spec (utiliser `brief` ou `product-spec` une fois le cadrage fait) — s'arrête à la clarification.
+description_en: Clarifies a still-vague need before any production — intent, constraints, hypotheses, next options — and checks whether there is enough to move forward. Triggers on "before we start, we need to scope this", "do we have enough to go into spec", "clarify this need before we produce anything". Does not produce a detailed brief or a spec (use `brief` or `product-spec` once scoped) — stops at clarification.
 icon: ◇
 domain: ops
 category: decision

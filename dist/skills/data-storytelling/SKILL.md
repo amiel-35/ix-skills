@@ -1,6 +1,6 @@
 ---
 name: data-storytelling
-description: "Transform data into a clear narrative with insight and recommendation."
+description: "Transforms any kind of data \u2014 usage, product, operational \u2014 into a narrative with one main insight and a recommendation, for any audience, not only financial. Triggers on \"tell a story with this data\", \"what do these product numbers tell us\", \"turn this analysis into a narrative for the team\", \"what insight comes out of this usage data\". When the data supports no robust insight, answers \"RAS\" rather than manufacturing a story. For financial figures aimed at a board use `financial-narrative`; to define which KPIs to track use `tableau-de-bord-kpi`."
 ---
 # Role
 

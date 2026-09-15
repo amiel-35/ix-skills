@@ -1,6 +1,6 @@
 ---
 name: key-assumptions
-description: "Makes the implicit assumptions of a reasoning visible, qualifies them, and identifies the ones whose collapse would bring everything down."
+description: "Surfaces the implicit assumptions inside an already-written reasoning \u2014 what it takes for granted without saying so \u2014 and isolates the ones whose collapse would bring the conclusion down. Triggers when a plan stands but nobody listed what it rests on. Triggers on \"what is this plan taking for granted\", \"what assumptions is this built on\", \"if this fails, what collapses with it\", \"expose what's unstated here\". Does not reframe the original question, see `firstprinciples` \u2014 and does not test hypotheses against evidence, see `ach`."
 ---
 # Role
 

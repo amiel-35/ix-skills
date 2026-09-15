@@ -1,9 +1,9 @@
 ---
 id: retrospective
 label: Retrospective
-version: 1.0.2
-description_fr: Produit une retrospective blameless avec faits, causes et actions.
-description_en: Produce a blameless retrospective with facts, causes, and actions.
+version: 1.1.0
+description_fr: Produit une rétrospective blameless — chronologie factuelle, causes racines, apprentissages, actions correctives — après un projet, un sprint ou un incident. Déclenche sur "fais la rétro de ce sprint", "post-mortem blameless de cet incident", "qu'est-ce qui a foiré et pourquoi sur ce projet". Ne cherche jamais de coupable et ne traite pas un ticket individuel entrant (utiliser `ticket-triage` pour ça).
+description_en: Produces a blameless retrospective, factual timeline, root causes, learnings, corrective actions, after a project, sprint, or incident. Triggers on "run the retro for this sprint", "blameless post-mortem of this incident", "what went wrong on this project and why". Never looks for someone to blame and does not handle a single incoming ticket (use `ticket-triage` for that).
 icon: ◔
 domain: ops
 category: production

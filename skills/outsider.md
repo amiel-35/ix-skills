@@ -1,10 +1,9 @@
 ---
 id: outsider
 label: Regard exterieur
-version: 1.1.0
-description_fr: Ignore le contexte implicite et lit le sujet comme le ferait un externe
-  froid. Revele ce qui n'est pas compris, defini ou explicitement assume.
-description_en: Ignores implicit context and reads the subject as a cold outsider would. Reveals what is not understood, defined, or explicitly assumed.
+version: 1.2.0
+description_fr: Lit un texte comme le ferait un externe sans aucun contexte implicite — zéro connaissance du secteur ni de l'historique — et révèle ce qui n'est pas défini, pas compris ou simplement supposé. Déclenche quand il faut vérifier qu'un document se suffit à lui-même avant diffusion. Déclenche sur "ce brief est-il compréhensible sans contexte", "relis ça comme si tu débarquais dans l'entreprise", "qu'est-ce qui n'est pas défini ici", "un externe comprendrait-il ce document". Ne décrit pas les forces de marché, voir `outside-in`.
+description_en: Reads a text or brief the way a total outsider would — zero context on the sector or the history — and reveals what is undefined, not understood, or simply assumed. Triggers when a document needs to stand on its own before it goes out. Triggers on "would this brief make sense with no background", "read this as if you just joined the company", "what's left undefined here", "would an outsider actually understand this document". Does not describe market or regulatory forces — see `outside-in`.
 icon: 👁️
 domain: strategy
 category: critique

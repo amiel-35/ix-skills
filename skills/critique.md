@@ -1,9 +1,9 @@
 ---
 id: critique
 label: Critique
-version: 1.1.0
-description_fr: Machine à critiquer des contenus sans proposer de solution. Déclenche quand l'utilisateur veut qu'un contenu soit analysé de façon critique, challengé, audité — document, architecture, texte, plan, décision, design. Déclenche aussi sur "qu'est-ce qui ne va pas", "trouve les failles", "joue l'avocat du diable", "dixième homme", "red team", "critique ça", "qu'est-ce qui peut foirer". Ne propose jamais de correction — seulement des failles.
-description_en: A critical analysis engine that identifies flaws in content without proposing solutions. Triggers when the user wants content analyzed critically, challenged, or audited — document, architecture, text, plan, decision, design. Also triggers on "what's wrong with this", "find the flaws", "play devil's advocate", "tenth man", "red team", "critique this", "what could go wrong". Never proposes corrections — only surfaces flaws.
+version: 2.0.0
+description_fr: Machine à critiquer des contenus sans proposer de solution. Déclenche quand l'utilisateur veut qu'un contenu soit analysé de façon critique, challengé, audité — document, architecture, texte, plan, décision, design. Déclenche aussi sur "qu'est-ce qui ne va pas", "trouve les failles", "critique ça", "audite ce document", "qu'est-ce qui peut foirer". Ne construit pas la thèse adverse complète (voir `dixieme-homme`) ni ne raisonne depuis la tête d'un adversaire (voir `red-team`) — et ne propose jamais de correction, seulement des failles.
+description_en: A critical analysis engine that identifies flaws in content without proposing solutions. Triggers when the user wants content analyzed critically, challenged, or audited — document, architecture, text, plan, decision, design. Also triggers on "what's wrong with this", "find the flaws", "critique this", "audit this document", "what could go wrong". Does not build the complete opposing thesis (see `dixieme-homme`) or reason from an adversary's perspective (see `red-team`) — never proposes corrections, only surfaces flaws.
 icon: ⚡
 domain: cognitif
 category: atome

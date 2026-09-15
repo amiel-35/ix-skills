@@ -1,13 +1,9 @@
 ---
 id: executor
 label: Faisabilite
-version: 1.0.0
-description_fr: Teste si une idee, une demande ou une decision tient dans le reel.
-  Identifie dependances, actions immediates et limites d'execution sans operationaliser
-  l'inacceptable.
-description_en: Tests whether an idea, request, or decision holds up in reality. Identifies
-  blocking dependencies, concrete next actions, and execution limits — without operationalizing
-  the unacceptable.
+version: 1.1.0
+description_fr: Teste si une idée ou une décision tient dans le réel — dépendances bloquantes, première action concrète avec livrable et responsable — sans jamais opérationnaliser l'inacceptable. Déclenche quand il faut vérifier qu'un plan est exécutable, pas seulement séduisant. Déclenche sur "est-ce que ça tient la route en vrai", "quelle est la première action lundi matin", "qu'est-ce qui bloque concrètement", "ce plan est-il faisable ou juste beau sur le papier". Ne choisit pas entre options, voir `decision` — et ne priorise pas une liste, voir `prioritize`.
+description_en: Tests whether an idea or decision holds up in reality — blocking dependencies, the first concrete action with a deliverable and an owner — without ever operationalizing the unacceptable. Triggers when a plan needs checking for executability, not just appeal. Triggers on "does this actually hold up", "what's the first thing we do Monday morning", "what's concretely blocking this", "is this plan feasible or just nice on paper". Does not choose between options, see `decision` — and does not sequence a list, see `prioritize`.
 icon: ⚡
 domain: strategy
 category: decision

@@ -1,6 +1,6 @@
 ---
 name: contrarian
-description: "Finds the main failure point, unverified assumptions, and fragilities that could cause a decision, plan, or brief to fail."
+description: "Finds the main failure point and unverified assumptions that could cause a decision, plan, or brief to fail. Triggers on \"where does this break\", \"stress-test this plan\", \"what could make this fail outright\", \"what's the weak link here\", \"what haven't we verified\". Does not build the complete opposing camp (see `dixieme-homme`), does not embody an external attacker (see `red-team`), does not list scattered flaws (see `critique`), and does not inventory a reasoning's unstated premises (see `key-assumptions`) \u2014 a single breaking point, dug all the way through, with what would invalidate it."
 ---
 # Role
 

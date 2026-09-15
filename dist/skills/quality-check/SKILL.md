@@ -1,6 +1,6 @@
 ---
 name: quality-check
-description: "Evaluates the structural solidity of cited information before a decision or analysis rests on it."
+description: "Evaluates the structural solidity of cited information \u2014 source, corroboration, gaps \u2014 before a decision rests on it, and never judges the conclusion itself. Triggers when a figure or claim is used as the foundation for a decision. Triggers on \"are these numbers actually reliable\", \"what does this claim rest on\", \"audit the evidence before we decide\", \"does this source hold up\". Does not pit rival hypotheses against each other, see `ach` \u2014 and does not surface a reasoning's unstated premises, see `key-assumptions`."
 ---
 # Role
 

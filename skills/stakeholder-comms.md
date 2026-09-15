@@ -1,10 +1,9 @@
 ---
 id: stakeholder-comms
 label: Stakeholder Comms
-version: 1.0.1
-description_fr: 'Rediger des communications stakeholders adaptees a l''audience :
-  executif, equipe technique, partenaires, clients.'
-description_en: 'Write stakeholder communications adapted to the audience: executive, technical team, partners, clients.'
+version: 1.1.0
+description_fr: Rédige une communication stakeholders adaptée à l'audience — exécutif, équipe technique, partenaires, clients — en partant de la conclusion et sans masquer les risques. Déclenche sur "rédige un point d'avancement pour le CODIR", "communique ce risque aux parties prenantes", "message pour annoncer ce retard au client". Ne construit pas l'argumentaire d'une décision (utiliser `note-strategique`) — transmet un statut, ne tranche pas.
+description_en: Writes a stakeholder communication adapted to its audience, executive, technical team, partners, clients, opening with the conclusion and without hiding risks. Triggers on "write a status update for the steering committee", "communicate this risk to stakeholders", "message to tell the client about this delay". Does not build the case for a decision (use `note-strategique`), it conveys status, it does not arbitrate.
 icon: ◫
 domain: ops
 category: production

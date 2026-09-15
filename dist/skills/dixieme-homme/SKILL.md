@@ -1,6 +1,6 @@
 ---
 name: dixieme-homme
-description: "Builds the complete opposing thesis against a consensus. Does not merely find flaws \u2014 pleads the inverse position as if it were true."
+description: "Builds the complete opposing thesis against a consensus \u2014 pleads the inverse position as if it were true, all the way through. Triggers on \"play devil's advocate\", \"argue the opposite case\", \"what if we're wrong\", \"build the other side's case\", \"take apart this consensus\". Does not merely list flaws (see `critique`) or reason from an external adversary's perspective (see `red-team`) \u2014 it pleads the contrary thesis itself."
 ---
 # Role
 

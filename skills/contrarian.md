@@ -1,11 +1,9 @@
 ---
 id: contrarian
 label: Contradicteur
-version: 1.0.0
-description_fr: Cherche le point de defaillance principal, les hypotheses non verifiees
-  et les fragilites qui peuvent faire echouer une decision, un plan ou un brief.
-description_en: Finds the main failure point, unverified assumptions, and fragilities
-  that could cause a decision, plan, or brief to fail.
+version: 1.1.0
+description_fr: Cherche le point de défaillance principal et les hypothèses non vérifiées qui peuvent faire échouer une décision, un plan ou un brief. Déclenche sur "où ça casse", "teste ce plan jusqu'à la rupture", "qu'est-ce qui peut le faire échouer pour de bon", "quel est le maillon faible ici", "qu'est-ce qu'on n'a pas vérifié". Ne construit pas le camp adverse complet (voir `dixieme-homme`), ne s'incarne pas en attaquant externe (voir `red-team`), ne liste pas des failles éparses (voir `critique`) et ne recense pas les non-dits d'un raisonnement (voir `key-assumptions`) — un point de rupture unique, creusé jusqu'au bout, avec ce qui l'invaliderait.
+description_en: Finds the main failure point and unverified assumptions that could cause a decision, plan, or brief to fail. Triggers on "where does this break", "stress-test this plan", "what could make this fail outright", "what's the weak link here", "what haven't we verified". Does not build the complete opposing camp (see `dixieme-homme`), does not embody an external attacker (see `red-team`), does not list scattered flaws (see `critique`), and does not inventory a reasoning's unstated premises (see `key-assumptions`) — a single breaking point, dug all the way through, with what would invalidate it.
 icon: ⚔️
 domain: strategy
 category: critique

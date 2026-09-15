@@ -1,11 +1,9 @@
 ---
 id: firstprinciples
 label: Racine du probleme
-version: 1.0.0
-description_fr: Remonte sous la question de surface pour retrouver le vrai probleme,
-  les hypotheses implicites et la variable reelle a optimiser.
-description_en: Digs beneath the surface question to find the real problem, implicit
-  assumptions, and the actual variable to optimize.
+version: 1.1.0
+description_fr: Remonte sous la question posée pour retrouver le vrai problème, les hypothèses implicites de la formulation elle-même et la variable réelle à optimiser — reformule la question, ne propose jamais de solution. Déclenche quand la question posée semble être la mauvaise question. Déclenche sur "est-ce qu'on se pose la bonne question", "recadre ce problème depuis zéro", "pourquoi veut-on faire ça au juste", "quel est le vrai sujet derrière cette demande". Ne liste pas les hypothèses d'un raisonnement déjà écrit — voir `key-assumptions`.
+description_en: Digs beneath the question as asked to find the real problem, the implicit assumptions baked into the formulation itself, and the actual variable to optimize — reformulates the question, never proposes a solution. Triggers when the question being asked looks like the wrong question. Triggers on "are we even asking the right question", "reframe this problem from scratch", "why do we actually want this", "what's the real issue behind this request". Does not list the assumptions inside an already-written reasoning — see `key-assumptions`.
 icon: 🔬
 domain: strategy
 category: critique

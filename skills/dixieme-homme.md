@@ -1,10 +1,9 @@
 ---
 id: dixieme-homme
 label: Dixieme Homme
-version: 1.1.0
-description_fr: 'Construit la these adverse complete face a un consensus. Ne cherche
-  pas seulement les failles : plaide la position inverse comme si elle etait vraie.'
-description_en: Builds the complete opposing thesis against a consensus. Does not merely find flaws — pleads the inverse position as if it were true.
+version: 1.2.0
+description_fr: Construit la thèse adverse complète face à un consensus — plaide la position inverse comme si elle était vraie, jusqu'à son terme. Déclenche sur "joue l'avocat du diable", "défends la thèse inverse", "et si on avait tort", "construis le camp d'en face", "démonte ce consensus". Ne se contente pas de lister des failles (voir `critique`) ni de raisonner depuis un adversaire externe (voir `red-team`) — c'est la thèse contraire elle-même qui est plaidée.
+description_en: Builds the complete opposing thesis against a consensus — pleads the inverse position as if it were true, all the way through. Triggers on "play devil's advocate", "argue the opposite case", "what if we're wrong", "build the other side's case", "take apart this consensus". Does not merely list flaws (see `critique`) or reason from an external adversary's perspective (see `red-team`) — it pleads the contrary thesis itself.
 icon: Ⅹ
 domain: strategy
 category: critique

@@ -1,10 +1,9 @@
 ---
 id: quality-check
 label: Audit de preuves
-version: 1.0.0
-description_fr: Evalue la solidite structurelle des informations citees avant qu'une
-  decision ou une analyse ne repose dessus.
-description_en: Evaluates the structural solidity of cited information before a decision or analysis rests on it.
+version: 1.1.0
+description_fr: Évalue la solidité structurelle des informations citées — source, corroboration, écarts — avant qu'une décision ne repose dessus, sans jamais juger la conclusion. Déclenche quand un chiffre ou une affirmation sert de socle à une décision. Déclenche sur "ces chiffres sont-ils fiables", "sur quoi repose vraiment cette affirmation", "audite les preuves avant qu'on tranche", "cette source tient-elle la route". Ne teste pas des hypothèses rivales entre elles, voir `ach` — et ne cherche pas les non-dits d'un raisonnement, voir `key-assumptions`.
+description_en: Evaluates the structural solidity of cited information — source, corroboration, gaps — before a decision rests on it, and never judges the conclusion itself. Triggers when a figure or claim is used as the foundation for a decision. Triggers on "are these numbers actually reliable", "what does this claim rest on", "audit the evidence before we decide", "does this source hold up". Does not pit rival hypotheses against each other, see `ach` — and does not surface a reasoning's unstated premises, see `key-assumptions`.
 icon: 🧪
 domain: strategy
 category: critique
