@@ -6,6 +6,20 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
 
 ## 2026-09-15
 
+### Fixed — plugin manifest version had never been bumped
+
+`dist/.claude-plugin/plugin.json` still declared 2.1.0, written once on
+2026-08-02 and never touched since. Plugin updates are resolved by that
+version, not by content — so `claude plugin marketplace update` followed by
+`claude plugin update` reported "already at the latest version" and installed
+nothing. Three releases had shipped invisibly this way: the 2026-08-27
+null-output batch, `okr` 2.0.0, and the description pass below. Manifest
+bumped to **3.0.0** — the bundle now carries two narrowed invocation
+contracts since 2.1.0 (`okr` and `critique`), which is breaking for anyone
+relying on the old routing. The manifest is hand-maintained (`build.py`
+validates it but never writes it), so it has to be bumped deliberately
+alongside any release consumers are meant to receive.
+
 ### Changed — corpus-wide description pass (74 skills)
 
 The `okr` 2.0.0 diagnosis, generalized. A skill's description is the only
