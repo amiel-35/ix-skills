@@ -2,7 +2,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-84 skills in 10 categories (3 in draft). Each skill encodes a **cognitive process**, not domain expertise.
+84 skills in 9 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise.
 
 [🇫🇷 Version française](README-fr.md)
 
@@ -28,7 +28,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 | `correction` | Turn a critique into actionable directives | Transforms a critique — **does not re-analyze** |
 | `simplify` | Identify what can be removed without changing the meaning | Identifies removals — **does not apply them** (use `correction`) |
 | `rephrase` | Restate the real meaning of dense or ambiguous content | Reinterprets — meaning may shift, not just trimmed |
-| `explorer` | Generate an option space without committing to a choice | Breadth — **does not choose** |
+| `explorer` | Generate an option space — writes the default answer first, then sets it aside; `breadth` decides whether the vehicle named in the input stays a constraint (`standard`) or is set aside too (`broad`) | Breadth — **does not choose** |
 | `decision` | Arbitrate with visible trade-offs and a clear recommendation | Chooses among existing options — **does not generate** |
 | `deliver` | Transform an artifact into a shareable deliverable | Formatting and audience calibration |
 | `research` | Build a sourced factual foundation before any decision | Sources required in standard and deep mode — `flash` answers from model memory alone |
@@ -37,7 +37,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it | Evaluates incoming critique — not your own artifact |
 | `prioritize` | Rank a list of items by attack order with explicit criteria | Sequences items — **does not choose between exclusive options** (use `decision`) |
 | `problem-framing` *(draft)* | Reformulate a vague subject into an actionable problem | Formulates the central question — **does not solve it** |
-| `questioning` *(draft)* | Generate the right questions to ask about a subject | Questions only — **does not answer or explore** (use `explorer`) |
+| `questioning` | Generate the right questions to ask — flags every named solution (umbrella term first, then sizing, then sub-artefacts) and asks whether it was chosen or was the first idea | Questions only — **does not answer or explore**, never strips a named term (use `explorer`) |
 | `argumentation` *(draft)* | Build a structured argument to defend or attack a position | Constructs the case — **does not evaluate it** (use `critique`) |
 
 #### Key distinctions
@@ -615,7 +615,7 @@ Tools for the full product development lifecycle — from clarifying a need to s
 
 #### `brief` — Vague need → structured brief
 
-**What it does:** Transforms a vague need, request, or idea into a structured, actionable brief — purpose, constraints, success criteria, and exclusions. The output is usable as input for any downstream production skill.
+**What it does:** Transforms a vague need, request, or idea into a structured, actionable brief — purpose, constraints, success criteria, and exclusions. Separates the need from the solutions the request names: the intent states the goal; a named solution becomes a constraint when the input says why this means rather than another, a hypothesis « to validate » otherwise; what a consultation imposes on the response (deliverables, pieces) is listed apart. The output is usable as input for any downstream production skill.
 
 **What it doesn't do:** Does not clarify an incomplete brief when you don't yet know what you want (use `cadrage` for that). Does not produce a spec.
 
@@ -625,7 +625,7 @@ Tools for the full product development lifecycle — from clarifying a need to s
 
 #### `cadrage` — Clarify before producing
 
-**What it does:** Explores and clarifies a vague or incomplete need — surfacing intent, constraints, hypotheses, and decision points before any production begins. Produces a clarification report and recommended next steps.
+**What it does:** Explores and clarifies a vague or incomplete need — surfacing intent, constraints, hypotheses, and decision points before any production begins. The reformulated need states the goal, never the artefact the request names: that artefact is a constraint when justified, a hypothesis with its own open question otherwise, and consultation-imposed deliverables are listed apart as constraints on the response. Produces a clarification report and recommended next steps.
 
 **What it doesn't do:** Does not produce a brief or spec directly. It's the step that makes `brief` possible when the input is too fuzzy.
 
@@ -802,6 +802,10 @@ Tools for commercial execution — offer writing, negotiation, RFPs, stakeholder
 ```
 critique → correction → deliver
 explorer → decision   → deliver
+cadrage  → questioning → explorer → decision
+          (named solutions: hypotheses → questions → default set aside;
+           explorer breadth `standard` stays inside the named vehicle,
+           `broad` leaves it with one positive constraint per run)
 research → analyse-concurrentielle → decision
 brief    → prd → feature-spec
           simplify  (standalone)
@@ -825,7 +829,10 @@ Skills are namespaced: `critique` becomes `/ix-skills:critique`. To pull updates
 
 ```bash
 claude plugin marketplace update ix-skills
+claude plugin update ix-skills
 ```
+
+Then restart Claude Code. Releases are resolved by the manifest version (`dist/.claude-plugin/plugin.json`), see `CHANGELOG.md`.
 
 In the Claude Code desktop app, the same two steps are available through the `/plugin` command.
 
@@ -881,13 +888,18 @@ ix-skills/
 ├── scripts/
 │   ├── install-codex.sh    ← Codex CLI installer
 │   └── migrate_from_ix_memory.py
-├── dist/                   ← .skill files for claude.ai (gitignored)
+├── dist/                   ← plugin root, committed
+│   ├── .claude-plugin/plugin.json   ← plugin manifest (hand-maintained, bump per release)
+│   └── skills/<id>/SKILL.md         ← Agent Skills artifacts, generated by build.py
+├── .claude-plugin/
+│   └── marketplace.json    ← marketplace manifest, points at ./dist
 ├── mystaffy-dist/          ← mystaffy artifacts (gitignored)
 ├── codex-dist/             ← Codex CLI artifacts (gitignored)
-├── .claude-plugin/
-│   └── plugin.json
+├── tests/                  ← tests of the migration script
 ├── build.py                ← multi-target packager
 ├── requirements.txt
+├── CHANGELOG.md            ← releases, by date
+├── TODO.md                 ← next chantiers (design-thinking method chains)
 └── CLAUDE.md               ← contribution guide
 ```
 
@@ -899,9 +911,11 @@ ix-skills/
 python3 build.py --validate
 python3 build.py
 python3 build.py critique
-python3 build.py --target claude-ai
+python3 build.py --target agentskills   # dist/skills/<id>/SKILL.md — commit the result
+python3 build.py --target cowork        # validate dist/.claude-plugin/plugin.json
 python3 build.py --target mystaffy --domain cognitif
 python3 build.py --target ix-memory
+python3 build.py --target codex
 ```
 
 ---

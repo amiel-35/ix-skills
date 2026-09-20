@@ -2,7 +2,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-84 skills en 10 catégories (3 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
+84 skills en 9 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
 
 [🇬🇧 English version](README.md)
 
@@ -28,7 +28,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `correction` | Transformer une critique en directives actionnables | Transforme une critique — **ne ré-analyse pas** |
 | `simplify` | Repérer ce qui peut être retiré sans changer le fond | Identifie les retraits — **ne les applique pas** (voir `correction`) |
 | `rephrase` | Restituer le sens réel d'un contenu dense ou ambigu | Réinterprète — le sens peut évoluer, pas seulement la forme |
-| `explorer` | Générer un espace d'options sans trancher | Largeur — **ne choisit pas** |
+| `explorer` | Générer un espace d'options — écrit d'abord la réponse par défaut puis l'écarte ; `breadth` décide si le véhicule nommé dans la demande reste une contrainte (`standard`) ou est écarté lui aussi (`broad`) | Largeur — **ne choisit pas** |
 | `decision` | Arbitrer avec trade-offs visibles et recommandation nette | Choisit parmi des options existantes — **n'en génère pas** |
 | `deliver` | Transformer un artifact en livrable partageable | Mise en forme et calibrage audience |
 | `research` | Construire un socle factuel sourcé avant toute décision | Sources obligatoires en mode standard et approfondi — le mode `flash` répond sur la seule mémoire du modèle |
@@ -37,7 +37,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
 | `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
 | `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
-| `questioning` *(draft)* | Générer les bonnes questions à poser sur un sujet | Questions seulement — **ne répond pas et n'explore pas** (utiliser `explorer`) |
+| `questioning` | Générer les bonnes questions à poser — signale chaque solution nommée (terme-parapluie d'abord, puis paramètres de taille, puis sous-artefacts) et demande si elle a été choisie ou si c'est la première idée venue | Questions seulement — **ne répond pas et n'explore pas**, ne retire jamais un terme nommé (utiliser `explorer`) |
 | `argumentation` *(draft)* | Construire une argumentation structurée pour défendre ou attaquer une position | Construit le plaidoyer — **ne l'évalue pas** (utiliser `critique`) |
 
 #### Distinctions clés
@@ -615,7 +615,7 @@ Outils pour l'ensemble du cycle de développement produit — du cadrage d'un be
 
 #### `brief` — Besoin vague → brief structuré
 
-**Ce qu'il fait :** Transforme un besoin, une demande ou une idée vague en brief structuré et actionnable — objectif, contraintes, critères de succès et exclusions. Le livrable est utilisable comme input pour tout skill de production en aval.
+**Ce qu'il fait :** Transforme un besoin, une demande ou une idée vague en brief structuré et actionnable — objectif, contraintes, critères de succès et exclusions. Sépare le besoin des solutions que la demande nomme : l'intention dit le but ; une solution nommée devient contrainte quand la demande dit pourquoi ce moyen plutôt qu'un autre, hypothèse « à valider » sinon ; ce qu'une consultation impose à la réponse (livrables, pièces) est listé à part. Le livrable est utilisable comme input pour tout skill de production en aval.
 
 **Ce qu'il ne fait pas :** Ne clarifie pas un brief incomplet quand on ne sait pas encore ce qu'on veut (utilisez `cadrage` pour ça). Ne produit pas de spec.
 
@@ -625,7 +625,7 @@ Outils pour l'ensemble du cycle de développement produit — du cadrage d'un be
 
 #### `cadrage` — Clarifier avant de produire
 
-**Ce qu'il fait :** Explore et clarifie un besoin vague ou incomplet — surface l'intention, les contraintes, les hypothèses et les points de décision avant tout lancement de production. Produit un rapport de clarification et des prochaines étapes recommandées.
+**Ce qu'il fait :** Explore et clarifie un besoin vague ou incomplet — surface l'intention, les contraintes, les hypothèses et les points de décision avant tout lancement de production. Le besoin reformulé dit le but, jamais l'artefact que la demande nomme : cet artefact est une contrainte s'il est justifié, une hypothèse avec sa question ouverte sinon, et les attendus imposés par une consultation sont listés à part comme contraintes sur la réponse. Produit un rapport de clarification et des prochaines étapes recommandées.
 
 **Ce qu'il ne fait pas :** Ne produit pas de brief ou de spec directement. C'est l'étape qui rend `brief` possible quand l'input est trop flou.
 
@@ -802,6 +802,10 @@ Outils pour l'exécution commerciale — rédaction d'offres, négociation, appe
 ```
 critique → correction → deliver
 explorer → decision   → deliver
+cadrage  → questioning → explorer → decision
+          (solutions nommées : hypothèses → questions → défaut écarté ;
+           explorer breadth `standard` reste dans le véhicule nommé,
+           `broad` en sort avec une contrainte positive par exécution)
 research → analyse-concurrentielle → decision
 brief    → prd → feature-spec
           simplify  (standalone)
@@ -825,7 +829,10 @@ Les skills sont namespacés : `critique` devient `/ix-skills:critique`. Pour ré
 
 ```bash
 claude plugin marketplace update ix-skills
+claude plugin update ix-skills
 ```
+
+Puis redémarrer Claude Code. Les releases sont résolues par la version du manifeste (`dist/.claude-plugin/plugin.json`), voir `CHANGELOG.md`.
 
 Dans l'app desktop Claude Code, les deux mêmes étapes passent par la commande `/plugin`.
 
@@ -881,13 +888,18 @@ ix-skills/
 ├── scripts/
 │   ├── install-codex.sh    ← installateur Codex CLI
 │   └── migrate_from_ix_memory.py
-├── dist/                   ← .skill pour claude.ai (gitignore)
+├── dist/                   ← racine du plugin, commité
+│   ├── .claude-plugin/plugin.json   ← manifeste du plugin (à la main, bump à chaque release)
+│   └── skills/<id>/SKILL.md         ← artefacts Agent Skills, générés par build.py
+├── .claude-plugin/
+│   └── marketplace.json    ← manifeste marketplace, pointe sur ./dist
 ├── mystaffy-dist/          ← artefacts mystaffy (gitignore)
 ├── codex-dist/             ← artefacts Codex CLI (gitignore)
-├── .claude-plugin/
-│   └── plugin.json
+├── tests/                  ← tests du script de migration
 ├── build.py                ← packager multi-cibles
 ├── requirements.txt
+├── CHANGELOG.md            ← releases, par date
+├── TODO.md                 ← chantiers suivants (enchaînements design thinking)
 └── CLAUDE.md               ← guide de contribution
 ```
 
@@ -899,9 +911,11 @@ ix-skills/
 python3 build.py --validate
 python3 build.py
 python3 build.py critique
-python3 build.py --target claude-ai
+python3 build.py --target agentskills   # dist/skills/<id>/SKILL.md — à commiter
+python3 build.py --target cowork        # valide dist/.claude-plugin/plugin.json
 python3 build.py --target mystaffy --domain cognitif
 python3 build.py --target ix-memory
+python3 build.py --target codex
 ```
 
 ---
