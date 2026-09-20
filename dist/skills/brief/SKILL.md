@@ -1,6 +1,6 @@
 ---
 name: brief
-description: "Transforms a vague, scattered, or poorly-formulated need into an actionable, structured brief, with explicit acceptance criteria and hypotheses. Triggers on \"write me a brief on...\", \"turn this need into a brief\", \"structure this request into something the team can act on\". Does not clarify a need still too uncertain to scope (use `cadrage` first) and does not produce an argued case for a decision-maker (use `note-strategique`)."
+description: "Transforms a vague, scattered, or poorly-formulated need into an actionable, structured brief, with explicit acceptance criteria and hypotheses. Separates the need from solutions already named in the request \u2014 the intent states the goal, the named solution becomes a constraint if justified, a hypothesis otherwise. Triggers on \"write me a brief on...\", \"turn this need into a brief\", \"structure this request into something the team can act on\". Does not clarify a need still too uncertain to scope (use `cadrage` first) and does not produce an argued case for a decision-maker (use `note-strategique`)."
 ---
 # Role
 
@@ -26,10 +26,11 @@ You never invent a document type outside the manifest.
 # Method
 
 1. Reconstruct the product or business intent.
-2. Identify objectives, users, constraints, and areas of uncertainty.
-3. Explicitly flag what is missing when the input does not allow producing a robust brief without strong assumptions.
-4. Structure a clean, short, actionable primary brief.
-5. Add one or more companion artifacts only if they avoid unnecessarily burdening the primary brief.
+2. Separate the need from the solutions it is stated in: list every term that names an artefact, implementation, tool, format, figure, or reference rather than a need. Scan in this order: the umbrella term that frames the whole request, then its sizing parameters (duration, quantity, channel, format, deadline), then its sub-artefacts (tools, templates, deliverables, references). Each term with a rationale anywhere in the input becomes a constraint, the rationale quoted. Each term without one becomes a hypothesis: "X is taken as the chosen answer to [goal] — to validate." Write the intent in terms of the goal, never of the artefact.
+3. Identify objectives, users, constraints, and areas of uncertainty.
+4. Explicitly flag what is missing when the input does not allow producing a robust brief without strong assumptions.
+5. Structure a clean, short, actionable primary brief.
+6. Add one or more companion artifacts only if they avoid unnecessarily burdening the primary brief.
 
 # Constraints
 
@@ -37,6 +38,8 @@ You never invent a document type outside the manifest.
 - Do not invent product details not justified by the inputs.
 - Keep the primary brief as the priority over annexes.
 - If information is missing, flag it explicitly instead of hiding it.
+- Never promote a named solution to the intent: the intent is the goal, the named solution is a constraint if justified, a hypothesis if not.
+- Never strip, rewrite, or replace a named term, and never propose an alternative to it — that is `explorer`'s job.
 
 # Multi-output rule
 
@@ -44,20 +47,22 @@ You never invent a document type outside the manifest.
 - Produce `open_questions` if remaining ambiguity blocks good specification.
 - Produce `acceptance_criteria` if the need lends itself to clear validation.
 - Produce `out_of_scope` if the framing benefits from explicit delimitation.
-- Produce `hypotheses` if part of the brief rests on working assumptions.
+- Produce `hypotheses` if part of the brief rests on working assumptions, including every named solution whose rationale is not in the input.
 
 # Expected output format
 
 The primary `brief` must be self-contained and readable on its own.
 
 Recommended structure:
-- intent
+- intent (the goal, not the artefact)
 - problem to solve
 - target user
 - expected value
-- constraints
+- constraints (including named solutions with their quoted rationale)
 - watch points
 - missing information if it weakens the brief
+
+Every named solution from the input appears once, under constraints or under hypotheses, in the user's own words.
 
 Companion artifacts must be shorter and more specialized than the primary brief.
 
@@ -68,3 +73,4 @@ Companion artifacts must be shorter and more specialized than the primary brief.
 - Residual uncertainties are explicit.
 - No output type outside the manifest has been produced.
 - Important missing information is visible and not hidden behind generic phrasing.
+- A named solution in the input is visible as a constraint or a hypothesis, never silently promoted to the intent.
