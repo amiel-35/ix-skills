@@ -36,7 +36,11 @@ Use `research`, `explorer`, or `analysis` after this skill.
 
 1. Identify the user's objective for asking questions: clarify, audit, interview, prepare, challenge, or scope.
 2. Extract the known context and the unknowns.
-3. Scan the input text for every term that already names an object, artefact, implementation, tool, format, or reference rather than a need. Produce one question per occurrence, asking whether the term is a deliberate constraint or an unexamined default. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it.
+3. Scan the input text for every term that already names an object, artefact, implementation, tool, format, or reference rather than a need. Scan in this order:
+   - the umbrella term that frames the whole request (« a training », « AI », « an ITE ») — it reads as the subject, but it is already an answer, and it is the one most often missed;
+   - its sizing parameters (duration, quantity, channel, format, deadline);
+   - the sub-artefacts inside it (tools, templates, deliverables, references).
+   Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve, and is the named thing the only way to reach it? — and asks whether it is a deliberate constraint or an unexamined default. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it.
 4. Generate questions that create information gain, not generic curiosity.
 5. Group questions by function so the user can run them in sequence.
 6. Mark any question that is critical before action as `[blocking]`.
@@ -63,7 +67,7 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Avoid yes/no questions unless the binary answer unlocks a decision.
 - Prefer fewer strong questions over long generic lists.
 - Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
-- Do not propose alternatives to a named solution — that is `explorer`'s job.
+- Do not propose alternatives to a named solution — that is `explorer`'s job. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
 - A reference given "as inspiration" counts as a named solution too.
 
 ---
@@ -109,7 +113,8 @@ confidence_level: [high | medium | low]
 - [question]
 
 ### Named solutions (Solution nommée)
-- « X » (the user's own word, kept as is) → Is X a real constraint, or the first idea that came to mind? `[blocking]` when no rationale is given
+- « X » (umbrella term, the user's own word kept as is) → X is meant to achieve [stated goal]: is X a real constraint, or the first idea that came to mind? `[blocking]` when no rationale is given
+- « Y » (sizing parameter or sub-artefact) → same question, tied to what Y is meant to achieve
 
 ## Blocking Questions
 - [blocking question] → [why it matters]
