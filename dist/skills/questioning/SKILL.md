@@ -26,13 +26,13 @@ Use `research`, `explorer`, or `analysis` after this skill.
 1. Identify the user's objective for asking questions: clarify, audit, interview, prepare, challenge, or scope.
 2. Extract the known context and the unknowns.
 3. Scan the input text for every term that already names an object, artefact, implementation, tool, format, or reference rather than a need. Scan in this order:
-   - the umbrella term that frames the whole request (« a training », « AI », « an ITE ») — it reads as the subject, but it is already an answer, and it is the one most often missed;
+   - the umbrella term that frames the whole request (« a training », « AI », « an ITE ») — it reads as the subject, but it is already an answer, and it is the one most often missed. It stands alone as an item: no format, channel, duration or quantity welded to it, those get their own items;
    - its sizing parameters (duration, quantity, channel, format, deadline);
    - the sub-artefacts inside it (tools, templates, deliverables, references).
-   Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve, and is the named thing the only way to reach it? — and asks whether it is a deliberate constraint or an unexamined default. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it.
+   Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve? — and asks whether it was chosen against something, or was the first thing to come to mind. Do not list what it could have been chosen against: naming the alternatives is `explorer`'s job. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it. When a rationale is given, quote it in the item and withhold `[blocking]`.
 4. Generate questions that create information gain, not generic curiosity.
 5. Group questions by function so the user can run them in sequence.
-6. Mark any question that is critical before action as `[blocking]`.
+6. Mark any other question that is critical before action as `[blocking]`. A named term whose rationale is stated in the input is never re-blocked here, neither in its own item nor through a rephrased question.
 
 ---
 
@@ -102,8 +102,9 @@ confidence_level: [high | medium | low]
 - [question]
 
 ### Named solutions (Solution nommée)
-- « X » (umbrella term, the user's own word kept as is) → X is meant to achieve [stated goal]: is X a real constraint, or the first idea that came to mind? `[blocking]` when no rationale is given
+- « X » (umbrella term alone, the user's own word kept as is) → X is meant to achieve [stated goal]: was X chosen against something, or the first idea that came to mind? `[blocking]` when no rationale is given
 - « Y » (sizing parameter or sub-artefact) → same question, tied to what Y is meant to achieve
+- « Z » (term with a stated rationale) → rationale quoted: [their words]. Does it still hold once [what the request adds] is taken into account? — no `[blocking]`
 
 ## Blocking Questions
 - [blocking question] → [why it matters]
