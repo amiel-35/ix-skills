@@ -65,6 +65,8 @@ You never invent a document type outside the manifest.
 - If information is missing, flag it explicitly instead of hiding it.
 - Never promote a named solution to the intent: the intent is the goal, the named solution is a constraint if justified, a hypothesis if not.
 - Never strip, rewrite, or replace a named term, and never propose an alternative to it — that is `explorer`'s job.
+- A rationale justifies a term only when it says why this term rather than another way to reach the goal. A sentence that states the goal, the problem or the injustice the term answers is not a rationale for the term: it is the goal, and the term stays a hypothesis.
+- A deadline, a budget, a mandated vehicle or a required deliverable stated as an obligation (« il faut », « must », « by ») is a constraint, not a named solution.
 
 # Multi-output rule
 
