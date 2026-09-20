@@ -40,7 +40,7 @@ Use `research`, `explorer`, or `analysis` after this skill.
    - the umbrella term that frames the whole request (« a training », « AI », « an ITE ») — it reads as the subject, but it is already an answer, and it is the one most often missed. It stands alone as an item: no format, channel, duration or quantity welded to it, those get their own items;
    - its sizing parameters (duration, quantity, channel, format, deadline);
    - the sub-artefacts inside it (tools, templates, deliverables, references).
-   Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve? — and asks whether it was chosen against something, or was the first thing to come to mind. Do not list what it could have been chosen against: naming the alternatives is `explorer`'s job. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it. When a rationale is given, quote it in the item and withhold `[blocking]`.
+   Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve? — and asks whether it was chosen against something, or was the first thing to come to mind. Do not list what it could have been chosen against: naming the alternatives is `explorer`'s job. Mark it `[blocking]` when the input states a goal that the named thing is only one way to reach, with no rationale given for it. A rationale counts as given wherever it appears in the input — including a purpose stated for a deliverable elsewhere in the document — not only alongside the term itself. When a rationale is given, quote it in the item and withhold `[blocking]`. Reserve `[blocking]` for the umbrella term and for parameters whose replacement would change the shape of the response; a sub-artefact whose change would not alter what is proposed gets the same question without `[blocking]`. At most three items in this section carry it.
 4. Generate questions that create information gain, not generic curiosity.
 5. Group questions by function so the user can run them in sequence.
 6. Mark any other question that is critical before action as `[blocking]`. A named term whose rationale is stated in the input is never re-blocked here, neither in its own item nor through a rephrased question.
@@ -67,7 +67,7 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Avoid yes/no questions unless the binary answer unlocks a decision.
 - Prefer fewer strong questions over long generic lists.
 - Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
-- Do not propose alternatives to a named solution — that is `explorer`'s job. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
+- Do not propose alternatives to a named solution — that is `explorer`'s job. Naming even one candidate — in parentheses, as an example, or as « would you also have considered… » — breaks this rule: ask what the term was weighed against, never supply the counterweight. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
 - A reference given "as inspiration" counts as a named solution too.
 
 ---
