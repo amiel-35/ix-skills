@@ -1,7 +1,7 @@
 ---
 id: explorer
 label: Explorer
-version: 1.0.0
+version: 1.1.0
 description_fr: Génère un espace d'options ouvert avant toute décision ou production. Écrit d'abord la réponse par défaut, puis l'écarte explicitement pour forcer des options réellement distinctes. Déclenche quand l'utilisateur veut diverger, voir les possibles, ne pas encore trancher. Déclenche sur "quelles sont les options", "explore les pistes", "qu'est-ce qu'on pourrait faire", "génère des alternatives", "ouvre le champ", "avant de décider", "quels scénarios possibles". Ne recommande jamais — ouvre, liste, rend visible. À utiliser avant le skill `décision`.
 description_en: Generates an open option space before any decision or production. Writes the default answer first, then explicitly sets it aside to force genuinely distinct options. Triggers when the user wants to diverge, see the possibilities, and not yet commit. Triggers on "what are the options", "explore the paths", "what could we do", "generate alternatives", "open the field", "before deciding", "what scenarios are possible". Never recommends — opens, lists, makes visible. Use before the `decision` skill.
 icon: ◎

@@ -1,10 +1,8 @@
 ---
 name: questioning
-description: "[DRAFT] Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only \u2014 does not answer or explore."
+description: "Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only \u2014 does not answer or explore."
 ---
 # Questioning
-
-> **STATUS: DRAFT — not production ready**
 
 ## Role
 

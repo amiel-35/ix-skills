@@ -4,6 +4,47 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-09-20
+
+### Added — `questioning` 1.0.0 out of DRAFT: the « Named solution » category
+
+A request that names its artefact (« a compass rose », « an ITE », « a
+training », « AI ») has already taken a decision without noticing. The skill
+now scans the input in a fixed order — the umbrella term that frames the
+whole request, then its sizing parameters (duration, quantity, format,
+deadline), then the sub-artefacts — and asks, for each, what it is meant to
+achieve and whether it was chosen against something or was the first thing
+to come to mind. Flag-and-ask, never a filter: the term is kept as the
+user's own word, a rationale found anywhere in the input is quoted and
+withholds `[blocking]`, no alternative is ever named (that is `explorer`'s
+job), the problem is never reformulated (that is `firstprinciples`'s job).
+`[blocking]` is reserved for the umbrella and for parameters whose change
+would alter the shape of the response, three items at most.
+
+Validated on eleven briefs (design, energy retrofit, vaccination, call
+center, municipal security, pension reform, two real training RFPs) across
+haiku, sonnet, opus, GPT-6 and Gemini 3.1 Pro, twenty-six runs, two opus
+juries. Every model found the umbrella; the six text corrections came from
+the juries, not from switching models. Source of the mechanism:
+Bike-routing/docs/briefer_une_ia_pour_du_design.md.
+
+### Changed — `explorer` 1.1.0: write the default answer, then set it aside
+
+Before generating options, the skill writes the first, obvious answer it
+would give and excludes it from the set — visibly, in its own output block,
+so the absolute rule « never eliminate an option without mentioning it »
+still holds. A usage note states that when `nb_options` is high or
+distinctness matters, each option is better produced as a separate
+execution with one positive constraint of its own, rather than a one-pass
+enumeration that anchors on the first idea; prohibitions redirect, they do
+not free. On the pension-funding brief, the whole « time of life » axis was
+absent from a one-pass run of eight options and came out entire from a
+constrained execution.
+
+### Changed — plugin manifest 3.1.0
+
+Two skill releases consumers are meant to receive.
+
 ## 2026-09-15
 
 ### Fixed — plugin manifest version had never been bumped

@@ -1,9 +1,9 @@
 ---
 id: questioning
 label: Questionner
-version: 0.2.0
-description_fr: "[DRAFT] Génère les bonnes questions à poser sur un sujet — questions qui débloquent, révèlent des angles morts ou forcent une clarification. Signale aussi chaque solution nommée ou artefact désigné dans la demande et demande si c'est une contrainte délibérée ou un réflexe non examiné. Déclenche quand on veut préparer un entretien, une réunion, un audit, ou creuser un sujet sans encore l'explorer. Questions seulement — ne répond pas et n'explore pas."
-description_en: "[DRAFT] Generates the right questions to ask about a subject — questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only — does not answer or explore."
+version: 1.0.0
+description_fr: "Génère les bonnes questions à poser sur un sujet — questions qui débloquent, révèlent des angles morts ou forcent une clarification. Signale aussi chaque solution nommée ou artefact désigné dans la demande et demande si c'est une contrainte délibérée ou un réflexe non examiné. Déclenche quand on veut préparer un entretien, une réunion, un audit, ou creuser un sujet sans encore l'explorer. Questions seulement — ne répond pas et n'explore pas."
+description_en: "Generates the right questions to ask about a subject — questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only — does not answer or explore."
 aliases: [questionner]
 icon: "?"
 domain: cognitif
@@ -14,8 +14,6 @@ compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
 ---
 
 # Questioning
-
-> **STATUS: DRAFT — not production ready**
 
 ## Role
 
