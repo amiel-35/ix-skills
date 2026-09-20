@@ -1,7 +1,7 @@
 ---
 id: cadrage
 label: Cadrage
-version: 1.2.0
+version: 1.2.1
 description_fr: Clarifie un besoin encore flou avant toute production — intention, contraintes, hypothèses, options de suite — et vérifie qu'on a assez d'éléments pour avancer. Sépare le besoin des solutions déjà nommées dans la demande — le besoin reformulé dit le but, la solution nommée devient contrainte si justifiée, hypothèse à valider sinon. Déclenche sur "avant de se lancer, on doit cadrer ce sujet", "est-ce qu'on a assez d'infos pour partir en spec", "cadre ce besoin avant qu'on produise quoi que ce soit". Ne produit ni brief détaillé ni spec (utiliser `brief` ou `product-spec` une fois le cadrage fait) — s'arrête à la clarification.
 description_en: Clarifies a still-vague need before any production — intent, constraints, hypotheses, next options — and checks whether there is enough to move forward. Separates the need from the solutions already named in the request — the reformulated need states the goal, the named solution becomes a constraint when justified, a hypothesis to validate otherwise. Triggers on "before we start, we need to scope this", "do we have enough to go into spec", "clarify this need before we produce anything". Does not produce a detailed brief or a spec (use `brief` or `product-spec` once scoped) — stops at clarification.
 icon: ◇

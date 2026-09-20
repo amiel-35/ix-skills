@@ -4,6 +4,36 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-09-21 — patch
+
+### Fixed — `brief` 1.2.1, `cadrage` 1.2.1: the vehicle a consultation names is never a constraint on the need
+
+On the FN Safer N1 RFP, `cadrage` had classified « formation » as a
+justified constraint because it is the object of the consultation, and the
+whole chain downstream produced four ways of running a training. What a
+consultation or a mandate imposes on the response — pieces to include,
+deliverables, format, deadline — is now listed apart as constraints on the
+response. It never justifies the named vehicle as the answer to the need:
+that vehicle stays a hypothesis, even when the answer has to be written
+inside it. Same RFP, after: « formation » is a hypothesis with its open
+question (weighed against mentoring, coaching, templates, a community of
+practice?), the RFP's deliverables are constraints on the response.
+
+### Changed — `explorer` 1.1.1: `breadth` decides what happens to the named vehicle
+
+`focused` and `standard` keep the vehicle named in the input as a
+constraint of the response — the base answer to an RFP. `broad` takes it
+as the default answer to set aside and carries one positive constraint per
+execution; the deliverables listed as constraints on the response stay
+covered. A `cadrage` or `brief` can be passed as is: its hypotheses are the
+named solutions. Tested on the N1 RFP, sonnet: `standard` gives four
+training designs, `broad` with « practices change on the seven people's
+real projects, while they run them » gives a case clinic, a threaded
+mentoring, an instrumentation sprint and a periodic intervision circle —
+the « mission » the fnsafer project kept as a light opening.
+
+### Changed — plugin manifest 3.2.1
+
 ## 2026-09-21
 
 ### Changed — `brief` 1.2.0 and `cadrage` 1.2.0: a named solution is never promoted to the intent

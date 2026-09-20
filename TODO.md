@@ -65,3 +65,12 @@ source du mécanisme désolutionner est dans
 **À ne pas oublier.** Chaque prompt d'enchaînement doit dire ce qu'il passe
 à l'étape suivante, pas seulement quel skill il appelle. C'est là que ça
 casse.
+
+**Règle de passation apprise le 2026-09-21.** Ce qui est écarté n'est pas
+interdit : le véhicule nommé par une demande (« une formation ») est passé
+à `explorer` comme réponse par défaut à écarter, jamais comme contrainte
+ni comme interdiction. Le mode s'appelle par `breadth` : `standard` reste
+dans le véhicule (réponse de base à l'offre), `broad` en sort avec une
+contrainte positive par exécution. Les attendus de la réponse (pièces,
+livrables) sont des contraintes sur la réponse, listées à part par
+`cadrage` et `brief`, et restent couverts dans les deux modes.

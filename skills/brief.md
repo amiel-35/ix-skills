@@ -1,7 +1,7 @@
 ---
 id: brief
 label: Brief
-version: 1.2.0
+version: 1.2.1
 description_fr: Transforme un besoin flou, épars ou mal formulé en brief structuré et exploitable, avec critères d'acceptation et hypothèses explicites. Sépare le besoin des solutions déjà nommées dans la demande — l'intention dit le but, la solution nommée devient contrainte si justifiée, hypothèse sinon. Déclenche sur "fais-moi un brief sur...", "structure ce besoin en brief", "transforme cette demande en brief exploitable pour l'équipe". Ne clarifie pas un besoin encore trop incertain pour être scopé (utiliser `cadrage` en amont) et ne produit pas d'argumentaire pour un décideur (utiliser `note-strategique`).
 description_en: Transforms a vague, scattered, or poorly-formulated need into an actionable, structured brief, with explicit acceptance criteria and hypotheses. Separates the need from solutions already named in the request — the intent states the goal, the named solution becomes a constraint if justified, a hypothesis otherwise. Triggers on "write me a brief on...", "turn this need into a brief", "structure this request into something the team can act on". Does not clarify a need still too uncertain to scope (use `cadrage` first) and does not produce an argued case for a decision-maker (use `note-strategique`).
 icon: ◫
