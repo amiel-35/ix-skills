@@ -4,6 +4,39 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-09-21
+
+### Changed — `brief` 1.2.0 and `cadrage` 1.2.0: a named solution is never promoted to the intent
+
+The « named solution » guard of `questioning` 1.0.0, adapted to the two
+skills that write a framing. The intent (`brief`) or the reformulated need
+(`cadrage`) states the goal as the request states it. Every term that names
+an artefact, implementation, format, figure or reference — umbrella term
+first, then sizing parameters, then sub-artefacts — goes to constraints with
+its quoted rationale when the input says why this means rather than another,
+or to hypotheses « taken as the chosen answer to <its own purpose> — to
+validate » when it does not. A sentence that states the goal or the
+injustice the term answers is not a rationale for the term. A deadline, a
+budget, a mandated vehicle or a required deliverable stated as an obligation
+is a constraint. The term is kept in the user's words, never stripped, no
+alternative proposed. `cadrage` adds one open question per such hypothesis.
+
+Before: on « ramener l'âge de la retraite à 62 ans parce que la réforme est
+injuste pour les carrières longues », `brief` wrote « 62 ans » as the intent.
+After: the intent is the injustice to correct, « 62 ans » is a hypothesis —
+and becomes a constraint only when the request adds « c'est l'engagement
+numéro un de notre programme », which does justify the figure itself.
+Validated on call center, listed-building retrofit and pension briefs, and
+on the FN Safer N1 RFP chained `cadrage` → `questioning` → `explorer`.
+
+### Changed — plugin manifest 3.2.0
+
+Two skill releases consumers are meant to receive.
+
+### Added — TODO.md
+
+Design-thinking method chains as pipeline prompts, to build after this.
+
 ## 2026-09-20
 
 ### Added — `questioning` 1.0.0 out of DRAFT: the « Named solution » category
