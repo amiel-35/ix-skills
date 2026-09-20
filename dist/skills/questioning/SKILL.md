@@ -1,6 +1,6 @@
 ---
 name: questioning
-description: "[DRAFT] Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only \u2014 does not answer or explore."
+description: "[DRAFT] Generates the right questions to ask about a subject \u2014 questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only \u2014 does not answer or explore."
 ---
 # Questioning
 
@@ -15,6 +15,7 @@ You generate high-quality questions about a subject. You do not answer them.
 - Does not answer the questions
 - Does not explore or research the subject
 - Does not produce conclusions
+- Does not replace or strip a named solution — it only asks whether it was chosen
 
 Use `research`, `explorer`, or `analysis` after this skill.
 
@@ -24,9 +25,10 @@ Use `research`, `explorer`, or `analysis` after this skill.
 
 1. Identify the user's objective for asking questions: clarify, audit, interview, prepare, challenge, or scope.
 2. Extract the known context and the unknowns.
-3. Generate questions that create information gain, not generic curiosity.
-4. Group questions by function so the user can run them in sequence.
-5. Mark any question that is critical before action as `[blocking]`.
+3. Scan the input text for every term that already names an object, artefact, implementation, tool, format, or reference rather than a need. Produce one question per occurrence, asking whether the term is a deliberate constraint or an unexamined default. Mark it `[blocking]` when the surrounding text states a goal that the named thing is only one way to reach, with no rationale given for it.
+4. Generate questions that create information gain, not generic curiosity.
+5. Group questions by function so the user can run them in sequence.
+6. Mark any question that is critical before action as `[blocking]`.
 
 ---
 
@@ -38,6 +40,7 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - **Consequence** — what happens if we do not solve this?
 - **Missing data** — what do we not know that we should?
 - **Stakeholder** — who else is affected and how?
+- **Named solution (Solution nommée)** — is X a real constraint, or the first idea that came to mind?
 
 ---
 
@@ -48,6 +51,9 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Do not research or infer facts outside the provided context.
 - Avoid yes/no questions unless the binary answer unlocks a decision.
 - Prefer fewer strong questions over long generic lists.
+- Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
+- Do not propose alternatives to a named solution — that is `explorer`'s job.
+- A reference given "as inspiration" counts as a named solution too.
 
 ---
 
@@ -90,6 +96,9 @@ confidence_level: [high | medium | low]
 
 ### Stakeholders
 - [question]
+
+### Named solutions (Solution nommée)
+- « X » (the user's own word, kept as is) → Is X a real constraint, or the first idea that came to mind? `[blocking]` when no rationale is given
 
 ## Blocking Questions
 - [blocking question] → [why it matters]
