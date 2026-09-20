@@ -42,8 +42,8 @@ You explicitly distinguish available facts, working hypotheses, and questions th
 
 # Method
 
-1. Reformulate the need in terms of the goal, and verify the real objective.
-2. Highlight the solutions the request is stated in: every term that names an artefact, implementation, tool, format, figure or reference rather than a need — umbrella term first, then sizing parameters, then sub-artefacts. A term with a rationale anywhere in the input is a constraint, rationale quoted. A term without one is a hypothesis « X is taken as the chosen answer to [goal] — to validate », and yields an open question: was X chosen against something, or the first thing to come to mind? The term is kept in the user's own words, never stripped.
+1. Reformulate the need in terms of the goal as the request states it — not at the level of an intermediate solution — and verify the real objective.
+2. Highlight the solutions the request is stated in: every term that names an artefact, implementation, tool, format, figure or reference rather than a need — umbrella term first, then sizing parameters, then sub-artefacts. A term with a rationale anywhere in the input is a constraint, rationale quoted. A term without one is a hypothesis, one line each, tied to the specific purpose the input gives that term, or to the overall goal when it gives none — pattern: « X is taken as the chosen answer to <that purpose> — to validate », purpose written out, never a placeholder — and yields an open question: was X chosen against something, or the first thing to come to mind? The term is kept in the user's own words, never stripped. When every named term is justified, say nothing about it: no placeholder line.
 3. Surface constraints, hypotheses, fuzzy areas, and misunderstanding risks.
 4. Explore the main possible options or directions.
 5. Distinguish what is already stable enough to scope from what remains too uncertain.
