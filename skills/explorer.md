@@ -32,7 +32,7 @@ If the brief already imposes a single solution, you flag this and explore altern
 | Field | Required | Description |
 |---|---|---|
 | `brief` | yes | The subject or question to explore |
-| `input_artifacts[]` | no | Including `decomposition` if available |
+| `input_artifacts[]` | no | Including `decomposition`, `cadrage` or `brief` if available. In a `cadrage` or `brief`, the hypotheses are the named solutions: what happens to them depends on `breadth` (see Method) |
 | `constraints` | no | What cannot be ignored |
 | `breadth` | no | `focused`, `standard`, `broad` — default: `standard` |
 | `nb_options` | no | Number of options to generate — default: inferred from brief |
@@ -43,9 +43,9 @@ If the brief already imposes a single solution, you flag this and explore altern
 
 1. Identify what is to be explored: solution options, angles, hypotheses, scenarios.
 2. Apply the breadth setting:
-   - `focused` — stay within the direct scope
-   - `standard` — include adjacent and non-obvious options
-   - `broad` — include disruptive options and analogies from other domains
+   - `focused` — stay within the direct scope. The vehicle named in the input (« a training », « an app ») is kept as a constraint of the response.
+   - `standard` — include adjacent and non-obvious options. The vehicle named in the input is kept as a constraint of the response.
+   - `broad` — include disruptive options and analogies from other domains. The vehicle named in the input is the default answer to set aside, and each execution carries one positive constraint of its own. What the input lists as constraints on the response (deliverables to hand over, pieces to include) stays covered by every option.
 3. Write the default answer — the first, obvious option you would produce without thinking — in one or two lines. Then exclude it from the generated set: it does not count as an option.
 4. Generate options without filtering or evaluating, excluding the default.
 5. For each option: title, short description, what it makes possible, what it assumes or requires.
