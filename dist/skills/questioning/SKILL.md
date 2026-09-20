@@ -56,6 +56,8 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
 - Do not propose alternatives to a named solution — that is `explorer`'s job. Naming even one candidate — in parentheses, as an example, or as « would you also have considered… » — breaks this rule: ask what the term was weighed against, never supply the counterweight. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
 - A reference given "as inspiration" counts as a named solution too.
+- A rationale justifies a term only when it says why this term rather than another way to reach the goal. A sentence that states the goal, the problem or the injustice the term answers is not a rationale for the term.
+- A deadline, a budget, a mandated vehicle or a required deliverable stated as an obligation (« il faut », « must », « by ») is a constraint, not a named solution: ask about it if useful, never `[blocking]`.
 
 ---
 

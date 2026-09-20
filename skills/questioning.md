@@ -1,7 +1,7 @@
 ---
 id: questioning
 label: Questionner
-version: 1.0.0
+version: 1.0.1
 description_fr: "Génère les bonnes questions à poser sur un sujet — questions qui débloquent, révèlent des angles morts ou forcent une clarification. Signale aussi chaque solution nommée ou artefact désigné dans la demande et demande si c'est une contrainte délibérée ou un réflexe non examiné. Déclenche quand on veut préparer un entretien, une réunion, un audit, ou creuser un sujet sans encore l'explorer. Questions seulement — ne répond pas et n'explore pas."
 description_en: "Generates the right questions to ask about a subject — questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only — does not answer or explore."
 aliases: [questionner]
@@ -67,6 +67,8 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
 - Do not propose alternatives to a named solution — that is `explorer`'s job. Naming even one candidate — in parentheses, as an example, or as « would you also have considered… » — breaks this rule: ask what the term was weighed against, never supply the counterweight. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
 - A reference given "as inspiration" counts as a named solution too.
+- A rationale justifies a term only when it says why this term rather than another way to reach the goal. A sentence that states the goal, the problem or the injustice the term answers is not a rationale for the term.
+- A deadline, a budget, a mandated vehicle or a required deliverable stated as an obligation (« il faut », « must », « by ») is a constraint, not a named solution: ask about it if useful, never `[blocking]`.
 
 ---
 

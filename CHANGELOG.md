@@ -4,6 +4,21 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-09-21 — patch 2
+
+### Fixed — `questioning` 1.0.1: a stated goal is not a rationale, an obligation is a constraint
+
+Same two rules as `brief` and `cadrage` 1.2.0, for consistency across the
+corpus: a rationale justifies a named term only when it says why this term
+rather than another way to reach the goal, and a deadline, budget, mandated
+vehicle or required deliverable stated as an obligation is a constraint,
+asked about if useful, never `[blocking]`. Control on the pension brief
+without the electoral sentence, sonnet: « ramener l'âge légal » and its
+sizing « 62 ans » `[blocking]`, financing levers questioned without it, the
+six-week deadline and the bill no longer listed as named solutions.
+
+### Changed — plugin manifest 3.2.2
+
 ## 2026-09-21 — patch
 
 ### Fixed — `brief` 1.2.1, `cadrage` 1.2.1: the vehicle a consultation names is never a constraint on the need
