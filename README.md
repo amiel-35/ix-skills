@@ -2,7 +2,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-84 skills in 9 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise.
+86 skills in 9 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise.
 
 [🇫🇷 Version française](README-fr.md)
 
@@ -35,6 +35,8 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 | `synthese` | Condense long content into an actionable summary | Lossy compression — detail is intentionally discarded |
 | `decomposer` | Break a complex problem into actionable sub-problems | Dependencies between sub-problems are identified, not hidden |
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it | Evaluates incoming critique — not your own artifact |
+| `fact-check` | Check a text against reference evidence, claim by claim — confirmed, contradicted, not in the source, not checkable | One verdict per claim, each backed by a verbatim quote of the source — **the source is an input**, `closed` mode ignores what the model knows |
+| `controle-qualite` | Check a deliverable against a provided set of rules — template, style guide, spelling, forbidden vocabulary — in `sweep` (find every breach) or `verdict` (rule on a suspected list) mode | One verdict per finding, with the rule and the exact passage — **a rule not in the reference is not a rule** |
 | `prioritize` | Rank a list of items by attack order with explicit criteria | Sequences items — **does not choose between exclusive options** (use `decision`) |
 | `problem-framing` *(draft)* | Reformulate a vague subject into an actionable problem | Formulates the central question — **does not solve it** |
 | `questioning` | Generate the right questions to ask — flags every named solution (umbrella term first, then sizing, then sub-artefacts) and asks whether it was chosen or was the first idea | Questions only — **does not answer or explore**, never strips a named term (use `explorer`) |
@@ -44,6 +46,9 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 
 **`critique` vs `revue-feedback`**
 `critique` analyzes *your own artifact* (a document, a plan, a proposal) to find its flaws. `revue-feedback` processes *feedback someone else gave you* — evaluating whether to accept, nuance, or reject it before responding. One is editorial, the other is diplomatic.
+
+**`critique` vs `fact-check` vs `controle-qualite` vs `quality-check`**
+`critique` judges substance — what is weak, unclear, missing — and needs no reference. `fact-check` checks a text against *evidence*: one verdict per claim (confirmed, contradicted, not in the source, not checkable), each backed by a verbatim quote of the source. `controle-qualite` checks a deliverable against *rules* given as input — template, style guide, spelling, forbidden vocabulary: one verdict per finding, with the rule and the exact passage. Both verifiers quote text a script can find, which is what lets them run on a cheaper model and be checked in turn. `quality-check` is a different question again: not whether a text matches its source, but whether the sources themselves can be trusted.
 
 **`simplify` vs `rephrase` vs `synthese`**
 - `simplify` names the noise that could go while keeping all the information — it identifies the removals, `correction` applies them.
@@ -235,7 +240,7 @@ Structured intelligence tools — each audits a different dimension of a reasoni
 
 **What it does:** Evaluates the structural solidity of the information on which a reasoning, decision, or analysis rests — before it becomes a foundation. Checks source type, corroboration, freshness, author bias, and flags informational gaps.
 
-**What it doesn't do:** Does not evaluate the conclusions. Does not evaluate the reasoning itself. Only the quality of the raw material.
+**What it doesn't do:** Does not evaluate the conclusions. Does not evaluate the reasoning itself. Only the quality of the raw material. Does not check a text claim by claim against a given source — that is `fact-check`.
 
 **Use when:** Before making a decision that rests on external data, market figures, or cited sources. Use it before `decision` or `note-strategique` when you're not sure the sources are solid.
 
@@ -808,6 +813,12 @@ cadrage  → questioning → explorer → decision
            `broad` leaves it with one positive constraint per run)
 research → analyse-concurrentielle → decision
 brief    → prd → feature-spec
+critique → fact-check → correction → fact-check → deliver → controle-qualite
+          (fact-check first on what the critique says it observed, then on
+           the facts the corrections add; controle-qualite on the deliverable
+           against the template and the client's rules before it goes out)
+controle-qualite sweep → controle-qualite verdict
+          (detector, then judge, on the same reference)
           simplify  (standalone)
           rephrase  (standalone)
 ```

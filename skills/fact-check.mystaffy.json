@@ -1,0 +1,54 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "closed",
+      "help": "closed = la source fournie seulement, ce que le modele sait par ailleurs ne compte pas ; open = sources externes admises, chacune citee avec son URL.",
+      "values": [
+        "closed",
+        "open"
+      ]
+    },
+    "scope": {
+      "label": "Perimetre",
+      "type": "text",
+      "required": false,
+      "help": "Quelles affirmations verifier (toutes, chiffres seulement, liste d'ids) et lesquelles laisser de cote."
+    },
+    "json_block": {
+      "label": "Bloc JSON final",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "help": "Termine par le bloc JSON des verdicts (id, claim, verdict, quote) pour l'etape suivante d'un pipeline."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "scope",
+      "json_block"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2B6CB0",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

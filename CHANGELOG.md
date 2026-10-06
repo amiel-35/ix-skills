@@ -4,6 +4,51 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-06
+
+### Added — `fact-check` 1.0.0: a text against evidence, claim by claim
+
+One verdict per atomic claim — `confirmed`, `contradicted`, `not in the
+source`, `not checkable` — each confirmed or contradicted verdict backed by a
+verbatim quote a script can find in the source. The source is an input:
+`closed` mode (default) ignores what the model knows, `open` mode admits
+external sources only with a quotable passage and its URL. A claim of absence
+is checked by searching the whole source and is proved by the search itself
+(terms, sections, closest passage), not by a quote. Ids of the input text are
+kept (F3 → F3.1, F3.2 when one item carries several claims). Optional final
+JSON block. A claim that the source *gives* X is confirmed only if X itself is
+there: a mention without content (« aux horaires d'ouverture ») contradicts
+it. A quote is one continuous passage of the source as provided — markup,
+apostrophes and quotation marks kept, never two passages joined (same rule for
+`controle-qualite` passages). Born from the crawler-conseil-mononcle chain, where a critique
+claimed to have observed things a page did not contain and corrections added
+facts the page did not state.
+
+### Added — `controle-qualite` 1.0.0: a deliverable against a set of rules, sweep or verdict
+
+One verdict per finding, with the rule and the exact passage. The reference
+is provided; a rule it names applies in full, a rule it does not name is at
+most a remark set apart. `sweep` finds every breach and lists the rules
+passed; `verdict` rules on a suspected list — `breach`, `compliant`,
+`doubtful`, `not found`, `outside reference` — keeping its ids, so a cheap
+detector and a judge can run on the same reference. Optional final JSON
+block. Same origin: the spelling bench of the project and the report checked
+against its template and forbidden vocabulary before it goes to the client.
+
+Both validated on the CD56 bench (page « Les aides financières après 20
+ans » and « Aide ménagère à domicile », collected 2026-10-05): with Sonnet,
+false and added claims caught, true ones confirmed, every quote found by
+script; 11/14 against the judged spelling reference, no false breach. Haiku
+gets the verdicts mostly right but still rewrites apostrophes and joins
+passages: usable only behind a quote check.
+
+### Changed — plugin manifest 3.3.0
+
+Two new skills consumers are meant to receive. `quality-check` keeps its name
+for now; its rename to `fiabilite-sources` and the cross-references from
+`critique`, `revue-feedback` and `quality-check` to the two new skills come
+separately.
+
 ## 2026-09-21 — patch 2
 
 ### Fixed — `questioning` 1.0.1: a stated goal is not a rationale, an obligation is a constraint

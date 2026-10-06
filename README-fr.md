@@ -2,7 +2,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-84 skills en 9 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
+86 skills en 9 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
 
 [🇬🇧 English version](README.md)
 
@@ -35,6 +35,8 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `synthese` | Condenser un long contenu en synthèse actionnable | Compression avec perte — le détail est sacrifié intentionnellement |
 | `decomposer` | Structurer un problème complexe en sous-problèmes actionnables | Les dépendances entre sous-problèmes sont identifiées, pas masquées |
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
+| `fact-check` | Vérifier un texte contre des preuves de référence, affirmation par affirmation — confirmée, contredite, absente de la source, non vérifiable | Un verdict par affirmation, chacun appuyé sur une citation exacte de la source — **la source est une entrée**, le mode `closed` ignore ce que le modèle sait |
+| `controle-qualite` | Vérifier un livrable contre un référentiel de règles fourni — gabarit, charte, orthographe, vocabulaire interdit — en mode `sweep` (trouver chaque manquement) ou `verdict` (trancher une liste suspectée) | Un verdict par constat, avec la règle et le passage exact — **une règle absente du référentiel n'est pas une règle** |
 | `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
 | `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
 | `questioning` | Générer les bonnes questions à poser — signale chaque solution nommée (terme-parapluie d'abord, puis paramètres de taille, puis sous-artefacts) et demande si elle a été choisie ou si c'est la première idée venue | Questions seulement — **ne répond pas et n'explore pas**, ne retire jamais un terme nommé (utiliser `explorer`) |
@@ -44,6 +46,9 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 
 **`critique` vs `revue-feedback`**
 `critique` analyse *votre propre artifact* (un document, un plan, une proposition) pour en trouver les failles. `revue-feedback` traite *un feedback que quelqu'un d'autre vous a donné* — il évalue si vous devez l'accepter, le nuancer ou le refuser avant de répondre. L'un est éditorial, l'autre est diplomatique.
+
+**`critique` vs `fact-check` vs `controle-qualite` vs `quality-check`**
+`critique` juge le fond — ce qui est faible, flou, manquant — et n'a besoin d'aucun référentiel. `fact-check` vérifie un texte contre des *preuves* : un verdict par affirmation (confirmée, contredite, absente de la source, non vérifiable), chacun appuyé sur une citation exacte de la source. `controle-qualite` vérifie un livrable contre des *règles* données en entrée — gabarit, charte, orthographe, vocabulaire interdit : un verdict par constat, avec la règle et le passage exact. Les deux vérificateurs citent un texte qu'un script peut retrouver, ce qui permet de les confier à un modèle moins cher et de les vérifier à leur tour. `quality-check` pose encore une autre question : non pas si un texte est fidèle à sa source, mais si les sources elles-mêmes sont fiables.
 
 **`simplify` vs `rephrase` vs `synthese`**
 - `simplify` nomme le bruit qui pourrait sauter en conservant toute l'information — il identifie les retraits, `correction` les applique.
@@ -235,7 +240,7 @@ Outils de renseignement structuré — chacun audite une dimension différente d
 
 **Ce qu'il fait :** Évalue la solidité structurelle des informations sur lesquelles un raisonnement, une décision ou une analyse repose — avant qu'elles deviennent une fondation. Vérifie le type de source, la corroboration, la fraîcheur, les biais potentiels, et signale les lacunes informationnelles.
 
-**Ce qu'il ne fait pas :** N'évalue pas les conclusions. N'évalue pas le raisonnement lui-même. Uniquement la qualité de la matière première.
+**Ce qu'il ne fait pas :** N'évalue pas les conclusions. N'évalue pas le raisonnement lui-même. Uniquement la qualité de la matière première. Ne vérifie pas un texte affirmation par affirmation contre une source donnée — c'est `fact-check`.
 
 **Quand l'utiliser :** Avant de prendre une décision qui repose sur des données externes, des chiffres de marché ou des sources citées. Triage essentiel avant `decision` ou `note-strategique` quand on n'est pas sûr de la solidité des sources.
 
@@ -808,6 +813,12 @@ cadrage  → questioning → explorer → decision
            `broad` en sort avec une contrainte positive par exécution)
 research → analyse-concurrentielle → decision
 brief    → prd → feature-spec
+critique → fact-check → correction → fact-check → deliver → controle-qualite
+          (fact-check d'abord sur ce que la critique dit avoir observé, puis
+           sur les faits que les corrections ajoutent ; controle-qualite sur le
+           livrable contre le gabarit et les règles du client avant envoi)
+controle-qualite sweep → controle-qualite verdict
+          (détecteur, puis juge, sur le même référentiel)
           simplify  (standalone)
           rephrase  (standalone)
 ```

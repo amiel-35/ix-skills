@@ -3,3 +3,6 @@ mystaffy-dist/
 codex-dist/
 __pycache__/
 *.pyc
+
+# Python venv local (uv venv)
+.venv/

@@ -1,0 +1,54 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "critique",
+  "params": {
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": true,
+      "default": "sweep",
+      "help": "sweep = trouver chaque manquement du livrable ; verdict = trancher la liste de manquements suspectes fournie dans suspected.",
+      "values": [
+        "sweep",
+        "verdict"
+      ]
+    },
+    "scope": {
+      "label": "Perimetre",
+      "type": "text",
+      "required": false,
+      "help": "Regles ou parties du livrable a verifier (ex. orthographe et grammaire seulement ; gabarit seulement)."
+    },
+    "json_block": {
+      "label": "Bloc JSON final",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "help": "Termine par le bloc JSON des constats (id, passage, rule, verdict, correction) pour l'etape suivante d'un pipeline."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "mode"
+    ],
+    "advanced_fields": [
+      "scope",
+      "json_block"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2C7A7B",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
