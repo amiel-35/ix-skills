@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-labelledby="t d">
+  <title id="t">ix-skills</title>
+  <desc id="d">Atomic skills chained into a pipeline: each node is one cognitive move.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121a1f"/>
+      <stop offset="1" stop-color="#1d2b33"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7fc8bd" fill-opacity="0.7"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="320" fill="url(#bg)"/>
+
+  <!-- un pipeline : cinq atomes enchaînés -->
+  <g transform="translate(70 160)">
+    <g stroke="#7fc8bd" stroke-opacity="0.55" stroke-width="2" marker-end="url(#arrow)">
+      <line x1="30" y1="0" x2="62" y2="0"/>
+      <line x1="110" y1="0" x2="142" y2="0"/>
+      <line x1="190" y1="0" x2="222" y2="0"/>
+      <line x1="270" y1="0" x2="302" y2="0"/>
+    </g>
+    <g fill="#121a1f" stroke="#7fc8bd" stroke-width="2.5">
+      <rect x="-22" y="-22" width="44" height="44" rx="10"/>
+      <rect x="64" y="-22" width="44" height="44" rx="10"/>
+      <rect x="144" y="-22" width="44" height="44" rx="10"/>
+      <rect x="224" y="-22" width="44" height="44" rx="10"/>
+    </g>
+    <rect x="304" y="-22" width="44" height="44" rx="10" fill="#7fc8bd"/>
+    <g fill="#7fc8bd" fill-opacity="0.8">
+      <circle cx="0" cy="0" r="5"/>
+      <circle cx="86" cy="0" r="5"/>
+      <circle cx="166" cy="0" r="5"/>
+      <circle cx="246" cy="0" r="5"/>
+    </g>
+    <circle cx="326" cy="0" r="5" fill="#121a1f"/>
+  </g>
+
+  <g font-family="Georgia, 'Times New Roman', serif">
+    <text x="470" y="150" font-size="74" fill="#eef6f4" letter-spacing="1">ix-skills</text>
+    <text x="473" y="198" font-size="26" fill="#b7d8d2" font-style="italic">Atomic knowledge-work skills.</text>
+    <text x="473" y="238" font-size="20" fill="#7f9a96">One cognitive move per skill, designed to chain.</text>
+  </g>
+</svg>

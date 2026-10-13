@@ -1,10 +1,66 @@
-# ix-skills
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="ix-skills: atomic knowledge-work skills" width="100%">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
+  <img alt="Plugin version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
+  <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-86-3d6b73">
+  <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
+</p>
+
+<p align="center">
+  <a href="#quick-start"><b>Quick start</b></a> ·
+  <a href="#available-skills"><b>Skill catalog</b></a> ·
+  <a href="#typical-pipelines"><b>Pipelines</b></a> ·
+  <a href="#contributing"><b>Contributing</b></a> ·
+  <a href="README-fr.md"><b>Français</b></a>
+</p>
+
+---
+
+<details>
+<summary><b>Table of contents</b></summary>
+
+- [About](#about)
+- [Quick start](#quick-start)
+- [Corpus convention — the null output](#corpus-convention--the-null-output)
+- [Available skills](#available-skills)
+- [Typical pipelines](#typical-pipelines)
+- [Installation](#installation)
+- [Structure](#structure)
+- [Build](#build)
+- [Sibling project: ghost-council](#sibling-project-ghost-council)
+- [Contributing](#contributing)
+- [License](#license)
+
+</details>
+
+## About
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
 86 skills in 9 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise.
 
-[🇫🇷 Version française](README-fr.md)
+---
+
+## Quick start
+
+Install the plugin in Claude Code:
+
+```bash
+claude plugin marketplace add amiel-35/ix-skills
+claude plugin install ix-skills@ix-skills
+```
+
+Restart Claude Code. Skills are namespaced (`critique` becomes `/ix-skills:critique`), and Claude also picks them up from plain requests:
+
+- *"Critique this brief: what's wrong with it?"*
+- *"Before we decide, explore the options."*
+- *"Fact-check this note against the source."*
+
+Other platforms (Cowork, Codex CLI, mystaffy, GPT, Gemini): see [Installation](#installation).
 
 ---
 
@@ -18,7 +74,11 @@ corpus: that is what makes it greppable and testable.
 
 ## Available skills
 
-### 🧠 Cognitive — core process atoms
+Click a category to expand it.
+
+<details>
+<summary><b>🧠 Cognitive — core process atoms</b> — 17 skills</summary>
+
 
 Primitive operations on content, problems, and decisions. Each encodes a single cognitive move — they are designed to chain, not to replace each other.
 
@@ -61,9 +121,11 @@ Designed to run in sequence. `explorer` maps the option space without committing
 **`critique` vs Advisory archetypes (e.g. `dixieme-homme`, `contrarian`)**
 `critique` is a quality check on *your own artifact* — editorial, finding flaws in what you produced. Advisory archetypes challenge *a belief, plan, or decision* from a specific perspective — they operate at the level of reasoning and conviction, not text quality. Use `critique` to improve a document; use Advisory to stress-test a conclusion.
 
----
+</details>
 
-### ⚔️ Advisory — perspective archetypes
+<details>
+<summary><b>⚔️ Advisory — perspective archetypes</b> — 10 skills</summary>
+
 
 Each skill forces a specific cognitive stance. They are not interchangeable — pick based on what you need to stress-test. Run `chairman` after several to synthesize.
 
@@ -196,9 +258,11 @@ Each skill forces a specific cognitive stance. They are not interchangeable — 
 
 **Use when:** Long-horizon decisions where prediction is impossible. Strategy under deep uncertainty. Planning that needs to remain robust across multiple possible outcomes.
 
----
+</details>
 
-### 🗺️ Strategy & Intelligence
+<details>
+<summary><b>🗺️ Strategy & Intelligence</b> — 8 skills</summary>
+
 
 Structured intelligence tools — each audits a different dimension of a reasoning or plan before you commit to it.
 
@@ -286,9 +350,11 @@ Structured intelligence tools — each audits a different dimension of a reasoni
 
 **Use when:** Preparing a pitch, validating a market opportunity, or building a business case.
 
----
+</details>
 
-### 🔍 Research & Analysis
+<details>
+<summary><b>🔍 Research & Analysis</b> — 7 skills</summary>
+
 
 Each tool builds a factual foundation on a specific analytical object — competitive landscape, specification, budget, SaaS metrics, costs, financial data, or data narrative.
 
@@ -364,9 +430,11 @@ Each tool builds a factual foundation on a specific analytical object — compet
 
 **Use when:** Product reviews, user research readouts, operational reporting — any data presentation where the audience needs to understand what the data means and what to do about it.
 
----
+</details>
 
-### 📊 Metrics & Tracking
+<details>
+<summary><b>📊 Metrics & Tracking</b> — 5 skills</summary>
+
 
 Tools for defining and evaluating measurement systems — from objectives to dashboards to vendor selection grids.
 
@@ -420,9 +488,11 @@ Tools for defining and evaluating measurement systems — from objectives to das
 
 **Use when:** Before any product launch, contractualization, or operational change with legal implications. A structured pre-validation to orient the conversation with a lawyer, not replace it.
 
----
+</details>
 
-### ⚖️ Legal & Contracts
+<details>
+<summary><b>⚖️ Legal & Contracts</b> — 6 skills</summary>
+
 
 Pre-legal tools — all require professional validation before use. They orient reviews, surface risks, and produce drafts. None replace a lawyer.
 
@@ -490,9 +560,11 @@ Pre-legal tools — all require professional validation before use. They orient 
 
 **Use when:** Before signing a supplier contract, before entering negotiations, or when drafting initial terms for a new supplier relationship.
 
----
+</details>
 
-### 👥 HR & People
+<details>
+<summary><b>👥 HR & People</b> — 13 skills</summary>
+
 
 Tools for the full employee lifecycle — recruiting, onboarding, development, assessment, organization design, and employment law. French labor law context is embedded where relevant.
 
@@ -610,9 +682,11 @@ Tools for the full employee lifecycle — recruiting, onboarding, development, a
 
 **Use when:** Before announcing a reorganization. Also useful as pre-work before engaging a management team in the design.
 
----
+</details>
 
-### 💻 Product & Tech
+<details>
+<summary><b>💻 Product & Tech</b> — 14 skills</summary>
+
 
 Tools for the full product development lifecycle — from clarifying a need to specifying, designing, building, and maintaining.
 
@@ -740,9 +814,11 @@ Tools for the full product development lifecycle — from clarifying a need to s
 
 > `code-review` evaluates a specific changeset (a PR, a file). `tech-debt` audits accumulated structural issues across the full codebase.
 
----
+</details>
 
-### 🚀 Business & Sales
+<details>
+<summary><b>🚀 Business & Sales</b> — 6 skills</summary>
+
 
 Tools for commercial execution — offer writing, negotiation, RFPs, stakeholder communications, meeting records, and retrospectives.
 
@@ -799,6 +875,8 @@ Tools for commercial execution — offer writing, negotiation, RFPs, stakeholder
 **What it doesn't do:** Not a complaints session. Not an evaluation of individuals. Blameless means the system, not the people.
 
 **Use when:** At the end of a sprint, project, incident, or significant initiative. The blameless constraint is what makes the output actionable rather than defensive.
+
+</details>
 
 ---
 
@@ -931,12 +1009,20 @@ python3 build.py --target codex
 
 ---
 
+## Sibling project: ghost-council
+
+[ghost-council](https://github.com/amiel-35/ghost-council) is the author's other collection: philosophers' reasoning methods encoded as skills (Popper, Kant, Pascal, Wittgenstein…), and `/council`, which makes several independent angles deliberate on a decision and returns the map of disagreements. The two complement each other: ix-skills encodes ways of working, ghost-council ways of thinking. The advisory postures of ix-skills (`dixieme-homme`, `contrarian`, `red-team`, `key-assumptions`, `expansionist`…) can sit on the council as `ix:<id>`, next to `ghost:popper`.
+
+---
+
 ## Contributing
 
 Fork, modify, PR. Read `CLAUDE.md` for conventions.
+
+Read [`CLAUDE.md`](CLAUDE.md) for the canonical skill format, naming rules and checklists, and [`CHANGELOG.md`](CHANGELOG.md) for releases.
 
 ---
 
 ## License
 
-MIT
+MIT, see [LICENSE](LICENSE).

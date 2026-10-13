@@ -1,10 +1,66 @@
-# ix-skills
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="ix-skills : des skills de knowledge-work atomiques" width="100%">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="Licence" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
+  <img alt="Version du plugin" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
+  <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-86-3d6b73">
+  <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
+</p>
+
+<p align="center">
+  <a href="#démarrage-rapide"><b>Démarrage rapide</b></a> ·
+  <a href="#skills-disponibles"><b>Catalogue</b></a> ·
+  <a href="#pipelines-typiques"><b>Pipelines</b></a> ·
+  <a href="#contribuer"><b>Contribuer</b></a> ·
+  <a href="README.md"><b>English</b></a>
+</p>
+
+---
+
+<details>
+<summary><b>Sommaire</b></summary>
+
+- [À propos](#à-propos)
+- [Démarrage rapide](#démarrage-rapide)
+- [Convention de corpus — la sortie nulle](#convention-de-corpus--la-sortie-nulle)
+- [Skills disponibles](#skills-disponibles)
+- [Pipelines typiques](#pipelines-typiques)
+- [Installation](#installation)
+- [Structure](#structure)
+- [Packager](#packager)
+- [Projet frère : ghost-council](#projet-frère--ghost-council)
+- [Contribuer](#contribuer)
+- [Licence](#licence)
+
+</details>
+
+## À propos
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
 86 skills en 9 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier.
 
-[🇬🇧 English version](README.md)
+---
+
+## Démarrage rapide
+
+Installer le plugin dans Claude Code :
+
+```bash
+claude plugin marketplace add amiel-35/ix-skills
+claude plugin install ix-skills@ix-skills
+```
+
+Redémarrer Claude Code. Les skills sont préfixés (`critique` devient `/ix-skills:critique`), et Claude les reconnaît aussi dans une demande ordinaire :
+
+- *« Critique ce brief : qu'est-ce qui ne va pas ? »*
+- *« Avant de décider, explore les options. »*
+- *« Vérifie cette note contre la source. »*
+
+Autres plateformes (Cowork, Codex CLI, mystaffy, GPT, Gemini) : voir [Installation](#installation).
 
 ---
 
@@ -18,7 +74,11 @@ c'est ce qui le rend greppable et testable.
 
 ## Skills disponibles
 
-### 🧠 Cognitif — atomes de processus
+Cliquer sur une catégorie pour la déplier.
+
+<details>
+<summary><b>🧠 Cognitif — atomes de processus</b> — 17 skills</summary>
+
 
 Opérations primitives sur un contenu, un problème ou une décision. Chaque skill encode un seul geste cognitif — ils sont conçus pour se chaîner, pas se substituer.
 
@@ -61,9 +121,11 @@ Conçus pour fonctionner en séquence. `explorer` cartographie l'espace des opti
 **`critique` vs archétypes Advisory (ex. `dixieme-homme`, `contrarian`)**
 `critique` est un contrôle qualité sur *votre propre artifact* — éditorial, il trouve les failles dans ce que vous avez produit. Les archétypes Advisory challengent *une croyance, un plan ou une décision* depuis une perspective spécifique — ils opèrent au niveau du raisonnement et des convictions, pas de la qualité textuelle. Utilisez `critique` pour améliorer un document ; utilisez un archétype Advisory pour stress-tester une conclusion.
 
----
+</details>
 
-### ⚔️ Conseil — archétypes de perspective
+<details>
+<summary><b>⚔️ Conseil — archétypes de perspective</b> — 10 skills</summary>
+
 
 Chaque skill impose une posture cognitive spécifique. Ils ne sont pas interchangeables — choisir en fonction de ce qu'on veut stress-tester. Lancer `chairman` après plusieurs pour synthétiser.
 
@@ -196,9 +258,11 @@ Chaque skill impose une posture cognitive spécifique. Ils ne sont pas interchan
 
 **Quand l'utiliser :** Décisions à long horizon où la prédiction est impossible. Stratégie sous incertitude profonde. Planification devant rester robuste face à de multiples futurs possibles.
 
----
+</details>
 
-### 🗺️ Stratégie & Intelligence
+<details>
+<summary><b>🗺️ Stratégie & Intelligence</b> — 8 skills</summary>
+
 
 Outils de renseignement structuré — chacun audite une dimension différente d'un raisonnement ou d'un plan avant de s'engager.
 
@@ -286,9 +350,11 @@ Outils de renseignement structuré — chacun audite une dimension différente d
 
 **Quand l'utiliser :** Préparation d'un pitch, validation d'une opportunité de marché, ou construction d'un business case.
 
----
+</details>
 
-### 🔍 Recherche & Analyse
+<details>
+<summary><b>🔍 Recherche & Analyse</b> — 7 skills</summary>
+
 
 Chaque outil construit un socle factuel sur un objet analytique spécifique — paysage concurrentiel, cahier des charges, budget, métriques SaaS, coûts, données financières ou narratif data.
 
@@ -364,9 +430,11 @@ Chaque outil construit un socle factuel sur un objet analytique spécifique — 
 
 **Quand l'utiliser :** Revues produit, restitutions user research, reporting opérationnel — toute présentation de données où l'audience a besoin de comprendre ce que ça signifie et ce qu'il faut en faire.
 
----
+</details>
 
-### 📊 Métriques & Pilotage
+<details>
+<summary><b>📊 Métriques & Pilotage</b> — 5 skills</summary>
+
 
 Outils pour définir et évaluer des systèmes de mesure — des objectifs aux dashboards en passant par les grilles de sélection fournisseur.
 
@@ -420,9 +488,11 @@ Outils pour définir et évaluer des systèmes de mesure — des objectifs aux d
 
 **Quand l'utiliser :** Avant tout lancement produit, contractualisation, ou changement opérationnel à implications légales. Une pré-validation structurée pour orienter la conversation avec un juriste, pas la remplacer.
 
----
+</details>
 
-### ⚖️ Juridique & Contrats
+<details>
+<summary><b>⚖️ Juridique & Contrats</b> — 6 skills</summary>
+
 
 Outils pré-juridiques — tous nécessitent une validation professionnelle avant utilisation. Ils orientent les revues, font surface les risques et produisent des projets. Aucun ne remplace un juriste.
 
@@ -490,9 +560,11 @@ Outils pré-juridiques — tous nécessitent une validation professionnelle avan
 
 **Quand l'utiliser :** Avant de signer un contrat fournisseur, avant d'entrer en négociation, ou lors de la rédaction des conditions initiales d'une nouvelle relation fournisseur.
 
----
+</details>
 
-### 👥 RH & People
+<details>
+<summary><b>👥 RH & People</b> — 13 skills</summary>
+
 
 Outils pour l'ensemble du cycle de vie des collaborateurs — recrutement, intégration, développement, évaluation, organisation et droit du travail. Le contexte droit du travail français est intégré là où c'est pertinent.
 
@@ -610,9 +682,11 @@ Outils pour l'ensemble du cycle de vie des collaborateurs — recrutement, inté
 
 **Quand l'utiliser :** Avant d'annoncer une réorganisation. Utile aussi comme pré-travail avant d'impliquer l'équipe de direction dans le design.
 
----
+</details>
 
-### 💻 Produit & Tech
+<details>
+<summary><b>💻 Produit & Tech</b> — 14 skills</summary>
+
 
 Outils pour l'ensemble du cycle de développement produit — du cadrage d'un besoin à la spécification, conception, construction et maintenance.
 
@@ -740,9 +814,11 @@ Outils pour l'ensemble du cycle de développement produit — du cadrage d'un be
 
 > `code-review` évalue un changeset spécifique (une PR, un fichier). `tech-debt` audite les problèmes structurels accumulés sur l'ensemble du codebase.
 
----
+</details>
 
-### 🚀 Business & Sales
+<details>
+<summary><b>🚀 Business & Sales</b> — 6 skills</summary>
+
 
 Outils pour l'exécution commerciale — rédaction d'offres, négociation, appels d'offres, communications stakeholders, comptes-rendus et rétrospectives.
 
@@ -799,6 +875,8 @@ Outils pour l'exécution commerciale — rédaction d'offres, négociation, appe
 **Ce qu'il ne fait pas :** Pas une séance de doléances. Pas une évaluation des individus. Blameless signifie le système, pas les personnes.
 
 **Quand l'utiliser :** À la fin d'un sprint, d'un projet, d'un incident ou d'une initiative significative. La contrainte blameless est ce qui rend le livrable actionnable plutôt que défensif.
+
+</details>
 
 ---
 
@@ -931,12 +1009,20 @@ python3 build.py --target codex
 
 ---
 
+## Projet frère : ghost-council
+
+[ghost-council](https://github.com/amiel-35/ghost-council) est l'autre collection du même auteur : des méthodes de raisonnement de philosophes encodées comme skills (Popper, Kant, Pascal, Wittgenstein…), et `/council`, qui fait délibérer plusieurs angles indépendants sur une décision et rend la carte des désaccords. Les deux se complètent : ix-skills encode des gestes de travail, ghost-council des méthodes de pensée. Les postures de conseil d'ix-skills (`dixieme-homme`, `contrarian`, `red-team`, `key-assumptions`, `expansionist`…) peuvent siéger au conseil sous la forme `ix:<id>`, à côté de `ghost:popper`.
+
+---
+
 ## Contribuer
 
 Fork, modifie, PR. Lire `CLAUDE.md` pour les conventions.
+
+Lire [`CLAUDE.md`](CLAUDE.md) pour le format canonique d'un skill, les règles de nommage et les checklists, et [`CHANGELOG.md`](CHANGELOG.md) pour les versions.
 
 ---
 
 ## Licence
 
-MIT
+MIT, voir [LICENSE](LICENSE).
