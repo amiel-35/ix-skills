@@ -1,7 +1,7 @@
 ---
 id: deliver
 label: Livraison
-version: 1.1.0
+version: 1.2.0
 description_fr: Transforme un contenu source en livrable propre adapté à un destinataire ou un format cible. Déclenche quand l'utilisateur veut produire quelque chose de partageable depuis un artifact existant — rapport, fiche, email, page HTML, readme, one-pager. Déclenche sur "prépare le livrable", "rends ça partageable", "adapte pour le client", "mets en forme pour X", "produis le document final". C'est l'étape finale de tout pipeline de production.
 description_en: Transforms source content into a clean deliverable adapted to a recipient or target format. Triggers when the user wants to produce something shareable from an existing artifact — report, brief, email, HTML page, readme, one-pager. Triggers on "prepare the deliverable", "make this shareable", "adapt for the client", "format this for X", "produce the final document". This is the final step of any production pipeline.
 icon: ↗
@@ -10,6 +10,7 @@ category: atome
 input_types: [brief, markdown, reference, spec, decision, critique, corrige, options, reformulation]
 output_types: [livrable, delivery_notes]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
+references: [deliver_recipient_profiles, deliver_html, deliver_html_dashboard]
 ---
 
 # Deliver
@@ -72,6 +73,12 @@ In case of contradiction, choose a primary mode and commit to it in `delivery_no
 Standalone web page, no external dependencies.
 - Light background by default
 - Dark background if the brief mentions "projection" or "screen"
+
+When `target_format` is `html`, read `references/deliver_html.md` and follow it (visual direction, content-type detection, templates, cross-cutting rules). Read `references/deliver_html_dashboard.md` instead only when the brief asks for a dashboard meant to loop or be projected (TV, kiosk, automatic slideshow). For any other format, read neither. If the `references/` folder is not available (skill pasted without its folder), apply the short HTML rules above and say that the detailed HTML guidance was not available.
+
+## Recipient calibration
+
+When a `recipient` is given, read `references/deliver_recipient_profiles.md` and calibrate depth, vocabulary and emphasis to the matching profile. If none matches, say which profile you approximated. Without the `references/` folder, infer the recipient's expectations from the brief and say so.
 
 ---
 

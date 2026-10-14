@@ -33,6 +33,7 @@
 - [Packager](#packager)
 - [Projets frères](#projets-frères)
 - [Contribuer](#contribuer)
+- [Crédits](#crédits)
 - [Licence](#licence)
 
 </details>
@@ -97,7 +98,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
 | `fact-check` | Vérifier un texte contre des preuves de référence, affirmation par affirmation — confirmée, contredite, absente de la source, non vérifiable | Un verdict par affirmation, chacun appuyé sur une citation exacte de la source — **la source est une entrée**, le mode `closed` ignore ce que le modèle sait |
 | `controle-qualite` | Vérifier un livrable contre un référentiel de règles fourni — gabarit, charte, orthographe, vocabulaire interdit — en mode `sweep` (trouver chaque manquement) ou `verdict` (trancher une liste suspectée) | Un verdict par constat, avec la règle et le passage exact — **une règle absente du référentiel n'est pas une règle** |
-| `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
+| `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites — 8 méthodes (ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), chacune détaillée dans une fiche lue seulement si elle est choisie | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
 | `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
 | `questioning` | Générer les bonnes questions à poser — signale chaque solution nommée (terme-parapluie d'abord, puis paramètres de taille, puis sous-artefacts) et demande si elle a été choisie ou si c'est la première idée venue | Questions seulement — **ne répond pas et n'explore pas**, ne retire jamais un terme nommé (utiliser `explorer`) |
 | `argumentation` *(draft)* | Construire une argumentation structurée pour défendre ou attaquer une position | Construit le plaidoyer — **ne l'évalue pas** (utiliser `critique`) |
@@ -128,6 +129,8 @@ Conçus pour fonctionner en séquence. `explorer` cartographie l'espace des opti
 
 
 Chaque skill impose une posture cognitive spécifique. Ils ne sont pas interchangeables — choisir en fonction de ce qu'on veut stress-tester. Lancer `chairman` après plusieurs pour synthétiser.
+
+`contrarian`, `firstprinciples`, `expansionist`, `outsider`, `executor` et `chairman` reprennent les rôles du « LLM Council » d'Ole Lehmann, construit sur la méthode d'Andrej Karpathy ; voir [Crédits](#crédits).
 
 ---
 
@@ -405,17 +408,32 @@ Puis redémarrer Claude Code. Les releases sont résolues par la version du mani
 
 Dans l'app desktop Claude Code, les deux mêmes étapes passent par la commande `/plugin`.
 
-**Fallback manuel** (pas de mécanisme plugin disponible) : symlinker ou copier `dist/skills` dans `~/.claude/skills/`. Bien utiliser `dist/skills` — pas `skills/` : les fichiers source portent le frontmatter canonique (`id`, `label`, `description_fr`…), pas le frontmatter `name`/`description` attendu par le format Agent Skills, donc un `skills/<id>.md` brut n'est **pas** un `SKILL.md` valide.
+Les skills métier (RH, juridique, finance, achats, produit, tech) forment un plugin à part, qui s'appuie sur celui-ci : `claude plugin marketplace add amiel-35/ix-recipes`, puis `claude plugin install ix-recipes@ix-recipes` (voir [ix-recipes](https://github.com/amiel-35/ix-recipes)).
+
+**Fallback manuel** (pas de mécanisme plugin disponible) : symlinker ou copier `dist/skills` dans `~/.claude/skills/`, dossiers entiers, pour que les sous-dossiers `references/` suivent (voir [Références](#références-annexes-lues-à-la-demande)). Bien utiliser `dist/skills` — pas `skills/` : les fichiers source portent le frontmatter canonique (`id`, `label`, `description_fr`…), pas le frontmatter `name`/`description` attendu par le format Agent Skills, donc un `skills/<id>.md` brut n'est **pas** un `SKILL.md` valide.
+
+### Un catalogue pour tous les plugins (`amiel-35`)
+
+[amiel-35/plugins](https://github.com/amiel-35/plugins) est une marketplace (nommée `amiel-35`) qui liste ensemble ix-skills, ix-recipes et [ghost-council](https://github.com/amiel-35/ghost-council). Chaque entrée pointe sur le dossier `dist/` du repo du plugin : rien ne change ici quand un plugin est mis à jour. Dans Claude Code :
+
+```bash
+claude plugin marketplace add amiel-35/plugins
+claude plugin install ix-skills@amiel-35
+claude plugin install ix-recipes@amiel-35      # optionnel, s'appuie sur ix-skills
+claude plugin marketplace update amiel-35      # plus tard : rafraîchir, puis claude plugin update ix-skills@amiel-35
+```
+
+Installer un plugin donné depuis **une seule** marketplace (ce catalogue *ou* celle du repo) : installé depuis les deux, il apparaît en double. Le catalogue fonctionne dans la CLI ; que le « Ajouter depuis un dépôt » de Cowork l'accepte n'est **pas encore testé**, donc pour Cowork le chemin par repo, décrit plus bas, reste celui qui fait foi.
 
 ### Claude Cowork / claude.ai
 
 **Option A — installer comme plugin (par lot, recommandé)**
 
-Ajouter le repo comme source de plugins : **« Ajouter depuis un dépôt »** avec `amiel-35/ix-skills`. Le manifeste marketplace fait le reste.
+Ajouter le repo comme source de plugins : **« Ajouter depuis un dépôt »** avec `amiel-35/ix-skills`. Le manifeste marketplace fait le reste. L'installation en plugin emporte les sous-dossiers `references/`.
 
 **Option B — uploader un seul skill**
 
-Les dossiers `dist/skills/<id>/` sont des Agent Skills valides : en uploader un tel quel dans **Cowork → Customize** (ou l'éditeur ChatGPT Skills), ou zipper le dossier soi-même si une archive `.skill` est requise. Pour les régénérer :
+Les dossiers `dist/skills/<id>/` sont des Agent Skills valides : en uploader un tel quel dans **Cowork → Customize** (ou l'éditeur ChatGPT Skills), ou zipper le dossier soi-même si une archive `.skill` est requise. Uploader ou zipper le dossier entier, sous-dossier `references/` compris, pour les skills qui en ont un (`prioritize`, `deliver`, `critique`) : sans lui ils se rabattent comme décrit dans [Références](#références-annexes-lues-à-la-demande). Pour régénérer les dossiers :
 
 ```bash
 pip install -r requirements.txt
@@ -433,7 +451,7 @@ bash scripts/install-codex.sh critique # un seul skill
 bash scripts/install-codex.sh --dry-run
 ```
 
-Les skills sont installés dans `~/.codex/skills/<id>/SKILL.md`. Redémarrer Codex pour activer.
+L'installateur construit `codex-dist/` avec `build.py` (donc `python3` doit disposer des paquets de `requirements.txt`), puis copie chaque skill dans `~/.codex/skills/<id>/SKILL.md`, avec son sous-dossier `references/` s'il en a un. `--dry-run` n'écrit rien dans `~/.codex` mais reconstruit quand même `codex-dist/` en local. Sans id, tout ce qui se trouve dans `codex-dist/` est installé. Redémarrer Codex pour activer.
 
 ### mystaffy
 
@@ -443,9 +461,26 @@ python3 build.py --target mystaffy
 python3 build.py --target ix-memory
 ```
 
+Les deux écrivent `mystaffy-dist/<id>/` (`manifest.json` + `skill.md`). Les annexes `references/` n'y sont pas copiées.
+
 ### GPT / Gemini / autre LLM
 
-Copier-coller le contenu de `skills/<id>.md` comme system prompt. Le frontmatter YAML est ignoré sans effet de bord.
+Copier-coller le contenu de `skills/<id>.md` comme system prompt. Le frontmatter YAML est ignoré sans effet de bord. Cette voie n'a pas de dossier `references/` : pour `prioritize`, `deliver` et `critique`, coller après le skill les annexes dont on a besoin (voir [Références](#références-annexes-lues-à-la-demande)).
+
+### Références (annexes lues à la demande)
+
+Trois skills livrent des annexes dans un sous-dossier `references/` à côté de leur `SKILL.md`, et ne lisent que celle dont une demande a besoin : `prioritize` (un fichier par méthode : ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), `deliver` (gabarits HTML, profils de destinataires) et `critique` (angles d'examen par type de contenu). Les sources sont dans `partials/` ; `build.py` les copie dans `dist/skills/<id>/references/` (et `codex-dist/<id>/references/`).
+
+| Installation | Références |
+|---|---|
+| Plugin Claude Code / Cowork (l'une ou l'autre marketplace) | incluses |
+| Copie manuelle de `dist/skills` dans `~/.claude/skills/` | incluses si les dossiers sont copiés entiers |
+| Codex (`install-codex.sh`) | copiées |
+| Upload d'un seul dossier `dist/skills/<id>/` (Cowork Customize, ChatGPT Skills) | incluses seulement si le sous-dossier `references/` est uploadé ou zippé avec |
+| mystaffy / ix-memory | non emportées |
+| GPT / Gemini (coller `skills/<id>.md`) | non emportées |
+
+Sans le dossier : `prioritize` applique ses critères génériques et dit que la méthode détaillée n'était pas disponible, et `critique` choisit ses angles dans sa liste canonique. `deliver` perd les consignes HTML et les profils de destinataires : coller après lui `partials/deliver_html.md` (cible HTML) et `partials/deliver_recipient_profiles.md` (destinataire donné). Pour `prioritize`, coller le fichier de la méthode voulue, par exemple `partials/framework_rice.md` ; pour `critique`, `partials/critique_lenses.md`.
 
 ---
 
@@ -454,12 +489,15 @@ Copier-coller le contenu de `skills/<id>.md` comme system prompt. Le frontmatter
 ```
 ix-skills/
 ├── skills/                 ← source canonique (un .md + .mystaffy.json par skill)
+├── partials/               ← annexes de référence, copiées dans references/ des skills qui les déclarent
+├── docs/                   ← bannière et notes de conception
 ├── scripts/
 │   ├── install-codex.sh    ← installateur Codex CLI
 │   └── migrate_from_ix_memory.py
 ├── dist/                   ← racine du plugin, commité
 │   ├── .claude-plugin/plugin.json   ← manifeste du plugin (à la main, bump à chaque release)
 │   └── skills/<id>/SKILL.md         ← artefacts Agent Skills, générés par build.py
+│       └── references/              ← annexes copiées depuis partials/ (3 skills)
 ├── .claude-plugin/
 │   └── marketplace.json    ← manifeste marketplace, pointe sur ./dist
 ├── mystaffy-dist/          ← artefacts mystaffy (gitignore)
@@ -468,6 +506,7 @@ ix-skills/
 ├── build.py                ← packager multi-cibles
 ├── requirements.txt
 ├── CHANGELOG.md            ← releases, par date
+├── THIRD_PARTY.md          ← sources et licences de ce que les skills reprennent de projets publics
 ├── TODO.md                 ← chantiers suivants (enchaînements design thinking)
 └── CLAUDE.md               ← guide de contribution
 ```
@@ -477,14 +516,16 @@ ix-skills/
 ## Packager
 
 ```bash
+pip install -r requirements.txt         # jsonschema, pyyaml
 python3 build.py --validate
 python3 build.py
 python3 build.py critique
-python3 build.py --target agentskills   # dist/skills/<id>/SKILL.md — à commiter
+python3 build.py --target agentskills   # dist/skills/<id>/SKILL.md + references/ — à commiter
 python3 build.py --target cowork        # valide dist/.claude-plugin/plugin.json
 python3 build.py --target mystaffy --domain cognitif
 python3 build.py --target ix-memory
-python3 build.py --target codex
+python3 build.py --target codex         # codex-dist/<id>/SKILL.md + references/
+claude plugin validate dist             # valide le plugin (CLI Claude Code)
 ```
 
 ---
@@ -502,6 +543,12 @@ python3 build.py --target codex
 Fork, modifie, PR. Lire `CLAUDE.md` pour les conventions.
 
 Lire [`CLAUDE.md`](CLAUDE.md) pour le format canonique d'un skill, les règles de nommage et les checklists, et [`CHANGELOG.md`](CHANGELOG.md) pour les versions.
+
+---
+
+## Crédits
+
+Plusieurs skills reprennent des rôles ou des idées de projets publics : le « LLM Council » d'Ole Lehmann et d'Andrej Karpathy pour les postures de conseil, obra/superpowers de Jesse Vincent pour `cadrage` et `revue-feedback`, Anthropic knowledge-work-plugins pour `prioritize`. Le détail, avec licences et ce qui est repris, est dans [`THIRD_PARTY.md`](THIRD_PARTY.md).
 
 ---
 

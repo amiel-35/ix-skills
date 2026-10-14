@@ -63,6 +63,12 @@ Standalone web page, no external dependencies.
 - Light background by default
 - Dark background if the brief mentions "projection" or "screen"
 
+When `target_format` is `html`, read `references/deliver_html.md` and follow it (visual direction, content-type detection, templates, cross-cutting rules). Read `references/deliver_html_dashboard.md` instead only when the brief asks for a dashboard meant to loop or be projected (TV, kiosk, automatic slideshow). For any other format, read neither. If the `references/` folder is not available (skill pasted without its folder), apply the short HTML rules above and say that the detailed HTML guidance was not available.
+
+## Recipient calibration
+
+When a `recipient` is given, read `references/deliver_recipient_profiles.md` and calibrate depth, vocabulary and emphasis to the matching profile. If none matches, say which profile you approximated. Without the `references/` folder, infer the recipient's expectations from the brief and say so.
+
 ---
 
 ## Constraints

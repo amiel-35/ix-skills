@@ -4,6 +4,36 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-14 — references read on demand
+
+`build.py` copies the files a skill lists in `references` from `partials/`
+into `dist/skills/<id>/references/`; the skill reads only the one it needs.
+
+- `prioritize` 1.2.0: one reference per framework — ICE, RICE, WSJF (new),
+  MoSCoW, Kano (new), Eisenhower, Value vs Effort, weighted scoring (replaces
+  "custom") — with scales, exact formula, procedure, pitfalls and output
+  columns. The skill picks the framework, then reads only its file. Tested
+  headless: a WSJF request read `framework_wsjf.md` and nothing else.
+- `deliver` 1.2.0: the HTML guidance and the recipient profiles lost in the
+  migration from ix-memory come back as references (`deliver_html`,
+  `deliver_html_dashboard`, `deliver_recipient_profiles`), read only when the
+  target format is HTML or a recipient is given.
+- `critique` 2.1.0: the content-type → lens table comes back as
+  `critique_lenses`.
+
+## 2026-10-14 — third-party credits
+
+`THIRD_PARTY.md` added from a skill-by-skill provenance check: Ole Lehmann's
+"LLM Council" (after Andrej Karpathy's llm-council) for `contrarian`,
+`firstprinciples`, `expansionist`, `outsider`, `executor`, `chairman`;
+obra/superpowers (MIT) for `cadrage` and `revue-feedback`; Anthropic
+knowledge-work-plugins for `prioritize`. README: Credits section, and the
+advisory category now names where its roles come from. No skill changed.
+
+`build.py` and `scripts/install-codex.sh` gain the `references` mechanism
+added in ix-recipes (partials copied next to SKILL.md, read on demand);
+unused in ix-skills today, kept identical across both copies.
+
 ## 2026-10-14 — plugin 4.0.0
 
 ### Removed — domain skills moved to ix-recipes (breaking)

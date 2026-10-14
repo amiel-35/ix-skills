@@ -3,7 +3,9 @@
 Source canonique des skills ix-skills.
 
 Ce dossier contient un fichier Markdown par skill, plus un fichier optionnel
-`<id>.mystaffy.json` pour les paramètres et l'UI mystaffy.
+`<id>.mystaffy.json` pour les paramètres et l'UI mystaffy. Seuls les skills
+cognitifs vivent ici ; les skills métier sont dans
+[ix-recipes](https://github.com/amiel-35/ix-recipes) (voir `../CLAUDE.md`).
 
 Le catalogue complet est documenté dans :
 
@@ -63,6 +65,15 @@ Règles :
 - corps Markdown : instructions du skill, en anglais
 - pas de logique, pas d'appel API, pas d'effet de bord dans un skill
 
+Champ optionnel `references` : liste de fichiers de `../partials/` (sans
+l'extension `.md`) que `build.py` copie dans `dist/skills/<id>/references/`.
+Le corps du skill dit lequel lire et quand, et que faire si le dossier manque
+(un skill collé dans GPT ou Gemini n'a pas ses références).
+
+```yaml
+references: [framework_ice, framework_rice]
+```
+
 ---
 
 ## Overrides mystaffy
@@ -106,9 +117,17 @@ python3 build.py <id> --target mystaffy --validate
 python3 build.py <id> --target codex --validate
 ```
 
-Les dossiers générés sont ignorés par git :
+Pour (re)générer `dist/skills/<id>/` :
 
-- `dist/`
+```bash
+python3 build.py <id> --target agentskills
+```
+
+`dist/` est **commité** (racine du plugin Claude Code : `dist/.claude-plugin/plugin.json`
+et `dist/skills/<id>/`) : après tout changement d'un skill ou d'une annexe de
+`partials/`, régénérer et commiter `dist/` dans le même changement. Les dossiers
+générés ignorés par git sont :
+
 - `mystaffy-dist/`
 - `codex-dist/`
 
@@ -122,9 +141,13 @@ Quand un skill est renommé :
 2. Renommer `skills/<old-id>.mystaffy.json` en `skills/<new-id>.mystaffy.json`
 3. Mettre à jour `id` dans le frontmatter
 4. Ajouter l'ancien id dans `aliases` si la compatibilité de déclenchement est utile
-5. Mettre à jour `.claude-plugin/plugin.json`
-6. Mettre à jour `README.md` et `README-fr.md`
-7. Lancer `python3 build.py --validate`
+5. Mettre à jour `README.md` et `README-fr.md`
+6. Lancer `python3 build.py --validate`, puis `python3 build.py --target agentskills`
+7. Supprimer l'ancien dossier `dist/skills/<old-id>/` (`build.py` ne nettoie pas
+   les dossiers orphelins) et commiter `dist/`
+
+Aucune édition de `dist/.claude-plugin/plugin.json` n'est nécessaire : les skills
+y sont découverts automatiquement.
 
 Exemples récents :
 

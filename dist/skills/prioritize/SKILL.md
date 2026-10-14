@@ -41,7 +41,7 @@ Proceed in degraded mode — see below.
 Activate when: goal is absent or vague AND no criteria are provided.
 
 Rules in degraded mode:
-1. Fall back to **Value vs Effort** (2×2) — the framework least dependent on external data.
+1. Fall back to **Value vs Effort** (2×2) — the framework least dependent on external data; read `references/framework_value_effort.md`.
 2. Score using only signals observable in the item descriptions themselves (complexity keywords, dependency language, risk language).
 3. Mark every score as `[assumed]`.
 4. Add a `## Degraded Mode` block in the output listing all assumptions made.
@@ -68,14 +68,18 @@ Rules in degraded mode:
 Choose based on what the user provides. Default to **ICE** unless the brief suggests otherwise.
 In degraded mode, always use **Value vs Effort**.
 
-| Framework | When to use | Axes |
-|---|---|---|
-| **ICE** | General-purpose — tasks, features, initiatives | Impact · Confidence · Ease |
-| **RICE** | Product roadmap with user reach data | Reach · Impact · Confidence · Effort |
-| **MoSCoW** | Scope negotiation, delivery constraints | Must · Should · Could · Won't |
-| **Eisenhower** | Personal or team task management | Urgent × Important matrix |
-| **Value vs Effort** | Quick backlog sort or degraded mode | Value · Effort (2×2) |
-| **Custom** | User provides explicit criteria | Use stated criteria directly |
+| Framework | When to use | Axes | Reference file |
+|---|---|---|---|
+| **ICE** | General-purpose — tasks, features, initiatives | Impact · Confidence · Ease | `framework_ice.md` |
+| **RICE** | Product roadmap with user reach data | Reach · Impact · Confidence · Effort | `framework_rice.md` |
+| **WSJF** | A queue where delay costs money (deadlines, market windows) | Cost of Delay ÷ Job size | `framework_wsjf.md` |
+| **MoSCoW** | Scope negotiation, delivery constraints | Must · Should · Could · Won't | `framework_moscow.md` |
+| **Kano** | Product features judged by customer satisfaction | Must-be · Performance · Attractive · Indifferent | `framework_kano.md` |
+| **Eisenhower** | Personal or team task management | Urgent × Important matrix | `framework_eisenhower.md` |
+| **Value vs Effort** | Quick backlog sort or degraded mode | Value · Effort (2×2) | `framework_value_effort.md` |
+| **Weighted scoring** | User provides explicit criteria, or a multi-dimensional goal | Weighted criteria | `framework_weighted_scoring.md` |
+
+Once the framework is chosen, read **only its file** in `references/` — scales, exact formula, procedure, pitfalls, output columns — and apply it as written. Never read the other files. If the `references/` folder is not available (skill pasted without its folder), apply the axes above and say that the detailed method was not available.
 
 ---
 
@@ -84,8 +88,8 @@ In degraded mode, always use **Value vs Effort**.
 1. Run the **context gate** — ask one question if goal is completely absent.
 2. If goal is thin, activate **degraded mode**.
 3. Identify the goal and time horizon from the brief.
-4. Select the framework (or apply user-defined criteria).
-5. Score each item on each axis (1–10 or H/M/L depending on framework).
+4. Select the framework (or apply user-defined criteria with the weighted-scoring method) and read its reference file.
+5. Score each item on each axis, on the scale the reference file defines.
 6. Compute the composite score or place in matrix.
 7. Apply hard constraints (regulatory, dependency, blocking).
 8. Produce the ranked list.
@@ -110,7 +114,7 @@ In degraded mode, always use **Value vs Effort**.
 ---
 status: draft
 skill: prioritize
-framework: [ice | rice | moscow | eisenhower | value-vs-effort | custom]
+framework: [ice | rice | wsjf | moscow | kano | eisenhower | value-vs-effort | weighted]
 horizon: [sprint | quarter | year | unspecified]
 confidence_level: [high | medium | low]
 ---
@@ -127,7 +131,7 @@ confidence_level: [high | medium | low]
 
 ## Detailed Scores
 
-| Item | {Axe 1} | {Axe 2} | {Axe 3} | Score composé |
+| Item | {Axis 1} | {Axis 2} | {Axis 3} | Composite score |
 |---|---|---|---|---|
 | ... | | | | |
 

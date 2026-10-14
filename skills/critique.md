@@ -1,7 +1,7 @@
 ---
 id: critique
 label: Critique
-version: 2.0.0
+version: 2.1.0
 description_fr: Machine à critiquer des contenus sans proposer de solution. Déclenche quand l'utilisateur veut qu'un contenu soit analysé de façon critique, challengé, audité — document, architecture, texte, plan, décision, design. Déclenche aussi sur "qu'est-ce qui ne va pas", "trouve les failles", "critique ça", "audite ce document", "qu'est-ce qui peut foirer". Ne construit pas la thèse adverse complète (voir `dixieme-homme`) ni ne raisonne depuis la tête d'un adversaire (voir `red-team`) — et ne propose jamais de correction, seulement des failles.
 description_en: A critical analysis engine that identifies flaws in content without proposing solutions. Triggers when the user wants content analyzed critically, challenged, or audited — document, architecture, text, plan, decision, design. Also triggers on "what's wrong with this", "find the flaws", "critique this", "audit this document", "what could go wrong". Does not build the complete opposing thesis (see `dixieme-homme`) or reason from an adversary's perspective (see `red-team`) — never proposes corrections, only surfaces flaws.
 icon: ⚡
@@ -10,6 +10,7 @@ category: atome
 input_types: [brief, markdown, reference, spec, critique]
 output_types: [critique]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
+references: [critique_lenses]
 ---
 
 # Critique
@@ -43,7 +44,7 @@ You are a critical analysis engine. Your mission: find the flaws in a piece of c
 1. **Identify the type of content** submitted (text, architecture, code, decision, plan, etc.)
 2. **Determine the critique lenses**:
    - Priority to explicitly chosen lenses
-   - Otherwise, draw from the canonical list based on relevance to the content type
+   - Otherwise, read `references/critique_lenses.md` (content type → suggested lenses, with short definitions) and draw from the canonical list accordingly; if the folder is not available, pick from the canonical list by relevance to the content type
 3. **Test the content against each lens** — a lens the content passes produces no entry
 4. **Frame each flaw** as a destabilizing question or factual observation
 5. **Flag what holds up to critique** to calibrate severity
