@@ -10,8 +10,8 @@ chain the atoms.
 
 **Dependency rule: ix-recipes depends on ix-skills, never the other way round.**
 An ix-skills skill must never point to an ix-recipes skill (a user may have
-ix-skills alone). Skill ids stay unique across both repos (Codex installs them
-flat into `~/.codex/skills/`). `build.py` is duplicated in ix-recipes: carry
+ix-skills alone). Skill ids stay unique across both repos (the legacy Codex installer copies them
+flat into `~/.codex/skills/`, and a bare id is ambiguous to users). `build.py` is duplicated in ix-recipes: carry
 any fix over to the other copy.
 
 ## 1. Repo structure
@@ -166,6 +166,22 @@ python3 build.py --validate                   # validate without writing
 
 ### Installing into Codex
 
+Primary method (tested 2026-10-14, codex-cli 0.155.1): Codex reads the Claude-format marketplace
+directly, so `dist/` needs nothing extra:
+
+```bash
+codex plugin marketplace add amiel-35/ix-skills
+codex plugin add ix-skills@ix-skills
+```
+
+Skills land in `~/.codex/plugins/cache/ix-skills/ix-skills/<version>/skills/<id>/` with their
+`references/`. Users must name the skill in the request; an unnamed request did not trigger it. The
+`amiel-35/plugins` catalogue (`git-subdir` sources) is untested with Codex. Antigravity (`agy`) is
+covered the same way: `agy plugin import <clone>/dist` (not `validate`/`install`, which expect a
+root `plugin.json`). Keep README.md and README-fr.md in sync when this changes.
+
+Legacy method (not re-tested on Codex 0.155), copies into `~/.codex/skills/`:
+
 ```bash
 bash scripts/install-codex.sh                 # build + install all skills
 bash scripts/install-codex.sh <id>            # build + install one skill
@@ -182,7 +198,7 @@ installs everything found in `codex-dist/` when no id is given. Restart Codex to
 A skill lists files of `partials/` in its `references` frontmatter field; `build.py` (targets
 `agentskills` and `codex`) copies them into `<skill>/references/`, rebuilt from scratch on each
 build, and the skill body tells the model which one to read when. Where they travel: Claude Code /
-Cowork plugin installs and `install-codex.sh` carry them; uploading a single `dist/skills/<id>/`
+Cowork plugin installs, Codex plugin installs and `install-codex.sh` carry them; uploading a single `dist/skills/<id>/`
 folder carries them only if `references/` is uploaded with it; the `mystaffy` / `ix-memory`
 targets and pasting `skills/<id>.md` into GPT/Gemini do not. A skill with `references` should say in
 its body what to do when the folder is missing (a pasted skill has none). Partials are English,

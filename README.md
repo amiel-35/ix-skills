@@ -61,7 +61,7 @@ Restart Claude Code. Skills are namespaced (`critique` becomes `/ix-skills:criti
 - *"Before we decide, explore the options."*
 - *"Fact-check this note against the source."*
 
-Other platforms (Cowork, Codex CLI, mystaffy, GPT, Gemini): see [Installation](#installation).
+Other platforms (Cowork, Codex CLI, Antigravity CLI, mystaffy, GPT, Gemini): see [Installation](#installation).
 
 ---
 
@@ -442,6 +442,26 @@ python3 build.py --target agentskills
 
 ### Codex CLI
 
+Codex reads the same marketplace as Claude Code (tested with codex-cli 0.155.1):
+
+```bash
+codex plugin marketplace add amiel-35/ix-skills
+codex plugin add ix-skills@ix-skills
+```
+
+The plugin lands in `~/.codex/plugins/cache/ix-skills/ix-skills/<version>/skills/<id>/`, with the `references/` subfolders. To update, run `codex plugin marketplace upgrade` and re-add the plugin if needed (see `codex plugin --help`). To remove:
+
+```bash
+codex plugin remove ix-skills@ix-skills
+codex plugin marketplace remove ix-skills
+```
+
+**Name the skill in your request** ("use the prioritize skill from the ix-skills plugin to…"). Codex then reads `SKILL.md` and only the reference file it needs. On a plain request that does not name the skill, Codex did not use it in our tests.
+
+The `amiel-35/plugins` catalogue uses `git-subdir` sources and is **not tested with Codex**: for Codex, use the per-repo marketplace above.
+
+**Legacy installer** (copies into `~/.codex/skills/`, not re-tested on Codex 0.155):
+
 ```bash
 git clone https://github.com/amiel-35/ix-skills /tmp/ix-skills
 cd /tmp/ix-skills
@@ -453,6 +473,19 @@ bash scripts/install-codex.sh --dry-run
 
 The installer builds `codex-dist/` with `build.py` (so `python3` must have the `requirements.txt` packages), then copies each skill to `~/.codex/skills/<id>/SKILL.md`, with its `references/` subfolder when it has one. `--dry-run` writes nothing to `~/.codex` but still rebuilds `codex-dist/` locally. Without an id, everything found in `codex-dist/` is installed. Restart Codex to activate.
 
+### Antigravity CLI (agy, Gemini)
+
+`agy` imports a Claude-format plugin folder (tested with agy 1.3.3):
+
+```bash
+git clone https://github.com/amiel-35/ix-skills
+agy plugin import ix-skills/dist
+```
+
+All skills are imported with their `references/` into `~/.gemini/config/plugins/<plugin>/`. Use `import`: `agy plugin validate` and `agy plugin install` expect a `plugin.json` at the root and do not accept this format. To import the plugins already installed in Claude Code instead (all of them): `agy plugin import claude`. To remove: `agy plugin uninstall ix-skills`.
+
+As with Codex, **name the skill in your request**: agy then reads `SKILL.md` and only the reference file it needs.
+
 ### mystaffy
 
 ```bash
@@ -463,9 +496,9 @@ python3 build.py --target ix-memory
 
 Both write `mystaffy-dist/<id>/` (`manifest.json` + `skill.md`). The `references/` annexes are not copied there.
 
-### GPT / Gemini / other LLMs
+### GPT / Gemini / other LLMs (chat interfaces)
 
-Copy-paste the content of `skills/<id>.md` as a system prompt. The YAML frontmatter is ignored without side effects. This route has no `references/` folder: for `prioritize`, `deliver` and `critique`, paste the annexes you need after the skill (see [References](#references-annexes-read-on-demand)).
+For plain chat UIs with no CLI: copy-paste the content of `skills/<id>.md` as a system prompt. The YAML frontmatter is ignored without side effects. This route has no `references/` folder: for `prioritize`, `deliver` and `critique`, paste the annexes you need after the skill (see [References](#references-annexes-read-on-demand)).
 
 ### References (annexes read on demand)
 
@@ -475,7 +508,8 @@ Three skills ship annexes in a `references/` subfolder next to their `SKILL.md`,
 |---|---|
 | Claude Code / Cowork plugin (either marketplace) | included |
 | Manual copy of `dist/skills` into `~/.claude/skills/` | included if the folders are copied whole |
-| Codex (`install-codex.sh`) | copied |
+| Codex (`codex plugin add`, or legacy `install-codex.sh`) | included / copied |
+| Antigravity (`agy plugin import ix-skills/dist`) | included |
 | Upload of a single `dist/skills/<id>/` folder (Cowork Customize, ChatGPT Skills) | included only if the `references/` subfolder is uploaded or zipped with it |
 | mystaffy / ix-memory | not carried |
 | GPT / Gemini (paste `skills/<id>.md`) | not carried |
