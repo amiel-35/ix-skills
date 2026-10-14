@@ -4,7 +4,7 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
-## 2026-10-14 — references read on demand
+## 2026-10-14 — plugin 4.1.0: references read on demand
 
 `build.py` copies the files a skill lists in `references` from `partials/`
 into `dist/skills/<id>/references/`; the skill reads only the one it needs.
