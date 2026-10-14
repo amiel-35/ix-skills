@@ -1,11 +1,11 @@
 ---
 id: analysis
 label: Analysis
-version: 1.1.0
-description_fr: Recommande le bon découpage d'un besoin dense en lots de production — combien de livrables, dans quel ordre, avec quelles questions bloquantes — avant d'écrire le brief ou la spec. Déclenche sur "ce besoin est trop gros, en combien de lots on le découpe", "par quoi on commence avant de spécifier", "il faut un seul livrable ou plusieurs ici", "qu'est-ce qui bloque avant de lancer la production". Ne découpe pas un problème en sous-problèmes et dépendances — voir `decomposer` — et ne produit ni le brief ni la spec eux-mêmes, voir `brief` et `product-spec`.
-description_en: Recommends how to split a dense need into production lots — how many deliverables, in what order, with which questions still blocking — before any brief or spec gets written. Triggers on "this need is too big, how many lots do we split it into", "what do we tackle first before speccing", "is one deliverable enough here or do we need several", "what's blocking before we start producing". Does not break a problem into sub-problems and dependencies — see `decomposer` — and does not write the brief or the spec itself, see `brief` and `product-spec`.
+version: 1.1.1
+description_fr: Recommande le bon découpage d'un besoin dense en lots de production — combien de livrables, dans quel ordre, avec quelles questions bloquantes — avant d'écrire le brief ou la spec. Déclenche sur "ce besoin est trop gros, en combien de lots on le découpe", "par quoi on commence avant de spécifier", "il faut un seul livrable ou plusieurs ici", "qu'est-ce qui bloque avant de lancer la production". Ne découpe pas un problème en sous-problèmes et dépendances — voir `decomposer` — et ne produit ni le brief (voir `brief`) ni la spec.
+description_en: Recommends how to split a dense need into production lots — how many deliverables, in what order, with which questions still blocking — before any brief or spec gets written. Triggers on "this need is too big, how many lots do we split it into", "what do we tackle first before speccing", "is one deliverable enough here or do we need several", "what's blocking before we start producing". Does not break a problem into sub-problems and dependencies — see `decomposer` — and does not write the brief (see `brief`) or the spec itself.
 icon: ⋮
-domain: ops
+domain: cognitif
 category: production
 input_types:
 - brief

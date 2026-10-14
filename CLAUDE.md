@@ -1,5 +1,19 @@
 # Contribution Guide — ix-skills
 
+ix-skills holds **cognitive atoms**: gestures that apply to any content
+(critique, decision, explorer, fact-check…) and advisory postures (red-team,
+contrarian…). Domain skills — those that rely on domain knowledge that can go
+stale (law, HR practice, finance, product methods) or produce an artefact a
+profession defines (PRD, NDA, job description) — live in
+[ix-recipes](https://github.com/amiel-35/ix-recipes), along with workflows that
+chain the atoms.
+
+**Dependency rule: ix-recipes depends on ix-skills, never the other way round.**
+An ix-skills skill must never point to an ix-recipes skill (a user may have
+ix-skills alone). Skill ids stay unique across both repos (Codex installs them
+flat into `~/.codex/skills/`). `build.py` is duplicated in ix-recipes: carry
+any fix over to the other copy.
+
 ## 1. Repo structure
 
 | Path | Role |
@@ -58,12 +72,13 @@ The body (everything after the frontmatter) is written **entirely in English**. 
 
 ## 4. Checklist — adding a new skill
 
-1. Create `skills/<id>.md` with complete canonical frontmatter
-2. Write the body in English
-3. Create `skills/<id>.mystaffy.json` with `category`, `params`, `ui` (minimum)
-4. Test: `python3 build.py <id> --validate`
-5. Build: `python3 build.py <id>` — this also (re)writes `dist/skills/<id>/SKILL.md`, which must be committed
-6. No `dist/.claude-plugin/plugin.json` edit needed: skills are auto-discovered from the
+1. Check the placement rule above (cognitive atom here, domain skill in ix-recipes) and that the id is free in ix-recipes
+2. Create `skills/<id>.md` with complete canonical frontmatter
+3. Write the body in English
+4. Create `skills/<id>.mystaffy.json` with `category`, `params`, `ui` (minimum)
+5. Test: `python3 build.py <id> --validate`
+6. Build: `python3 build.py <id>` — this also (re)writes `dist/skills/<id>/SKILL.md`, which must be committed
+7. No `dist/.claude-plugin/plugin.json` edit needed: skills are auto-discovered from the
    default `skills/` layout inside the plugin root, so any `dist/skills/<id>/` directory
    with a `SKILL.md` is picked up automatically
 
@@ -82,14 +97,11 @@ The body (everything after the frontmatter) is written **entirely in English**. 
 | domain | mystaffy metier[] | status |
 |---|---|---|
 | cognitif | transverse | active |
-| rh | rh | active |
-| sales | commercial | active |
-| finance | finance | active |
-| legal | juridique | active |
-| ops | transverse | active |
-| data | analyste_data | active |
 | strategy | intelligence_strategique | active |
-| fondateur | fondateur_ceo | active |
+| rh, sales, finance, legal, ops, data, fondateur | — | moved to ix-recipes (4.0.0) |
+
+`DOMAIN_TO_METIER` in `build.py` keeps every entry: `build.py` is duplicated in
+ix-recipes and both copies stay identical.
 
 ---
 

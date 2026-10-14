@@ -4,6 +4,44 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-14 — plugin 4.0.0
+
+### Removed — domain skills moved to ix-recipes (breaking)
+
+48 skills now live in [ix-recipes](https://github.com/amiel-35/ix-recipes), with
+their git history: HR, legal, finance and pricing, sales and procurement,
+product, tech, data, plus `note-strategique` and `offer-comparison`, which
+ix-recipes will rewrite as workflows chaining ix-skills atoms. To keep them:
+
+```bash
+claude plugin marketplace add amiel-35/ix-recipes
+claude plugin install ix-recipes@ix-recipes
+```
+
+Placement rule: a skill that applies a reasoning move to any content stays in
+ix-skills; a skill that relies on domain knowledge that can go stale, or
+produces an artefact a profession defines, goes to ix-recipes. ix-recipes
+depends on ix-skills, never the other way round.
+
+### Removed — three skills dropped
+
+- `stakeholder-comms`: `deliver` already adapts a deliverable to its `recipient`.
+- `data-storytelling`: nothing referenced it; its one specific rule (answer
+  « RAS » when the data supports no insight) is the corpus null output.
+- `retrospective`: a generic five-step method; finding the root cause is
+  better done with `ach`, then `correction` for the actions.
+
+### Changed
+
+- `analysis` 1.1.1, `brief` 1.2.2, `cadrage` 1.2.2: `domain` moves from `ops`
+  to `cognitif` (same mystaffy métier, `transverse`); pointers to
+  `product-spec` and `note-strategique` removed.
+- `indicateurs` 1.2.1, `outside-in` 1.1.1, `research` 1.1.1: pointers to
+  `tableau-de-bord-kpi` and `analyse-concurrentielle` removed — an ix-skills
+  atom never points to a skill the user may not have installed.
+- README: 35 skills in 4 categories; new « Cadrage & production » category
+  (`cadrage`, `brief`, `analysis`, `compte-rendu`); sibling projects section.
+
 ## 2026-10-06
 
 ### Added — `fact-check` 1.0.0: a text against evidence, claim by claim

@@ -1,6 +1,6 @@
 ---
 name: cadrage
-description: "Clarifies a still-vague need before any production \u2014 intent, constraints, hypotheses, next options \u2014 and checks whether there is enough to move forward. Separates the need from the solutions already named in the request \u2014 the reformulated need states the goal, the named solution becomes a constraint when justified, a hypothesis to validate otherwise. Triggers on \"before we start, we need to scope this\", \"do we have enough to go into spec\", \"clarify this need before we produce anything\". Does not produce a detailed brief or a spec (use `brief` or `product-spec` once scoped) \u2014 stops at clarification."
+description: "Clarifies a still-vague need before any production \u2014 intent, constraints, hypotheses, next options \u2014 and checks whether there is enough to move forward. Separates the need from the solutions already named in the request \u2014 the reformulated need states the goal, the named solution becomes a constraint when justified, a hypothesis to validate otherwise. Triggers on \"before we start, we need to scope this\", \"do we have enough to go into spec\", \"clarify this need before we produce anything\". Does not produce a detailed brief or a spec (use `brief` once scoped) \u2014 stops at clarification."
 ---
 # Role
 
