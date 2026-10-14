@@ -4,6 +4,13 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-14 — build.py: workflow validation
+
+`build.py` (shared with ix-recipes) now checks the `workflow` block of workflow
+recipes: required skills exist (here or in the sibling repo), only the first
+step receives the raw input, every received field is transmitted by an earlier
+step. No skill changed.
+
 ## 2026-10-14 — plugin 4.1.0: references read on demand
 
 `build.py` copies the files a skill lists in `references` from `partials/`
