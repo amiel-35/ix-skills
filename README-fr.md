@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="Licence" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
   <img alt="Version du plugin" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-35-3d6b73">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-36-3d6b73">
   <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
 </p>
 
@@ -42,7 +42,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-35 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
+36 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
 
 ---
 
@@ -78,7 +78,7 @@ c'est ce qui le rend greppable et testable.
 Cliquer sur une catégorie pour la déplier.
 
 <details>
-<summary><b>🧠 Cognitif — atomes de processus</b> — 17 skills</summary>
+<summary><b>🧠 Cognitif — atomes de processus</b> — 18 skills</summary>
 
 
 Opérations primitives sur un contenu, un problème ou une décision. Chaque skill encode un seul geste cognitif — ils sont conçus pour se chaîner, pas se substituer.
@@ -97,6 +97,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 | `decomposer` | Structurer un problème complexe en sous-problèmes actionnables | Les dépendances entre sous-problèmes sont identifiées, pas masquées |
 | `revue-feedback` | Évaluer un feedback avant de l'accepter ou le refuser | Évalue une critique reçue — pas votre propre artifact |
 | `fact-check` | Vérifier un texte contre des preuves de référence, affirmation par affirmation — confirmée, contredite, absente de la source, non vérifiable | Un verdict par affirmation, chacun appuyé sur une citation exacte de la source — **la source est une entrée**, le mode `closed` ignore ce que le modèle sait |
+| `calc-check` | Recalculer chaque chiffre dérivé d'un texte — écart, taux, ratio, total, NRR, ROI — à partir des valeurs de la source, opérations écrites pas à pas — exact, écart, non recalculable, incohérent | **Une valeur absente de la source n'est jamais devinée** — le chiffre est `non recalculable` ; signale, **ne corrige pas** |
 | `controle-qualite` | Vérifier un livrable contre un référentiel de règles fourni — gabarit, charte, orthographe, vocabulaire interdit — en mode `sweep` (trouver chaque manquement) ou `verdict` (trancher une liste suspectée) | Un verdict par constat, avec la règle et le passage exact — **une règle absente du référentiel n'est pas une règle** |
 | `prioritize` | Ordonner une liste d'éléments par ordre d'attaque avec critères explicites — 8 méthodes (ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), chacune détaillée dans une fiche lue seulement si elle est choisie | Séquence des items — **ne tranche pas entre options exclusives** (utiliser `decision`) |
 | `problem-framing` *(draft)* | Reformuler un sujet flou en problème actionnable | Formule la question centrale — **ne la résout pas** |
@@ -108,8 +109,8 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 **`critique` vs `revue-feedback`**
 `critique` analyse *votre propre artifact* (un document, un plan, une proposition) pour en trouver les failles. `revue-feedback` traite *un feedback que quelqu'un d'autre vous a donné* — il évalue si vous devez l'accepter, le nuancer ou le refuser avant de répondre. L'un est éditorial, l'autre est diplomatique.
 
-**`critique` vs `fact-check` vs `controle-qualite` vs `quality-check`**
-`critique` juge le fond — ce qui est faible, flou, manquant — et n'a besoin d'aucun référentiel. `fact-check` vérifie un texte contre des *preuves* : un verdict par affirmation (confirmée, contredite, absente de la source, non vérifiable), chacun appuyé sur une citation exacte de la source. `controle-qualite` vérifie un livrable contre des *règles* données en entrée — gabarit, charte, orthographe, vocabulaire interdit : un verdict par constat, avec la règle et le passage exact. Les deux vérificateurs citent un texte qu'un script peut retrouver, ce qui permet de les confier à un modèle moins cher et de les vérifier à leur tour. `quality-check` pose encore une autre question : non pas si un texte est fidèle à sa source, mais si les sources elles-mêmes sont fiables.
+**`critique` vs `fact-check` vs `calc-check` vs `controle-qualite` vs `quality-check`**
+`critique` juge le fond — ce qui est faible, flou, manquant — et n'a besoin d'aucun référentiel. `fact-check` vérifie un texte contre des *preuves* : un verdict par affirmation (confirmée, contredite, absente de la source, non vérifiable), chacun appuyé sur une citation exacte de la source. `calc-check` prend le relais là où `fact-check` s'arrête sur les chiffres : un écart de 12,4 % calculé à partir de deux montants n'est pas *dans* la source, donc `fact-check` ne peut que le dire « absent de la source », juste ou faux ; `calc-check` refait le calcul à partir des valeurs de la source et dit s'il tient. `controle-qualite` vérifie un livrable contre des *règles* données en entrée — gabarit, charte, orthographe, vocabulaire interdit : un verdict par constat, avec la règle et le passage exact. Ces vérificateurs citent un texte qu'un script peut retrouver, ce qui permet de les confier à un modèle moins cher et de les vérifier à leur tour. `quality-check` pose encore une autre question : non pas si un texte est fidèle à sa source, mais si les sources elles-mêmes sont fiables.
 
 **`simplify` vs `rephrase` vs `synthese`**
 - `simplify` nomme le bruit qui pourrait sauter en conservant toute l'information — il identifie les retraits, `correction` les applique.

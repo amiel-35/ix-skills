@@ -1,0 +1,49 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "critique",
+  "params": {
+    "definitions": {
+      "label": "Definitions imposees",
+      "type": "text",
+      "required": false,
+      "help": "Formules de l'organisation (definition maison du NRR, taux de change, regle d'arrondi). A defaut, la formule standard, nommee."
+    },
+    "materiality": {
+      "label": "Seuil de materialite",
+      "type": "text",
+      "required": false,
+      "help": "Montant ou pourcentage au-dela duquel un ecart change une decision ; ces ecarts passent en tete."
+    },
+    "json_block": {
+      "label": "Bloc JSON final",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "help": "Termine par le bloc JSON des verdicts (id, chiffre, annonce, recalcule, operation, entrees citees, verdict) pour l'etape suivante d'un pipeline."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "materiality"
+    ],
+    "advanced_fields": [
+      "definitions",
+      "json_block"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2B6CB0",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}

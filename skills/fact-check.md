@@ -1,9 +1,9 @@
 ---
 id: fact-check
 label: Fact-check
-version: 1.0.0
-description_fr: Vérifie un texte contre des preuves de référence, affirmation par affirmation, et rend un verdict pour chacune — confirmée, contredite, absente de la source, non vérifiable — toujours appuyé sur une citation exacte de la source. Le référentiel est une entrée, jamais la mémoire du modèle (mode `closed` par défaut). Déclenche sur "fact-checke ça contre la source", "tout ce que dit ce rapport est-il vraiment dans le document", "vérifie ces affirmations contre la page", "le modèle a-t-il inventé quelque chose", "vérifie ce résumé contre la transcription". Ne juge pas la fiabilité des sources elles-mêmes, voir `quality-check` — ni la conformité à des règles ou à un style, voir `controle-qualite` — seulement si les preuves soutiennent chaque affirmation.
-description_en: Checks a text against reference evidence, claim by claim, and returns a verdict for each one — confirmed, contradicted, not in the source, not checkable — always backed by a verbatim quote from the source. The reference is an input, never the model's memory (`closed` mode by default). Triggers on "fact-check this against the source", "is everything in this report actually in the document", "check these claims against the page", "did the model invent anything", "verify this summary against the transcript". Does not judge the reliability of the sources themselves, see `quality-check` — nor conformity to rules or style, see `controle-qualite` — only whether the evidence supports each claim.
+version: 1.0.1
+description_fr: Vérifie un texte contre des preuves de référence, affirmation par affirmation, et rend un verdict pour chacune — confirmée, contredite, absente de la source, non vérifiable — toujours appuyé sur une citation exacte de la source. Le référentiel est une entrée, jamais la mémoire du modèle (mode `closed` par défaut). Déclenche sur "fact-checke ça contre la source", "tout ce que dit ce rapport est-il vraiment dans le document", "vérifie ces affirmations contre la page", "le modèle a-t-il inventé quelque chose", "vérifie ce résumé contre la transcription". Ne juge pas la fiabilité des sources elles-mêmes, voir `quality-check` — ni la conformité à des règles ou à un style, voir `controle-qualite` — ni la justesse d'un chiffre calculé à partir de la source, voir `calc-check` — seulement si les preuves soutiennent chaque affirmation.
+description_en: Checks a text against reference evidence, claim by claim, and returns a verdict for each one — confirmed, contradicted, not in the source, not checkable — always backed by a verbatim quote from the source. The reference is an input, never the model's memory (`closed` mode by default). Triggers on "fact-check this against the source", "is everything in this report actually in the document", "check these claims against the page", "did the model invent anything", "verify this summary against the transcript". Does not judge the reliability of the sources themselves, see `quality-check` — nor conformity to rules or style, see `controle-qualite` — nor whether a figure computed from the source is computed right, see `calc-check` — only whether the evidence supports each claim.
 icon: ⊨
 domain: cognitif
 category: critique
@@ -93,6 +93,9 @@ absence verdicts become unreliable.
 - Do not soften a contradiction; do not inflate a nuance into one.
 - One verdict per claim; never a verdict on the text as a whole.
 - Claims outside `scope` are not extracted and not counted.
+- A figure the text derives from source values (a variance, a share, a total, a growth rate) is not in
+  the source as such: give it `not in the source` and mark it « derived — recompute with
+  `calc-check` », so the reader does not take a computed figure for an invented one.
 
 ---
 
