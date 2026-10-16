@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
   <img alt="Plugin version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-35-3d6b73">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-36-3d6b73">
   <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
 </p>
 
@@ -42,7 +42,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-35 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
+36 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
 
 ---
 
@@ -78,7 +78,7 @@ corpus: that is what makes it greppable and testable.
 Click a category to expand it.
 
 <details>
-<summary><b>🧠 Cognitive — core process atoms</b> — 17 skills</summary>
+<summary><b>🧠 Cognitive — core process atoms</b> — 18 skills</summary>
 
 
 Primitive operations on content, problems, and decisions. Each encodes a single cognitive move — they are designed to chain, not to replace each other.
@@ -97,6 +97,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 | `decomposer` | Break a complex problem into actionable sub-problems | Dependencies between sub-problems are identified, not hidden |
 | `revue-feedback` | Evaluate feedback rigorously before accepting or rejecting it | Evaluates incoming critique — not your own artifact |
 | `fact-check` | Check a text against reference evidence, claim by claim — confirmed, contradicted, not in the source, not checkable | One verdict per claim, each backed by a verbatim quote of the source — **the source is an input**, `closed` mode ignores what the model knows |
+| `calc-check` | Recompute every derived figure of a text — variance, rate, ratio, total, NRR, ROI — from the source's values, operations written out step by step — exact, discrepancy, not recomputable, inconsistent | **A value missing from the source is never guessed** — the figure is `not recomputable`; flags, **does not correct** |
 | `controle-qualite` | Check a deliverable against a provided set of rules — template, style guide, spelling, forbidden vocabulary — in `sweep` (find every breach) or `verdict` (rule on a suspected list) mode | One verdict per finding, with the rule and the exact passage — **a rule not in the reference is not a rule** |
 | `prioritize` | Rank a list of items by attack order with explicit criteria — 8 methods (ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, value/effort, weighted scoring), each detailed in a reference read only when chosen | Sequences items — **does not choose between exclusive options** (use `decision`) |
 | `problem-framing` *(draft)* | Reformulate a vague subject into an actionable problem | Formulates the central question — **does not solve it** |
@@ -108,8 +109,8 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 **`critique` vs `revue-feedback`**
 `critique` analyzes *your own artifact* (a document, a plan, a proposal) to find its flaws. `revue-feedback` processes *feedback someone else gave you* — evaluating whether to accept, nuance, or reject it before responding. One is editorial, the other is diplomatic.
 
-**`critique` vs `fact-check` vs `controle-qualite` vs `quality-check`**
-`critique` judges substance — what is weak, unclear, missing — and needs no reference. `fact-check` checks a text against *evidence*: one verdict per claim (confirmed, contradicted, not in the source, not checkable), each backed by a verbatim quote of the source. `controle-qualite` checks a deliverable against *rules* given as input — template, style guide, spelling, forbidden vocabulary: one verdict per finding, with the rule and the exact passage. Both verifiers quote text a script can find, which is what lets them run on a cheaper model and be checked in turn. `quality-check` is a different question again: not whether a text matches its source, but whether the sources themselves can be trusted.
+**`critique` vs `fact-check` vs `calc-check` vs `controle-qualite` vs `quality-check`**
+`critique` judges substance — what is weak, unclear, missing — and needs no reference. `fact-check` checks a text against *evidence*: one verdict per claim (confirmed, contradicted, not in the source, not checkable), each backed by a verbatim quote of the source. `calc-check` takes over where `fact-check` stops on figures: a variance of 12.4 % computed from two amounts is not *in* the source, so `fact-check` can only call it « not in the source », right or wrong; `calc-check` rebuilds the calculation from the source's values and says whether it holds. `controle-qualite` checks a deliverable against *rules* given as input — template, style guide, spelling, forbidden vocabulary: one verdict per finding, with the rule and the exact passage. These verifiers quote text a script can find, which is what lets them run on a cheaper model and be checked in turn. `quality-check` is a different question again: not whether a text matches its source, but whether the sources themselves can be trusted.
 
 **`simplify` vs `rephrase` vs `synthese`**
 - `simplify` names the noise that could go while keeping all the information — it identifies the removals, `correction` applies them.

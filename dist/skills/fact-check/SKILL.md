@@ -1,6 +1,6 @@
 ---
 name: fact-check
-description: "Checks a text against reference evidence, claim by claim, and returns a verdict for each one \u2014 confirmed, contradicted, not in the source, not checkable \u2014 always backed by a verbatim quote from the source. The reference is an input, never the model's memory (`closed` mode by default). Triggers on \"fact-check this against the source\", \"is everything in this report actually in the document\", \"check these claims against the page\", \"did the model invent anything\", \"verify this summary against the transcript\". Does not judge the reliability of the sources themselves, see `quality-check` \u2014 nor conformity to rules or style, see `controle-qualite` \u2014 only whether the evidence supports each claim."
+description: "Checks a text against reference evidence, claim by claim, and returns a verdict for each one \u2014 confirmed, contradicted, not in the source, not checkable \u2014 always backed by a verbatim quote from the source. The reference is an input, never the model's memory (`closed` mode by default). Triggers on \"fact-check this against the source\", \"is everything in this report actually in the document\", \"check these claims against the page\", \"did the model invent anything\", \"verify this summary against the transcript\". Does not judge the reliability of the sources themselves, see `quality-check` \u2014 nor conformity to rules or style, see `controle-qualite` \u2014 nor whether a figure computed from the source is computed right, see `calc-check` \u2014 only whether the evidence supports each claim."
 ---
 # Fact-check
 
@@ -83,6 +83,9 @@ absence verdicts become unreliable.
 - Do not soften a contradiction; do not inflate a nuance into one.
 - One verdict per claim; never a verdict on the text as a whole.
 - Claims outside `scope` are not extracted and not counted.
+- A figure the text derives from source values (a variance, a share, a total, a growth rate) is not in
+  the source as such: give it `not in the source` and mark it « derived — recompute with
+  `calc-check` », so the reader does not take a computed figure for an invented one.
 
 ---
 

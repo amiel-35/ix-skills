@@ -4,6 +4,20 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-16 — plugin 4.2.0: calc-check
+
+- `calc-check` 1.0.0 (new): recomputes every derived figure of a text
+  (variance, rate, ratio, total, NRR, ROI, projection) from the source's values,
+  operations written out, one verdict per figure — exact, discrepancy, not
+  recomputable, inconsistent — with the cause of each discrepancy and the
+  figures it contaminates. A value missing from the source is never guessed.
+  Specified in ix-recipes `docs/atome-verification-calcul.md`.
+- `fact-check` 1.0.1: a figure derived from source values is marked « derived —
+  recompute with `calc-check` » instead of passing for an invented one.
+- `quality-check` 1.1.1: description points to `calc-check` for calculations.
+- `build.py` (shared with ix-recipes): `ix-skills:calc-check` joins
+  `VERIFICATION_SKILLS`, the steps allowed to reread the source.
+
 ## 2026-10-14 — build.py: workflow validation
 
 `build.py` (shared with ix-recipes) now checks the `workflow` block of workflow
