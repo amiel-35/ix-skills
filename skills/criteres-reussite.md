@@ -1,7 +1,7 @@
 ---
 id: criteres-reussite
 label: Critères de réussite
-version: 1.0.0
+version: 1.1.0
 description_fr: Écrit, depuis un cadrage ou un brief, les critères de réussite vérifiables d'un livrable — code, offre, dissertation, cahier des charges, travaux, grille de salaires, négociation, texte de loi — en tableau de tests (élément, vérification, attendu, preuve mécanique, relecture ou terrain, qui vérifie). Sépare le livrable de l'issue, qui dépend d'autres acteurs et se vise par une zone entre un plancher et un objectif, avec la satisfaction de chaque partie en négociation ; cherche ce qui passerait tous les tests en restant faux ; teste le contenu, pas seulement la forme ; garde une part cachée pour le juge contre l'auteur ou l'agent qui optimise les tests ; dit ce qu'une boucle automatique couvre. Déclenche sur "critères de réussite", "cahier de recette", "critères d'acceptation", "définition de fini", "comment saura-t-on que c'est fini", "critère d'arrêt pour l'agent", "qu'est-ce qu'un bon accord". Ne produit ni ne juge le livrable — `controle-qualite` ou `quality-check` s'en servent ensuite comme grille.
 description_en: Writes, from a scoping note or a brief, the verifiable success criteria of any deliverable — code, proposal, dissertation, specification, building works, salary grid, negotiation, bill — as a table of tests (item, check, expected result, evidence mechanical, review or field, who checks). Separates the deliverable from the outcome, which depends on other actors and is aimed at as a zone between a floor and a target, each party's satisfaction included for a negotiation; looks for what would pass every test and still be wrong; tests content, not only form; keeps a hidden part for the judge against an author or an agent that games the tests; says how much an automatic loop covers. Triggers on "success criteria", "acceptance criteria", "acceptance plan", "definition of done", "cahier de recette", "how will we know it's done", "stopping criterion for the agent", "what is a good deal here". Does not produce the deliverable and does not judge it — `controle-qualite` or `quality-check` then use it as their grid.
 aliases: [success-criteria, acceptance-criteria, definition-of-done, cahier-de-recette]
@@ -76,7 +76,8 @@ alone; then apply the method below, which stands on its own, and say the annex w
 
 - **Software** (an application, a module, a script, a data pipeline): read
   `references/criteres_logiciel.md` — automatable tests, load, real devices, anonymity and erasure
-  checked down to the files, and how to keep an agent in a loop from passing by gaming the tests.
+  checked down to the files, a pass on states and actors, and how to keep an agent in a loop from
+  passing by gaming the tests.
 - **Negotiation** (commercial, salary, labour, political, legislative — any deliverable whose
   outcome is an agreement between parties): read `references/criteres_negociation.md` — weighted
   interests and a scoring template, each party above its fallback, non-dominated agreement, a
@@ -106,6 +107,11 @@ tender: software and written deliverable; a works contract to negotiate: works a
    what fails. For an intimate dimension, name it and leave its signs to the parties (blind
    criteria, step 8) rather than writing them yourself. Note the constraints that are not
    requirements but limits (budget, deadline, what must not happen).
+   **Date the sources.** When a source is older than a decision recorded elsewhere, or a later
+   document may have replaced its content (a figure, a wording, a chosen example), derive no
+   `mécanique` line from that specific content before it is confirmed: write the line on the
+   requirement (« the figure shown has a source and is the one retained »), and put the content
+   itself in the open questions.
 2. **Separate deliverable and outcome.** For each requirement, say whether the author controls it
    fully (deliverable) or whether it depends on someone else (outcome). For each outcome, write the
    zone: floor, target, and who sets them. The floor is set **before** the work starts, by the one
@@ -114,6 +120,17 @@ tender: software and written deliverable; a works contract to negotiate: works a
    tested, the check (what is done: run, search, read, observe), the expected result (an
    observable, with its threshold), the kind of evidence, who checks. A requirement that no line
    can test is listed under « Not testable as stated » with the question that would make it so.
+   - **A fallback is a result, not a plan.** For each dependency that can fail (network, device,
+     supplier, service, weather, a person), name each kind of failure separately, and write what
+     must still hold — « the session reaches its end with the service entirely unreachable » —
+     without dictating the solution. Check it by a dry run with the dependency removed
+     (`terrain`) and by the presence of what the fallback needs (`relecture`). « A fallback plan
+     exists » is not a line.
+   - **For every actor, every state.** Write what each actor (user, facilitator, client, someone
+     who declines to take part, a newcomer, a neighbour) sees and can do in each state of the
+     deliverable (before the start, during, a step closed, after the end, after deletion or
+     handover), not only what is stored or delivered. Someone who opts out still follows what
+     the others see.
 4. **Add the content lines**, which form-only plans miss:
    - no gap left in what the end user will see: no « [à compléter] », TODO, TBD, XXX, lorem ipsum,
      empty field, placeholder name — searched in the **rendered** deliverable (the page displayed,
@@ -132,6 +149,8 @@ tender: software and written deliverable; a works contract to negotiate: works a
    - the test checks the **form** where the requirement is about the **content** (a section that
      exists but says nothing; a debrief screen with no debrief text);
    - the test runs on the **happy path** only (one user, a good network, a cooperative counterpart);
+   - the test checks that **a plan exists** where the requirement is a **result** (« a fallback is
+     written » while the session stops when the network fails);
    - the test is satisfied by the **letter** and misses the **intent** of the brief;
    - the test can be satisfied by **changing the test** or the measuring instrument;
    - the test is **judged by the author**, or by a judge that shares the author's blind spots (the
@@ -184,6 +203,10 @@ tender: software and written deliverable; a works contract to negotiate: works a
    automatic loop can close (the `mécanique` lines, run outside the author's reach), what needs a
    reviewer, what only the field will tell. Give the order of magnitude honestly: high for code or a
    salary grid, low for a negotiation or a bill, where the outcome is decided by others.
+10. **Mark the core.** When the plan has more than about thirty lines, mark a **core** of twenty
+   to thirty: the blocking lines, plus the lines that guard the « could pass and still be wrong »
+   traps. The core is what a quick acceptance replays; the full plan is what a final acceptance
+   replays. Say roughly how long each takes.
 
 ---
 
@@ -211,6 +234,11 @@ When `author` is an agent that iterates until the tests pass, add a section that
 - One line, one check: a line that bundles three conditions is split.
 - Every expected result is observable and, when a number is involved, carries a threshold and its
   unit; a threshold taken from the brief is cited, a threshold you propose is marked `[proposed]`.
+  A proposed threshold fits the use and the counter-measures, not a reference figure taken in the
+  abstract: a code a person must retype is short, and its strength comes from limiting the attempts
+  and the code's lifetime, so the line tests the attempts and the lifetime, not 64 bits of entropy.
+  Before proposing a threshold, ask whether any reasonable version of the deliverable could meet it;
+  if none could, the threshold is wrong, not the versions.
 - For a personal or relational subject (a couple, a family, friends, an event among them), prefer
   signs the parties will recognise in their own words over scores and percentages; put a number only
   where the parties already count (money, time, dates). A plan that turns a relationship into a
@@ -241,6 +269,7 @@ judge: {who holds the hidden part}
 ## Synthèse / Summary
 {3 to 5 lines: what is delivered, what "done" means in one sentence, n lines (x mécanique, y relecture, z terrain), the share a loop can cover, the main open question.}
 Lignes bloquantes / Blocking lines: {the few line numbers whose failure makes the deliverable unusable as it stands}
+Noyau / Core: {20 to 30 line numbers — blocking lines plus trap guards — when the plan has more than about thirty lines; time to replay the core and the full plan}
 
 ## Exigences / Requirements
 | E | Requirement | Source | Deliverable or outcome |
@@ -308,7 +337,7 @@ counts by kind of evidence.
 ## Definition of Done
 
 Every requirement of the brief has at least one line, or sits under « Not testable as stated » with
-its question. Every line can be decided by someone other than the author. Each outcome has a zone
+its question. A long plan marks its core. Every line can be decided by someone other than the author. Each outcome has a zone
 set before the work. At least three « could pass and still be wrong » scenarios are turned into
 lines. Content lines are present. The hidden part guards known requirements only, is cut off from
 the visible plan, and is never written for a requester who is the author. The coverage says what a loop can and cannot close.

@@ -267,6 +267,25 @@ Test proposé par Amiel : un logiciel dont le cahier des charges ne parle pas de
 2. Pour une dimension intime, la dimension nommée et ses signes laissés aux parties.
 3. Aucune exigence de goût personnel ajoutée.
 
+# Version 1.1.0 — corrections tirées d'un essai réel sur le module biais
+
+Un agent Opus à contexte neuf a appliqué la 1.0.0 au cadrage, à la décomposition et au topo du 16/10 du module biais ; sa sortie a été comparée au cahier de recette écrit à la main et aux défauts de sept versions construites (session de comparaison, hors dépôt). Sept corrections génériques en sortent (CHANGELOG, 1.1.0). Rejoué : le cas 1 avec le topo (cas 1b, Opus), et deux cas sans rapport pour la non-régression (cas 2 et 13, Sonnet).
+
+## Cas 1b, une bonne sortie 1.1.0 contient
+
+1. Aucune ligne mécanique tirée d'un chiffre du topo que la décomposition a pu remplacer (le « 0,26 mL ») ; le point est en question ouverte.
+2. Le code anonyme jugé sur la limite d'essais et sa durée de vie, pas sur 64 bits d'entropie.
+3. Une ligne sur le recalcul d'une case masquée par soustraction (totaux, autre vue, avant/après), et sa version cachée.
+4. Le mode dégradé écrit comme un résultat, par type de panne (réseau, appareil absent, service injoignable), vérifié par un essai à blanc et par la présence du matériel.
+5. La personne qui ne participe pas suit ce que voient les autres.
+6. Une passe « états » : reprise du questionnaire sans les réponses d'avant, écran « terminé » après effacement.
+7. Un noyau de vingt à trente lignes marqué.
+8. Toujours attrapés : l'équilibre par camp, l'effacement jusqu'au `-wal`, les trous de contenu.
+
+## Cas 2 et 13, non-régression
+
+Les critères de leur première passe tiennent toujours ; un noyau est marqué s'ils dépassent trente lignes ; le cas 13 écrit la panne du fournisseur de SMS comme un résultat.
+
 # Résultats
 
 | Date | Cas | Modèle | Critères tenus | Sortie | Note |
@@ -295,6 +314,9 @@ Test proposé par Amiel : un logiciel dont le cahier des charges ne parle pas de
 | 2026-10-17 | 12b | Sonnet, exigences du thème | 3/3 | [v2](sorties/criteres-reussite/cas-12b-couple-sonnet-v2.md) | sécurité et respect (plancher « non négociable »), désir et sexualité nommés et laissés à chacun, argent et charge mentale, projets, épreuves ; « je n'ai ajouté ni sport ni vacances » |
 | 2026-10-17 | 13 | Sonnet, exigences du thème | 3/3 | [v2](sorties/criteres-reussite/cas-13-appli-kine-sonnet-v2.md) | pas de régression ; ajoute le changement d'heure, le rendez-vous pris par téléphone, les absences comme issue |
 | 2026-10-17 | 14 | Sonnet, exigences du thème | 3/3 | [sortie](sorties/criteres-reussite/cas-14-colocation-sonnet.md) | témoin : bail, assurance, caution, examens, partenaires, « aucune pression, aucun contrôle », départ en cours d'année, isolement |
+| 2026-10-17 | 1b | Opus, 1.1.0 | 8/8 | hors dépôt (matériau privé) | topo signalé antérieur aux arbitrages, aucune ligne mécanique sur « 0,26 mL » ; plus de seuil d'entropie ; soustraction (ligne et version cachée dans le temps) ; panne par type ; le refus suit la séance ; reprise vierge, « séance terminée » ; noyau de 30 lignes (2 h contre une journée) ; 1,03 $ |
+| 2026-10-17 | 13 | Sonnet, 1.1.0 | non-régression tenue | [v1.1](sorties/criteres-reussite/cas-13-appli-kine-sonnet-v1.1.md) | données de santé, consentement et STOP, accès croisés gardés ; panne du fournisseur de SMS écrite comme un résultat ; noyau de 24 lignes ; 0,20 $ |
+| 2026-10-17 | 2 | Sonnet, 1.1.0 | non-régression tenue | [v1.1](sorties/criteres-reussite/cas-2-renouvellement-saas-sonnet-v1.1.md) | plancher contre repli, préavis, demande scellée gardés ; noyau de 25 lignes ; 0,29 $ |
 Notation par l'auteur du skill, pas par un juge indépendant : à rejouer avec `banc.py` d'ix-recipes et des juges d'autres fournisseurs avant de s'y fier.
 
 ## Ce qui a demandé d'ajuster le gabarit

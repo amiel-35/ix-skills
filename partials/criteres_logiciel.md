@@ -58,8 +58,13 @@ what happens at the limit, and the cost of one full session.
 Some lines cannot be settled by an emulator: the real phones of the real audience (old Android,
 iOS Safari, small screens, large text settings), the venue's network or a phone's mobile data, a QR
 code read from the back of the room, a projector's resolution, dark mode and enlarged text. Write them as `terrain` lines with
-who runs them and when (a dry run before the first real session), and a degraded mode for each
-dependency (no network, no phone, external service down).
+who runs them and when (a dry run before the first real session).
+
+**Degraded mode as a result.** For each dependency, write separately what must still hold when it
+fails — the venue network cuts out, a participant has no device, the service itself is down — as a
+result (« the session reaches its end with the service entirely unreachable »), not as « a plan
+exists ». Check it by a dry run with the dependency removed (`terrain`) and by the presence of what
+the fallback needs, printed or installed (`relecture`). Do not dictate the fallback itself.
 
 ## 5. Anonymity and erasure, checked down to the files
 
@@ -70,6 +75,14 @@ A promise of anonymity or erasure is a requirement on the **state of storage**, 
   database file, the logs and the error tracker for an identifying value used in a test session.
   Small cells re-identify: an aggregate shown with fewer than a stated number of people per cell
   `[proposed]` is a failure.
+- **Recovery by subtraction.** Masking a small cell is not enough if it can be recomputed from
+  what is shown elsewhere: a row or column total, another view of the same data, a before/after
+  panel, two successive displays as one person joins or leaves. Check: from every number displayed
+  in every view and state, try to solve for each masked cell (`mécanique` on a synthetic set). Hidden
+  version: the judge combines views and moments the visible test does not combine.
+- **Codes a person retypes** (a session code, a short recovery code): their strength is the limit
+  on attempts and their lifetime, not their length; test the rate limit, the lockout and the expiry,
+  and propose an entropy threshold only for codes nobody types.
 - **Erasure**: plant a **canary** — a unique, searchable value — in a test session, run the
   deletion, then search the raw bytes of every place it may live: the database file and its
   side files, logs, caches, exports, backups, the hosting provider's snapshots, the third-party
@@ -84,7 +97,20 @@ A promise of anonymity or erasure is a requirement on the **state of storage**, 
   setting.
 - **Who checks**: a developer on a copy of the files, with pseudonymised or synthetic data only.
 
-## 6. Keeping a loop honest
+## 6. A pass on states and actors
+
+Go through the deliverable state by state — before the start, during, a step open, a step closed,
+after the end, after deletion — and for each actor (participant, facilitator, someone who declined
+to take part, a late joiner, an admin), write what that actor sees and can do. Typical lines:
+
+- a questionnaire asked again does not display the earlier answers;
+- someone who declines to take part still follows what the others see, without answering;
+- after the end, and after deletion, the participant's screen says the session is over, and no
+  earlier data can be recovered from it;
+- a late joiner lands on the current step, not on a closed one;
+- a reload in each state lands in the same state.
+
+## 7. Keeping a loop honest
 
 When an agent iterates until the suite is green, assume it will take the shortest path to green.
 METR observed frontier models overwriting the scorer with a stub that reports success, reading the
@@ -102,7 +128,7 @@ going on doing so when told not to cheat (« Recent frontier models are reward h
   the visible ones for the same requirements;
 - the agent's own statement that tests pass is never evidence: the judge reruns them.
 
-## 7. Usual coverage
+## 8. Usual coverage
 
 High: typically three quarters or more of the lines are `mécanique`. What stays out: content
 quality and tone (`relecture`), real devices and the venue (`terrain`), and the outcome — whether

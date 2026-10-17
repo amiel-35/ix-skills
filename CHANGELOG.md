@@ -4,6 +4,30 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-17 — criteres-reussite 1.1.0
+
+Corrections after a real run of 1.0.0 on the « biais » module of ia-atelier,
+compared with its hand-written acceptance plan and with seven built versions.
+Plugin stays 4.3.0 (not yet published).
+
+- Proposed thresholds fit the use and the counter-measures: a code a person
+  retypes is judged on attempt limits and lifetime, not on 64 bits of entropy;
+  a threshold no reasonable version could meet is the threshold's fault.
+- Dated sources: content from a source older than a later decision, or that
+  may have been replaced, yields no mechanical line before confirmation; the
+  line goes on the requirement, the content into the open questions.
+- A fallback is a result, not a plan: each kind of failure named apart, what
+  must still hold, checked by a dry run without the dependency and by the
+  presence of what the fallback needs.
+- For every actor, every state: what each actor sees and can do in each state,
+  not only what is stored (someone who opts out still follows the session).
+- A core of twenty to thirty lines (blocking lines plus trap guards) is marked
+  in plans longer than about thirty lines, for a quick acceptance.
+- `criteres_logiciel`: recovery of a masked cell by subtraction (totals, other
+  views, successive displays), with its hidden version; codes a person
+  retypes; degraded mode by kind of failure; a pass on states and actors
+  (asked again without earlier answers, « session over » after deletion).
+
 ## 2026-10-17 — plugin 4.3.0: criteres-reussite
 
 - `criteres-reussite` 1.0.0 (new): writes, from a scoping note or a brief, the
