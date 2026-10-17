@@ -42,7 +42,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-36 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
+37 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
 
 ---
 
@@ -317,7 +317,7 @@ Outils de renseignement structuré — chacun audite une dimension différente d
 </details>
 
 <details>
-<summary><b>🧩 Cadrage & production</b> — 4 skills</summary>
+<summary><b>🧩 Cadrage & production</b> — 5 skills</summary>
 
 
 Du besoin flou au matériau prêt à produire : clarifier, structurer, découper, consigner. Les livrables métier qui suivent (PRD, specs, offres, fiches de poste…) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes).
@@ -351,6 +351,16 @@ Du besoin flou au matériau prêt à produire : clarifier, structurer, découper
 **Ce qu'il fait :** Décompose un besoin complexe en lots indépendants et priorisés avant la spec ou la livraison. Produit une décomposition structurée qui alimente un PRD, un sprint ou un plan projet.
 
 **Quand l'utiliser :** Le sujet est dense ou multi-dimensionnel et doit être découpé avant que quiconque puisse le spécifier ou l'estimer. En amont d'un PRD ou d'une spec fonctionnelle (voir [ix-recipes](https://github.com/amiel-35/ix-recipes)) pour les initiatives complexes.
+
+---
+
+#### `criteres-reussite` — Brief → critères de réussite vérifiables
+
+**Ce qu'il fait :** Écrit les critères de réussite d'un livrable avant qu'il existe (son cahier de recette, sa définition de « fini ») — code, réponse ou cahier des charges de n'importe quel appel d'offres, campagne publicitaire, dissertation, travaux, grille de salaires, négociation, texte de loi, mariage — sous forme d'un tableau de tests : élément ou situation, vérification, résultat attendu, type de preuve (`mécanique` : un script ou une recherche suffit ; `relecture` : un juge autre que l'auteur ; `terrain` : seulement en vrai), qui vérifie (compétence et confidentialité). Il sépare le livrable, que l'auteur maîtrise, de l'issue, qui dépend d'autres acteurs et se vise par une zone entre un plancher et un objectif ; pose la question « qu'est-ce qui passerait tous ces tests en restant faux ? » et en fait des tests ; ajoute des tests de contenu (aucun « [à compléter] » dans le livrable rendu, une source pour chaque chiffre) ; garde une part cachée pour le juge, parade contre un auteur ou un agent qui optimise les tests visibles ; et dit quelle part du cahier une boucle automatique peut couvrir. La méthode tient seule pour n'importe quel sujet ; quatre annexes l'approfondissent selon le cas : logiciel, négociation, écrits (offre, dissertation, cahier des charges), travaux. Sans juge séparé (un couple, des associés), la part cachée devient des critères que chacun écrit seul, comparés plus tard.
+
+**Ce qu'il ne fait pas :** Ne produit pas le livrable, et ne le juge pas — `controle-qualite` ou `quality-check` peuvent ensuite s'en servir comme grille.
+
+**Quand l'utiliser :** Avant de commencer, pour s'accorder sur ce que « fini » veut dire ; comme critère d'arrêt d'un agent qui code en boucle jusqu'au vert ; avant une négociation, pour fixer à l'avance ce qu'est un bon accord pour chaque partie.
 
 ---
 
@@ -503,7 +513,7 @@ Pour les interfaces de chat simples, sans CLI : copier-coller le contenu de `ski
 
 ### Références (annexes lues à la demande)
 
-Trois skills livrent des annexes dans un sous-dossier `references/` à côté de leur `SKILL.md`, et ne lisent que celle dont une demande a besoin : `prioritize` (un fichier par méthode : ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), `deliver` (gabarits HTML, profils de destinataires) et `critique` (angles d'examen par type de contenu). Les sources sont dans `partials/` ; `build.py` les copie dans `dist/skills/<id>/references/` (et `codex-dist/<id>/references/`).
+Quatre skills livrent des annexes dans un sous-dossier `references/` à côté de leur `SKILL.md`, et ne lisent que celle dont une demande a besoin : `prioritize` (un fichier par méthode : ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), `deliver` (gabarits HTML, profils de destinataires) `critique` (angles d'examen par type de contenu) et `criteres-reussite` (logiciel, négociation, écrits, travaux). Les sources sont dans `partials/` ; `build.py` les copie dans `dist/skills/<id>/references/` (et `codex-dist/<id>/references/`).
 
 | Installation | Références |
 |---|---|
@@ -515,7 +525,7 @@ Trois skills livrent des annexes dans un sous-dossier `references/` à côté de
 | mystaffy / ix-memory | non emportées |
 | GPT / Gemini (coller `skills/<id>.md`) | non emportées |
 
-Sans le dossier : `prioritize` applique ses critères génériques et dit que la méthode détaillée n'était pas disponible, et `critique` choisit ses angles dans sa liste canonique. `deliver` perd les consignes HTML et les profils de destinataires : coller après lui `partials/deliver_html.md` (cible HTML) et `partials/deliver_recipient_profiles.md` (destinataire donné). Pour `prioritize`, coller le fichier de la méthode voulue, par exemple `partials/framework_rice.md` ; pour `critique`, `partials/critique_lenses.md`.
+Sans le dossier : `prioritize` applique ses critères génériques et dit que la méthode détaillée n'était pas disponible, et `critique` choisit ses angles dans sa liste canonique. `deliver` perd les consignes HTML et les profils de destinataires : coller après lui `partials/deliver_html.md` (cible HTML) et `partials/deliver_recipient_profiles.md` (destinataire donné). Pour `prioritize`, coller le fichier de la méthode voulue, par exemple `partials/framework_rice.md` ; pour `critique`, `partials/critique_lenses.md`. `criteres-reussite` applique sa méthode de base et dit que l'annexe manquait ; coller après lui le `partials/criteres_*.md` qui correspond.
 
 ---
 

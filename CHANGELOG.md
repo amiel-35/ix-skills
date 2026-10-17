@@ -4,6 +4,54 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-17 — plugin 4.3.0: criteres-reussite
+
+- `criteres-reussite` 1.0.0 (new): writes, from a scoping note or a brief, the
+  verifiable success criteria (acceptance plan, definition of done) of any
+  deliverable or undertaking — code, a tender response or the specification of
+  any call for tenders, an advertising campaign, a dissertation, building
+  works, a salary grid, a negotiation, a bill, a wedding — as a table of tests
+  (item, check, expected result, kind of evidence `mécanique` / `relecture` /
+  `terrain`, who checks, with competence and confidentiality). Separates the
+  deliverable from the outcome, aimed at as a zone between a floor and a target
+  set in advance; adds the requirements of the theme that the brief does not
+  name (security for software, desire and safety for a couple), above all what
+  is intimate or taken for granted; turns « what could pass every test and still be wrong? » into
+  tests; adds content tests (no placeholder in the rendered deliverable, a
+  source for every figure); names the blocking lines; keeps a hidden part for
+  the judge that guards known requirements only, the counter to Goodhart's law
+  and to coding agents that game their tests; states how much of the plan a
+  loop can close, and the loop's stopping criterion. Never writes the hidden
+  part for a requester who is the author (a sealed request goes to the judge
+  instead); keeps no hidden criterion when the criteria are published to
+  competing authors (the hidden part then tests the criteria); replaces it by
+  blind criteria when there is no separate judge (a couple, partners). Does not
+  produce or judge the deliverable.
+- Four annexes in `partials/`, read on demand; the method stands alone for any
+  other subject. `criteres_logiciel` (rendered output, distribution of random
+  draws, rules enforced by the server, load, real devices, anonymity and
+  erasure checked down to the files with a canary, SQLite `secure_delete`,
+  keeping a loop honest); `criteres_negociation` (Raiffa scoring template,
+  fallbacks and floors, Pareto, a Nash or maximin threshold for the
+  least-served party, Subjective Value Inventory, durability at 6 and 12 months,
+  unrepresented parties, a simulated counterpart with `red-team` as hidden
+  part); `criteres_document` (proposal, dissertation, report, specification:
+  answering the question asked, leftovers from another text, compliance
+  matrix, testing published criteria); `criteres_travaux` (acceptance tests
+  written before work, hold points, reservations at handover, defects after a
+  season). References checked before citing.
+- `tests/cas-skills/criteres-reussite.md`: eleven cases — the « biais » module
+  of ia-atelier on its real scoping note (outputs kept out of the repo), a SaaS
+  renewal, a salary grid, a negotiated bill, a tender response, a dissertation,
+  a house renovation, a public-procurement specification, an advertising
+  campaign specification, a wedding, a couple moving in together, and three
+  one-sentence requests (a couple, a physiotherapy booking app, a flat share)
+  that test the requirements of the theme — criteria
+  written before reading the outputs; outputs in
+  `tests/cas-skills/sorties/criteres-reussite/`. First drafted as
+  `cahier-de-recette`, renamed before release: « recette » is IT jargon and
+  clashes with the recipes of ix-recipes; the old name stays a trigger.
+
 ## 2026-10-16 — plugin 4.2.0: calc-check
 
 - `calc-check` 1.0.0 (new): recomputes every derived figure of a text

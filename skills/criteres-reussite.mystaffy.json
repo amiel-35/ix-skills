@@ -1,0 +1,62 @@
+{
+  "metier": [
+    "transverse"
+  ],
+  "category": "production",
+  "params": {
+    "deliverable_kind": {
+      "label": "Type de livrable",
+      "type": "text",
+      "required": false,
+      "help": "Logiciel, document, offre, grille, negociation, texte de loi... Deduit du brief s'il est absent."
+    },
+    "author": {
+      "label": "Auteur du livrable",
+      "type": "text",
+      "required": false,
+      "help": "Une personne, une equipe, un agent qui code en boucle. Change la part cachee et la section couverture."
+    },
+    "judge": {
+      "label": "Juge",
+      "type": "text",
+      "required": false,
+      "help": "Qui garde le cahier et la part cachee. A defaut : quelqu'un d'autre que l'auteur."
+    },
+    "existing_tests": {
+      "label": "Cahier ou tests existants",
+      "type": "text",
+      "required": false,
+      "help": "Le cahier est complete, pas reecrit, et ce qui lui manque est liste a part."
+    },
+    "confidentiality": {
+      "label": "Confidentialite",
+      "type": "text",
+      "required": false,
+      "help": "Ce que les verificateurs peuvent voir : donnees personnelles, salaires, mandat de negociation."
+    }
+  },
+  "ui": {
+    "simple_fields": [
+      "deliverable_kind",
+      "author"
+    ],
+    "advanced_fields": [
+      "judge",
+      "existing_tests",
+      "confidentiality"
+    ]
+  },
+  "execution": {
+    "supports_async": false,
+    "supports_review_gate": true,
+    "max_input_artifacts": 6,
+    "max_estimated_tokens": 16000
+  },
+  "color": "#2F855A",
+  "kind": "llm",
+  "launch_mode": "run",
+  "transport": "json",
+  "output_format": "markdown",
+  "enabled": true,
+  "visibility": "public"
+}
