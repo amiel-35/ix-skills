@@ -286,6 +286,41 @@ Un agent Opus à contexte neuf a appliqué la 1.0.0 au cadrage, à la décomposi
 
 Les critères de leur première passe tiennent toujours ; un noyau est marqué s'ils dépassent trente lignes ; le cas 13 écrit la panne du fournisseur de SMS comme un résultat.
 
+# Version 1.2.0 — corrections de la relecture indépendante (Fable)
+
+Vingt-trois constats sur 1.1.0 (A1 à A5, B1 à B10, C1 à C8 ; rapport hors dépôt, session de comparaison du module biais). Essais : un cas synthétique équivalent au cas biais, versionné (cas 15, B9), et quatre cas sans rapport avec lui. **Notation par un agent Opus à contexte neuf, qui n'a pas écrit le skill**, critère par critère, sur les sorties brutes.
+
+## Cas 15 — module de vote anonyme d'un séminaire managers (synthétique)
+
+Pièces : [`pieces/criteres-reussite/cas-15/`](pieces/criteres-reussite/cas-15/) (note d'intention de juin, compte rendu de septembre qui la corrige).
+
+> Je suis la DRH. Écris les critères de réussite du module de vote de nos séminaires managers, que l'agence Pixelia va développer. Les deux documents sont dans ce dossier : note-intention-juin.md et compte-rendu-septembre.md. Lis-les entièrement. C'est moi qui recevrai le module et qui jugerai, avec la responsable formation.
+
+Une bonne sortie contient :
+1. Aucune ligne mécanique sur le chiffre de « 38 % » ni sur le quatrième dilemme, abandonnés en septembre ; le chiffre retenu demandé en question ouverte ou testé comme « sourcé et retenu ».
+2. L'équilibre du tirage des versions testé sur la distribution, dans chaque session.
+3. Un anonymat vérifié dans les fichiers et les journaux, y compris vis-à-vis de la DRH ; les petites cases masquées et non recalculables par soustraction.
+4. La suppression vérifiée dans les octets (canari), et la preuve demandée par le CSE.
+5. Le mode sans réseau écrit comme un résultat, vérifié par un essai à blanc.
+6. Le manager qui ne vote pas : pas de donnée, et il suit la séance.
+7. Le bloc visible ne cite aucune ligne cachée.
+8. « Qui vérifie » nomme une indépendance vis-à-vis de l'agence, pas seulement une compétence.
+9. Le code de session jugé sur la limite d'essais et la durée de vie, pas sur l'entropie.
+
+## Cas 13n — appli kiné, demande nue, demandeur non précisé
+
+La demande du cas 13. Une bonne sortie contient : 1. le demandeur déclaré inféré ou traité comme auteur, et donc une demande scellée au lieu de lignes cachées ; 2. aucune ligne H citée dans le bloc visible ; 3. pas de profil de charge de séance importé (des dizaines d'utilisateurs simultanés) ; 4. le choix d'hébergement des données de santé testé comme conforme, pas seulement documenté ; 5. un audit automatique d'accessibilité étiqueté `mécanique` et doublé d'une ligne qui juge l'usage réel.
+
+## Cas 13g — appli kiné construite en boucle avec `/goal`
+
+> Je vais faire construire une application de prise de rendez-vous pour mon cabinet de kinésithérapie (deux kinés, environ 120 rendez-vous par semaine) par Claude Code, qui travaillera en boucle avec /goal jusqu'à ce que le but soit atteint. Les patients réservent en ligne, chaque kiné voit son planning, les patients reçoivent un rappel par SMS la veille. Écris les critères de réussite, y compris le critère d'arrêt de la boucle. Je ne suis pas développeur ; c'est moi qui accepterai l'application.
+
+Une bonne sortie contient : 1. les deux réglages distingués (évaluateur qui lit la conversation pendant la boucle, juge qui exécute avant l'acceptation) ; 2. ce que l'agent doit montrer : commande exacte et sortie brute complète, somme de contrôle des tests et nombre de tests à chaque tour ; 3. qui écrit et qui fige les tests (le juge, ou relus ligne à ligne par lui avant le premier tour), alors que le demandeur n'est pas développeur ; 4. la part cachée hors de la session de l'agent ; 5. un énoncé pour `/goal` de dix à quinze lignes ; 6. l'aveu que cet évaluateur ne distingue pas une sortie fabriquée.
+
+## Cas 7 et cas 3, non-régression
+
+Les critères de leur première passe, plus : aucune ligne H citée dans le bloc visible ; les seuils réglementaires (DPE, minimum conventionnel) gardés tels quels ; une vérification destructive ou intrusive marquée `[costly]` (cas 7) ; « qui vérifie » qui écarte l'auteur (cas 3, l'analyste et l'agent du tableur).
+
 # Résultats
 
 | Date | Cas | Modèle | Critères tenus | Sortie | Note |
@@ -317,7 +352,15 @@ Les critères de leur première passe tiennent toujours ; un noyau est marqué s
 | 2026-10-17 | 1b | Opus, 1.1.0 | 8/8 | hors dépôt (matériau privé) | topo signalé antérieur aux arbitrages, aucune ligne mécanique sur « 0,26 mL » ; plus de seuil d'entropie ; soustraction (ligne et version cachée dans le temps) ; panne par type ; le refus suit la séance ; reprise vierge, « séance terminée » ; noyau de 30 lignes (2 h contre une journée) ; 1,03 $ |
 | 2026-10-17 | 13 | Sonnet, 1.1.0 | non-régression tenue | [v1.1](sorties/criteres-reussite/cas-13-appli-kine-sonnet-v1.1.md) | données de santé, consentement et STOP, accès croisés gardés ; panne du fournisseur de SMS écrite comme un résultat ; noyau de 24 lignes ; 0,20 $ |
 | 2026-10-17 | 2 | Sonnet, 1.1.0 | non-régression tenue | [v1.1](sorties/criteres-reussite/cas-2-renouvellement-saas-sonnet-v1.1.md) | plancher contre repli, préavis, demande scellée gardés ; noyau de 25 lignes ; 0,29 $ |
-Notation par l'auteur du skill, pas par un juge indépendant : à rejouer avec `banc.py` d'ix-recipes et des juges d'autres fournisseurs avant de s'y fier.
+| 2026-10-17 | 15 | Sonnet, 1.2.0 | 8,5/9 (juge indépendant) | [v1.2](sorties/criteres-reussite/cas-15-vote-seminaire-managers-sonnet-v1.2.md) | sources abandonnées sans ligne mécanique ; mode sans réseau resté en question plutôt qu'en résultat ; 0,59 $ |
+| 2026-10-17 | 13n | Sonnet, 1.2.0 | 4,5/5 (juge indépendant) | [v1.2](sorties/criteres-reussite/cas-13n-appli-kine-demandeur-inconnu-sonnet-v1.2.md) | demandeur inconnu traité comme auteur, demande scellée ; un test de 20 réservations simultanées que rien ne justifie ; 0,21 $ |
+| 2026-10-17 | 13g | Sonnet, 1.2.0 | 5,5/6 (juge indépendant) | [v1.2](sorties/criteres-reussite/cas-13g-appli-kine-goal-sonnet-v1.2.md) | énoncé `/goal` qui omettait dix lignes mécaniques ; erreur sur la longueur des SMS concaténés ; 0,18 $ |
+| 2026-10-17 | 13g | Sonnet, 1.2.0 retouché | 5,5/6 (juge indépendant) | [v1.2b](sorties/criteres-reussite/cas-13g-appli-kine-goal-sonnet-v1.2b.md) | l'énoncé liste les 34 lignes mécaniques et dit pourquoi il écarte les autres ; part cachée hors de la condition d'arrêt ; énoncé un peu long (19 lignes) ; 0,22 $ |
+| 2026-10-17 | 7 | Sonnet, 1.2.0 | 9,5/12 (juge indépendant) | [v1.2](sorties/criteres-reussite/cas-7-renovation-maison-sonnet-v1.2.md) | aucun renvoi H dans le visible, carottage marqué `[costly]` ; reste à charge non recalculé, une vérification intrusive non marquée, plancher de coût inversé ; 0,49 $ |
+| 2026-10-17 | 3 | Sonnet, 1.2.0 | 10,5/13 (juge indépendant) | [v1.2](sorties/criteres-reussite/cas-3-grille-salaires-sonnet-v1.2.md) | aucun renvoi H dans le visible ; minimum conventionnel vérifié par cellule, pas par salarié ; 0,46 $ |
+Rapport de la notation indépendante de 1.2.0 : [notation-independante-1.2.0.md](sorties/criteres-reussite/notation-independante-1.2.0.md). Les retouches faites après lui (plancher inversé quand moins vaut mieux, synthèse relue contre les tableaux, énoncé `/goal` complet) n'ont été rejouées que sur le cas 13g.
+
+Jusqu'à 1.1.0 : notation par l'auteur du skill, pas par un juge indépendant : à rejouer avec `banc.py` d'ix-recipes et des juges d'autres fournisseurs avant de s'y fier.
 
 ## Ce qui a demandé d'ajuster le gabarit
 

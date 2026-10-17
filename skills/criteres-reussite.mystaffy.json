@@ -22,6 +22,17 @@
       "required": false,
       "help": "Qui garde le cahier et la part cachee. A defaut : quelqu'un d'autre que l'auteur."
     },
+    "requester": {
+      "label": "Demandeur",
+      "type": "enum",
+      "required": false,
+      "options": [
+        "author",
+        "judge",
+        "other"
+      ],
+      "help": "Qui demande les criteres. A defaut, deduit du brief ; si rien ne permet de le dire, traite comme l'auteur : demande scellee au juge, pas de part cachee."
+    },
     "existing_tests": {
       "label": "Cahier ou tests existants",
       "type": "text",
@@ -42,6 +53,7 @@
     ],
     "advanced_fields": [
       "judge",
+      "requester",
       "existing_tests",
       "confidentiality"
     ]

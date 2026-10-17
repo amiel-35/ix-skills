@@ -4,6 +4,48 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-17 — criteres-reussite 1.2.0
+
+Corrections from an independent review of 1.1.0 (23 findings). Plugin stays
+4.3.0 (not yet published).
+
+- The hidden part no longer leaks: the visible plan never cites a hidden line,
+  a trap guarded only by hidden lines is written in the hidden part; when the
+  requester cannot be inferred, it is treated as the author (sealed request,
+  no hidden lines); the sealed request names no requirement; at least two
+  hidden lines per guarded requirement; a hidden line that failed then was
+  fixed is spent.
+- Stopping criterion in two settings: a judge who executes, and an evaluator
+  that only reads the conversation (a `/goal`-type condition) — what the agent
+  must show (exact command, complete raw output, checksum and test count each
+  round), what that evaluator cannot tell, a ten-to-fifteen-line goal
+  statement. In both, the judge writes or reviews and freezes the mechanical
+  tests before the first round; the baseline is the frozen suite.
+- « Who checks » names the independence as well as the competence; checks
+  that are destructive, intrusive or need what the brief does not provide are
+  marked `[costly]`; the label follows the instrument (an automatic audit is
+  `mécanique` and settles only what it measures); new trap family « a choice
+  documented where the requirement is a compliant choice ».
+- Thresholds: « if no version meets it, the threshold is wrong » now applies
+  to `[proposed]` thresholds only; thresholds from the brief, a law, a
+  standard or a contract stay. The 64-bit example left the body.
+- Core defined by its function (blocking lines plus one guard per trap, no
+  `terrain`, no hidden line), triggered above about 45 lines, at most about
+  30; durations only when the brief allows an estimate. Coverage adds a
+  sentence on weight. « Date the sources » is its own step; without an
+  interlocutor, the skill states its assumption and goes on. The opt-out rule
+  and the session vocabulary left the generic body.
+- `criteres_logiciel` split into part A (any software) and part B (live
+  multi-user sessions: session flow, load at the peak, venue, degraded mode,
+  states and actors); « who writes and freezes the tests » and the frozen
+  baseline added to « keeping a loop honest ».
+- Descriptions shortened (about 890 characters). mystaffy: `requester` field.
+- Tests: a synthetic case equivalent to the « biais » case, kept in the repo
+  with its documents (case 15), and four unrelated cases, graded by an agent
+  that did not write the skill. After that grading: the floor is the upper limit when less
+  is better; the summary is reread against the tables; the goal statement
+  lists every visible mechanical line or says which it leaves out.
+
 ## 2026-10-17 — criteres-reussite 1.1.0
 
 Corrections after a real run of 1.0.0 on the « biais » module of ia-atelier,
