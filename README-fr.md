@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="Licence" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
   <img alt="Version du plugin" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-36-3d6b73">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-37-3d6b73">
   <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
 </p>
 
@@ -42,7 +42,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-36 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
+37 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
 
 ---
 
@@ -317,7 +317,7 @@ Outils de renseignement structuré — chacun audite une dimension différente d
 </details>
 
 <details>
-<summary><b>🧩 Cadrage & production</b> — 4 skills</summary>
+<summary><b>🧩 Cadrage & production</b> — 5 skills</summary>
 
 
 Du besoin flou au matériau prêt à produire : clarifier, structurer, découper, consigner. Les livrables métier qui suivent (PRD, specs, offres, fiches de poste…) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes).
@@ -329,6 +329,8 @@ Du besoin flou au matériau prêt à produire : clarifier, structurer, découper
 **Ce qu'il fait :** Explore et clarifie un besoin vague ou incomplet — surface l'intention, les contraintes, les hypothèses et les points de décision avant tout lancement de production. Le besoin reformulé dit le but, jamais l'artefact que la demande nomme : cet artefact est une contrainte s'il est justifié, une hypothèse avec sa question ouverte sinon, et les attendus imposés par une consultation sont listés à part comme contraintes sur la réponse. Produit un rapport de clarification et des prochaines étapes recommandées.
 
 **Ce qu'il ne fait pas :** Ne produit pas de brief ou de spec directement. C'est l'étape qui rend `brief` possible quand l'input est trop flou.
+
+**Mode « clore » (`close`) :** Choisi par le message, jamais de lui-même. Donnez-lui un cadrage soumis et les réponses données à la pause, il rend un **cadrage clos** — intention, public et situation d'usage, décisions avec leur source (une réponse de la pause l'emporte sur le défaut du cadrage soumis ; un défaut accepté sans remarque est marqué comme tel et rappelé), contraintes avec leur raison, périmètre et hors-périmètre, parties prenantes, livrables avec leur lecteur et leur documentation (une spec et une architecture quand le sujet construit un système), hypothèses restantes en risques acceptés, tests de découpage rejoués, prêt ou non pour l'étape suivante, lectures retenues et question résiduelle. Sans ce message, `cadrage` fait ce qu'il a toujours fait.
 
 **Quand l'utiliser :** La demande est trop ambiguë pour être briefée directement. Quand il faut s'aligner sur ce qui est vraiment demandé avant de s'engager.
 
@@ -351,6 +353,18 @@ Du besoin flou au matériau prêt à produire : clarifier, structurer, découper
 **Ce qu'il fait :** Décompose un besoin complexe en lots indépendants et priorisés avant la spec ou la livraison. Produit une décomposition structurée qui alimente un PRD, un sprint ou un plan projet.
 
 **Quand l'utiliser :** Le sujet est dense ou multi-dimensionnel et doit être découpé avant que quiconque puisse le spécifier ou l'estimer. En amont d'un PRD ou d'une spec fonctionnelle (voir [ix-recipes](https://github.com/amiel-35/ix-recipes)) pour les initiatives complexes.
+
+---
+
+#### `goal-writing` — Cadrage clos → goal pour un agent autonome
+
+**Ce qu'il fait :** Rédige le goal d'un agent qui travaille seul pendant de nombreux tours, à partir d'un cadrage clos et de réglages : intention, livrables (chacun avec son skill de format, reçu en entrée), contraintes et interdits, autorisations (sous-agents avec un modèle explicite, écriture sur un seul fil), condition d'arrêt qui renvoie à un script de recette sans savoir ce qu'il vérifie, plafond de tours. Quand une valeur n'est fixée que plus tard, le goal porte un emplacement nommé.
+
+**Ce qu'il ne fait pas :** Ne rédige ni les critères de réussite ni le script de recette, ne choisit aucun skill de format, et ne décrit la commande d'aucun outil — il décrit le contenu d'un goal.
+
+**Quand l'utiliser :** Un cadrage est clos et le travail sera confié à un agent qui doit aller au bout sans poser de question.
+
+> `cadrage` en mode « clore » consigne les décisions. `goal-writing` en fait la mission.
 
 ---
 

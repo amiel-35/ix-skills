@@ -4,6 +4,28 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-17 — plugin 4.3.0: cadrage `close` mode, goal-writing
+
+- `cadrage` 1.3.0: a second mode, `close`, chosen by the message. It takes a
+  submitted scoping and the answers given at the pause and returns a closed
+  scoping — intent, audience and situation of use, decisions with their source,
+  constraints with their rationale, scope and out of scope, stakeholders,
+  deliverables with their reader and documentation (a specification and an
+  architecture when the subject builds a system), remaining assumptions as
+  accepted risks, splitting tests replayed, ready for the next step, retained
+  readings, residual question. Three closing rules are written in the body: an
+  answer from the pause prevails over the default and is cited as the source of
+  the decision; a default accepted without an answer is marked and recalled; a
+  blocking question left without an answer becomes the residual question.
+  Without that mode in the message, the method and the output format are those
+  of 1.2.2, unchanged. `cadrage.mystaffy.json` gains an optional `mode` param.
+- `goal-writing` 1.0.0 (new): writes the goal of an autonomous agent from a
+  closed scoping and settings — intent, deliverables each with its format skill
+  received as an input, constraints and prohibitions, authorisations, a stopping
+  condition that points to an acceptance script without knowing its content, a
+  turn ceiling, named slots for values fixed later. Describes the content of a
+  goal, not any tool's command.
+
 ## 2026-10-16 — plugin 4.2.0: calc-check
 
 - `calc-check` 1.0.0 (new): recomputes every derived figure of a text
