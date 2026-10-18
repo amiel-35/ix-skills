@@ -27,6 +27,13 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
   never cited as the source of a decision. The closed scoping no longer draws up
   a list of authorisations: what the subject allows or forbids stays under scope
   and constraints. Default mode unchanged.
+- `cadrage` 1.3.2: in mode `close`, a constraint without rationale stays in the
+  constraints table as « imposed by <who>, no other reason given » with the
+  decision cited; the scope carries what the subject allows as in-scope items,
+  with no permits and forbids sub-list; a default that settles a decision does
+  not accept the assumption behind it; a true splitting test splits unless the
+  decision-maker decided otherwise, cited; validators and readers are described
+  by what they do, when and with which means.
 - `goal-writing` 1.0.0 (new): writes the goal of an autonomous agent from a
   closed scoping and settings — intent, deliverables each with its format skill
   received as an input, constraints and prohibitions, authorisations, a stopping

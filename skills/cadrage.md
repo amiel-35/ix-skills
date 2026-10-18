@@ -1,7 +1,7 @@
 ---
 id: cadrage
 label: Cadrage
-version: 1.3.1
+version: 1.3.2
 description_fr: Clarifie un besoin encore flou avant toute production — intention, contraintes, hypothèses, options de suite — et vérifie qu'on a assez d'éléments pour avancer. Sépare le besoin des solutions déjà nommées dans la demande — le besoin reformulé dit le but, la solution nommée devient contrainte si justifiée, hypothèse à valider sinon. Déclenche sur "avant de se lancer, on doit cadrer ce sujet", "est-ce qu'on a assez d'infos pour partir en spec", "cadre ce besoin avant qu'on produise quoi que ce soit". Ne produit ni brief détaillé ni spec (utiliser `brief` une fois le cadrage fait) — s'arrête à la clarification. Un second mode, `close` (« clore »), se choisit par le message — il prend un cadrage soumis et les réponses données à la pause, et rend un cadrage clos — intention, décisions avec leur source, contraintes avec leur raison, périmètre, livrables avec leur lecteur, hypothèses restantes avec leur risque et leur statut, tests de découpage rejoués. Sans mention de ce mode, le skill se comporte comme avant.
 description_en: Clarifies a still-vague need before any production — intent, constraints, hypotheses, next options — and checks whether there is enough to move forward. Separates the need from the solutions already named in the request — the reformulated need states the goal, the named solution becomes a constraint when justified, a hypothesis to validate otherwise. Triggers on "before we start, we need to scope this", "do we have enough to go into spec", "clarify this need before we produce anything". Does not produce a detailed brief or a spec (use `brief` once scoped) — stops at clarification. A second mode, `close`, is chosen by the message — it takes a submitted scoping and the answers given at the pause, and returns a closed scoping — intent, decisions with their source, constraints with their rationale, scope, deliverables with their reader, remaining assumptions with their risk and status, splitting tests replayed. Without that mode in the message, the skill behaves as before.
 icon: ◇
@@ -115,11 +115,13 @@ Applies only when the message asks for it (see « Modes »). It turns a submitte
 Beyond these three rules:
 - Never invent a decision. Where the answers are silent and the submitted scoping has no default, say so and take the option that commits the least, marked « to confirm ».
 - When an answer can be read in two ways, retain one reading, write it down with the alternative and the reason for the choice (see « Retained readings »), and apply it consistently.
-- A constraint whose rationale is missing, or only restates the constraint, is not written in the constraints table: record it as a decision with its source, and list the missing rationale as a point to confirm.
+- A constraint stays a constraint wherever it is filed, and stays in the constraints table. When the rationale is missing, or only restates the constraint (a quotation of the request or of the decision-maker is a source, not a rationale), write « imposed by <who>, no other reason given » with the decision cited, and list the missing rationale as a point to confirm. Never move a constraint to the decisions or to a list of things that are « not yet constraints » to avoid giving it a rationale.
 - Every remaining assumption has its risk written (what happens if it is false) and exactly one of three marks, written in the language of the document with this wording. The word « accepted » is reserved for what the decision-maker accepted:
   - « accepted risk » — only for an assumption that the decision-maker accepted. Say where the acceptance comes from: an answer from the pause, quoted, or a default that was proposed at the pause and that they let pass.
   - « accepted by default, not raised at the pause — to confirm » — for an assumption the pause did not address, whether the answers are silent on it or the submitted scoping proposed no default for it. It is not an accepted risk.
   - « proposed by the writer — to confirm » — for an assumption you add while closing. It is not an accepted risk.
+
+  A default that settles a decision does not accept the assumption behind that decision: « accepted risk » needs the pause to have put that very assumption, or its risk, to the decision-maker. Otherwise use the second mark.
 
   The last two marks are not accepted risks: they become accepted risks only when the decision-maker answers the reminder of rule 2 or lets it pass, and the trace says so. Each of them has its place in that reminder. Never write « accepted risk » on a row that carries one of them. An assumption described as open or pending anywhere in the text has its row in the table of remaining assumptions.
 - A default that the pause rejected is never the source of a decision, and is never named as one. When an answer goes against a default, the decision cites the answer. When a decision keeps part of a rejected default, or draws on something the answers do not say, it is a reading of the writer: give it the source « reading of the writer — to confirm », state the reading, and add it to the reminder of rule 2.
@@ -130,10 +132,10 @@ Beyond these three rules:
 Write the closed scoping with these sections, in this order, using these words. Each section is non-empty, or says that it has nothing to report and why.
 
 1. **Intention** — the goal, not the artefact. If the submitted scoping states the intention as something to produce, restate it as the result that must become true, and keep the artefact as a means.
-2. **Audience and situation of use** — who uses, receives or validates the result, and in what situation. Describe them; do not only name them. Every reader named in the deliverables table appears here.
+2. **Audience and situation of use** — who uses, receives or validates the result, and in what situation. Describe them; do not only name them: what each does with the result, when, and with which means when they are not obvious (a validator: what they validate, at which moment, on what material). Every reader named in the deliverables table appears here. A reader whose name depends on an open point is still described by what they do with the result, so that the description never waits for the answer.
 3. **Decisions** — a table: identifier, decision, source. Every decision names its source: an answer (quoted), a default accepted, an earlier decision, or a reading of the writer, to confirm. A default the pause rejected is never a source. Then the direct consequences, then the reminder of rule 2.
-4. **Constraints, with their rationale** — a table: constraint, rationale. A constraint without a rationale is not a constraint yet: say what is missing.
-5. **Scope** — what is in the scope, including what the subject allows (what may be built, bought, decided or reused), then what is **out of scope**, each exclusion concrete, with where it goes when it goes somewhere. What the subject forbids goes in the scope and in section 4. There is no separate list of authorisations.
+4. **Constraints, with their rationale** — a table: constraint, rationale, source. Every constraint is here, prohibitions included. The rationale says why the constraint holds; a constraint with none reads « imposed by <who>, no other reason given », with the decision cited.
+5. **Scope** — what is in the scope, then what is **out of scope**, each exclusion concrete, with where it goes when it goes somewhere. What the subject allows (what may be built, bought, decided or reused) is written as items of the in-scope list; what it forbids is a constraint in section 4 and an exclusion in the out-of-scope list. Do not add a sub-heading or a list of what the subject permits and forbids, and no list of authorisations.
 6. **Stakeholders** — each party, its role, the interest at stake; and whether any conflict of interest remains to be arbitrated.
 7. **Deliverables** — a table: deliverable, reader, where it lives and why. Each deliverable has its reader. Documentation is a deliverable: list it with its reader. When the subject builds a system, a tool or software, add a deliverable for a specification and an architecture, with their reader; when it does not, say why it does not need them. This section never says which skill produces a deliverable: the format of each deliverable is passed on separately to whoever writes the goal.
 8. **Remaining assumptions and accepted risks** — a table: assumption, risk (what happens if it is false), mark. The mark is one of the three of the closing rules, with its origin: for « accepted risk », the quoted answer or the default let pass; for the two others, the place in the reminder of rule 2. Only a row marked « accepted risk » is an accepted risk.
@@ -153,7 +155,7 @@ Replay the tests on the closed scoping, one at a time, each with a verdict (true
 3. a part depends on a decision that has not been taken;
 4. stakeholders have conflicting interests that must be arbitrated separately.
 
-If one test is true, say whether the subject is split, into what, and which part starts now. If a test was conditional in the submitted scoping, give its new verdict now that the answers are known.
+A test that is partly true is true for that part. If one test is true, the subject is split: name the parts and say which part starts now. The only exception is a decision of the decision-maker not to split, cited with its source (an answer to the pause, or a default let pass); the preference of the writer is not one. Without such a decision, split, or say that the decision is missing and make it a point to confirm. If a test was conditional in the submitted scoping, give its new verdict now that the answers are known.
 
 ## Constraints of the mode
 
@@ -162,6 +164,7 @@ If one test is true, say whether the subject is split, into what, and which part
 - Do not name a tool or a skill as the producer of a deliverable.
 - Do not draw up a section or a list of authorisations of your own for the subject.
 - Do not mark an assumption « accepted risk » unless the decision-maker accepted it.
+- Do not decide on your own not to split when a test is true.
 - Keep the user's own words for named terms, as in the default mode.
 
 ## Definition of done
