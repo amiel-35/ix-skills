@@ -19,6 +19,14 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
   blocking question left without an answer becomes the residual question.
   Without that mode in the message, the method and the output format are those
   of 1.2.2, unchanged. `cadrage.mystaffy.json` gains an optional `mode` param.
+- `cadrage` 1.3.1: in mode `close`, remaining assumptions carry exactly one of
+  three marks — accepted risk (only what the decision-maker accepted, with its
+  origin), accepted by default and not raised at the pause (to confirm), or
+  proposed by the writer (to confirm) — the last two being recalled to the
+  decision-maker and not accepted risks. A default rejected at the pause is
+  never cited as the source of a decision. The closed scoping no longer draws up
+  a list of authorisations: what the subject allows or forbids stays under scope
+  and constraints. Default mode unchanged.
 - `goal-writing` 1.0.0 (new): writes the goal of an autonomous agent from a
   closed scoping and settings — intent, deliverables each with its format skill
   received as an input, constraints and prohibitions, authorisations, a stopping
