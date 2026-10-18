@@ -34,6 +34,20 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
   not accept the assumption behind it; a true splitting test splits unless the
   decision-maker decided otherwise, cited; validators and readers are described
   by what they do, when and with which means.
+- `cadrage` 1.3.3: in mode `close`, every constraint, wherever filed
+  (decisions and prohibitions included), has a rationale given for it; one
+  without becomes a residual question that asks why, never « imposed by <who> ».
+  A closed scoping holds no assumption « to confirm »: assumptions the submitted
+  scoping carried with their risk are accepted risks with their origin, those
+  raised while closing go to a closing reminder and the scoping is not closed
+  until it is answered. A true splitting test splits, without exception. Every
+  reader, validator or checker named anywhere is described in the audience
+  section; deliverables carry their part. Rule 3 no longer contradicts itself
+  (a blocking question is declared blocking, for the part that starts now). A
+  statement about how the solution is built is never an assumption raised at
+  closing; a rationale covers a constraint only as far as it goes; the
+  splitting verdicts must agree with the stakeholders, assumptions and
+  residual questions. Default mode unchanged.
 - `goal-writing` 1.0.0 (new): writes the goal of an autonomous agent from a
   closed scoping and settings — intent, deliverables each with its format skill
   received as an input, constraints and prohibitions, authorisations, a stopping
