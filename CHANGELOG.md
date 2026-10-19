@@ -4,6 +4,18 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-19 — goal-writing 1.1.0: hard length limit and split signal
+
+- `goal-writing` 1.1.0: the goal holds in 1,200 words at most — a hard limit.
+  Details that the core only points to (interfaces, contracts, long lists of
+  paths, detailed conduct) go into an annex of the goal, a separate document the
+  goal names and the agent reads. The writer measures the core; above the limit
+  it does not compress but returns « to split », with the word count and a
+  proposed split of the closed scoping by groups of deliverables, which goes
+  back to the scoping. A correction after review goes into the annex unless it
+  changes what the agent must do. Learnt from a passage where the goal grew to
+  9,000 words and the subject should have been split.
+
 ## 2026-10-17 — plugin 4.3.0: cadrage `close` mode, goal-writing
 
 - `cadrage` 1.3.0: a second mode, `close`, chosen by the message. It takes a

@@ -1,9 +1,9 @@
 ---
 id: goal-writing
 label: Rédiger un goal
-version: 1.0.0
-description_fr: Rédige le goal d'un agent qui travaille seul, en autonomie, à partir d'un cadrage clos et de réglages — intention, livrables (chacun avec son skill de format reçu en entrée), contraintes et interdits, autorisations, condition d'arrêt qui renvoie à un script de recette sans en connaître le contenu, plafond de tours. Déclenche sur "rédige le goal de ce cadrage clos", "transforme ce cadrage en consigne pour un agent autonome", "écris la mission que va tenir cet agent jusqu'au bout". Ne rédige ni les critères de réussite ni le script de recette, ne choisit aucun skill de format, et ne décrit la commande d'aucun outil — il décrit le contenu d'un goal.
-description_en: Writes the goal of an agent that works alone, in autonomy, from a closed scoping and a set of settings — intent, deliverables (each with its format skill received as an input), constraints and prohibitions, authorisations, a stopping condition that points to an acceptance script without knowing its content, a turn ceiling. Triggers on "write the goal for this closed scoping", "turn this scoping into an instruction for an autonomous agent", "write the mission this agent will hold to the end". Does not write the success criteria or the acceptance script, does not choose any format skill, and does not describe any tool's command — it describes the content of a goal.
+version: 1.1.0
+description_fr: Rédige le goal d'un agent qui travaille seul, en autonomie, à partir d'un cadrage clos et de réglages — intention, livrables (chacun avec son skill de format reçu en entrée), contraintes et interdits, autorisations, condition d'arrêt qui renvoie à un script de recette sans en connaître le contenu, plafond de tours. Déclenche sur "rédige le goal de ce cadrage clos", "transforme ce cadrage en consigne pour un agent autonome", "écris la mission que va tenir cet agent jusqu'au bout". Le goal tient en 1 200 mots au plus, ses détails allant dans une annexe ; si son cœur dépasse cette limite, il rend « à découper » avec une proposition de découpage au lieu d'un goal. Ne rédige ni les critères de réussite ni le script de recette, ne choisit aucun skill de format, et ne décrit la commande d'aucun outil — il décrit le contenu d'un goal.
+description_en: Writes the goal of an agent that works alone, in autonomy, from a closed scoping and a set of settings — intent, deliverables (each with its format skill received as an input), constraints and prohibitions, authorisations, a stopping condition that points to an acceptance script without knowing its content, a turn ceiling. Triggers on "write the goal for this closed scoping", "turn this scoping into an instruction for an autonomous agent", "write the mission this agent will hold to the end". The goal holds in 1,200 words at most, its details going into an annex; if its core exceeds that limit, it returns « to split » with a proposed split instead of a goal. Does not write the success criteria or the acceptance script, does not choose any format skill, and does not describe any tool's command — it describes the content of a goal.
 icon: ▷
 domain: cognitif
 category: production
@@ -32,7 +32,19 @@ You write the goal of an agent that will work alone, for many turns, without any
 - The goal never contains the acceptance criteria, the content of the acceptance script, or any threshold other than the turn ceiling. You do not receive them and you do not write for them.
 - The stopping condition points to the acceptance script **without knowing what it checks**.
 - Every format skill named in the goal comes from the input. You never choose one, add one, or drop one. When the list says how a deliverable is matched to one of its lines (for example by its subject), follow that rule; when it says nothing, a deliverable with no line has no format skill.
+- **The goal holds in 1,200 words at most.** This is a hard limit, not a target (see « Length and splitting »). Above it, you do not compress: you return « to split ».
 - The agent that reads the goal reads nothing else: the goal names, by path or by slot, every document the agent must read (the closed scoping, any procedure or reference the scoping tells it to follow), and says which places it may read and write.
+
+# Length and splitting
+
+A goal that is too long is a signal, and it can mean two different things. Tell them apart before you hand anything back.
+
+1. **Write the core first.** The core is the intent, the deliverables (what, reader, where, format skill), the major prohibitions, the authorisations, the stopping condition, the turn ceiling, the conduct at the ceiling and what to trace, each in its shortest exact form.
+2. **Move the details into an annex.** Explanations, interfaces, contracts, long lists of paths, and detailed conduct that the core only needs to point to go into an **annex of the goal**: a separate document, named in the goal by path or by slot, that the agent reads before it starts and that is frozen with the rest. The annex adds no decision and no deliverable; it details what the core already says. The core names the annex in « Values fixed later » and in the list of documents to read.
+3. **Measure the core** — the goal without its annex and without the writer's notes — in words.
+   - At most 1,200 words: hand back the goal and its annex.
+   - More than 1,200 words: **do not compress, do not cut a rule to fit.** The core is long because the subject is too large for one goal. Write no goal. Return « to split »: the word count of the core, and a proposed split of the closed scoping into parts, each a group of deliverables that can be produced and accepted on its own, with the reason for each cut. The split goes back to the scoping, which decides it; you do not decide it.
+4. A correction asked after a review (an ambiguity, a missing rule) goes into the annex when it is a detail, and into the core only when it changes what the agent must do. If the core then exceeds the limit, the same rule applies: return « to split ».
 
 # Expected inputs
 
@@ -97,13 +109,40 @@ skill: goal-writing
 ## What to trace
 
 ---
+## Annex of the goal (separate document, named in the goal)
+{the details the core points to; no new decision or deliverable}
+
+---
 ## Writer's notes (not part of the goal)
+- word count of the core (the limit is 1,200)
 - gaps in the scoping, each with the narrowest option taken, marked « to confirm »
 - inputs ignored (criteria, grid, sealed material), if any
 - slots used and where each is expected to be filled
 ```
 
+When the core exceeds the limit, the output is instead:
+
+```markdown
+---
+status: to split
+skill: goal-writing
+---
+
+# To split — {subject}
+
+Core of the goal: {n} words (limit 1,200). No goal written.
+
+## Proposed split
+| Part | Deliverables | Accepted on its own because |
+|---|---|---|
+
+## What goes back to the scoping
+{the decision the scoping must take before a goal can be written for each part}
+```
+
 # Definition of done
+
+- The core of the goal holds in 1,200 words or fewer, and its details are in an annex it names; or no goal is written and the output is « to split », with the word count of the core and a proposed split of the scoping, each part with its reason.
 
 - The goal has an intent, deliverables each with its reader and its format skill (or the statement that it has none), constraints and prohibitions, authorisations, a stopping condition, and a turn ceiling.
 - The stopping condition names the acceptance script by its slot, says nothing of what it checks, and says that a report from the agent does not count.
