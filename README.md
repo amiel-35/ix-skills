@@ -42,7 +42,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-37 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
+38 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
 
 ---
 
@@ -317,7 +317,7 @@ Structured intelligence tools — each audits a different dimension of a reasoni
 </details>
 
 <details>
-<summary><b>🧩 Scoping & production</b> — 5 skills</summary>
+<summary><b>🧩 Scoping & production</b> — 6 skills</summary>
 
 
 From a vague need to material ready to produce: clarify, structure, split, record. The domain deliverables that follow (PRD, specs, offers, job descriptions…) live in [ix-recipes](https://github.com/amiel-35/ix-recipes).
@@ -365,6 +365,14 @@ From a vague need to material ready to produce: clarify, structure, split, recor
 **Use when:** A scoping is closed and the work will be handed to an agent that must run to the end without questions.
 
 > `cadrage` in `close` mode records the decisions. `goal-writing` turns them into the mission.
+
+#### `criteres-reussite` — Brief → verifiable success criteria
+
+**What it does:** Writes the success criteria of a deliverable before it exists (its acceptance plan, its definition of done) — code, any tender response or specification, an advertising campaign, a dissertation, building works, a salary grid, a negotiation, a bill, a wedding — as a table of tests: item or situation, check, expected result, kind of evidence (`mécanique`: a script or a search settles it; `relecture`: a judge other than the author; `terrain`: only in real conditions), who checks (competence and confidentiality). It separates the deliverable, which the author controls, from the outcome, which depends on others and is aimed at as a zone between a floor and a target; asks « what could pass every test and still be wrong? » and turns the answers into tests; adds content tests (no « [à compléter] » in the rendered deliverable, a source for every figure); keeps a hidden part for the judge, the counter to an author or an agent that games visible tests; and states how much of the plan an automatic loop can cover. The method stands on its own for any subject; four annexes add depth on demand: software, negotiation, written deliverables (proposal, dissertation, specification), physical works. When there is no separate judge (a couple, partners), the hidden part becomes criteria each party writes alone, compared later.
+
+**What it doesn't do:** Does not produce the deliverable, and does not judge it — `controle-qualite` or `quality-check` can use the plan as their grid afterwards.
+
+**Use when:** Before work starts, to agree on what « done » means; as the stopping criterion of a coding agent that iterates until green; before a negotiation, to fix in advance what a good agreement is for each party.
 
 ---
 
@@ -517,7 +525,7 @@ For plain chat UIs with no CLI: copy-paste the content of `skills/<id>.md` as a 
 
 ### References (annexes read on demand)
 
-Three skills ship annexes in a `references/` subfolder next to their `SKILL.md`, and read only the one a given request needs: `prioritize` (one file per method: ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, value/effort, weighted scoring), `deliver` (HTML templates, recipient profiles) and `critique` (lenses by content type). The sources are in `partials/`; `build.py` copies them into `dist/skills/<id>/references/` (and `codex-dist/<id>/references/`).
+Four skills ship annexes in a `references/` subfolder next to their `SKILL.md`, and read only the one a given request needs: `prioritize` (one file per method: ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, value/effort, weighted scoring), `deliver` (HTML templates, recipient profiles) `critique` (lenses by content type) and `criteres-reussite` (software, negotiation, written deliverables, physical works). The sources are in `partials/`; `build.py` copies them into `dist/skills/<id>/references/` (and `codex-dist/<id>/references/`).
 
 | Installation | References |
 |---|---|
@@ -529,7 +537,7 @@ Three skills ship annexes in a `references/` subfolder next to their `SKILL.md`,
 | mystaffy / ix-memory | not carried |
 | GPT / Gemini (paste `skills/<id>.md`) | not carried |
 
-Without the folder: `prioritize` applies its generic criteria and says the detailed method was unavailable, and `critique` picks lenses from its canonical list. `deliver` loses the HTML and recipient-profile guidance, so paste `partials/deliver_html.md` (HTML target) and `partials/deliver_recipient_profiles.md` (recipient given) after it. For `prioritize`, paste the file of the method you want, e.g. `partials/framework_rice.md`; for `critique`, `partials/critique_lenses.md`.
+Without the folder: `prioritize` applies its generic criteria and says the detailed method was unavailable, and `critique` picks lenses from its canonical list. `deliver` loses the HTML and recipient-profile guidance, so paste `partials/deliver_html.md` (HTML target) and `partials/deliver_recipient_profiles.md` (recipient given) after it. For `prioritize`, paste the file of the method you want, e.g. `partials/framework_rice.md`; for `critique`, `partials/critique_lenses.md`. `criteres-reussite` applies its core method and says the annex was unavailable; paste the matching `partials/criteres_*.md` after it.
 
 ---
 
