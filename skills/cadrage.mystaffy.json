@@ -23,6 +23,17 @@
       "required": false,
       "default": true,
       "help": "Faire apparaitre plusieurs options si utile."
+    },
+    "mode": {
+      "label": "Mode",
+      "type": "enum",
+      "required": false,
+      "default": "default",
+      "help": "default = cadrage habituel (besoin reformulé, hypothèses, questions ouvertes) ; close = prend un cadrage soumis et les réponses données à la pause, et rend un cadrage clos (décisions avec leur source, contraintes avec leur raison, périmètre, livrables avec leur lecteur, risques acceptés).",
+      "values": [
+        "default",
+        "close"
+      ]
     }
   },
   "ui": {
@@ -30,7 +41,9 @@
       "niveau_exploration",
       "inclure_alternatives"
     ],
-    "advanced_fields": []
+    "advanced_fields": [
+      "mode"
+    ]
   },
   "execution": {
     "supports_async": true,

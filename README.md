@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
   <img alt="Plugin version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-36-3d6b73">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-37-3d6b73">
   <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
 </p>
 
@@ -42,7 +42,7 @@
 
 Atomic knowledge-work skills — portable across Claude, GPT, Gemini, and mystaffy.
 
-36 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
+37 skills in 4 categories (2 in draft). Each skill encodes a **cognitive process**, not domain expertise. Domain skills (HR, legal, finance, procurement, product, tech) live in [ix-recipes](https://github.com/amiel-35/ix-recipes), which builds on these atoms.
 
 ---
 
@@ -317,7 +317,7 @@ Structured intelligence tools — each audits a different dimension of a reasoni
 </details>
 
 <details>
-<summary><b>🧩 Scoping & production</b> — 4 skills</summary>
+<summary><b>🧩 Scoping & production</b> — 5 skills</summary>
 
 
 From a vague need to material ready to produce: clarify, structure, split, record. The domain deliverables that follow (PRD, specs, offers, job descriptions…) live in [ix-recipes](https://github.com/amiel-35/ix-recipes).
@@ -329,6 +329,8 @@ From a vague need to material ready to produce: clarify, structure, split, recor
 **What it does:** Explores and clarifies a vague or incomplete need — surfacing intent, constraints, hypotheses, and decision points before any production begins. The reformulated need states the goal, never the artefact the request names: that artefact is a constraint when justified, a hypothesis with its own open question otherwise, and consultation-imposed deliverables are listed apart as constraints on the response. Produces a clarification report and recommended next steps.
 
 **What it doesn't do:** Does not produce a brief or spec directly. It's the step that makes `brief` possible when the input is too fuzzy.
+
+**Mode `close`:** Chosen by the message, never on its own. Give it a submitted scoping and the answers given at the pause, and it returns a **closed scoping** — intent, audience and situation of use, decisions with their source (an answer from the pause prevails over the default of the submitted scoping; a default accepted without a remark is marked as such and recalled), constraints with their rationale, scope and out of scope, stakeholders, deliverables with their reader and their documentation (a specification and an architecture when the subject builds a system), remaining assumptions as accepted risks, splitting tests replayed, whether it is ready for the next step, retained readings and the residual question. Without that message, `cadrage` does what it has always done.
 
 **Use when:** The request is too ambiguous to brief directly. When you need to align on what's actually being asked before committing.
 
@@ -351,6 +353,18 @@ From a vague need to material ready to produce: clarify, structure, split, recor
 **What it does:** Decomposes a complex need into independent, prioritized lots before spec or delivery begins. Produces a structured decomposition that feeds a PRD, a sprint, or a project plan.
 
 **Use when:** The subject is dense or multi-dimensional and needs to be broken down before anyone can spec or estimate it. Upstream of a PRD or a feature spec (see [ix-recipes](https://github.com/amiel-35/ix-recipes)) for complex initiatives.
+
+---
+
+#### `goal-writing` — Closed scoping → goal for an autonomous agent
+
+**What it does:** Writes the goal of an agent that works alone for many turns, from a closed scoping and a set of settings: intent, deliverables (each with its format skill, received as an input), constraints and prohibitions, authorisations (sub-agents with an explicit model, writing on a single thread), a stopping condition that points to an acceptance script without knowing what it checks, and a turn ceiling. Where a value is only fixed later, the goal carries a named slot.
+
+**What it doesn't do:** Does not write the success criteria or the acceptance script, does not choose a format skill, and does not describe the command of any tool — it describes the content of a goal.
+
+**Use when:** A scoping is closed and the work will be handed to an agent that must run to the end without questions.
+
+> `cadrage` in `close` mode records the decisions. `goal-writing` turns them into the mission.
 
 ---
 
