@@ -4,6 +4,190 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-19 — plugin 4.3.0 published: cadrage `close` mode, goal-writing, criteres-reussite
+
+- Publishes together the two branches prepared for plugin 4.3.0: `cadrage`
+  1.3.3 (`close` mode) and `goal-writing` 1.1.0, the parts of ix-pilote's
+  part A, and `criteres-reussite` 1.2.0. Details in the entries below. Skill
+  count 38.
+
+## 2026-10-19 — goal-writing 1.1.0: hard length limit and split signal
+
+- `goal-writing` 1.1.0: the goal holds in 1,200 words at most — a hard limit.
+  Details that the core only points to (interfaces, contracts, long lists of
+  paths, detailed conduct) go into an annex of the goal, a separate document the
+  goal names and the agent reads. The writer measures the core; above the limit
+  it does not compress but returns « to split », with the word count and a
+  proposed split of the closed scoping by groups of deliverables, which goes
+  back to the scoping. A correction after review goes into the annex unless it
+  changes what the agent must do. Learnt from a passage where the goal grew to
+  9,000 words and the subject should have been split.
+
+## 2026-10-17 — plugin 4.3.0: cadrage `close` mode, goal-writing
+
+- `cadrage` 1.3.0: a second mode, `close`, chosen by the message. It takes a
+  submitted scoping and the answers given at the pause and returns a closed
+  scoping — intent, audience and situation of use, decisions with their source,
+  constraints with their rationale, scope and out of scope, stakeholders,
+  deliverables with their reader and documentation (a specification and an
+  architecture when the subject builds a system), remaining assumptions as
+  accepted risks, splitting tests replayed, ready for the next step, retained
+  readings, residual question. Three closing rules are written in the body: an
+  answer from the pause prevails over the default and is cited as the source of
+  the decision; a default accepted without an answer is marked and recalled; a
+  blocking question left without an answer becomes the residual question.
+  Without that mode in the message, the method and the output format are those
+  of 1.2.2, unchanged. `cadrage.mystaffy.json` gains an optional `mode` param.
+- `cadrage` 1.3.1: in mode `close`, remaining assumptions carry exactly one of
+  three marks — accepted risk (only what the decision-maker accepted, with its
+  origin), accepted by default and not raised at the pause (to confirm), or
+  proposed by the writer (to confirm) — the last two being recalled to the
+  decision-maker and not accepted risks. A default rejected at the pause is
+  never cited as the source of a decision. The closed scoping no longer draws up
+  a list of authorisations: what the subject allows or forbids stays under scope
+  and constraints. Default mode unchanged.
+- `cadrage` 1.3.2: in mode `close`, a constraint without rationale stays in the
+  constraints table as « imposed by <who>, no other reason given » with the
+  decision cited; the scope carries what the subject allows as in-scope items,
+  with no permits and forbids sub-list; a default that settles a decision does
+  not accept the assumption behind it; a true splitting test splits unless the
+  decision-maker decided otherwise, cited; validators and readers are described
+  by what they do, when and with which means.
+- `cadrage` 1.3.3: in mode `close`, every constraint, wherever filed
+  (decisions and prohibitions included), has a rationale given for it; one
+  without becomes a residual question that asks why, never « imposed by <who> ».
+  A closed scoping holds no assumption « to confirm »: assumptions the submitted
+  scoping carried with their risk are accepted risks with their origin, those
+  raised while closing go to a closing reminder and the scoping is not closed
+  until it is answered. A true splitting test splits, without exception. Every
+  reader, validator or checker named anywhere is described in the audience
+  section; deliverables carry their part. Rule 3 no longer contradicts itself
+  (a blocking question is declared blocking, for the part that starts now). A
+  statement about how the solution is built is never an assumption raised at
+  closing; a rationale covers a constraint only as far as it goes; the
+  splitting verdicts must agree with the stakeholders, assumptions and
+  residual questions. Default mode unchanged.
+- `goal-writing` 1.0.0 (new): writes the goal of an autonomous agent from a
+  closed scoping and settings — intent, deliverables each with its format skill
+  received as an input, constraints and prohibitions, authorisations, a stopping
+  condition that points to an acceptance script without knowing its content, a
+  turn ceiling, named slots for values fixed later. Describes the content of a
+  goal, not any tool's command.
+
+## 2026-10-17 — criteres-reussite 1.2.0
+
+Corrections from an independent review of 1.1.0 (23 findings). Plugin stays
+4.3.0 (not yet published).
+
+- The hidden part no longer leaks: the visible plan never cites a hidden line,
+  a trap guarded only by hidden lines is written in the hidden part; when the
+  requester cannot be inferred, it is treated as the author (sealed request,
+  no hidden lines); the sealed request names no requirement; at least two
+  hidden lines per guarded requirement; a hidden line that failed then was
+  fixed is spent.
+- Stopping criterion in two settings: a judge who executes, and an evaluator
+  that only reads the conversation (a `/goal`-type condition) — what the agent
+  must show (exact command, complete raw output, checksum and test count each
+  round), what that evaluator cannot tell, a ten-to-fifteen-line goal
+  statement. In both, the judge writes or reviews and freezes the mechanical
+  tests before the first round; the baseline is the frozen suite.
+- « Who checks » names the independence as well as the competence; checks
+  that are destructive, intrusive or need what the brief does not provide are
+  marked `[costly]`; the label follows the instrument (an automatic audit is
+  `mécanique` and settles only what it measures); new trap family « a choice
+  documented where the requirement is a compliant choice ».
+- Thresholds: « if no version meets it, the threshold is wrong » now applies
+  to `[proposed]` thresholds only; thresholds from the brief, a law, a
+  standard or a contract stay. The 64-bit example left the body.
+- Core defined by its function (blocking lines plus one guard per trap, no
+  `terrain`, no hidden line), triggered above about 45 lines, at most about
+  30; durations only when the brief allows an estimate. Coverage adds a
+  sentence on weight. « Date the sources » is its own step; without an
+  interlocutor, the skill states its assumption and goes on. The opt-out rule
+  and the session vocabulary left the generic body.
+- `criteres_logiciel` split into part A (any software) and part B (live
+  multi-user sessions: session flow, load at the peak, venue, degraded mode,
+  states and actors); « who writes and freezes the tests » and the frozen
+  baseline added to « keeping a loop honest ».
+- Descriptions shortened (about 890 characters). mystaffy: `requester` field.
+- Tests: a synthetic case equivalent to the « biais » case, kept in the repo
+  with its documents (case 15), and four unrelated cases, graded by an agent
+  that did not write the skill. After that grading: the floor is the upper limit when less
+  is better; the summary is reread against the tables; the goal statement
+  lists every visible mechanical line or says which it leaves out.
+
+## 2026-10-17 — criteres-reussite 1.1.0
+
+Corrections after a real run of 1.0.0 on the « biais » module of ia-atelier,
+compared with its hand-written acceptance plan and with seven built versions.
+Plugin stays 4.3.0 (not yet published).
+
+- Proposed thresholds fit the use and the counter-measures: a code a person
+  retypes is judged on attempt limits and lifetime, not on 64 bits of entropy;
+  a threshold no reasonable version could meet is the threshold's fault.
+- Dated sources: content from a source older than a later decision, or that
+  may have been replaced, yields no mechanical line before confirmation; the
+  line goes on the requirement, the content into the open questions.
+- A fallback is a result, not a plan: each kind of failure named apart, what
+  must still hold, checked by a dry run without the dependency and by the
+  presence of what the fallback needs.
+- For every actor, every state: what each actor sees and can do in each state,
+  not only what is stored (someone who opts out still follows the session).
+- A core of twenty to thirty lines (blocking lines plus trap guards) is marked
+  in plans longer than about thirty lines, for a quick acceptance.
+- `criteres_logiciel`: recovery of a masked cell by subtraction (totals, other
+  views, successive displays), with its hidden version; codes a person
+  retypes; degraded mode by kind of failure; a pass on states and actors
+  (asked again without earlier answers, « session over » after deletion).
+
+## 2026-10-17 — plugin 4.3.0: criteres-reussite
+
+- `criteres-reussite` 1.0.0 (new): writes, from a scoping note or a brief, the
+  verifiable success criteria (acceptance plan, definition of done) of any
+  deliverable or undertaking — code, a tender response or the specification of
+  any call for tenders, an advertising campaign, a dissertation, building
+  works, a salary grid, a negotiation, a bill, a wedding — as a table of tests
+  (item, check, expected result, kind of evidence `mécanique` / `relecture` /
+  `terrain`, who checks, with competence and confidentiality). Separates the
+  deliverable from the outcome, aimed at as a zone between a floor and a target
+  set in advance; adds the requirements of the theme that the brief does not
+  name (security for software, desire and safety for a couple), above all what
+  is intimate or taken for granted; turns « what could pass every test and still be wrong? » into
+  tests; adds content tests (no placeholder in the rendered deliverable, a
+  source for every figure); names the blocking lines; keeps a hidden part for
+  the judge that guards known requirements only, the counter to Goodhart's law
+  and to coding agents that game their tests; states how much of the plan a
+  loop can close, and the loop's stopping criterion. Never writes the hidden
+  part for a requester who is the author (a sealed request goes to the judge
+  instead); keeps no hidden criterion when the criteria are published to
+  competing authors (the hidden part then tests the criteria); replaces it by
+  blind criteria when there is no separate judge (a couple, partners). Does not
+  produce or judge the deliverable.
+- Four annexes in `partials/`, read on demand; the method stands alone for any
+  other subject. `criteres_logiciel` (rendered output, distribution of random
+  draws, rules enforced by the server, load, real devices, anonymity and
+  erasure checked down to the files with a canary, SQLite `secure_delete`,
+  keeping a loop honest); `criteres_negociation` (Raiffa scoring template,
+  fallbacks and floors, Pareto, a Nash or maximin threshold for the
+  least-served party, Subjective Value Inventory, durability at 6 and 12 months,
+  unrepresented parties, a simulated counterpart with `red-team` as hidden
+  part); `criteres_document` (proposal, dissertation, report, specification:
+  answering the question asked, leftovers from another text, compliance
+  matrix, testing published criteria); `criteres_travaux` (acceptance tests
+  written before work, hold points, reservations at handover, defects after a
+  season). References checked before citing.
+- `tests/cas-skills/criteres-reussite.md`: eleven cases — the « biais » module
+  of ia-atelier on its real scoping note (outputs kept out of the repo), a SaaS
+  renewal, a salary grid, a negotiated bill, a tender response, a dissertation,
+  a house renovation, a public-procurement specification, an advertising
+  campaign specification, a wedding, a couple moving in together, and three
+  one-sentence requests (a couple, a physiotherapy booking app, a flat share)
+  that test the requirements of the theme — criteria
+  written before reading the outputs; outputs in
+  `tests/cas-skills/sorties/criteres-reussite/`. First drafted as
+  `cahier-de-recette`, renamed before release: « recette » is IT jargon and
+  clashes with the recipes of ix-recipes; the old name stays a trigger.
+
 ## 2026-10-16 — plugin 4.2.0: calc-check
 
 - `calc-check` 1.0.0 (new): recomputes every derived figure of a text

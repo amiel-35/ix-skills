@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="Licence" src="https://img.shields.io/github/license/amiel-35/ix-skills?color=7f9a96"></a>
   <img alt="Version du plugin" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Famiel-35%2Fix-skills%2Fmain%2Fdist%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin&color=7fc8bd">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-plugin-D97757">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-36-3d6b73">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-37-3d6b73">
   <img alt="Platforms" src="https://img.shields.io/badge/also-Codex%20%C2%B7%20GPT%20%C2%B7%20Gemini%20%C2%B7%20mystaffy-56707a">
 </p>
 
@@ -42,7 +42,7 @@
 
 Skills de knowledge-work atomiques — portables sur Claude, GPT, Gemini, mystaffy.
 
-36 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
+38 skills en 4 catégories (2 en draft). Chaque skill encode un **processus cognitif**, pas une expertise métier. Les skills métier (RH, juridique, finance, achats, produit, tech) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes), qui s'appuie sur ces atomes.
 
 ---
 
@@ -317,7 +317,7 @@ Outils de renseignement structuré — chacun audite une dimension différente d
 </details>
 
 <details>
-<summary><b>🧩 Cadrage & production</b> — 4 skills</summary>
+<summary><b>🧩 Cadrage & production</b> — 6 skills</summary>
 
 
 Du besoin flou au matériau prêt à produire : clarifier, structurer, découper, consigner. Les livrables métier qui suivent (PRD, specs, offres, fiches de poste…) sont dans [ix-recipes](https://github.com/amiel-35/ix-recipes).
@@ -329,6 +329,8 @@ Du besoin flou au matériau prêt à produire : clarifier, structurer, découper
 **Ce qu'il fait :** Explore et clarifie un besoin vague ou incomplet — surface l'intention, les contraintes, les hypothèses et les points de décision avant tout lancement de production. Le besoin reformulé dit le but, jamais l'artefact que la demande nomme : cet artefact est une contrainte s'il est justifié, une hypothèse avec sa question ouverte sinon, et les attendus imposés par une consultation sont listés à part comme contraintes sur la réponse. Produit un rapport de clarification et des prochaines étapes recommandées.
 
 **Ce qu'il ne fait pas :** Ne produit pas de brief ou de spec directement. C'est l'étape qui rend `brief` possible quand l'input est trop flou.
+
+**Mode « clore » (`close`) :** Choisi par le message, jamais de lui-même. Donnez-lui un cadrage soumis et les réponses données à la pause, il rend un **cadrage clos** — intention, public et situation d'usage, décisions avec leur source (une réponse de la pause l'emporte sur le défaut du cadrage soumis ; un défaut accepté sans remarque est marqué comme tel et rappelé), contraintes avec leur raison, périmètre et hors-périmètre, parties prenantes, livrables avec leur lecteur et leur documentation (une spec et une architecture quand le sujet construit un système), hypothèses restantes en risques acceptés, tests de découpage rejoués, prêt ou non pour l'étape suivante, lectures retenues et question résiduelle. Sans ce message, `cadrage` fait ce qu'il a toujours fait.
 
 **Quand l'utiliser :** La demande est trop ambiguë pour être briefée directement. Quand il faut s'aligner sur ce qui est vraiment demandé avant de s'engager.
 
@@ -351,6 +353,26 @@ Du besoin flou au matériau prêt à produire : clarifier, structurer, découper
 **Ce qu'il fait :** Décompose un besoin complexe en lots indépendants et priorisés avant la spec ou la livraison. Produit une décomposition structurée qui alimente un PRD, un sprint ou un plan projet.
 
 **Quand l'utiliser :** Le sujet est dense ou multi-dimensionnel et doit être découpé avant que quiconque puisse le spécifier ou l'estimer. En amont d'un PRD ou d'une spec fonctionnelle (voir [ix-recipes](https://github.com/amiel-35/ix-recipes)) pour les initiatives complexes.
+
+---
+
+#### `goal-writing` — Cadrage clos → goal pour un agent autonome
+
+**Ce qu'il fait :** Rédige le goal d'un agent qui travaille seul pendant de nombreux tours, à partir d'un cadrage clos et de réglages : intention, livrables (chacun avec son skill de format, reçu en entrée), contraintes et interdits, autorisations (sous-agents avec un modèle explicite, écriture sur un seul fil), condition d'arrêt qui renvoie à un script de recette sans savoir ce qu'il vérifie, plafond de tours. Quand une valeur n'est fixée que plus tard, le goal porte un emplacement nommé.
+
+**Ce qu'il ne fait pas :** Ne rédige ni les critères de réussite ni le script de recette, ne choisit aucun skill de format, et ne décrit la commande d'aucun outil — il décrit le contenu d'un goal.
+
+**Quand l'utiliser :** Un cadrage est clos et le travail sera confié à un agent qui doit aller au bout sans poser de question.
+
+> `cadrage` en mode « clore » consigne les décisions. `goal-writing` en fait la mission.
+
+#### `criteres-reussite` — Brief → critères de réussite vérifiables
+
+**Ce qu'il fait :** Écrit les critères de réussite d'un livrable avant qu'il existe (son cahier de recette, sa définition de « fini ») — code, réponse ou cahier des charges de n'importe quel appel d'offres, campagne publicitaire, dissertation, travaux, grille de salaires, négociation, texte de loi, mariage — sous forme d'un tableau de tests : élément ou situation, vérification, résultat attendu, type de preuve (`mécanique` : un script ou une recherche suffit ; `relecture` : un juge autre que l'auteur ; `terrain` : seulement en vrai), qui vérifie (compétence et confidentialité). Il sépare le livrable, que l'auteur maîtrise, de l'issue, qui dépend d'autres acteurs et se vise par une zone entre un plancher et un objectif ; pose la question « qu'est-ce qui passerait tous ces tests en restant faux ? » et en fait des tests ; ajoute des tests de contenu (aucun « [à compléter] » dans le livrable rendu, une source pour chaque chiffre) ; garde une part cachée pour le juge, parade contre un auteur ou un agent qui optimise les tests visibles ; et dit quelle part du cahier une boucle automatique peut couvrir. La méthode tient seule pour n'importe quel sujet ; quatre annexes l'approfondissent selon le cas : logiciel, négociation, écrits (offre, dissertation, cahier des charges), travaux. Sans juge séparé (un couple, des associés), la part cachée devient des critères que chacun écrit seul, comparés plus tard.
+
+**Ce qu'il ne fait pas :** Ne produit pas le livrable, et ne le juge pas — `controle-qualite` ou `quality-check` peuvent ensuite s'en servir comme grille.
+
+**Quand l'utiliser :** Avant de commencer, pour s'accorder sur ce que « fini » veut dire ; comme critère d'arrêt d'un agent qui code en boucle jusqu'au vert ; avant une négociation, pour fixer à l'avance ce qu'est un bon accord pour chaque partie.
 
 ---
 
@@ -503,7 +525,7 @@ Pour les interfaces de chat simples, sans CLI : copier-coller le contenu de `ski
 
 ### Références (annexes lues à la demande)
 
-Trois skills livrent des annexes dans un sous-dossier `references/` à côté de leur `SKILL.md`, et ne lisent que celle dont une demande a besoin : `prioritize` (un fichier par méthode : ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), `deliver` (gabarits HTML, profils de destinataires) et `critique` (angles d'examen par type de contenu). Les sources sont dans `partials/` ; `build.py` les copie dans `dist/skills/<id>/references/` (et `codex-dist/<id>/references/`).
+Quatre skills livrent des annexes dans un sous-dossier `references/` à côté de leur `SKILL.md`, et ne lisent que celle dont une demande a besoin : `prioritize` (un fichier par méthode : ICE, RICE, WSJF, MoSCoW, Kano, Eisenhower, valeur/effort, notation pondérée), `deliver` (gabarits HTML, profils de destinataires) `critique` (angles d'examen par type de contenu) et `criteres-reussite` (logiciel, négociation, écrits, travaux). Les sources sont dans `partials/` ; `build.py` les copie dans `dist/skills/<id>/references/` (et `codex-dist/<id>/references/`).
 
 | Installation | Références |
 |---|---|
@@ -515,7 +537,7 @@ Trois skills livrent des annexes dans un sous-dossier `references/` à côté de
 | mystaffy / ix-memory | non emportées |
 | GPT / Gemini (coller `skills/<id>.md`) | non emportées |
 
-Sans le dossier : `prioritize` applique ses critères génériques et dit que la méthode détaillée n'était pas disponible, et `critique` choisit ses angles dans sa liste canonique. `deliver` perd les consignes HTML et les profils de destinataires : coller après lui `partials/deliver_html.md` (cible HTML) et `partials/deliver_recipient_profiles.md` (destinataire donné). Pour `prioritize`, coller le fichier de la méthode voulue, par exemple `partials/framework_rice.md` ; pour `critique`, `partials/critique_lenses.md`.
+Sans le dossier : `prioritize` applique ses critères génériques et dit que la méthode détaillée n'était pas disponible, et `critique` choisit ses angles dans sa liste canonique. `deliver` perd les consignes HTML et les profils de destinataires : coller après lui `partials/deliver_html.md` (cible HTML) et `partials/deliver_recipient_profiles.md` (destinataire donné). Pour `prioritize`, coller le fichier de la méthode voulue, par exemple `partials/framework_rice.md` ; pour `critique`, `partials/critique_lenses.md`. `criteres-reussite` applique sa méthode de base et dit que l'annexe manquait ; coller après lui le `partials/criteres_*.md` qui correspond.
 
 ---
 
