@@ -21,6 +21,13 @@ Règle pour la suite : avant de reprendre quoi que ce soit d'un autre dépôt, v
 - **Skills inspirés :** `cadrage` (d'après `skills/brainstorming` : ne rien produire avant d'avoir cadré, explorer le contexte, proposer des options), `revue-feedback` (d'après `skills/receiving-code-review` : recevoir une critique sans céder ni se défendre par réflexe, pas d'accord de façade)
 - **Ce qui en est repris :** l'idée et la posture, importées en mars 2026 via l'annuaire agentskill.sh. Aucun passage du texte d'origine ne subsiste ; crédit donné par prudence.
 
+## mattpocock/skills (Matt Pocock)
+
+- **Source :** https://github.com/mattpocock/skills, `skills/in-progress/writing-shape` et `skills/in-progress/writing-beats` (commit 5beb35b, consulté le 2026-10-23)
+- **Licence :** MIT, « Copyright (c) 2026 Matt Pocock »
+- **Skill inspiré :** `controle-qualite` 1.1.0, pour la règle « terme employé avant d'être posé » (l'ancrage : un concept est prérequis ou posé par un passage antérieur avant qu'un autre passage s'appuie dessus ; l'unité est le concept, pas le mot).
+- **Ce qui en est repris :** l'idée d'ancrage et la distinction prérequis / introduit, reformulées en règle de contrôle. Aucun passage du texte d'origine n'est recopié.
+
 ## anthropics/knowledge-work-plugins (Anthropic)
 
 - **Source :** https://github.com/anthropics/knowledge-work-plugins, `product-management/skills/roadmap-update` (section sur les cadres de priorisation)

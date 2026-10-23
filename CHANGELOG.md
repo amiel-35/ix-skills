@@ -4,6 +4,15 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-23, plugin 4.4.0: grounding check in controle-qualite
+
+- `controle-qualite` 1.1.0: in `sweep` mode, the rule « a term used before it
+  is grounded » is checked in reading order. Starting from the prerequisites the
+  reference lists, it keeps the concepts each passage grounds and quotes the
+  first passage that leans on a concept not yet grounded, jargon or not. Later
+  uses are not new breaches. The idea comes from Matt Pocock's `writing-shape`
+  and `writing-beats` (MIT), see `THIRD_PARTY.md`.
+
 ## 2026-10-19 — plugin 4.3.0 published: cadrage `close` mode, goal-writing, criteres-reussite
 
 - Publishes together the two branches prepared for plugin 4.3.0: `cadrage`

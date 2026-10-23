@@ -1,9 +1,9 @@
 ---
 id: controle-qualite
 label: Contrôle qualité
-version: 1.0.0
-description_fr: Vérifie un livrable contre un référentiel de règles fourni — consignes, gabarit, charte, orthographe, grammaire, typographie, vocabulaire interdit, règles du client — et rend un verdict par constat, conforme ou non, avec la règle en jeu et le passage exact. Deux modes donnés par le message — `sweep` (trouver chaque manquement du livrable) et `verdict` (trancher une liste de manquements suspectés). Déclenche sur "vérifie ça contre nos règles", "relis cette page pour les fautes", "cette liste de fautes est-elle juste", "ce rapport respecte-t-il le gabarit", "contrôle qualité avant envoi". Ne vérifie pas des faits contre des preuves, voir `fact-check` — ni le fond ou la pertinence, voir `critique`.
-description_en: Checks a deliverable against a provided set of rules — instructions, template, style guide, spelling, grammar, typography, forbidden vocabulary, client rules — and gives a verdict per finding, compliant or not, with the rule at stake and the exact passage. Two modes set by the message — `sweep` (find every breach in the deliverable) and `verdict` (rule on a given list of suspected breaches). Triggers on "check this against our rules", "proofread this page for errors", "is this list of mistakes right", "does this report follow the template", "quality control before sending". Does not check facts against evidence, see `fact-check` — nor substance or relevance, see `critique`.
+version: 1.1.0
+description_fr: Vérifie un livrable contre un référentiel de règles fourni — consignes, gabarit, charte, orthographe, grammaire, typographie, vocabulaire interdit, terme employé avant d'être posé, règles du client — et rend un verdict par constat, conforme ou non, avec la règle en jeu et le passage exact. Deux modes donnés par le message — `sweep` (trouver chaque manquement du livrable) et `verdict` (trancher une liste de manquements suspectés). Déclenche sur "vérifie ça contre nos règles", "relis cette page pour les fautes", "cette liste de fautes est-elle juste", "ce rapport respecte-t-il le gabarit", "contrôle qualité avant envoi". Ne vérifie pas des faits contre des preuves, voir `fact-check` — ni le fond ou la pertinence, voir `critique`.
+description_en: Checks a deliverable against a provided set of rules — instructions, template, style guide, spelling, grammar, typography, forbidden vocabulary, a term used before it is grounded, client rules — and gives a verdict per finding, compliant or not, with the rule at stake and the exact passage. Two modes set by the message — `sweep` (find every breach in the deliverable) and `verdict` (rule on a given list of suspected breaches). Triggers on "check this against our rules", "proofread this page for errors", "is this list of mistakes right", "does this report follow the template", "quality control before sending". Does not check facts against evidence, see `fact-check` — nor substance or relevance, see `critique`.
 icon: ⊡
 domain: cognitif
 category: critique
@@ -62,6 +62,14 @@ and where — or, given a list of suspected breaches, you rule on each one.
    in scope that were actually checked are listed.
 5. What looks wrong but falls under no rule of the reference goes to remarks, apart, never counted as
    a breach.
+
+When the reference includes the rule « a term used before it is grounded », check it in reading order,
+not rule by rule. Start from the prerequisites the reference lists (concepts the reader brings); without
+a list, assume only what the stated reader would know, and say so in the summary. Go through the
+deliverable keeping the list of concepts each passage grounds, an idea given, with its name if it has
+one. A breach is the first passage that leans on a concept neither listed nor grounded earlier, with or
+without jargon; quote it, and the correction is to ground the concept earlier or to add it to the
+prerequisites. Later uses of the same concept are not new breaches.
 
 ### Mode `verdict`
 1. For each suspected breach: check that the quoted passage exists in the deliverable; if not, verdict

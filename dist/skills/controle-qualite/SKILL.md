@@ -1,6 +1,6 @@
 ---
 name: controle-qualite
-description: "Checks a deliverable against a provided set of rules \u2014 instructions, template, style guide, spelling, grammar, typography, forbidden vocabulary, client rules \u2014 and gives a verdict per finding, compliant or not, with the rule at stake and the exact passage. Two modes set by the message \u2014 `sweep` (find every breach in the deliverable) and `verdict` (rule on a given list of suspected breaches). Triggers on \"check this against our rules\", \"proofread this page for errors\", \"is this list of mistakes right\", \"does this report follow the template\", \"quality control before sending\". Does not check facts against evidence, see `fact-check` \u2014 nor substance or relevance, see `critique`."
+description: "Checks a deliverable against a provided set of rules \u2014 instructions, template, style guide, spelling, grammar, typography, forbidden vocabulary, a term used before it is grounded, client rules \u2014 and gives a verdict per finding, compliant or not, with the rule at stake and the exact passage. Two modes set by the message \u2014 `sweep` (find every breach in the deliverable) and `verdict` (rule on a given list of suspected breaches). Triggers on \"check this against our rules\", \"proofread this page for errors\", \"is this list of mistakes right\", \"does this report follow the template\", \"quality control before sending\". Does not check facts against evidence, see `fact-check` \u2014 nor substance or relevance, see `critique`."
 ---
 # Contrôle qualité
 
@@ -52,6 +52,14 @@ and where — or, given a list of suspected breaches, you rule on each one.
    in scope that were actually checked are listed.
 5. What looks wrong but falls under no rule of the reference goes to remarks, apart, never counted as
    a breach.
+
+When the reference includes the rule « a term used before it is grounded », check it in reading order,
+not rule by rule. Start from the prerequisites the reference lists (concepts the reader brings); without
+a list, assume only what the stated reader would know, and say so in the summary. Go through the
+deliverable keeping the list of concepts each passage grounds, an idea given, with its name if it has
+one. A breach is the first passage that leans on a concept neither listed nor grounded earlier, with or
+without jargon; quote it, and the correction is to ground the concept earlier or to add it to the
+prerequisites. Later uses of the same concept are not new breaches.
 
 ### Mode `verdict`
 1. For each suspected breach: check that the quoted passage exists in the deliverable; if not, verdict
