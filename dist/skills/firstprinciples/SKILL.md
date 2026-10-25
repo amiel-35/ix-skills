@@ -68,7 +68,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The root cause lens applies to the evaluation:
 - the strongest perspective is the one that identifies the deepest implicit assumptions and correctly reposes the problem;

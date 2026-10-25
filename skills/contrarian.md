@@ -1,7 +1,7 @@
 ---
 id: contrarian
 label: Contradicteur
-version: 1.1.0
+version: 1.1.1
 description_fr: Cherche le point de défaillance principal et les hypothèses non vérifiées qui peuvent faire échouer une décision, un plan ou un brief. Déclenche sur "où ça casse", "teste ce plan jusqu'à la rupture", "qu'est-ce qui peut le faire échouer pour de bon", "quel est le maillon faible ici", "qu'est-ce qu'on n'a pas vérifié". Ne construit pas le camp adverse complet (voir `dixieme-homme`), ne s'incarne pas en attaquant externe (voir `red-team`), ne liste pas des failles éparses (voir `critique`) et ne recense pas les non-dits d'un raisonnement (voir `key-assumptions`) — un point de rupture unique, creusé jusqu'au bout, avec ce qui l'invaliderait.
 description_en: Finds the main failure point and unverified assumptions that could cause a decision, plan, or brief to fail. Triggers on "where does this break", "stress-test this plan", "what could make this fail outright", "what's the weak link here", "what haven't we verified". Does not build the complete opposing camp (see `dixieme-homme`), does not embody an external attacker (see `red-team`), does not list scattered flaws (see `critique`), and does not inventory a reasoning's unstated premises (see `key-assumptions`) — a single breaking point, dug all the way through, with what would invalidate it.
 icon: ⚔️
@@ -110,7 +110,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The contrarian lens applies to the evaluation:
 - the strongest perspective is the one that identifies the truly fatal risks, not the most complete or most optimistic one;

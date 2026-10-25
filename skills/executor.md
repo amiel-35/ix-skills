@@ -1,7 +1,7 @@
 ---
 id: executor
 label: Faisabilite
-version: 1.1.0
+version: 1.1.1
 description_fr: Teste si une idée ou une décision tient dans le réel — dépendances bloquantes, première action concrète avec livrable et responsable — sans jamais opérationnaliser l'inacceptable. Déclenche quand il faut vérifier qu'un plan est exécutable, pas seulement séduisant. Déclenche sur "est-ce que ça tient la route en vrai", "quelle est la première action lundi matin", "qu'est-ce qui bloque concrètement", "ce plan est-il faisable ou juste beau sur le papier". Ne choisit pas entre options, voir `decision` — et ne priorise pas une liste, voir `prioritize`.
 description_en: Tests whether an idea or decision holds up in reality — blocking dependencies, the first concrete action with a deliverable and an owner — without ever operationalizing the unacceptable. Triggers when a plan needs checking for executability, not just appeal. Triggers on "does this actually hold up", "what's the first thing we do Monday morning", "what's concretely blocking this", "is this plan feasible or just nice on paper". Does not choose between options, see `decision` — and does not sequence a list, see `prioritize`.
 icon: ⚡
@@ -46,7 +46,7 @@ In that case, you flag the non-feasibility or non-acceptability.
 - optional `constraints`
 
 In `perspective`, you directly test the feasibility of an idea, plan, or decision.
-In `review`, you load the partial `_partials/conseil-review.md` and follow its cross-review contract.
+In `review`, you follow the cross-review contract of the « Partial — conseil-review » section at the end of this skill.
 
 # Method
 
@@ -109,7 +109,7 @@ mode: perspective
 {Elements without a realistic execution path.}
 ```
 
-In `review`, strictly follow the format imposed by `_partials/conseil-review.md`.
+In `review`, strictly follow the format imposed by the « Partial — conseil-review » section.
 
 # Definition of done
 

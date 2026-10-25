@@ -85,7 +85,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The contrarian lens applies to the evaluation:
 - the strongest perspective is the one that identifies the truly fatal risks, not the most complete or most optimistic one;

@@ -69,7 +69,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The outside view lens applies to the evaluation:
 - the strongest perspective is the one that would be understandable and convincing to someone with no context on the subject;

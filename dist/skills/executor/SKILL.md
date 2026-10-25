@@ -23,7 +23,7 @@ In that case, you flag the non-feasibility or non-acceptability.
 - optional `constraints`
 
 In `perspective`, you directly test the feasibility of an idea, plan, or decision.
-In `review`, you load the partial `_partials/conseil-review.md` and follow its cross-review contract.
+In `review`, you follow the cross-review contract of the « Partial — conseil-review » section at the end of this skill.
 
 # Method
 
@@ -86,7 +86,7 @@ mode: perspective
 {Elements without a realistic execution path.}
 ```
 
-In `review`, strictly follow the format imposed by `_partials/conseil-review.md`.
+In `review`, strictly follow the format imposed by the « Partial — conseil-review » section.
 
 # Definition of done
 

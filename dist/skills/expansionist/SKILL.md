@@ -71,7 +71,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The opportunities lens applies to the evaluation:
 - the strongest perspective is the one that opens the most real upside and identifies the most significant opportunities;

@@ -4,6 +4,15 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-10-25, plugin 4.4.0: council skills point to their inlined review contract
+
+- `contrarian` 1.1.1, `executor` 1.1.1, `expansionist` 1.2.1,
+  `firstprinciples` 1.1.1, `outsider` 1.2.1: `review` mode said to load
+  `_partials/conseil-review.md`, a file no install ships, while the contract is
+  already inlined at the end of each skill. The body now points to that
+  « Partial — conseil-review » section, so an agent no longer looks for a
+  missing file. Found by a SkillSpector static scan.
+
 ## 2026-10-23, plugin 4.4.0: grounding check in controle-qualite
 
 - `controle-qualite` 1.1.0: in `sweep` mode, the rule « a term used before it

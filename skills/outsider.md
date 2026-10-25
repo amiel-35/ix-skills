@@ -1,7 +1,7 @@
 ---
 id: outsider
 label: Regard exterieur
-version: 1.2.0
+version: 1.2.1
 description_fr: Lit un texte comme le ferait un externe sans aucun contexte implicite — zéro connaissance du secteur ni de l'historique — et révèle ce qui n'est pas défini, pas compris ou simplement supposé. Déclenche quand il faut vérifier qu'un document se suffit à lui-même avant diffusion. Déclenche sur "ce brief est-il compréhensible sans contexte", "relis ça comme si tu débarquais dans l'entreprise", "qu'est-ce qui n'est pas défini ici", "un externe comprendrait-il ce document". Ne décrit pas les forces de marché, voir `outside-in`.
 description_en: Reads a text or brief the way a total outsider would — zero context on the sector or the history — and reveals what is undefined, not understood, or simply assumed. Triggers when a document needs to stand on its own before it goes out. Triggers on "would this brief make sense with no background", "read this as if you just joined the company", "what's left undefined here", "would an outsider actually understand this document". Does not describe market or regulatory forces — see `outside-in`.
 icon: 👁️
@@ -92,7 +92,7 @@ mode: perspective
 
 # Mode: review
 
-Load the partial `_partials/conseil-review.md` and follow its instructions.
+Follow the « Partial — conseil-review » section at the end of this skill.
 
 The outside view lens applies to the evaluation:
 - the strongest perspective is the one that would be understandable and convincing to someone with no context on the subject;
