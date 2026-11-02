@@ -19,6 +19,14 @@ inspired by [Keep a Changelog](https://keepachangelog.com).
   `?`. The output gains a « Hard Constraints » table before « Ranking »; the
   other sections are unchanged. Rerun after the fix: substance 67 → 77 (Sonnet)
   and 81 → 86 (Opus) against the bare model, format kept.
+- Checked the same evening on 2 fresh cases written blind (a biscuit factory
+  before its IFS audit, a building-supplies wholesaler with a 250 k€ budget),
+  to rule out a fix tailored to the cases it was made on. Substance: 1.2.0
+  88 (Sonnet) and 85 (Opus), 1.3.0 92 and 92, bare model 94 and 90. The fix
+  holds on unseen cases (1.3.0 beats 1.2.0, which stayed below the bare model),
+  but on substance the skill now only matches the bare model; its value is the
+  format (bare model 7 to 14 %, 1.3.0 100 % with Sonnet, 69 % with Opus, which
+  often drops « Deprioritized Items » and « Detailed Scores »).
 
 ## 2026-11-02, plugin 4.4.1: defects found by the skills audit, shared named-solution annex
 
