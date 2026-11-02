@@ -4,6 +4,22 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-11-02, plugin 4.5.0: `prioritize` maps hard constraints before scoring
+
+- `prioritize` 1.3.0: the method scored every item (step 5), computed the
+  composite (step 6), and only then applied dependencies and blocking (step 7),
+  so constraints came in as a patch on a score-made order. On a bench against
+  the bare model (Sonnet and Opus, 2 blind-written cases, 3 runs each), the
+  skill lost 5 to 13 points of substance: unknown impacts were turned into
+  `[assumed]` numbers, the matrix set the order, and no latest start was ever
+  computed. The method now maps the hard constraints first (dependencies,
+  deadline minus duration = latest start, capacity, closing windows, a
+  constraint that could move the date itself), fixes the sequence skeleton,
+  and scores only what the skeleton leaves free; an axis with no signal stays
+  `?`. The output gains a « Hard Constraints » table before « Ranking »; the
+  other sections are unchanged. Rerun after the fix: substance 67 → 77 (Sonnet)
+  and 81 → 86 (Opus) against the bare model, format kept.
+
 ## 2026-11-02, plugin 4.4.1: defects found by the skills audit, shared named-solution annex
 
 - `simplify` 2.1.1: it sent the reader to `correction` to « apply the

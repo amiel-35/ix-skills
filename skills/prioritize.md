@@ -1,7 +1,7 @@
 ---
 id: prioritize
 label: Prioriser
-version: 1.2.0
+version: 1.3.0
 description_fr: Ordonne une liste d'éléments par ordre d'attaque avec critères explicites et score visible. Déclenche quand l'utilisateur a plusieurs éléments à séquencer — features, tâches, initiatives, risques, idées, chantiers. Déclenche sur "dans quel ordre", "qu'est-ce qu'on fait en premier", "priorise ces items", "range ces tâches", "classe ces features". Produit toujours un classement numéroté avec rationale. Ne choisit pas entre options exclusives — utiliser `decision` pour ça. Ne décompose pas un problème — utiliser `decomposer` pour ça.
 description_en: Ranks a list of items by attack order with explicit criteria and visible scores. Triggers when the user has multiple items to sequence — features, tasks, initiatives, risks, ideas, workstreams. Triggers on "in what order", "what do we do first", "prioritize these items", "rank these tasks", "sort these features". Always produces a numbered ranking with rationale. Does not choose between mutually exclusive options — use `decision` for that. Does not decompose a problem — use `decomposer` for that.
 aliases: [prioriser]
@@ -97,16 +97,24 @@ Once the framework is chosen, read **only its file** in `references/` — scales
 
 ## Method
 
+Hard constraints come before any score. A score ranks what the constraints leave free; it never decides an order that a dependency or a deadline already fixes.
+
 1. Run the **context gate** — ask one question if goal is completely absent.
 2. If goal is thin, activate **degraded mode**.
 3. Identify the goal and time horizon from the brief.
-4. Select the framework (or apply user-defined criteria with the weighted-scoring method) and read its reference file.
-5. Score each item on each axis, on the scale the reference file defines.
-6. Compute the composite score or place in matrix.
-7. Apply hard constraints (regulatory, dependency, blocking).
-8. Produce the ranked list.
-9. Flag items that are deprioritized and make the reasoning explicit.
-10. Surface assumptions that, if wrong, would change the order.
+4. **Map the hard constraints**, item by item, from the brief only:
+   - dependencies: what must finish before what can start;
+   - deadlines: for each dated item with a known duration, compute the **latest start** (deadline minus duration) and the slack it leaves today;
+   - capacity: when the items compete for the same people or budget, check that the sequence fits, month by month if dates are given;
+   - closing windows: what loses its value, or becomes impossible, after a date;
+   - a constraint that could move the date itself (a deadline others depend on) is named as such, not treated as fixed.
+5. Fix the **sequence skeleton** these constraints impose. Items on a critical path or behind a closing window are placed first, whatever their score.
+6. Select the framework (or apply user-defined criteria with the weighted-scoring method) and read its reference file.
+7. Score the items the skeleton leaves free, on the scale the reference file defines. An axis the brief gives no signal for stays `?`: do not turn an unknown into a number. An item whose order depends on an unknown is placed by its constraints, or parked with "to estimate first" and what to estimate.
+8. Compute the composite score or place in matrix, for the free items only.
+9. Produce the ranked list: skeleton first, then free items by score.
+10. Flag items that are deprioritized and make the reasoning explicit.
+11. Surface assumptions that, if wrong, would change the order.
 
 ---
 
@@ -114,7 +122,8 @@ Once the framework is chosen, read **only its file** in `references/` — scales
 
 - Do not eliminate items silently — every item must be placed or explicitly parked.
 - Do not default to "it depends" without committing to an order.
-- Do not invent scores from thin air — if you assume, mark it `[assumed]` and explain why.
+- Do not invent scores from thin air — an inferred score is marked `[assumed]` with why; an axis with no signal at all stays `?`.
+- Do not let a composite score override a dependency, a latest start or a closing window.
 - Do not let recency bias or effort inflation distort scores — check for it.
 - Never ask more than one clarifying question.
 
@@ -132,6 +141,12 @@ confidence_level: [high | medium | low]
 ---
 
 # Priority Order — {subject}
+
+## Hard Constraints
+
+| Item | Depends on | Deadline | Latest start | Slack | Window or capacity |
+|---|---|---|---|---|---|
+| ... | ... | ... | ... | ... | ... |
 
 ## Ranking
 
@@ -170,6 +185,7 @@ Scores marked [assumed]. Provide the goal to get a more reliable ranking.
 ## Definition of Done
 
 - Every item is placed in the ranked list or explicitly parked with a reason.
+- Every dated item has its latest start computed, and no ranking breaks a dependency.
 - The scoring method is visible and reproducible.
 - Key assumptions that could invert the order are named.
 - The human can act on the list immediately.
