@@ -87,7 +87,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 |---|---|---|
 | `critique` | Identify flaws in content without proposing solutions | Analysis only — **does not fix** |
 | `correction` | Turn a critique into actionable directives | Transforms a critique — **does not re-analyze** |
-| `simplify` | Identify what can be removed without changing the meaning | Identifies removals — **does not apply them** (use `correction`) |
+| `simplify` | Identify what can be removed without changing the meaning | Identifies removals — **does not apply them** (the user applies the ones they keep) |
 | `rephrase` | Restate the real meaning of dense or ambiguous content | Reinterprets — meaning may shift, not just trimmed |
 | `explorer` | Generate an option space — writes the default answer first, then sets it aside; `breadth` decides whether the vehicle named in the input stays a constraint (`standard`) or is set aside too (`broad`) | Breadth — **does not choose** |
 | `decision` | Arbitrate with visible trade-offs and a clear recommendation | Chooses among existing options — **does not generate** |
@@ -113,7 +113,7 @@ Primitive operations on content, problems, and decisions. Each encodes a single 
 `critique` judges substance — what is weak, unclear, missing — and needs no reference. `fact-check` checks a text against *evidence*: one verdict per claim (confirmed, contradicted, not in the source, not checkable), each backed by a verbatim quote of the source. `calc-check` takes over where `fact-check` stops on figures: a variance of 12.4 % computed from two amounts is not *in* the source, so `fact-check` can only call it « not in the source », right or wrong; `calc-check` rebuilds the calculation from the source's values and says whether it holds. `controle-qualite` checks a deliverable against *rules* given as input — template, style guide, spelling, forbidden vocabulary: one verdict per finding, with the rule and the exact passage. These verifiers quote text a script can find, which is what lets them run on a cheaper model and be checked in turn. `quality-check` is a different question again: not whether a text matches its source, but whether the sources themselves can be trusted.
 
 **`simplify` vs `rephrase` vs `synthese`**
-- `simplify` names the noise that could go while keeping all the information — it identifies the removals, `correction` applies them.
+- `simplify` names the noise that could go while keeping all the information — it identifies the removals; the user applies the ones they keep.
 - `rephrase` rewrites dense or ambiguous content to make the actual meaning legible — it reinterprets, not just trims.
 - `synthese` deliberately loses detail to extract the essential — lossy compression that produces an actionable summary.
 

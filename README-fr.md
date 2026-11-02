@@ -87,7 +87,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 |---|---|---|
 | `critique` | Identifier les failles d'un contenu sans proposer de solution | Analyse seulement — **ne corrige pas** |
 | `correction` | Transformer une critique en directives actionnables | Transforme une critique — **ne ré-analyse pas** |
-| `simplify` | Repérer ce qui peut être retiré sans changer le fond | Identifie les retraits — **ne les applique pas** (voir `correction`) |
+| `simplify` | Repérer ce qui peut être retiré sans changer le fond | Identifie les retraits — **ne les applique pas** (l'utilisateur applique ceux qu'il retient) |
 | `rephrase` | Restituer le sens réel d'un contenu dense ou ambigu | Réinterprète — le sens peut évoluer, pas seulement la forme |
 | `explorer` | Générer un espace d'options — écrit d'abord la réponse par défaut puis l'écarte ; `breadth` décide si le véhicule nommé dans la demande reste une contrainte (`standard`) ou est écarté lui aussi (`broad`) | Largeur — **ne choisit pas** |
 | `decision` | Arbitrer avec trade-offs visibles et recommandation nette | Choisit parmi des options existantes — **n'en génère pas** |
@@ -113,7 +113,7 @@ Opérations primitives sur un contenu, un problème ou une décision. Chaque ski
 `critique` juge le fond — ce qui est faible, flou, manquant — et n'a besoin d'aucun référentiel. `fact-check` vérifie un texte contre des *preuves* : un verdict par affirmation (confirmée, contredite, absente de la source, non vérifiable), chacun appuyé sur une citation exacte de la source. `calc-check` prend le relais là où `fact-check` s'arrête sur les chiffres : un écart de 12,4 % calculé à partir de deux montants n'est pas *dans* la source, donc `fact-check` ne peut que le dire « absent de la source », juste ou faux ; `calc-check` refait le calcul à partir des valeurs de la source et dit s'il tient. `controle-qualite` vérifie un livrable contre des *règles* données en entrée — gabarit, charte, orthographe, vocabulaire interdit : un verdict par constat, avec la règle et le passage exact. Ces vérificateurs citent un texte qu'un script peut retrouver, ce qui permet de les confier à un modèle moins cher et de les vérifier à leur tour. `quality-check` pose encore une autre question : non pas si un texte est fidèle à sa source, mais si les sources elles-mêmes sont fiables.
 
 **`simplify` vs `rephrase` vs `synthese`**
-- `simplify` nomme le bruit qui pourrait sauter en conservant toute l'information — il identifie les retraits, `correction` les applique.
+- `simplify` nomme le bruit qui pourrait sauter en conservant toute l'information — il identifie les retraits, l'utilisateur applique ceux qu'il retient.
 - `rephrase` réécrit un contenu dense ou ambigu pour rendre le sens réel lisible — il réinterprète, ne coupe pas seulement.
 - `synthese` sacrifie délibérément le détail pour extraire l'essentiel — compression avec perte qui produit une synthèse actionnable.
 
