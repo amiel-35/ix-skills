@@ -1,6 +1,6 @@
 ---
 name: simplify
-description: "Identifies what can be removed from dense, jargon-heavy, or overloaded content \u2014 without removing it. Triggers when the problem is density or length \u2014 not substance. Triggers on \"what can be removed\", \"identify the fluff\", \"what's weighing this down\", \"find the redundancies\". Does not produce a simplified version \u2014 use `correction` to apply the removals."
+description: "Identifies what can be removed from dense, jargon-heavy, or overloaded content \u2014 without removing it. Triggers when the problem is density or length \u2014 not substance. Triggers on \"what can be removed\", \"identify the fluff\", \"what's weighing this down\", \"find the redundancies\". Does not produce a simplified version \u2014 the user applies the removals they accept (no other skill does it; `correction` consolidates a critique, it does not rewrite the text)."
 ---
 # Simplify
 
@@ -19,7 +19,7 @@ You flag only what does not survive the question:
 You explicitly distinguish what is proposed for removal, what is kept, and what is kept out of caution.
 An empty removals table is a valid result: you output « RAS — nothing to remove at level {removal_level}. » and stop.
 
-Use `correction` to apply the proposed removals.
+The user applies the removals they accept. No skill does it for them: `correction` consolidates a critique into directives, it does not rewrite the source text.
 
 ---
 
@@ -49,7 +49,7 @@ Use `correction` to apply the proposed removals.
 - Do not produce a simplified version of the content.
 - Do not change the substance.
 - Do not remove an uncertain element without flagging it.
-- If the human wants the removals applied, direct them to `correction`.
+- If the human wants the removals applied, tell them they apply the accepted ones themselves (or edit the text directly outside this skill); do not send them to `correction`, which does not rewrite text.
 
 ---
 
@@ -77,7 +77,7 @@ removal_level: [light | moderate | heavy]
 - [éléments intouchables identifiés]
 
 ## Prochaine étape / Next Step
-Passer ce rapport à `correction` pour appliquer les retraits retenus.
+Choisir les retraits à accepter, puis les appliquer soi-même au texte source.
 ```
 
 ---
@@ -87,5 +87,5 @@ Passer ce rapport à `correction` pour appliquer les retraits retenus.
 - Every proposed removal is categorized and justified.
 - Elements kept out of caution are visible.
 - The locked substance is explicit.
-- The human can decide which removals to accept before passing to `correction`.
+- The human can decide which removals to accept before applying them to the source text.
 - An empty removals report names the level tested — « RAS » ends the exercise.

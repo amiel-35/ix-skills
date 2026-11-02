@@ -4,6 +4,28 @@ Notable changes to the ix-skills corpus. Skills are versioned individually
 (semver in each skill's frontmatter); entries are grouped by date. Format
 inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## 2026-11-02, plugin 4.4.1: defects found by the skills audit, shared named-solution annex
+
+- `simplify` 2.1.1: it sent the reader to `correction` to « apply the
+  removals », but `correction` consolidates a critique into directives and does
+  not rewrite the source text. The description, the rule, the constraint, the
+  « Prochaine étape » line and the definition of done now say that the user
+  applies the removals they accept. The output format is unchanged.
+- `chairman` 1.1.1: the body said « you do not average the perspectives » and
+  then asked for an aggregate ranking. The ranking stays in the output, but it
+  is now reported with the dispersion of the ranks (the spread carries the
+  information, the mean hides it) and is never used alone to settle the
+  question. The council test of ghost-council had reached the same conclusion.
+- `brief` 1.2.3, `cadrage` 1.3.4, `questioning` 1.0.2, `explorer` 1.1.2: the
+  named-solution block was written four times with diverging wording. The rules
+  the four skills agree on (what counts, scan order, rationale test, obligation
+  exception, never strip the term) now live once in
+  `partials/named_solution.md`, shipped as `references/named_solution.md`. Each
+  body keeps a short reminder and a fallback line for installs without
+  `references/`, plus the rules that belong to its role. No behaviour change: the
+  two real divergences stay as they were (no rule on alternatives in `cadrage`,
+  the « as inspiration » rule in `questioning` only).
+
 ## 2026-10-25, plugin 4.4.0: council skills point to their inlined review contract
 
 - `contrarian` 1.1.1, `executor` 1.1.1, `expansionist` 1.2.1,

@@ -1,7 +1,7 @@
 ---
 id: questioning
 label: Questionner
-version: 1.0.1
+version: 1.0.2
 description_fr: "Génère les bonnes questions à poser sur un sujet — questions qui débloquent, révèlent des angles morts ou forcent une clarification. Signale aussi chaque solution nommée ou artefact désigné dans la demande et demande si c'est une contrainte délibérée ou un réflexe non examiné. Déclenche quand on veut préparer un entretien, une réunion, un audit, ou creuser un sujet sans encore l'explorer. Questions seulement — ne répond pas et n'explore pas."
 description_en: "Generates the right questions to ask about a subject — questions that unblock, reveal blind spots, or force clarification. Also flags every named solution or artefact in the request and asks whether it is a deliberate constraint or an unexamined default. Triggers when preparing an interview, meeting, audit, or digging into a subject without exploring it yet. Questions only — does not answer or explore."
 aliases: [questionner]
@@ -11,6 +11,7 @@ category: atome
 input_types: [brief, markdown, reference]
 output_types: [questions]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
+references: [named_solution]
 ---
 
 # Questioning
@@ -34,10 +35,7 @@ Use `research`, `explorer`, or `analysis` after this skill.
 
 1. Identify the user's objective for asking questions: clarify, audit, interview, prepare, challenge, or scope.
 2. Extract the known context and the unknowns.
-3. Scan the input text for every term that already names an object, artefact, implementation, tool, format, or reference rather than a need. Scan in this order:
-   - the umbrella term that frames the whole request (« a training », « AI », « an ITE ») — it reads as the subject, but it is already an answer, and it is the one most often missed. It stands alone as an item: no format, channel, duration or quantity welded to it, those get their own items;
-   - its sizing parameters (duration, quantity, channel, format, deadline);
-   - the sub-artefacts inside it (tools, templates, deliverables, references).
+3. Scan the input text for every named solution (see the « Named solutions » constraint). The umbrella term that frames the whole request (« a training », « AI », « an ITE ») reads as the subject, but it is already an answer, and it is the one most often missed. It stands alone as an item: no format, channel, duration or quantity welded to it, those get their own items.
    Produce one question per occurrence. Each question ties the term back to the stated goal — what is this meant to achieve? — and asks whether it was chosen against something, or was the first thing to come to mind. Do not list what it could have been chosen against: naming the alternatives is `explorer`'s job. Mark it `[blocking]` when the input states a goal that the named thing is only one way to reach, with no rationale given for it. A rationale counts as given wherever it appears in the input — including a purpose stated for a deliverable elsewhere in the document — not only alongside the term itself. When a rationale is given, quote it in the item and withhold `[blocking]`. Reserve `[blocking]` for the umbrella term and for parameters whose replacement would change the shape of the response; a sub-artefact whose change would not alter what is proposed gets the same question without `[blocking]`. At most three items in this section carry it.
 4. Generate questions that create information gain, not generic curiosity.
 5. Group questions by function so the user can run them in sequence.
@@ -67,8 +65,8 @@ Use `research`, `explorer`, or `analysis` after this skill.
 - Flag and ask, never filter: the named term stays in the text and is never replaced; a real constraint surviving intact ("yes, deliberate") is a valid outcome, not a failure.
 - Do not propose alternatives to a named solution — that is `explorer`'s job. Naming even one candidate — in parentheses, as an example, or as « would you also have considered… » — breaks this rule: ask what the term was weighed against, never supply the counterweight. Do not reformulate the problem either — that is `firstprinciples`'s job. Stop at the question.
 - A reference given "as inspiration" counts as a named solution too.
-- A rationale justifies a term only when it says why this term rather than another way to reach the goal. A sentence that states the goal, the problem or the injustice the term answers is not a rationale for the term.
-- A deadline, a budget, a mandated vehicle or a required deliverable stated as an obligation (« il faut », « must », « by ») is a constraint, not a named solution: ask about it if useful, never `[blocking]`.
+- Named solutions: a named solution is a term that names an artefact, implementation, tool, format, figure or reference rather than a need; scan the umbrella term first, then its sizing parameters, then its sub-artefacts. A rationale justifies a term only if it says why this term rather than another way to reach the goal (a sentence that only states the goal or the problem the term answers is not one); an obligation (deadline, budget, mandated vehicle, required deliverable) is a constraint, not a named solution. Read `references/named_solution.md` for the full rules; if the `references/` folder is not available (skill pasted without its folder), apply this reminder as written.
+- An obligation (deadline, budget, mandated vehicle, required deliverable) is a constraint, not a named solution: ask about it if useful, never `[blocking]`.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: explorer
 label: Explorer
-version: 1.1.1
+version: 1.1.2
 description_fr: Génère un espace d'options ouvert avant toute décision ou production. Écrit d'abord la réponse par défaut, puis l'écarte explicitement pour forcer des options réellement distinctes. Déclenche quand l'utilisateur veut diverger, voir les possibles, ne pas encore trancher. Déclenche sur "quelles sont les options", "explore les pistes", "qu'est-ce qu'on pourrait faire", "génère des alternatives", "ouvre le champ", "avant de décider", "quels scénarios possibles". Ne recommande jamais — ouvre, liste, rend visible. À utiliser avant le skill `décision`.
 description_en: Generates an open option space before any decision or production. Writes the default answer first, then explicitly sets it aside to force genuinely distinct options. Triggers when the user wants to diverge, see the possibilities, and not yet commit. Triggers on "what are the options", "explore the paths", "what could we do", "generate alternatives", "open the field", "before deciding", "what scenarios are possible". Never recommends — opens, lists, makes visible. Use before the `decision` skill.
 icon: ◎
@@ -10,6 +10,7 @@ category: atome
 input_types: [brief, markdown, reference, decomposition]
 output_types: [options]
 compatible: [claude-ai, claude-code, cowork, gpt, gemini, mystaffy]
+references: [named_solution]
 ---
 
 # Explorer
@@ -77,6 +78,8 @@ with positive constraints — do not stack exclusions.
 
 If the brief names an artefact or a solution rather than a need, explore the
 need behind it and say so — do not silently drop the named solution.
+
+To tell whether a term is a named solution, and whether the input justifies it, read `references/named_solution.md`; if the `references/` folder is not available (skill pasted without its folder), a named solution is a term that names an artefact, implementation, tool, format, figure or reference rather than a need, and an obligation (deadline, budget, mandated vehicle, required deliverable) is a constraint, not a named solution.
 
 ---
 

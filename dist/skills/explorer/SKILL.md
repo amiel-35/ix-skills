@@ -68,6 +68,8 @@ with positive constraints — do not stack exclusions.
 If the brief names an artefact or a solution rather than a need, explore the
 need behind it and say so — do not silently drop the named solution.
 
+To tell whether a term is a named solution, and whether the input justifies it, read `references/named_solution.md`; if the `references/` folder is not available (skill pasted without its folder), a named solution is a term that names an artefact, implementation, tool, format, figure or reference rather than a need, and an obligation (deadline, budget, mandated vehicle, required deliverable) is a constraint, not a named solution.
+
 ---
 
 ## Output Format
